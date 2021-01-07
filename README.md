@@ -1,2 +1,2 @@
 # 💊MediSam
-Team Project 
+Team Project 🙌
