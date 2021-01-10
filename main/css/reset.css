@@ -1,0 +1,39 @@
+/* 디자인 시작시 전역 설정 */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* 박스에 border-box설정 */
+}
+
+body,
+html {
+  font-family: "Noto Sans JP", sans-serif;
+  width: 100%;
+  min-width: 320px; /* 바디영역의 최소사이즈 */
+}
+
+img {
+  max-width: 100%; /* 이미지 최대 사이즈는 100% / 사이즈가 변해도 낣이는 유지 */
+  height: auto; /* 길이는 자동 / 사이즈가 변하면 높이는 넓이에 따라 유지*/
+}
+
+input,
+textarea,
+button,
+select {
+  /* 고유하게 적용되는 있는  form 관련 요소들을 제거해서
+여러 브라우저에서 동일한 from 관련 태그 디자인이 보이도록 처리 */
+
+  -webkit-accelerator: none;
+  -moz-accelerator: none;
+  -ms-accelerator: none;
+  -o-accelerator: none;
+  appearance: none;
+}
+
+ul,
+li,
+ol,
+dl {
+  list-style: none;
+}

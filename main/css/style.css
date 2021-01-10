@@ -1,0 +1,53 @@
+/* 메인슬라이드 */
+.main_slider {
+    position: absolute;
+    top: 110px;
+    padding: 0 auto;
+    width: 100%;
+    z-index: 5;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.carousel-inner .item img {
+    width: 100%;
+    height: 500px
+}
+
+
+/* 메인슬라이드 인디케이터 */
+.carousel-indicators li {
+    border: 1px solid cadetblue;
+}
+
+.carousel-indicators .active {
+    background-color: #80e6e6;
+}
+
+/* 소배너&기타구역 */
+.benner-list {
+    display: block;
+    text-align: center;
+    padding-top: 60px;
+    margin: 0 auto;
+    margin-top: 700px;
+    height: 150px;
+    background-color: #41bf6D;
+}
+
+.etc {
+    display: block;
+    padding-top: 60px;
+    margin: 0 auto;
+    margin-top: 100px;
+    height: 400px;
+    background-color: rgb(19, 85, 110);
+    text-align: center;
+}
+
+.etc a {
+    color: white;
+    font-size: 40px;
+
+}
+
