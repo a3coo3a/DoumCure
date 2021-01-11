@@ -15,14 +15,15 @@
   <link rel="stylesheet" href="../css/style_header_footer.css" />
   <link rel="stylesheet" href="../css/style.css" />
   
-  <!-- join css -->
   <style>
-
+  .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{
+    outline: none;
+  } 
   </style>
 </head>
 <body>
   <header>
-    <t src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></t>
+    <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
     <!-- sns -->
     <div class="container-fluid">
         <div class="row title-top">
@@ -109,16 +110,23 @@
     </div>
 </header>
 
-<section>
-
-
-
-
-
-
-
-
-
+<section class="user-bg">
+        <div class="container user_container">
+          <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-12 user-text-bg">
+              <h3 align="center">회원가입</h3>
+              <br/>
+              <div class="form-group">
+                <button type="button" class="btn btn-lg btn-block kakao-user-btn"><img src="../img/user/kakaolink_btn_small.png">카카오로그인</button>
+                <button type="button" class="btn btn-lg btn-block naver-user-btn"><img src="../img/user/navericon.PNG">네이버로그인</button>
+              </div>
+              <hr class="user_line">
+              <div class="form-group">
+                <button type="button" class="btn btn-lg btn-block user-btn" onclick="location='login.user'">ID / PW 로그인</button>
+              </div>
+            </div>
+          </div>
+        </div>
 </section>
 
 <footer class="footer">
@@ -155,7 +163,7 @@
 
           <p class="copyright">
               Copyright &copy;
-              <t>document.write(new Date().getFullYear());</t> All rights reserved | This template
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
               is made with <i class="fa fa-heart" aria-hidden="true"></i> by 3Team(Do.cU)
           </p>
       </div>
@@ -163,5 +171,8 @@
   </div>
 </footer>
   
+
+
+
 </body>
 </html>
