@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+  "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<!-- 타일즈 문서 선언 -->
+<tiles-definitions>
+	<!-- 방법1.  타일즈 파일이 가져야 하는 layout (단, 공통화면 */*보다 위에 위치해야 합니다.)-->
+	<definition name="baseDefault" template="/WEB-INF/tiles/templateDefault.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+		<put-attribute name="body" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<!-- baseDefault를 상속받고, 동적화면으로 구성 -->
+	<!-- name값은 controller에서 돌아오는 리턴값 
+		그걸 타일즈뷰가 가로채서 설정파일을 해주는거
+	-->
+	<definition name="user/*" extends="baseDefault">
+		<put-attribute name="body" value="/WEB-INF/views/user/{1}.jsp"/>
+	</definition>
+	
+	<!-- 방법2. 공동화면 맵핑 -->
+	<!-- 공통화면부분은 가장 아래 쪽에 작성한다. 직접 맵핑이 있는경우 먼저 적용될 수 있게 위에 공통은 아래에  -->
+	<definition name="base" template="/WEB-INF/tiles/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+		<put-attribute name="body" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<definition name="*" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/{1}.jsp"/>
+	</definition>
+	
+	<definition name="*/*" extends="base" >
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+	
+	<definition name="*/*/*" extends="base" >
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+	</definition>
+
+</tiles-definitions>
