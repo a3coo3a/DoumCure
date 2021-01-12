@@ -18,31 +18,12 @@
     <link rel="stylesheet" href="../css/style_header_footer.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <style>
-        /* 공지사항 리스트 */
-        .BLContainer-fluid {
-            font-family: 'GmarketSansMedium';
-            margin: 0 auto;
-            float: none;
-        }
 
-        .board-table {
-            padding: 20%;
-            padding-bottom: 0px;
-        }
+        /* 게시글 등록 */
 
-        .titlebox {
-            /*부모요소에 히든 */
-            overflow: hidden;
-        }
-
-        /* 제목 '공지사항' */
-        .titlebox>p {
-            border-bottom: 3px solid black;
-            text-align: left;
-            font-size: 20px;
-            margin: 0px auto;
-        }
-
+        .board-table { padding-top: 100px; padding-left: 20%; padding-right: 20%;}
+        .titlebox { /*부모요소에 히든 */ overflow: hidden;     padding-top: 35px; }
+        
     
     </style>
 
@@ -129,15 +110,44 @@
     </header>
 
     <section>
-
-        <div class="container blg-container">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-wrap">
-
-
+                <div class="col-xs-12 content-wrap">
+                    <div class="titlebox">
+                        <p>Q&A</p>
+                    </div>
+                    
+                    <form action="registForm" method="post" name="registForm">
+                    <table class="table">
+                        <tbody class="t-control">
+                            <tr>
+                                <td class="t-title">NAME</td>
+                                <td><input class="form-control input-sm" name="writer" value="${sessionScope.userVO.userId }" readonly><span id="msgId"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="t-title">TITLE</td>
+                                <td><input class="form-control input-sm" name="title"><span id="msgTitle"></span> </td>
+                                
+                            </tr>
+                            <tr>
+                                <td class="t-title">COMMNET</td>
+                                <td>
+                                <textarea class="form-control" rows="7" name="content"></textarea>
+                                </td>                 
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="titlefoot">
+                        <button class="btn" type="button" onclick="regist()">등록</button>
+                        <button class="btn" type="button" onclick="location.href='freeList' ">목록</button>
+                    </div>
+                    </form>
                 </div>
             </div>    
        </div>
+        
+
+
 
 
 

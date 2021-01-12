@@ -20,11 +20,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <style>
         /* 공지사항 리스트 */
-        .BLContainer-fluid {
-            font-family: 'GmarketSansMedium';
-            margin: 0 auto;
-            float: none;
-        }
+        .BLContainer-fluid { font-family: 'GmarketSansMedium'; margin: 0 auto; float: none; }
 
         .board-table {
             padding: 20%;
@@ -53,6 +49,9 @@
             padding: 0px 24px;
             color: blanchedalmond;
             font-size: 16px;
+        }
+        .table-bordered>tbody>tr>th {
+            border : 1px solid white;
         }
 
         .table-bordered {
@@ -175,20 +174,20 @@
                         <p>Q&A</p>
                     </div>
                     <!--공지사항 리스트 -->
-                    <form action="BoardList">
+                    <form action="userBoardList">
                         <table class="table table-bordered">
                             <tr>
-                                <th>1</th>
+                                <th class="BLnum">1</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">20.01.12</th>
-                                <th class="pan"><i class="fa fa-unlock"></i>
+                                <th class="pan" ><i class="fa fa-unlock"></i>
                                 </th>
                             </tr>
                             <tr>
                                 <th>2</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
-                                <th class="pan"></th>
+                                <th class="pan"><i class="fa fa-unlock-alt"></i></th>
                             </tr>
                             <tr>
                                 <th>3</th>

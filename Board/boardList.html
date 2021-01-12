@@ -19,17 +19,11 @@
     <link rel="stylesheet" href="../css/style_header_footer.css" />
     <link rel="stylesheet" href="../css/style.css" />
 
-    
-    
     <style> 
         /* 공지사항 리스트 */
-        .BLContainer-fluid { 
-            font-family: 'GmarketSansMedium';
-            margin: 0 auto;
-            float: none;    
-        }
-        .board-table { padding: 20% ; padding-bottom: 0px; }
-        .titlebox { /*부모요소에 히든 */ overflow: hidden; }
+        .BLContainer-fluid { font-family: 'GmarketSansMedium'; margin: 0 auto; float: none; }
+        .board-table { padding-top: 100px; padding-left: 20%; padding-right: 20%;}
+        .titlebox { /*부모요소에 히든 */ overflow: hidden;     padding-top: 35px; }
         
         /* 제목 '공지사항' */
         .titlebox > p { 
@@ -42,12 +36,9 @@
             background-color: #F2AB27; display: block; float: right; /*우측 플로팅 */
             padding: 0px 24px; color: blanchedalmond; font-size: 16px;
         }
-        .table-bordered > th {
-            border: ;
-            border-left : 1px solid white;
+        .table-bordered>tbody>tr>th {
+            border: 1px solid white;
         }
-        /* .table-bordered {
-            width: 100%; border-left: none; border-right: none; } */
         .TabDate { text-align: right;}
         tr { text-align: center;   border-bottom: 3px solid black;}
         tr:hover { background-color: #f5f5f5;}
@@ -149,7 +140,7 @@
     </header>
 
     <section>
-        <div class="BLContainer-fluid">
+        <div class="container BLContainer-fluid">
             <div class="row" >
                 <div class="col-lg-12  board-table">
                     <div class="titlebox">
@@ -161,27 +152,27 @@
                     <form action="BoardList">
                         <table class="table table-hover table-bordered">
                             <tr>
-                                <th>1</th>
+                                <th class="BLnum">1</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
                             </tr>
                             <tr>
-                                <th>2</th>
+                                <th class="BLnum">2</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
                             </tr>
                             <tr>
-                                <th>3</th>
+                                <th class="BLnum">3</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
                             </tr>
                             <tr>
-                                <th>4</th>
+                                <th class="BLnum">4</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
                             </tr>
                             <tr>
-                                <th>5</th>
+                                <th class="BLnum">5</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
                             </tr>
@@ -301,14 +292,14 @@
                     </div>
 
                     <ul class="pager">
-                        <li><a href="#"><<</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">>></a></li>
-                    </ul>
+                            <li><a href="#"><<</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">>></a></li>
+                        </ul>
                 
                 </div>
             </div>
