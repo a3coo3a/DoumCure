@@ -19,15 +19,19 @@
     <link rel="stylesheet" href="css/style_header_footer.css" />
     <link rel="stylesheet" href="css/style.css" />
 
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         /* 디자인추가 */
-
-        
     </style>
 
 </head>
 
 <body style="overflow-x:hidden; overflow-y:auto;">
+
+
+
     <header>
         <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
         <!-- sns -->
@@ -54,7 +58,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                        
+                        <span class="icon-bar"></span>
                     </button>
 
                     <img src="img/title_icon.png" alt="">
@@ -64,14 +68,14 @@
                     <ul class="nav navbar-nav">
                         <li><a href="#">HOME</a></li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BOARD
-                            <span class="caret"></span></a>
+                                <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">공지사항</a></li>
                                 <li><a href="#">자유게시판</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH 
-                            <span class="caret"></span></a>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH
+                                <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">증상별 검색</a></li>
                                 <li><a href="#">성분별 검색</a></li>
@@ -95,14 +99,14 @@
                 </div>
             </div>
         </nav>
-    
+
         <!-- 사이드바 -->
         <div id="rightSide">
             <div id="right_zzim">
                 <li class="seach-place">약국찾기</li>
                 <li class="like">즐겨찾기</li>
                 <li class="recTit">최근본약품</li>
-    
+
                 <!-- 데이터 지정 후 구현예정
                     <ul> --본 상품이 뿌려질 부분-- </ul>
         
@@ -110,9 +114,9 @@
                             id="totalPageCount"></span><a class="btn_next" style="cursor:pointer">다음</a></div>
                     
                 -->
-    
+
             </div>
-    
+
         </div>
     </header>
 
@@ -155,25 +159,84 @@
         </div>
     </section>
 
+    <!-- 방문자 카운트 -->
+    <section class="custom-count">
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <div class="container">
+                <div class="row">
+                    <!-- TODAY -->
+                    <div class="col-md-4 col-lg-4 col-sm-12 count">
+                        <div class="text">
+                            <!-- 추후 파라미터값 변경예정 -->
+                            <strong class="number today">12</strong>
+                        </div>
+                        <div class="text">
+                            <span>TODAY</span>
+                        </div>
+                    </div>
+                    <!-- TOTAL -->
+                    <div class="col-md-4 col-lg-4 col-sm-12 count">
+                        <div class="text">
+                            <!-- 추후 파라미터값 변경예정 -->
+                            <strong class="number total">1150</strong>
+                        </div>
+                        <div class="text">
+                            <span>TOTAL</span>
+                        </div>
+                    </div>
+                    <!-- DATA COUNT -->
+                    <div class="col-md-4 col-lg-4 col-sm-12 count">
+                        <div class="text">
+                            <!-- 추후 파라미터값 변경예정 -->
+                            <strong class="number data-count">657856</strong>
+                        </div>
+                        <div class="text">
+                            <span>DATA COUNT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <!-- 소배너 -->
-    <section>
+    <section class="ben">
         <div class="container">
-            <div class="row banner">
+            <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="benner-list">
-                        <a>소배너 1</a>
+                        <li class="ben-img">
+                            <img src="https://www.urbanbrush.net/web/wp-content/uploads/edd/2019/08/urbanbrush-20190821004955433814.png"
+                                alt="">
+                        </li>
+                        <li class="ben-title">
+                            <span>성분별 약 검색</span>
+                        </li>
 
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="benner-list">
-                        <a>소배너 1</a>
+                        <li class="ben-img">
+                            <img src="https://www.urbanbrush.net/web/wp-content/uploads/edd/2019/08/urbanbrush-20190821004955433814.png"
+                                alt="">
+                        </li>
+                        <li class="ben-title">
+                            <span>증상별 약 검색</span>
+                        </li>
 
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="benner-list">
-                        <a>소배너 1</a>
+                        <li class="ben-img">
+                            <img src="https://www.urbanbrush.net/web/wp-content/uploads/edd/2019/08/urbanbrush-20190821004955433814.png"
+                                alt="">
+                        </li>
+                        <li class="ben-title">
+                            <span>코로나 예방</span>
+                        </li>
 
                     </div>
                 </div>
@@ -182,17 +245,110 @@
         </div>
     </section>
 
+    <!-- 증상별 데이터 카운트 -->
+
+    <section class="drug-count">
+        
+        <!-- 스크롤 애니메이션 처리 -->
+        <div data-aos="fade-up" data-aos-duration="1000">
+
+            <div class="container">
+                <div class="row">
+                    <!-- Head -->
+                    <div class="col-md-2 col-lg-2 col-sm-12 count">
+                        <div class="drug-text">
+                            <!-- 추후 파라미터값 변경예정 -->
+                            <strong class="number head">721</strong>
+                        </div>
+                        <div class="text">
+                            <span>Head</span>
+                        </div>
+                    </div>
+
+                    <!-- nose -->
+                    <div class="col-md-2 col-lg-2 col-sm-12 count">
+                        <div class="drug-text">
+                            <!-- 추후 파라미터값 변경예정 -->
+                            <strong class="number nose">452</strong>
+                        </div>
+                        <div class="text">
+                            <span>Nose</span>
+                        </div>
+                    </div>
+
+                    <!-- Stomach -->
+                    <div class="col-md-2 col-lg-2 col-sm-12 count">
+                        <div class="drug-text">
+                            <!-- 추후 파라미터값 변경예정 -->
+                            <strong class="number stomach">224</strong>
+                        </div>
+                        <div class="drug-text">
+                            <span>Stomach</span>
+                        </div>
+                    </div>
+
+                    <!-- Muscle -->
+                    <div class="col-md-2 col-lg-2 col-sm-12 count">
+                        <div class="drug-text">
+                            <!-- 추후 파라미터값 변경예정 -->
+                            <strong class="number muscle">196</strong>
+                        </div>
+                        <div class="text">
+                            <span>Muscle</span>
+                        </div>
+                    </div>
+
+                    <!-- Tooth -->
+                    <div class="col-md-2 col-lg-2 col-sm-12 count">
+                        <div class="drug-text">
+                            <!-- 추후 파라미터값 변경예정 -->
+                            <strong class="number tooth">109</strong>
+                        </div>
+                        <div class="text">
+                            <span>Tooth</span>
+                        </div>
+                    </div>
+
+                    <!-- etc -->
+                    <div class="col-md-2 col-lg-2 col-sm-12 count">
+                        <div class="drug-text">
+                            <!-- 추후 파라미터값 변경예정 -->
+                            <strong class="number etc">95874</strong>
+                        </div>
+                        <div class="text">
+                            <span>etc</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    </div>
+
+    <!-- 공지사항 보드(이미지보드) -->
     <section>
         <div class="container">
             <div class="row banner">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="etc">
+                    <div class="etcBen">
                         <a>기타구역</a>
 
                     </div>
                 </div>
     </section>
 
+
+    <!-- AOS 초기화 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -236,6 +392,93 @@
     </footer>
 
 
+
+
+
 </body>
 
 </html>
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        //콤마작업
+        function comma(str) {
+            str = String(str);
+            return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+        }
+
+        var d = document.querySelectorAll(".drug-text strong");
+        console.log(d);
+        change_comma();
+
+        function change_comma() {
+
+            for (var i = 0; i < d.length; i++) {
+                var num = comma(d[i].innerHTML);
+                d[i].innerHTML = num;
+            }
+
+
+        }
+
+
+        // 상단 카운트
+        var today = Number($(".today").html());
+        var total = Number($(".total").html());
+        var dataCount = Number($(".data-count").html());
+
+        $(function () {
+            var count0 = count1 = count2 = 0;
+            timeCounter();
+
+            function timeCounter() { //today
+                id0 = setInterval(count0Fn, 80);
+                function count0Fn() {
+                    count0++;
+                    if (count0 > 40) {
+                        clearInterval(id0);
+                        var str = comma(today)
+                        $(".today").html(str)
+                    } else {
+                        $(".number").eq(0).text(count0);
+                    }
+                }
+
+                id1 = setInterval(count1Fn, 30);
+
+                function count1Fn() { //total
+                    count1++;
+                    if (count1 > 100) {
+                        clearInterval(id1);
+                        var str = comma(total)
+                        $(".total").html(str)
+                    } else {
+                        $(".number").eq(1).text(count1);
+                    }
+                }
+
+                id2 = setInterval(count2Fn, 30);
+
+                function count2Fn() { //data-total
+                    count2++;
+                    if (count2 > 100) {
+                        clearInterval(id2);
+                        var str = comma(dataCount)
+                        $(".data-count").html(str)
+                    } else {
+                        $(".number").eq(2).text(count2);
+                    }
+                }
+            }
+        });
+
+    });
+
+
+
+</script>

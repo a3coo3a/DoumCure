@@ -9,177 +9,183 @@ Thema Color
 
 /* 웹 폰트 */
 @font-face {
-	font-family: 'GmarketSansBold';
-	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: 'GmarketSansMedium';
-	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: 'ELAND_Choice_L';
-	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_L.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'ELAND_Choice_L';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_L.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-@media (max-width: 767px) {
-	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-		color: #f2ab27;
-	}
+@media (max-width: 767px){
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a{
+        color: #F2AB27;
+    } 
 
-	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus,
-	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
-		color: tomato;
-		background-color: transparent;
-	}
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:focus, 
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover {
+        color: tomato;
+        background-color: transparent;
+    }
 
-	#rightSide {
-		display: none;
-	}
+    #rightSide {
+        display: none;
+    }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 980px){
+
 }
+
+
 
 /* 헤더 - sns공유라인 */
 header {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
+
 }
 
 .title-top {
-	text-align: center;
-	position: fixed;
-	padding: 5px;
-	z-index: 6;
-	height: 40px;
-	width: 100%;
-	xbackground-color: #41bf6d;
-	background: linear-gradient(90deg, #41bf6d 0%, #d4eec4 50%, #e4f227 100%);
-	color: white;
-	font-family: 'ELAND_Choice_L';
+    text-align: center;
+    position: fixed;
+    padding: 5px;
+    z-index: 6;
+    height: 40px;
+    width: 100%;
+    xbackground-color: #41BF6D;
+    background: linear-gradient(90deg, #41BF6D 0%, #d4eec4 50%, #e4f227 100%);
+    color: white;
+    font-family: 'ELAND_Choice_L';
 }
 
 .title-top .sns-icon,
 .title-top .title {
-	font-size: 15px;
-	display: inline-block;
-	float: left;
+    font-size: 15px;
+    display: inline-block;
+    float: left;
 }
 
 .title-top .title img,
 .title-top .sns img,
-.title-top .sns i {
-	margin-left: 10px;
-	width: 30px;
-	font-size: 20px;
-	vertical-align: middle;
+.title-top .sns i{
+    margin-left: 10px;
+    width: 30px;  
+    font-size: 20px;
+    vertical-align: middle;
 }
 
 /* 헤더 - 네비바 */
 .navbar {
-	position: fixed;
-	top: 40px;
-	width: 100%;
-	height: 70px;
-	background-color: white;
-	/* #50bfa0 */
-	border-radius: 0;
-	border: 0px;
-	z-index: 6;
-	padding-top: 10px;
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    /* #50bfa0 */
+    border-radius: 0;
+    border: 0px;
+    z-index: 6;
+    padding-top: 10px;
 }
 
 .navbar-header img,
-.navbar-header a {
-	display: block;
-	float: left;
+.navbar-header a{
+    display: block;
+    float: left;
 }
-.navbar-header img {
-	width: 50px;
-}
-
-.nav-menu {
-	padding-left: 0;
-	padding-right: 0;
+.navbar-header img{
+    width: 50px;
 }
 
-.navbar-inverse .navbar-nav > li > a {
-	display: block;
-	margin-left: 10px;
-	font-family: 'GmarketSansMedium';
-	color: #f2ab27;
+.nav-menu{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    display: block;
+    margin-left: 10px;
+    font-family: 'GmarketSansMedium';
+    color:#F2AB27
 }
 
 .navbar-inverse .navbar-brand {
-	font-size: 27px;
-	vertical-align: middle;
-	background: linear-gradient(to right, #41bf6d, #def227);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	font-family: 'GmarketSansBold';
+    font-size: 27px;
+    vertical-align: middle;
+    background: linear-gradient(to right, #41BF6D, #def227);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'GmarketSansBold';
 }
 
-.navbar-toggle {
-	background-color: #41bf6d;
-	border: 0px;
+.navbar-toggle{
+    background-color: #41BF6D;
+    border: 0px;
 }
 
 .navbar-collapse {
-	background-color: white;
+    background-color: white;
 }
 
-.container-fluid > .navbar-header {
-	margin-right: 0;
-	margin-left: 0;
+.container-fluid>.navbar-header{
+    margin-right: 0;
+    margin-left: 0;
 }
-.navbar-inverse .navbar-nav > li > a:hover {
-	color: tomato;
-}
-
-.navbar-inverse .navbar-toggle:focus,
-.navbar-inverse .navbar-toggle:hover {
-	background-color: #41bf6db0;
+.navbar-inverse .navbar-nav>li>a:hover{
+    color: tomato;
+    
 }
 
-.navbar-inverse .navbar-nav > .open > a,
-.navbar-inverse .navbar-nav > .open > a:focus,
-.navbar-inverse .navbar-nav > .open > a:hover {
-	background-color: #41bf6d;
+.navbar-inverse .navbar-toggle:focus, 
+.navbar-inverse .navbar-toggle:hover{
+    background-color: #41bf6db0;
 }
+
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:focus, 
+.navbar-inverse .navbar-nav>.open>a:hover{
+    background-color: #41BF6D;
+}
+
 
 /* 우측 사이드바 -- 약국찾기, 즐겨찾기, 최근 본 약품 */
 #rightSide {
-	position: fixed;
-	top: 550px;
-	right: 10px;
-	z-index: 6;
+    position: fixed;
+    top: 550px;
+    right: 10px;
+    z-index: 6;
 }
 
 #rightSide #right_zzim {
-	position: relative;
-	border: 1px solid #b0b5bd;
-	background-color: white;
-	width: 114px;
-	height: 300px;
+    position: relative;
+    border: 1px solid #B0B5BD;
+    background-color: white;
+    width: 114px;
+    height: 300px;
 }
 
 .recTit,
 .like,
 .seach-place {
-	text-align: center;
-	line-height: 1.5em;
-	padding: 5px;
-	color: #dcecf2;
-	font-family: 'GmarketSansMedium';
-	background-color: #73bf41;
+    text-align: center;
+    line-height: 1.5em;
+    padding: 5px;
+    color: #DCECF2;
+    font-family: 'GmarketSansMedium';
+    background-color: #73bf41;
 }
 /*      우측사이드바 - 데이터확인후 구현예정   
 #right_zzim #recentCnt {
@@ -275,39 +281,40 @@ header {
 }
  */
 
-/* 푸터 */
+
+ /* 푸터 */
 footer {
-	background-color: #41bf6d;
-	color: white;
-	font-size: 13px;
-	padding: 40px 0;
-	/* 위아래 , 좌우  */
-	margin-top: 70px;
-	/*footer 바깥여백 70, 본문 영역에 붙지 않도록 */
+    background-color: #41BF6D;
+    color: white;
+    font-size: 13px;
+    padding: 40px 0;
+    /* 위아래 , 좌우  */
+    margin-top: 70px;
+    /*footer 바깥여백 70, 본문 영역에 붙지 않도록 */
 }
 
 footer .footer-copyrigth address {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 footer .footer-menu {
-	text-align: right;
-	/* 부트스크립에서 제공함 */
+    text-align: right;
+    /* 부트스크립에서 제공함 */
 }
 
 footer .footer-menu li {
-	display: inline-block;
-	/*한줄로 만들기  */
-	padding: 0 10px;
-	/* 위아래 0 좌우 10 */
+    display: inline-block;
+    /*한줄로 만들기  */
+    padding: 0 10px;
+    /* 위아래 0 좌우 10 */
 }
 
 footer .footer-menu li a {
-	text-decoration: none;
-	color: white;
-	font-size: 13px;
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
 }
 
-.copyright {
-	margin-top: 20px;
+.copyright{
+    margin-top: 20px;
 }
