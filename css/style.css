@@ -1,126 +1,199 @@
+/* ====================== MAIN ====================== */
 /* 메인슬라이드 */
 .main_slider {
-	position: absolute;
-	top: 110px;
-	padding: 0 auto;
-	width: 100%;
-	z-index: 5;
-	margin-bottom: 30px;
-	overflow: hidden;
+    position: absolute;
+    top: 110px;
+    padding: 0 auto;
+    width: 100%;
+    z-index: 5;
+    margin-bottom: 30px;
+    overflow: hidden;
+    
 }
 
 .carousel-inner .item img {
-	width: 100%;
-	height: 500px;
+    width: 100%;
+    height: 500px
 }
+
 
 /* 메인슬라이드 인디케이터 */
 .carousel-indicators li {
-	border: 1px solid cadetblue;
+    border: 1px solid cadetblue;
 }
 
 .carousel-indicators .active {
-	background-color: #80e6e6;
+    background-color: #80e6e6;
 }
+
 
 /* 방문자 카운트 */
 .custom-count {
-	position: relative;
-	display: block;
-	text-align: center;
-	padding: 51px 0px 31px 0px;
-	margin: 0 auto;
-	margin-top: 769px;
-	background-color: #41bf6d;
-	color: white;
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 51px 0px 31px 0px;
+    margin: 0 auto;
+    margin-top: 775px;
+    background-color: #41bf6D;
+    color: white;
 }
 
-.count {
-	margin-bottom: 10px;
+.count{
+    margin-bottom: 10px;
 }
 
-.text strong {
-	font-family: 'GmarketSansBold';
-	font-size: 400%;
+.text strong{
+    font-family: 'GmarketSansBold';
+    font-size: 400%;
 }
-.text span {
-	font-family: 'GmarketSansMedium';
-	font-size: 15px;
+.text span{
+    font-family: 'GmarketSansMedium';
+    font-size: 15px;
 }
+
 
 /* 소배너 */
-
-@media (max-width: 767px) {
-	.benner-list img {
-		width: 100%;
-		height: 200px;
-	}
+.ben{
+    display: block;
+    margin-top: 240px;
+    text-align: center;
 }
 
-.ben {
-	display: block;
-	margin-top: 240px;
-	text-align: center;
+.benner-list{
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.benner-list {
-	text-align: center;
-	margin-bottom: 20px;
+.benner-list .ben-img{
+    position: relative;
+    border: 1px solid #41bf6D;
+    overflow: hidden;
 }
 
-.benner-list .ben-img {
-	position: relative;
-	border: 1px solid #41bf6d;
-	overflow: hidden;
-}
-
-.benner-list .ben-title {
-	width: 100%;
-	position: absolute;
-	text-align: center;
-	top: 40%;
-	left: 0;
-	display: inline-block;
-	font-family: 'GmarketSansBold';
-	font-size: 250%;
-	font-style: oblique;
-	text-shadow: -1px 0 #41bf6d, 0 1px #41bf6d, 1px 0 #41bf6d, 0 -1px #41bf6d;
-	color: white;
+.benner-list .ben-title{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    left: 0;
+    display: inline-block;
+    font-family: 'GmarketSansBold';
+    font-size: 250%;
+    font-style: oblique;
+    text-shadow: -1px 0 #41bf6D, 0 1px #41bf6D, 1px 0 #41bf6D, 0 -1px #41bf6D;
+    color: white;
 }
 
 /* 데이터 세분화 카운트 */
 .drug-count {
-	position: relative;
-	display: block;
-	text-align: center;
-	padding: 51px 0px 31px 0px;
-	margin: 0 auto;
-	margin-top: 240px;
-	background-color: #41bf6d;
-	color: white;
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 51px 0px 31px 0px;
+    margin: 0 auto;
+    margin-top: 260px;
+    background-color: #41bf6D;
+    color: white;
 }
 
-.drug-text strong {
-	font-family: 'GmarketSansBold';
-	font-size: 300%;
+.drug-text strong{
+    font-family: 'GmarketSansBold';
+    font-size: 300%;
 }
 
-.etcBen {
-	display: block;
-	padding-top: 60px;
-	margin: 0 auto;
-	margin-top: 150px;
-	height: 400px;
-	background-color: rgb(19, 85, 110);
-	text-align: center;
+
+
+/* 공지사항 이미지 보드 */
+.main-board {
+    display: block;
+    margin: 0 auto;
+    margin-top: 240px;
+    height: 400px;
+    text-align: center;
 }
 
-.etc a {
-	color: white;
-	font-size: 40px;
+.main-board-list{
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+.main-list-small{
+    box-shadow: 5px 5px 9px 0px #0000005e;
+    height: 400px;
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    background-color: #fee500;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
 }
 
-/*  user css  */
+.main-board-img, .main-board-title{
+    position: absolute;
+    background-color: #41bf6D;
+    width: 100%;
+    height: 250px;
+}
+
+.main-board-title{
+    top: 250px;
+    background-color: white;
+    display: block;
+    height: 150px;
+}
+
+.main-board-img img{
+    max-width: 100%;
+    height: 250px;
+}
+
+
+.more{
+    margin: 0 50px;
+    background-color: #41bf6D;
+    float: left;
+    display: block;
+    padding: 200px 10px;
+    font-family: 'GmarketSansMedium';
+    color: white;
+}
+.more:hover > i{animation:shake-bottom 3s cubic-bezier(.455,.03,.515,.955) infinite both}
+
+.more i{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    color: #41bf6D;
+
+}
+
+@media (max-width: 990px){
+    
+    .more{
+        background-color: #41bf6D;
+        height: 50px;
+        width: 100%;
+        padding: 10px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        border-radius: 20px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ====================== USER ====================== */
 .user_container {
 	font-family: 'GmarketSansMedium';
 	padding: 50px;
