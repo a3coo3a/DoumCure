@@ -6,31 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Do.cU(Cure yourself)</title>
 
-    <!-- 파비콘 -->
-    <link rel="shortcut icon" href="img/title_icon.png">
-
     <!-- 부트스크랩 참조파일 -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+
+
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="img/title_icon.png">
 
     <!-- 개인 디자인 추가 -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style_header_footer.css" />
     <link rel="stylesheet" href="css/style.css" />
 
+
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         /* 디자인추가 */
+
     </style>
 
 </head>
 
 <body style="overflow-x:hidden; overflow-y:auto;">
-
-
 
     <header>
         <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
@@ -114,10 +117,20 @@
                             id="totalPageCount"></span><a class="btn_next" style="cursor:pointer">다음</a></div>
                     
                 -->
-
             </div>
-
+            <!-- top버튼(브라우저용) -->
+            <div id="top-btn">
+                <i class="fas fa-arrow-circle-up"></i>
+                <li>TOP</li>
+            </div>
         </div>
+
+        <!-- top버튼(모바일용) -->
+        <div id="top-btn-m">
+            <i class="fas fa-arrow-circle-up"></i>
+            <li>TOP</li>
+        </div>
+
     </header>
 
 
@@ -248,7 +261,7 @@
     <!-- 증상별 데이터 카운트 -->
 
     <section class="drug-count">
-        
+
         <!-- 스크롤 애니메이션 처리 -->
         <div data-aos="fade-up" data-aos-duration="1000">
 
@@ -325,18 +338,61 @@
         </div>
 
     </section>
-    </div>
 
     <!-- 공지사항 보드(이미지보드) -->
-    <section>
-        <div class="container">
-            <div class="row banner">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="etcBen">
-                        <a>기타구역</a>
+    <section class="main-board">
 
+        <div class="container">
+            <div class="row main-board-list">
+
+                <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                    <div class="col-md-3 col-lg-3 col-xs-12">
+                        <div class="main-list-small">
+                            <div class="main-board-img">
+                                <img src="/img/title_icon.png" alt="">
+                            </div>
+                            <div class="main-board-title">
+                                <p>게시글 1</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                    <div class="col-md-3 col-lg-3 col-xs-12">
+                        <div class="main-list-small">
+                            <div class="main-board-img">
+                                <img src="/img/title_icon.png" alt="">
+                            </div>
+                            <div class="main-board-title">
+                                <p>게시글 2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                    <div class="col-md-3 col-lg-3 col-xs-12">
+                        <div class="main-list-small">
+                            <div class="main-board-img">
+                                <img src="/img/title_icon.png" alt="">
+                            </div>
+                            <div class="main-board-title">
+                                <p>게시글 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                    <div class="col-md-3 col-lg-3 col-xs-12">
+                        <div class=" main-list-small more">
+                            <i class="fa fa-arrow-right" aria-hidden="true"> MORE</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
 
@@ -349,6 +405,7 @@
 
 
     <!-- Footer -->
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -392,12 +449,10 @@
     </footer>
 
 
-
-
-
 </body>
 
 </html>
+
 
 
 
