@@ -1,3 +1,4 @@
+/* ====================== MAIN ====================== */
 /* 메인슬라이드 */
 .main_slider {
     position: absolute;
@@ -33,7 +34,7 @@
     text-align: center;
     padding: 51px 0px 31px 0px;
     margin: 0 auto;
-    margin-top: 769px;
+    margin-top: 775px;
     background-color: #41bf6D;
     color: white;
 }
@@ -53,14 +54,6 @@
 
 
 /* 소배너 */
-
-@media (max-width: 767px){
-    .benner-list img{
-        width: 100%;
-        height: 200px;
-    }
-}
-
 .ben{
     display: block;
     margin-top: 240px;
@@ -99,7 +92,7 @@
     text-align: center;
     padding: 51px 0px 31px 0px;
     margin: 0 auto;
-    margin-top: 240px;
+    margin-top: 260px;
     background-color: #41bf6D;
     color: white;
 }
@@ -111,24 +104,98 @@
 
 
 
-
-.etcBen {
+/* 공지사항 이미지 보드 */
+.main-board {
     display: block;
-    padding-top: 60px;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 240px;
     height: 400px;
-    background-color: rgb(19, 85, 110);
     text-align: center;
 }
 
-.etc a {
+.main-board-list{
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+.main-list-small{
+    box-shadow: 5px 5px 9px 0px #0000005e;
+    height: 400px;
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    background-color: #fee500;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.main-board-img, .main-board-title{
+    position: absolute;
+    background-color: #41bf6D;
+    width: 100%;
+    height: 250px;
+}
+
+.main-board-title{
+    top: 250px;
+    background-color: white;
+    display: block;
+    height: 150px;
+}
+
+.main-board-img img{
+    max-width: 100%;
+    height: 250px;
+}
+
+
+.more{
+    margin: 0 50px;
+    background-color: #41bf6D;
+    float: left;
+    display: block;
+    padding: 200px 10px;
+    font-family: 'GmarketSansMedium';
     color: white;
-    font-size: 40px;
+}
+.more:hover > i{animation:shake-bottom 3s cubic-bezier(.455,.03,.515,.955) infinite both}
+
+.more i{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    color: #41bf6D;
 
 }
 
-/*  user css  */
+@media (max-width: 990px){
+    
+    .more{
+        background-color: #41bf6D;
+        height: 50px;
+        width: 100%;
+        padding: 10px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        border-radius: 20px;
+    }
+
+}
+    
+    
+
+
+
+
+
+
+
+
+
+
+/* ====================== USER ====================== */
 .user_container {
 	font-family: 'GmarketSansMedium';
 	padding: 50px;
