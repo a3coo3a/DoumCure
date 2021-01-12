@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <title>Do.cU(Cure yourself)</title>
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="../img/title_icon.png">
+
+    <!-- 부트스크랩 참조파일 -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- 개인 디자인 추가 -->
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style_header_footer.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+        /* 공지사항 리스트 */
+        .BLContainer-fluid {
+            font-family: 'GmarketSansMedium';
+            margin: 0 auto;
+            float: none;
+        }
+
+        .board-table {
+            padding: 20%;
+            padding-bottom: 0px;
+        }
+
+        .titlebox {
+            /*부모요소에 히든 */
+            overflow: hidden;
+        }
+
+        /* 제목 '공지사항' */
+        .titlebox>p {
+            border-bottom: 3px solid black;
+            text-align: left;
+            font-size: 20px;
+            margin: 0px auto;
+        }
+
+    
+    </style>
+
+</head>
+
+<body style="overflow-x:hidden; overflow-y:auto;">
+    <header>
+        <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
+        <!-- sns -->
+        <div class="container-fluid">
+            <div class="row title-top">
+                <div class="col-lg-6 col-md-6 col-xs-6 title">
+                    <img src="../img/title_icon.png" alt="title_icon">
+                    <span>Do.cU(Cure yourself)</span>
+
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-xs-6 sns">
+                    <img src="../img/main/kakao.png" alt="sns_kakao">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 네비바 -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid nav-menu">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <img src="../img/title_icon.png" alt="">
+                    <a class="navbar-brand" href="#">Do.cU</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">HOME</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BOARD
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">자유게시판</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">증상별 검색</a></li>
+                                <li><a href="#">성분별 검색</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">JOIN</a></li>
+                        <li><a href="#">LOGIN</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 사이드바 -->
+        <div id="rightSide">
+            <div id="right_zzim">
+                <li class="seach-place">약국찾기</li>
+                <li class="like">즐겨찾기</li>
+                <li class="recTit">최근본약품</li>
+
+                <!-- 데이터 지정 후 구현예정
+                    <ul> --본 상품이 뿌려질 부분-- </ul>
+        
+                    <div id="paging"><a class="btn_prev" style="cursor:pointer">이전</a><span id="currentPage"></span><span
+                            id="totalPageCount"></span><a class="btn_next" style="cursor:pointer">다음</a></div>
+                    
+                -->
+
+            </div>
+
+        </div>
+    </header>
+
+    <section>
+
+        <div class="container blg-container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-wrap">
+
+
+                </div>
+            </div>    
+       </div>
+
+
+
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <h2 class="footer-heading">Petsitting</h2>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <h2 class="footer-heading">Quick Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="py-2 d-block">Home</a></li>
+                        <li><a href="#" class="py-2 d-block">About</a></li>
+                        <li><a href="#" class="py-2 d-block">Board</a></li>
+                        <li><a href="#" class="py-2 d-block">Seach</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <h2 class="footer-heading">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <span>The 11th and 12th floors of the 16th J-Stower in Gangnam-gu, Seoul</span>
+                            <li><span>+82 010 1111 2222</span></li>
+                            <li><span>jhr1494@gmail.com</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+
+                <p class="copyright">
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                    is made with <i class="fa fa-heart" aria-hidden="true"></i> by 3Team(Do.cU)
+                </p>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

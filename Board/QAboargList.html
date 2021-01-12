@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Do.cU(Cure yourself)</title>
-
     <!-- 파비콘 -->
     <link rel="shortcut icon" href="../img/title_icon.png">
 
@@ -13,60 +12,80 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- 개인 디자인 추가 -->
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/style_header_footer.css" />
     <link rel="stylesheet" href="../css/style.css" />
-
-    
-    
-    <style> 
+    <style>
         /* 공지사항 리스트 */
-        .BLContainer-fluid { 
+        .BLContainer-fluid {
             font-family: 'GmarketSansMedium';
             margin: 0 auto;
-            float: none;    
+            float: none;
         }
-        .board-table { padding: 20% ; padding-bottom: 0px; }
-        .titlebox { /*부모요소에 히든 */ overflow: hidden; }
-        
+
+        .board-table {
+            padding: 20%;
+            padding-bottom: 0px;
+        }
+
+        .titlebox {
+            /*부모요소에 히든 */
+            overflow: hidden;
+        }
+
         /* 제목 '공지사항' */
-        .titlebox > p { 
-            border-bottom: 3px solid black; text-align: left;
-            font-size: 20px; margin: 0px auto; 
+        .titlebox>p {
+            border-bottom: 3px solid black;
+            text-align: left;
+            font-size: 20px;
+            margin: 0px auto;
         }
 
         /* 공지사항 등록 버튼 */
         .boardList-btn {
-            background-color: #F2AB27; display: block; float: right; /*우측 플로팅 */
-            padding: 0px 24px; color: blanchedalmond; font-size: 16px;
+            background-color: #F2AB27;
+            display: block;
+            float: right;
+            /*우측 플로팅 */
+            padding: 0px 24px;
+            color: blanchedalmond;
+            font-size: 16px;
         }
-        .table-bordered > th {
-            border: ;
-            border-left : 1px solid white;
+
+        .table-bordered {
+            width: 100%;
+            border-collapse: collapse;
+            border-left: none;
+            border-right: none;
         }
-        /* .table-bordered {
-            width: 100%; border-left: none; border-right: none; } */
-        .TabDate { text-align: right;}
-        tr { text-align: center;   border-bottom: 3px solid black;}
-        tr:hover { background-color: #f5f5f5;}
 
-            /* 건강게시판 */
+        .TabDate {
+            text-align: right;
+        }
 
-        .titlebox-inner { padding-top: 10px;}
-        
-        div.gallery:hover { border: 1px solid #777; }
+        tr {
+            text-align: center;
+            border-bottom: 3px solid black;
+        }
+        td{
+            padding: 12px;
+            
+        }
 
-        div.gallery img { width: 100%; height: auto; }
-
-        div.desc { padding: 15px; text-align: center; }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
 
         /* 페이지 버튼 */
-        .pager > li > a{  margin: 2px; padding: 0px 5px; }
-
+        .pager>li>a {
+            margin: 2px; padding: 0px 5px;
+        }
     </style>
 
+</head>
 
 <body style="overflow-x:hidden; overflow-y:auto;">
     <header>
@@ -150,40 +169,44 @@
 
     <section>
         <div class="BLContainer-fluid">
-            <div class="row" >
+            <div class="row">
                 <div class="col-lg-12  board-table">
                     <div class="titlebox">
-                        <p>공지사항
-                            <button type="submit" class="btn boardList-btn">write</button>
-                        </p>
+                        <p>Q&A</p>
                     </div>
                     <!--공지사항 리스트 -->
                     <form action="BoardList">
-                        <table class="table table-hover table-bordered">
+                        <table class="table table-bordered">
                             <tr>
                                 <th>1</th>
                                 <th class="board-title">제목입니다</th>
-                                <th class="TabDate">등록일</th>
+                                <th class="TabDate">20.01.12</th>
+                                <th class="pan"><i class="fa fa-unlock"></i>
+                                </th>
                             </tr>
                             <tr>
                                 <th>2</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
+                                <th class="pan"></th>
                             </tr>
                             <tr>
                                 <th>3</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
+                                <th class="pan"></th>
                             </tr>
                             <tr>
                                 <th>4</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
+                                <th class="pan"></th>
                             </tr>
                             <tr>
                                 <th>5</th>
                                 <th class="board-title">제목입니다</th>
                                 <th class="TabDate">등록일</th>
+                                <th class="pan"></th>
                             </tr>
 
                             <!-- <tbody>
@@ -195,14 +218,15 @@
                                     <td><fmt:formatDate value="${vo.regdate }" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
                                     <td><fmt:formatDate value="${vo.updatedate }" pattern="yyyy년MM월dd일  hh시mm분"/></td>
                                 </tr>
-                                </c:forEach>
-                            </tbody> -->
+                            </c:forEach>
+                        </tbody> -->
 
                         </table>
 
+                        <button type="submit" class="btn boardList-btn">write</button>
                         <input type="hidden" name="pageNum" value="1"> <!-- 검색버튼이 눌리면 무조건 페이지번호를 1번호으로 다시 세팅 -->
                         <input type="hidden" name="amount" value="${pageVO.amount }">
-                   
+
                         <ul class="pager">
                             <li><a href="#"><<</a></li>
                             <li><a href="#">1</a></li>
@@ -214,110 +238,13 @@
                         </ul>
                     </form>
 
-
-
-                    <!-- 건강정보게시판 -->
-
-                    <div class="titlebox">
-                        <p>건강정보</p>
-                    </div>
-
-                    <div class="titlebox-inner">
-                        <div class="row health_List">
-                            <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
-                                <div class="">
-                                    <a href="#">
-                                        <img src="../img/title_icon.png" width="600" height="400">
-                                    </a>
-                                    <div class="desc">건강정보_제목</div>
-                                </div>
-                            </div>
-
-                            <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
-                                <div class="galleryIn">
-                                    <a href="#">
-                                        <img src="../img/title_icon.png" width="600" height="400">
-                                    </a>
-                                    <div class="desc">건강정보_제목</div>
-                                </div>
-                            </div>
-
-                            <div class="gallery  col-sm-12 col-md-6 col-lg-3">
-                                <div>
-                                    <a href="#">
-                                        <img src="..//img/title_icon.png" width="600" height="400">
-                                    </a>
-                                    <div class="desc">건강정보_제목</div>
-                                </div>
-                            </div>
-
-                            <div class="gallery  col-sm-12 col-md-6 col-lg-3">
-                                <div>
-                                    <a href="#">
-                                        <img src="../img/title_icon.png" width="600" height="400">
-                                    </a>
-                                    <div class="desc">건강정보_제목</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row health_List">
-                            <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
-                                <div class="">
-                                    <a href="#">
-                                        <img src="../img/title_icon.png" width="600" height="400">
-                                    </a>
-                                    <div class="desc">건강정보_제목</div>
-                                </div>
-                            </div>
-
-                            <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
-                                <div class="galleryIn">
-                                    <a href="#">
-                                        <img src="../img/title_icon.png" width="600" height="400">
-                                    </a>
-                                    <div class="desc">건강정보_제목</div>
-                                </div>
-                            </div>
-
-                            <div class="gallery  col-sm-12 col-md-6 col-lg-3">
-                                <div>
-                                    <a href="#">
-                                        <img src="..//img/title_icon.png" width="600" height="400">
-                                    </a>
-                                    <div class="desc">건강정보_제목</div>
-                                </div>
-                            </div>
-
-                            <div class="gallery  col-sm-12 col-md-6 col-lg-3">
-                                <div>
-                                    <a href="#">
-                                        <img src="../img/title_icon.png" width="600" height="400">
-                                    </a>
-                                    <div class="desc">건강정보_제목</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                    <ul class="pager">
-                        <li><a href="#"><<</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">>></a></li>
-                    </ul>
-                
                 </div>
             </div>
         </div>
 
 
 
-    </section> 
-
+    </section>
 
     <footer class="footer">
         <div class="container">
@@ -360,6 +287,9 @@
         </div>
         </div>
     </footer>
+
+
+
 
 
 </body>
