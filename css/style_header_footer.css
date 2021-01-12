@@ -8,6 +8,9 @@ Thema Color
  */
 
 /* 웹 폰트 */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
 @font-face {
     font-family: 'GmarketSansBold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
@@ -29,7 +32,32 @@ Thema Color
     font-style: normal;
 }
 
+/* 애니메이션 */
+/* 탑버튼 */
+@keyframes shake-vertical {
+    0%, 100% {transform: translateY(0);}
+    10%, 30%, 50%, 70% {transform: translateY(-8px);}
+    20%, 40%, 60% {transform: translateY(8px);}
+    80% {transform: translateY(6.4px);}
+    90% {transform: translateY(-6.4px);}
+}
+/* MORE구역 */
+@keyframes shake-bottom{
+    0%,100%{transform:rotate(0deg);transform-origin:50% 100%}
+    10%{transform:rotate(2deg)}
+    20%,40%,60%{transform:rotate(-4deg)}
+    30%,50%,70%{transform:rotate(4deg)}
+    80%{transform:rotate(-2deg)}
+    90%{transform:rotate(2deg)}
+}
+
+
+/* Media */
 @media (max-width: 767px){
+    .benner-list img{
+        width: 100%;
+        height: 200px;
+    }
     .navbar-inverse .navbar-nav .open .dropdown-menu>li>a{
         color: #F2AB27;
     } 
@@ -39,13 +67,40 @@ Thema Color
         color: tomato;
         background-color: transparent;
     }
+    
 
+    #top-btn-m{
+        display: block;
+        position: fixed;
+        bottom: 5%;
+        right: 20px;
+        border-radius: 50%;
+        z-index: 8;
+        padding: 10px;
+        height: 60px;
+        background-color: #ffffffd2;
+        color:  #73bf41;
+        text-align: center;
+        font-size: 15px;
+        font-family: 'GmarketSansBold';
+    }
+    
     #rightSide {
         display: none;
     }
+
 }
 
-@media (max-width: 980px){
+@media (max-width: 992px){
+    .footer {
+        background-color: #41bf6d;
+        color: white;
+        font-size: 13px;
+        padding: 40px 0;
+        /* 위아래 , 좌우  */
+        margin-top: 1200px;
+        /*footer 바깥여백 70, 본문 영역에 붙지 않도록 */
+    }
 
 }
 
@@ -55,7 +110,6 @@ Thema Color
 header {
     margin: 0;
     padding: 0;
-
 }
 
 .title-top {
@@ -164,7 +218,7 @@ header {
 /* 우측 사이드바 -- 약국찾기, 즐겨찾기, 최근 본 약품 */
 #rightSide {
     position: fixed;
-    top: 550px;
+    top: 50%;
     right: 10px;
     z-index: 6;
 }
@@ -282,39 +336,58 @@ header {
  */
 
 
- /* 푸터 */
+
+#top-btn{
+    padding: 10px;
+    height: 60px;
+    background-color: rgba(15, 111, 190, 0);
+    color:  #73bf41;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'GmarketSansBold';
+}
+#top-btn:hover, #top-btn-m:hover {
+    animation: shake-vertical 4s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite;
+
+}
+
+
+
+
+
+/* 푸터 */
 footer {
-    background-color: #41BF6D;
-    color: white;
-    font-size: 13px;
-    padding: 40px 0;
-    /* 위아래 , 좌우  */
-    margin-top: 70px;
-    /*footer 바깥여백 70, 본문 영역에 붙지 않도록 */
+	background-color: #41bf6d;
+	color: white;
+	font-size: 13px;
+	padding: 40px 0;
+	/* 위아래 , 좌우  */
+	margin-top: 310px;
+	/*footer 바깥여백 70, 본문 영역에 붙지 않도록 */
 }
 
 footer .footer-copyrigth address {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 footer .footer-menu {
-    text-align: right;
-    /* 부트스크립에서 제공함 */
+	text-align: right;
+	/* 부트스크립에서 제공함 */
 }
 
 footer .footer-menu li {
-    display: inline-block;
-    /*한줄로 만들기  */
-    padding: 0 10px;
-    /* 위아래 0 좌우 10 */
+	display: inline-block;
+	/*한줄로 만들기  */
+	padding: 0 10px;
+	/* 위아래 0 좌우 10 */
 }
 
 footer .footer-menu li a {
-    text-decoration: none;
-    color: white;
-    font-size: 13px;
+	text-decoration: none;
+	color: white;
+	font-size: 13px;
 }
 
-.copyright{
-    margin-top: 20px;
+.footer-copyrigth{
+    padding-top: 20px;
 }
