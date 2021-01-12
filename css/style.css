@@ -183,15 +183,6 @@
     }
 
 }
-    
-    
-
-
-
-
-
-
-
 
 
 
@@ -201,8 +192,10 @@
 	padding: 50px;
 	font-size: 10px;
 }
-.user-bg {
+.user-area {
 	margin-top: 110px;
+}
+.user-bg {
 	background-image: url('../img/user/joinbg.jpg');
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -222,17 +215,36 @@
 	border-radius: 0;
 	box-shadow: 0 2px 2px rgba(50, 50, 50, 0.2);
 }
-.user-text-bg {
+.user-text-area {
 	margin: 0 auto;
 	padding: 20px;
 	width: 50%;
 	float: none;
-	background-color: white;
+	min-width: 300px;
 	border: 0.5px solid #8f8f8f8a;
+}
+.user-mypage-area {
+	margin: 0 auto;
+	float: none;
+	padding: 20px;
+	min-width: 300px;
+	border: 0.3px solid #f1f1f18a;
+}
+.user-text-bg {
+	background-color: white;
 	border-radius: 5px;
 	box-shadow: 12px 12px 2px 1px rgba(63, 63, 65, 0.2);
-	min-width: 300px;
 }
+.user_line {
+	height: 1px;
+	background-color: #8f8f8f;
+	box-shadow: 2px 2px 2px 2px rgba(63, 63, 65, 0.2);
+}
+.user-btn {
+	background-color: #41bf6d;
+	color: #ffffff;
+}
+/* kakao, naver btn */
 .kakao-user-btn {
 	color: #fff;
 	background-color: #fee500;
@@ -275,22 +287,152 @@
 	height: 30px;
 	float: left;
 }
-.user_line {
-	height: 1px;
-	background-color: #8f8f8f;
-	box-shadow: 2px 2px 2px 2px rgba(63, 63, 65, 0.2);
+/* user-table */
+.user-borad-title {
+	margin-left: 20px;
 }
-.user-btn {
-	background-color: #41bf6d;
-	color: #ffffff;
+.user-table thead tr th {
+	border-bottom: 1px unset rgb(90, 90, 90);
 }
-.user-btn.active,
-.user-btn.focus,
-.user-btn:active,
-.user-btn:focus,
-.user-btn:hover,
-.open > .dropdown-toggle.user-btn {
+.user-table thead {
+	font-size: 12px;
+}
+.user-table a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.user-table .title-align {
+	padding-left: 20px;
+}
+.user-table .date-align {
+	width: 30%;
+}
+.user-table .date-line {
+	border-left: 1px solid #ddd;
+}
+/* user-profile */
+.user-profile-img {
+	float: left;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	margin: 30px 80px;
+	border-radius: 100%;
+	position: relative;
+	text-align: center;
+}
+.user-profile-info {
+	margin: 30px 80px;
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: relative;
+}
+.user-profile-img img {
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	margin: 0;
+	border-radius: 100%;
+	text-align: center;
+}
+.user-profile-emoji {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	border: 1px solid rgb(200, 200, 200);
+	border-radius: 100%;
+	background-color: #fff;
+	right: 0;
+	bottom: 0;
+}
+.profile-box button {
+	margin-top: 10px;
 	background-color: #41bf6d;
+	color: #fff;
+	border: none;
+	border-radius: 0;
+	padding: 8px 15px;
+	font-size: 12px;
+}
+.profile-box button:hover {
 	color: rgba(0, 0, 0, 0.8);
-	border-color: none;
+}
+.profile-box button:focus,
+.profile-box button:active {
+	outline: none;
+}
+.profile-box .nickname {
+	font-size: medium;
+}
+/* bookmark css */
+.bookmark-product {
+	margin: 0px 5px;
+	text-align: center;
+	float: left;
+	width: 30%;
+	display: inline-block;
+}
+.product-box {
+	display: block;
+	width: 100%;
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.bookmark-product .bookmark-img {
+	width: 150px;
+	margin: 0 auto;
+}
+.bookmark-product .bookmark-name {
+	font-size: 15px;
+}
+@media (max-width: 991px) and (min-width: 768px) {
+	.bookmark-product .bookmark-img {
+		width: 90px;
+	}
+	.bookmark-product {
+		width: 29.4%;
+	}
+}
+/* mypage media */
+@media (max-width: 767px) {
+	.user-profile-img {
+		margin: 30px;
+	}
+	.user-profile-info {
+		float: left;
+		width: 50px;
+		margin: 30px;
+	}
+	.profile-box button {
+		width: 80px;
+	}
+	.bookmark-product .bookmark-img {
+		width: 90px;
+	}
+	.bookmark-product {
+		width: 29.4%;
+	}
+}
+@media (max-width: 460px) {
+	.user-profile-img {
+		margin: 20px;
+	}
+	.user-profile-info {
+		float: left;
+		width: 50px;
+		margin: 20px;
+	}
+	.profile-box button {
+		width: 80px;
+	}
+	.bookmark-product .bookmark-img {
+		width: 60px;
+	}
+	.bookmark-product {
+		width: 29%;
+	}
 }

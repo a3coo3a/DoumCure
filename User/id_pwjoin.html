@@ -17,17 +17,6 @@
   
   <!-- join css -->
   <style>
- 
-    .form-control[name=id],
-    .form-control[name=zip-code]{
-      display: inline;
-      width: 60%;
-    }
-    .form-group > .sel {
-        width: 30%;
-        display: inline-block;
-        box-sizing: border-box;
-    }
     .btn-success{
       background-color: #41BF6D;
     }
@@ -42,6 +31,17 @@
     .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{
       outline: none;
     } 
+
+    .form-control[name=id],
+    .form-control[name=zip-code]{
+      display: inline;
+      width: 60%;
+    }
+    .form-group > .sel {
+        width: 30%;
+        display: inline-block;
+        box-sizing: border-box;
+    }
     .mini-btn{
       display: inline;
       width: 30%;
@@ -146,10 +146,10 @@
     </div>
 </header>
 
-<section class="user-bg">
+<section class="user-area user-bg">
   <div class="container user_container">
     <div class="row">
-        <div class="col-lg-9 col-md-9 col-sm-12 user-text-bg">
+        <div class="col-lg-9 col-md-9 col-sm-12 user-text-bg user-text-area">
             <h2 align="center">회원가입</h2>
             <br/>
             <form name="joinForm" action="joinForm.user" method="post" id="joinForm">
