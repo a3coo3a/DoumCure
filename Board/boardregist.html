@@ -21,12 +21,20 @@
 
         /* 게시글 등록 */
 
+        .BLRcontainer {
+            font-family: 'GmarketSansMedium'; margin: 0 auto; float: none; 
+            padding-top: 120px; padding-left: 20%; padding-right: 20% ; 
+        }
         .board-table { padding-top: 100px; padding-left: 20%; padding-right: 20%;}
         .titlebox { /*부모요소에 히든 */ overflow: hidden;     padding-top: 35px; }
 
         .qa_titlebox > p{
             text-align: center;
         }
+        .t-title  {
+            border: 1px solid white;
+        }
+
     
     </style>
 
@@ -113,7 +121,7 @@
     </header>
 
     <section>
-        <div class="container">
+        <div class="BLRcontainer">
             <div class="row">
                 <div class="col-xs-12 content-wrap">
                     <div class="qa_titlebox">
@@ -125,7 +133,8 @@
                         <tbody class="t-control">
                             <tr>
                                 <td class="t-title">NAME</td>
-                                <td><input class="form-control input-sm" name="writer" value="${sessionScope.userVO.userId }" readonly><span id="msgId"></span></td>
+                                <!-- <td><input class="form-control input-sm" name="writer" value="${sessionScope.userVO.userId }" readonly><span id="msgId"></span></td> -->
+                                <td><input class="form-control input-sm" name="writer" value="작성자" readonly><span id="msgId"></span></td>
                             </tr>
                             <tr>
                                 <td class="t-title">TITLE</td>
@@ -141,19 +150,14 @@
                         </tbody>
                     </table>
                     <div class="titlefoot">
-                        <button class="btn" type="button" onclick="regist()">등록</button>
                         <button class="btn" type="button" onclick="location.href='freeList' ">목록</button>
+                        <button class="btn" type="button" onclick="img()">이미지업로드</button>
+                        <button class="btn" type="button" onclick="regist()">등록</button>
                     </div>
                     </form>
                 </div>
             </div>    
        </div>
-        
-
-
-
-
-
     </section>
 
     <footer class="footer">
