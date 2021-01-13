@@ -5,19 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Do.cU(Cure yourself)</title>
-
     <!-- 파비콘 -->
     <link rel="shortcut icon" href="../img/title_icon.png">
 
     <!-- 부트스크랩 참조파일 -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
-    <!-- 개인 디자인 추가 -->
-    <link rel="stylesheet" href="../css/reset.css" />
-    <link rel="stylesheet" href="../css/style_header_footer.css" />
-    <link rel="stylesheet" href="../css/style.css" />
+  <!-- 개인 디자인 추가 -->
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/style_header_footer.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 
     <style> 
         /* 공지사항 리스트 */
@@ -63,6 +62,7 @@
 
 
 <body style="overflow-x:hidden; overflow-y:auto;">
+<!-- header -->
     <header>
         <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
         <!-- sns -->
@@ -142,6 +142,7 @@
         </div>
     </header>
 
+<!-- section 본문시작-->
     <section>
         <div class="container BLContainer-fluid">
             <div class="row" >
@@ -312,50 +313,122 @@
 
     </section> 
 
+  
+<!-- footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 col-sm-12">
+                <h2 class="footer-heading">Petsitting</h2>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-4 col-sm-12">
-                    <h2 class="footer-heading">Petsitting</h2>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                </div>
-
-                <div class="col-md-6 col-lg-4 col-sm-12">
-                    <h2 class="footer-heading">Quick Links</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Home</a></li>
-                        <li><a href="#" class="py-2 d-block">About</a></li>
-                        <li><a href="#" class="py-2 d-block">Board</a></li>
-                        <li><a href="#" class="py-2 d-block">Seach</a></li>
+            <div class="col-md-6 col-lg-4 col-sm-12">
+                <h2 class="footer-heading">Quick Links</h2>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="py-2 d-block">Home</a></li>
+                    <li><a href="#" class="py-2 d-block">About</a></li>
+                    <li><a href="#" class="py-2 d-block">Board</a></li>
+                    <li><a href="#" class="py-2 d-block">Seach</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-4 col-sm-12">
+                <h2 class="footer-heading">Have a Questions?</h2>
+                <div class="block-23 mb-3">
+                    <ul>
+                        <span>The 11th and 12th floors of the 16th J-Stower in Gangnam-gu, Seoul</span>
+                        <li><span>+82 010 1111 2222</span></li>
+                        <li><span>jhr1494@gmail.com</span></li>
                     </ul>
                 </div>
-                <div class="col-md-6 col-lg-4 col-sm-12">
-                    <h2 class="footer-heading">Have a Questions?</h2>
-                    <div class="block-23 mb-3">
-                        <ul>
-                            <span>The 11th and 12th floors of the 16th J-Stower in Gangnam-gu, Seoul</span>
-                            <li><span>+82 010 1111 2222</span></li>
-                            <li><span>jhr1494@gmail.com</span></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-md-12 text-center">
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
 
-                <p class="copyright">
-                    Copyright &copy;
-                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-                    is made with <i class="fa fa-heart" aria-hidden="true"></i> by 3Team(Do.cU)
-                </p>
-            </div>
+            <p class="copyright">
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                is made with <i class="fa fa-heart" aria-hidden="true"></i> by 3Team(Do.cU)
+            </p>
         </div>
-        </div>
-    </footer>
+    </div>
+    </div>
+</footer>
+
+<!-- footer script -->
+<script>
+$(document).ready(function () {
+    //콤마작업
+    function comma(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+    }
+
+    var d = document.querySelectorAll(".drug-text strong");
+    console.log(d);
+    change_comma();
+
+    function change_comma() {
+
+        for (var i = 0; i < d.length; i++) {
+            var num = comma(d[i].innerHTML);
+            d[i].innerHTML = num;
+        }
 
 
-</body>
+    }
 
-</html>
+
+    // 상단 카운트
+    var today = Number($(".today").html());
+    var total = Number($(".total").html());
+    var dataCount = Number($(".data-count").html());
+
+    $(function () {
+        var count0 = count1 = count2 = 0;
+        timeCounter();
+
+        function timeCounter() { //today
+            id0 = setInterval(count0Fn, 80);
+            function count0Fn() {
+                count0++;
+                if (count0 > 40) {
+                    clearInterval(id0);
+                    var str = comma(today)
+                    $(".today").html(str)
+                } else {
+                    $(".number").eq(0).text(count0);
+                }
+            }
+
+            id1 = setInterval(count1Fn, 30);
+
+            function count1Fn() { //total
+                count1++;
+                if (count1 > 100) {
+                    clearInterval(id1);
+                    var str = comma(total)
+                    $(".total").html(str)
+                } else {
+                    $(".number").eq(1).text(count1);
+                }
+            }
+
+            id2 = setInterval(count2Fn, 30);
+
+            function count2Fn() { //data-total
+                count2++;
+                if (count2 > 100) {
+                    clearInterval(id2);
+                    var str = comma(dataCount)
+                    $(".data-count").html(str)
+                } else {
+                    $(".number").eq(2).text(count2);
+                }
+            }
+        }
+    });
+
+});
