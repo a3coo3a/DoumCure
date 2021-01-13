@@ -89,9 +89,19 @@ Thema Color
         display: none;
     }
 
+    .comment-top{
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+
 }
 
 @media (max-width: 992px){
+    .custom-count {
+        margin-top: 1140px;
+    }
+
+
     .footer {
         background-color: #41bf6d;
         color: white;
