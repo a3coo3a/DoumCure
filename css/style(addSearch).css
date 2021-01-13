@@ -1,0 +1,482 @@
+/* ====================== MAIN ====================== */
+/* 모바일 수평 스크롤 금지 */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+
+/* 메인슬라이드 */
+.main_slider {
+    position: absolute;
+    top: 110px;
+    padding: 0 auto;
+    width: 100%;
+    z-index: 5;
+    margin-bottom: 30px;
+    overflow: hidden;
+    
+}
+
+.carousel-inner .item img {
+    width: 100%;
+    height: 700px
+}
+
+
+/* 메인슬라이드 인디케이터 */
+.carousel-indicators li {
+    border: 1px solid cadetblue;
+}
+
+.carousel-indicators .active {
+    background-color: #80e6e6;
+}
+
+/* 검색창 */
+.search-section{
+    position: relative;
+    height : 500px;
+    width : 100%;
+    margin-top: 950px;
+    display : inline-block;
+    text-align : center;
+    overflow : auto;
+    z-index: 1;
+}
+.search-section::after{
+    background-attachment:fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height : 100%;
+    width : 100%;
+    background-image: url('/img/main/bg.jpg');
+    background-size: cover;
+    content: "";
+    z-index: -1;
+    opacity: 0.5;
+    
+    
+}
+.search-div{
+    padding-top: 140px;
+    font-family: 'GmarketSansBold';
+
+}
+.search-input {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.search-input form{
+    width: 100%;
+    max-width: 790px;
+}
+.search-input form .inner-form {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 34px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.search-input form .inner-form .input-field {
+    height: 68px;
+}
+.search-input form .inner-form .input-field input {
+    height: 100%;
+    background: transparent;
+    border: 0;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000;
+}
+.search-input form .inner-form .input-field input.placeholder {
+    color: #222;
+    font-size: 16px;
+}
+.search-input form .inner-form .input-field input:hover, 
+.search-input form .inner-form .input-field input:focus {
+    box-shadow: none;
+    outline: 0;
+}
+.search-input form .inner-form .input-field.first-wrap {
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    background: #d9f1e3;
+}
+.search-input form .inner-form .input-field.first-wrap input {
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+}
+.search-input form .inner-form .input-field.first-wrap .svg-wrapper {
+    min-width: 80px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+}
+.search-input form .inner-form .input-field.first-wrap svg {
+    width: 36px;
+    height: 36px;
+    fill: #222;
+}
+.search-input form .inner-form .input-field.second-wrap {
+    min-width: 216px;
+}
+.search-input form .inner-form .input-field.second-wrap .btn-search {
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 16px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    background: #41bf6D;
+    transition: all .2s ease-out, color .2s ease-out;
+    font-weight: 300;
+}
+.search-input form .inner-form .input-field.second-wrap .btn-search:hover {
+    background: #009451;
+}
+.search-input form .inner-form .input-field.second-wrap .btn-search:focus {
+    outline: 0;
+    box-shadow: none;
+}
+.search-input form .info {
+    font-size: 15px;
+    color: rgb(160, 160, 160);
+    
+}
+@media screen and (max-width: 992px) {
+    .search-input form .inner-form .input-field {
+    height: 50px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .search-input form .inner-form .input-field.first-wrap .svg-wrapper {
+        min-width: 40px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 0 10px;
+    }
+    .search-input form .inner-form .input-field.first-wrap svg {
+        width: 26px;
+        height: 26px;
+        fill: #222;
+    }
+    .search-input form .inner-form .input-field.second-wrap {
+        min-width: 100px;
+    }
+    .search-input form .inner-form .input-field.second-wrap .btn-search {
+        font-size: 13px;
+    }
+}
+
+/* 데이터 세분화 카운트 */
+.drug-count {
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 51px 0px 31px 0px;
+    margin: 0 auto;
+    margin-top: 190px;
+    background-color: #41bf6D;
+    color: white;
+}
+
+.drug-text strong{
+    font-family: 'GmarketSansBold';
+    font-size: 300%;
+}
+
+/* 공지사항 이미지 보드 */
+.main-board {
+    display: block;
+    margin: 0 auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    height: 400px;
+    text-align: center;
+}
+
+.main-board-list{
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+.main-list-small{
+    box-shadow: 5px 5px 9px 0px #0000005e;
+    height: 400px;
+    position: relative;
+    display: block;
+    margin-bottom: 40px;
+    background-color: #fee500;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.main-board-img, .main-board-title{
+    position: absolute;
+    background-color: #41bf6D;
+    width: 100%;
+    height: 250px;
+}
+
+.main-board-title{
+    top: 250px;
+    background-color: white;
+    display: block;
+    height: 150px;
+}
+
+.main-board-img img{
+    max-width: 100%;
+    height: 250px;
+}
+
+
+.more{
+    margin: 0 50px;
+    background-color: #41bf6D;
+    float: left;
+    display: block;
+    padding: 200px 10px;
+    font-family: 'GmarketSansMedium';
+    color: white;
+}
+.more:hover > i{animation:shake-bottom 3s cubic-bezier(.455,.03,.515,.955) infinite both}
+
+.more i{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    color: #41bf6D;
+
+}
+
+
+
+
+/* 방문자 카운트 */
+.custom-count {
+    text-align: center;
+    color: white;
+    padding: 51px 0px 31px 0px;
+    background-color: #41bf6D;
+
+}
+
+
+.count{
+    margin-bottom: 10px;
+}
+
+.text strong{
+    font-family: 'GmarketSansBold';
+    font-size: 60px;
+}
+.text span{
+    font-family: 'GmarketSansMedium';
+    font-size: 15px;
+}
+
+
+
+/* 소배너 - comment */
+.ben{
+    display: block;
+    margin-top: 240px;
+    text-align: center;
+}
+
+.ben > span{
+    font-family: 'GmarketSansBold';
+    font-size: 50px;
+}
+
+.comment-top{
+    margin-top: 50px;
+}
+.benner-list{
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.comment-div{
+    padding-top: 100px;
+}
+
+.benner-list .ben-img{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.comment-title{
+    margin-top: 50px;
+    font-family: 'GmarketSansBold';
+    font-size: 30px;
+
+}
+.comment-content{
+    font-family: 'ELAND_Choice_L';
+}
+
+
+@media(max-width: 450px){
+    .title-top span{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 992px){
+    
+    .more{
+        background-color: #41bf6D;
+        height: 50px;
+        width: 100%;
+        padding: 10px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        border-radius: 20px;
+    }
+
+    .comment-div{
+        padding-top: 50px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ====================== USER ====================== */
+.user_container {
+	font-family: 'GmarketSansMedium';
+	padding: 50px;
+	font-size: 10px;
+}
+.user-bg {
+	margin-top: 110px;
+	background-image: url('../img/user/joinbg.jpg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.user-bg .btn {
+	border-radius: 0;
+}
+.user-bg button {
+	box-shadow: 2px 2px 2px rgba(79, 109, 62, 0.404);
+	font-size: 13px;
+}
+.user-bg .form-control {
+	font-size: 10px;
+	border: none;
+	border-bottom: 1px solid #8f8f8f;
+	border-radius: 0;
+	box-shadow: 0 2px 2px rgba(50, 50, 50, 0.2);
+}
+.user-text-bg {
+	margin: 0 auto;
+	padding: 20px;
+	width: 50%;
+	float: none;
+	background-color: white;
+	border: 0.5px solid #8f8f8f8a;
+	border-radius: 5px;
+	box-shadow: 12px 12px 2px 1px rgba(63, 63, 65, 0.2);
+	min-width: 300px;
+}
+.kakao-user-btn {
+	color: #fff;
+	background-color: #fee500;
+	padding: 5px 16px;
+	height: 36.5px;
+	line-height: 230%;
+	text-shadow: -0.3px 0 rgba(0, 0, 0, 0.8), 0 0.3px rgba(0, 0, 0, 0.8);
+	-moz-text-shadow: -0.3px 0 rgba(0, 0, 0, 0.8), 0 0.3px rgba(0, 0, 0, 0.8);
+	-webkit-text-shadow: -0.3px 0 rgba(0, 0, 0, 0.8), 0 0.3px rgba(0, 0, 0, 0.8);
+}
+.naver-user-btn {
+	color: #ffffff;
+	background-color: #1ec800;
+	padding: 5px 16px;
+	height: 36.5px;
+	line-height: 230%;
+}
+.kakao-user-btn.active,
+.kakao-user-btn.focus,
+.kakao-user-btn:active,
+.kakao-user-btn:focus,
+.kakao-user-btn:hover,
+.open > .dropdown-toggle.kakao-user-btn {
+	color: rgba(0, 0, 0, 0.8);
+	background-color: #fee500;
+	border-color: none;
+}
+.naver-user-btn.active,
+.naver-user-btn.focus,
+.naver-user-btn:active,
+.naver-user-btn:focus,
+.naver-user-btn:hover,
+.open > .dropdown-toggle.naver-user-btn {
+	background-color: #1ec800;
+	color: rgba(0, 0, 0, 0.8);
+	border-color: none;
+}
+.naver-user-btn img,
+.kakao-user-btn img {
+	height: 30px;
+	float: left;
+}
+.user_line {
+	height: 1px;
+	background-color: #8f8f8f;
+	box-shadow: 2px 2px 2px 2px rgba(63, 63, 65, 0.2);
+}
+.user-btn {
+	background-color: #41bf6d;
+	color: #ffffff;
+}
+.user-btn.active,
+.user-btn.focus,
+.user-btn:active,
+.user-btn:focus,
+.user-btn:hover,
+.open > .dropdown-toggle.user-btn {
+	background-color: #41bf6d;
+	color: rgba(0, 0, 0, 0.8);
+	border-color: none;
+}
