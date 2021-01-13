@@ -386,11 +386,10 @@
         <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="container comment-top">
                 <div class="row">
-                    <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
                         <div class="benner-list">
                             <li class="ben-img">
-                                <img src="https://file3.instiz.net/data/cached_img/upload/2019/09/28/0/8351af5d99fc68a8287ce2adb371d7d8.jpg"
-                                    alt="">
+                                <img src="/img/main/imoge_young.png" alt="">
                             </li>
                         </div>
                     </div>
@@ -408,14 +407,14 @@
         <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="container comment-top">
                 <div class="row">
-                    <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
                         <div class="benner-list">
                             <li class="ben-img">
-                                <img src="/img/main/imoge1.png" alt="">
+                                <img src="/img/main/imoge_rin.png" alt="">
                             </li>
                         </div>
                     </div>
-                    <div class="col-md-8 col-sm-8 col-xs-6">
+                    <div class="col-md-8 col-sm-8 col-xs-6 comment-div">
                         <div class="benner-list">
                             <span class="comment-title">Rin</span>
                             <p class="comment-content">
@@ -430,14 +429,14 @@
         <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="container comment-top">
                 <div class="row">
-                    <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
                         <div class="benner-list">
                             <li class="ben-img">
-                                <img src="https://blog.kakaocdn.net/dn/bNkkUk/btqvIkACNgU/g8XsJN8SKDHCd0mUa8Pgc1/img.png" alt="">
+                                <img src="/img/main/imoge_ohso.png" alt="">
                             </li>
                         </div>
                     </div>
-                    <div class="col-md-8 col-sm-8 col-xs-6">
+                    <div class="col-md-8 col-sm-8 col-xs-6 comment-div">
                         <div class="benner-list">
                             <span class="comment-title">Ohso</span>
                             <p class="comment-content">
@@ -513,13 +512,24 @@
 </html>
 
 
-
-
-
-
-
 <script>
+    
+    // 팝업띄우기
+    function popup() {
+        var url = "popup.html";
+        var name = "popup test";
+        var option = "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width = 350px, height = 370px, top = 120px, left = 200";
+        
+        window.open(url, name, option);
+    }
+    popup();
+
+    
     $(document).ready(function () {
+
+
+
+
         //콤마작업
         function comma(str) {
             str = String(str);
@@ -538,9 +548,9 @@
                 var num = comma(a[i].innerHTML);
                 a[i].innerHTML = num;
             }
-
-
         }
+
+
 
     });
 

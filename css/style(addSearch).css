@@ -1,4 +1,10 @@
 /* ====================== MAIN ====================== */
+/* 모바일 수평 스크롤 금지 */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+
 /* 메인슬라이드 */
 .main_slider {
     position: absolute;
@@ -208,6 +214,7 @@
     display: block;
     margin: 0 auto;
     margin-top: 200px;
+    margin-bottom: 200px;
     height: 400px;
     text-align: center;
 }
@@ -222,7 +229,7 @@
     height: 400px;
     position: relative;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     background-color: #fee500;
     border-radius: 10px;
     overflow: hidden;
@@ -269,34 +276,18 @@
 
 }
 
-@media (max-width: 990px){
-    
-    .more{
-        background-color: #41bf6D;
-        height: 50px;
-        width: 100%;
-        padding: 10px;
-        margin: 0 auto;
-        margin-bottom: 10px;
-        border-radius: 20px;
-    }
-
-}
 
 
 
 /* 방문자 카운트 */
 .custom-count {
-
-}
-
-.cus-count{
     text-align: center;
     color: white;
     padding: 51px 0px 31px 0px;
     background-color: #41bf6D;
 
 }
+
 
 .count{
     margin-bottom: 10px;
@@ -336,14 +327,13 @@
 }
 
 .comment-div{
-    padding-top: 30px;
+    padding-top: 100px;
 }
 
 .benner-list .ben-img{
-    height: 200px;
     width: 100%;
+    height: auto;
     position: relative;
-    border: 1px solid #41bf6D;
     overflow: hidden;
 }
 
@@ -358,7 +348,29 @@
 }
 
 
+@media(max-width: 450px){
+    .title-top span{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 992px){
     
+    .more{
+        background-color: #41bf6D;
+        height: 50px;
+        width: 100%;
+        padding: 10px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        border-radius: 20px;
+    }
+
+    .comment-div{
+        padding-top: 50px;
+    }
+
+}
 
 
 
