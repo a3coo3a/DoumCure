@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 1. namespace추가 -->
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 2. 외부설정파일 -->
+	<bean id="DBproperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:/db-config/Hikari.properties"></property>
+	</bean>
+	<!-- 히카리 설정파일 빈 -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="${ds.driverClassName}" />
+		<property name="jdbcUrl" value="${ds.jdbcUrl}" /> 
+		<property name="username" value="${ds.username}"/>
+		<property name="password" value="${ds.password}"/>
+	</bean>
+	
+	<!-- 커넥션풀 적용(의존성 주입) -->
+	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="hikariConfig"/>
+	</bean>
+	
+	<!-- 마이바티스 핵심 객체 생성 -->
+	<!-- mapperLocations: 구현 xml 위치를 한번에알려주는 역할 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds" />
+		<!-- 마이바티스의 구현체 mapper를 묶어서 관리하기 위한 경로 설정 -->
+		<property name="mapperLocations" value="classpath:/sqlmap/*.xml"/>
+		<!-- 마이바티스의 부가적인 설정파일 위치 -->
+		<property name="configLocation" value="classpath:/mybatis-config/mybatis-config.xml"/>
+	</bean>
+	
+	<!-- 매퍼 인터페이스의 경로를 지정 -->
+	<!-- 해당 패키지를 읽어 빈을 생성해라 -->
+	<!-- *, **의 차이는 파일과 폴더라고 보시면 됩니다.첫번째는 모든파일, 두번째는 모든 하위폴더  -->
+	<mybatis-spring:scan base-package="com.team3.*.mapper"/>
+	<mybatis-spring:scan base-package="com.team3.*.*.mapper"/>
+</beans>
