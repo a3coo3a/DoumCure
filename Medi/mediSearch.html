@@ -1,102 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-  <!-- 부트스크랩 참조파일 -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+    <!-- 부트스크랩 참조파일 -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
-  <!-- 개인 디자인 추가 -->
-  <link rel="stylesheet" href="../css/reset.css" />
-  <link rel="stylesheet" href="../css/style_header_footer.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  
-  <!-- medisearch css -->
-  <style>
-    .line{
-      border: 1px solid;
-    }
-    .medi-info {
-      float: none;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-    .medi-info p{
-      text-align: center;
-    }
-    .medi-info .hash-name{
-      border: 1px double #000000;
-      border-radius: 100px 50px;
-      margin : 8px;
-      padding: 5px 15px;    
-    }
-    .medi-left{
-      display: inline-block;
-    }
-    .medi-hash-center{
-      text-align: center;
-    }
-  </style>
+    <!-- 개인 디자인 추가 -->
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style_header_footer.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- medisearch css -->
+    <style>
+        .medi-area {
+            display: block;
+            text-align: center;
+        }
+        .medi-area strong{
+            font-family: 'GmarketSansBold';
+            font-size: 40px;
+        }
+
+        .line-left {
+            border: 1px solid #41bf6d;
+            border-radius: 30px;
+        }
+
+        .line-left > p{
+            margin-top: 30px;
+            font-family: 'GmarketSansMedium';
+            font-size: 25px;
+        }
+
+        .line-left img{
+            max-width: 100%;
+        }
+
+        .medi-info {
+            float: none;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .medi-info span {
+            text-align: center;
+        }
+
+        .medi-info .hash-name {
+            border: 1px solid #41bf6d;
+            border-radius: 100px 50px;
+            margin: 8px;
+            padding: 5px 15px;
+        }
+
+        .medi-left {
+            display: inline-block;
+        }
+
+        .medi-hash-center {
+            margin: 0 auto;
+            max-width: 100%;
+            text-align: center;
+        }
+        .medi-info .hash-name:hover{
+            background-color: #41bf6d;
+            color: white;
+        }
+
+        .search-detail{
+            padding: 30px;
+        }
+
+        .search-detail img{
+            max-width: 100%;
+            height: 250px;
+        }
+
+        .search-detail-etc{
+            margin: 0 auto;
+        }
+        
+        .seaech-detail-etc p,
+        .line-right p{
+            font-family: 'GmarketSansMedium';
+            font-size: 15px;
+        }
+        
+        .search-detail-etc form .form-group{
+            max-width: 100%;
+            text-align: center;
+            padding-right: 5px;
+        }
+
+
+        .search-detail-view{
+            display: none;
+        }
+        
+        .search-detail-default{
+            margin-top: 250px;
+        }
+
+        .search-detail-default{
+            font-family: 'GmarketSansMedium';
+            padding: 20px;
+            font-size: 20px;
+            background-color: #f2ab27;
+            color: white;
+            border-radius: 40px;
+        }
+        
+
+    </style>
 </head>
+
 <body>
-  
-<!-- header -->
-<header>
-    <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
-    <!-- sns -->
-    <div class="container-fluid">
-        <div class="row title-top">
-            <div class="col-lg-6 col-md-6 col-xs-6 title">
-                <img src="../img/title_icon.png" alt="title_icon">
-                <span>Do.cU(Cure yourself)</span>
 
-            </div>
+    <!-- header -->
+    <header>
+        <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
+        <!-- sns -->
+        <div class="container-fluid">
+            <div class="row title-top">
+                <div class="col-lg-6 col-md-6 col-xs-6 title">
+                    <img src="../img/title_icon.png" alt="title_icon">
+                    <span>Do.cU(Cure yourself)</span>
 
-            <div class="col-lg-6 col-md-6 col-xs-6 sns">
-                <img src="../img/main/kakao.png" alt="sns_kakao">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-xs-6 sns">
+                    <img src="../img/main/kakao.png" alt="sns_kakao">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- 네비바 -->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid nav-menu">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <!-- 네비바 -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid nav-menu">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-                <img src="../img/title_icon.png" alt="">
-                <a class="navbar-brand" href="#">Do.cU</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">HOME</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BOARD
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">공지사항</a></li>
-                            <li><a href="#">자유게시판</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">증상별 검색</a></li>
-                            <li><a href="#">성분별 검색</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                    <img src="../img/title_icon.png" alt="">
+                    <a class="navbar-brand" href="#">Do.cU</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">HOME</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BOARD
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">자유게시판</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">증상별 검색</a></li>
+                                <li><a href="#">성분별 검색</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 
-                <!-- 창크기가 980미만으로 가면 2줄로 생기는 문제가 발생하여 검색창 생략
+                    <!-- 창크기가 980미만으로 가면 2줄로 생기는 문제가 발생하여 검색창 생략
 
                     <form class="navbar-form navbar-left" action="/action_page.php">
                     <div class="form-group">
@@ -105,198 +183,287 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">JOIN</a></li>
-                    <li><a href="#">LOGIN</a></li>
-                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">JOIN</a></li>
+                        <li><a href="#">LOGIN</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- 사이드바 -->
-    <div id="rightSide">
-        <div id="right_zzim">
-            <li class="seach-place">약국찾기</li>
-            <li class="like">즐겨찾기</li>
-            <li class="recTit">최근본약품</li>
+        <!-- 사이드바 -->
+        <div id="rightSide">
+            <div id="right_zzim">
+                <li class="seach-place">약국찾기</li>
+                <li class="like">즐겨찾기</li>
+                <li class="recTit">최근본약품</li>
 
-            <!-- 데이터 지정 후 구현예정
+                <!-- 데이터 지정 후 구현예정
                 <ul> --본 상품이 뿌려질 부분-- </ul>
     
                 <div id="paging"><a class="btn_prev" style="cursor:pointer">이전</a><span id="currentPage"></span><span
                         id="totalPageCount"></span><a class="btn_next" style="cursor:pointer">다음</a></div>
                 
             -->
+            </div>
+            <!-- top버튼(브라우저용) -->
+            <div id="top-btn">
+                <i class="fas fa-arrow-circle-up"></i>
+                <li>TOP</li>
+            </div>
         </div>
-        <!-- top버튼(브라우저용) -->
-        <div id="top-btn">
+
+        <!-- top버튼(모바일용) -->
+        <div id="top-btn-m">
             <i class="fas fa-arrow-circle-up"></i>
             <li>TOP</li>
         </div>
-    </div>
 
-    <!-- top버튼(모바일용) -->
-    <div id="top-btn-m">
-        <i class="fas fa-arrow-circle-up"></i>
-        <li>TOP</li>
-    </div>
+    </header>
 
-</header>
+    <!-- section -->
+    <section class="medi-area">
+        <strong>증상별 검색</strong>
+        <hr>
+    
+        <div class="container">
+            <div class="row justify-content-center line">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 line-left">
+                    <p>부위를 선택해주세요</p>
+                    <img src="../img/medi/human-all.png" alt="" usemap="#imgmap" id="human">
+                    <!-- 이미지맵 -->
+                    <map id="imgmap" name="imgmap">
+                        <area shape="circle" coords="140,106,26" href="#" onfocus="this.blur()" class="search-head" onmouseover="if(document.images) human.src = '../img/medi/human-head.png'" onmouseout = "if(document.images) human.src = '../img/medi/human-all.png' "  />
+                        <area shape="rect" coords="109,146,171,269" href="#" onfocus="this.blur()" class="search-body" onmouseover="if(document.images) human.src = '../img/medi/human-body.png'" onmouseout = "if(document.images) human.src = '../img/medi/human-all.png' " />
+                        <area shape="rect" coords="78,146,100,268"  href="#" onfocus="this.blur()" class="search-arm" onmouseover="if(document.images) human.src = '../img/medi/human-arm.png'" onmouseout = "if(document.images) human.src = '../img/medi/human-all.png' " />
+                        <area shape="rect" coords="179,146,202,268" href="#" onfocus="this.blur()" class="search-arm"onmouseover="if(document.images) human.src = '../img/medi/human-arm.png'" onmouseout = "if(document.images) human.src = '../img/medi/human-all.png' " />
+                        <area shape="rect" coords="108,292,136,400" href="#" onfocus="this.blur()" class="search-leg" onmouseover="if(document.images) human.src = '../img/medi/human-leg.png'" onmouseout = "if(document.images) human.src = '../img/medi/human-all.png' " />
+                        <area shape="rect" coords="146,293,172,401" href="#" onfocus="this.blur()" class="search-leg" onmouseover="if(document.images) human.src = '../img/medi/human-leg.png'" onmouseout = "if(document.images) human.src = '../img/medi/human-all.png' " />
+                        <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                    </map>
+                </div>
 
-<!-- section -->
-<section class="medi-area">
-  <div class="container">
-    <div class="row justify-content-center line">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 line">
-        사람전체
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 line">
-        <div>부분확대</div>
-        <div>
-          <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 medi-info">
-            <div class="medi-hash-center">
-              <p class="hash-name medi-left">#감기</p>
-              <p class="hash-name medi-left">#기침</p>
-              <p class="hash-name medi-left">#목아픔</p>
-              <p class="hash-name medi-left">#목아픔</p>
-              <p class="hash-name medi-left">#목아픔</p>
-              <p class="hash-name medi-left">#목아픔</p>
+                
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 line-right" >
+                    <div class="search-detail-default">
+                        <span>부위를 선택해 주세요 :)</span>
+                    </div>
+                    <div class="search-detail-view">
+                        <div class="search-detail">
+                            <img src="../img/medi/detail3.png" alt="">
+                        </div>
+                        <p>주요 증상</p>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 medi-info">
+                                <div class="medi-hash-center">
+                                    <span class="hash-name medi-left">두통</span>
+                                    <span class="hash-name medi-left">기침</span>
+                                    <span class="hash-name medi-left">여드름</span>
+                                    <span class="hash-name medi-left">콧물</span>
+                                    <span class="hash-name medi-left">미열</span>
+                                </div>
+                            </div>
+                        
+                        
+                        <hr>
+                        <!-- <span>그 외 증상은 검색을 이용해 주세요</span> -->
+                        <div class="seaech-detail-etc">
+                            <p>OTHER</p>
+                            <form>
+                                <div class="col-lg-10 col-md-10 col-sm-10 search-bar form-group">
+                                <input type="text" class="form-control" placeholder="그 외 증상은 검색을 이용해 주세요">
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 form-group">
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-          </div>
         </div>
-      </div>    
-    </div>
-  </div>
+    </section>
+
+    <!-- 크기조절에 따른 좌표 자동지정 -->
+    <script src="../js/jquery.rwdImageMaps.js"></script>
+    <script>
+        $(document).ready(function(e){
+            $("img[usemap]").rwdImageMaps();
+        })
+    </script>
+
+    <!-- Search script -->
+    <script>
+        $(document).ready(function(){
+            var map = document.querySelector("#imgmap");
+            var detail = $(".search-detail")[0].childNodes[1];
+            var hash = document.querySelectorAll(".hash-name");
+            
+            var head = ["두통","기침","콧물","여드름","발열"];
+            var body = ["변비", "위염", "장염", "치질", "속쓰림"];
+            var arm = ["염증","관절","타박상","멍","근육통"];
+            var leg = ["근육통","염증","저림","타박상","관절"]
+
+            map.addEventListener("click", function(){
+                $(".search-detail-view").css('display','block');
+                $(".search-detail-default").css('display', 'none');
+
+                
+                var classList = event.target.classList
+                if(classList.value === "search-head"){
+                    detail.src = "../img/medi/detail3.png"
+                    for(var i in hash){
+                        hash[i].innerHTML = head[i];
+                    }
+                }else if(classList.value === "search-arm"){
+                    detail.src = "../img/medi/detail1.png"
+                    for(var i in hash){
+                        hash[i].innerHTML = arm[i];
+                    }
+                }else if(classList.value === "search-body"){
+                    detail.src = "../img/medi/detail4.png"
+                    for(var i in hash){
+                        hash[i].innerHTML = body[i];
+                    }
+                }else if(classList.value === "search-leg"){
+                    detail.src = "../img/medi/detail2.png"
+                    for(var i in hash){
+                        hash[i].innerHTML = leg[i];
+                    }
+                }
 
 
 
-
-
-</section>
-
+            })
 
 
 
-<!-- footer -->
-<footer class="footer">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-6 col-lg-4 col-sm-12">
-                  <h2 class="footer-heading">Petsitting</h2>
-                  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-
-              <div class="col-md-6 col-lg-4 col-sm-12">
-                  <h2 class="footer-heading">Quick Links</h2>
-                  <ul class="list-unstyled">
-                      <li><a href="#" class="py-2 d-block">Home</a></li>
-                      <li><a href="#" class="py-2 d-block">About</a></li>
-                      <li><a href="#" class="py-2 d-block">Board</a></li>
-                      <li><a href="#" class="py-2 d-block">Seach</a></li>
-                  </ul>
-              </div>
-              <div class="col-md-6 col-lg-4 col-sm-12">
-                  <h2 class="footer-heading">Have a Questions?</h2>
-                  <div class="block-23 mb-3">
-                      <ul>
-                          <span>The 11th and 12th floors of the 16th J-Stower in Gangnam-gu, Seoul</span>
-                          <li><span>+82 010 1111 2222</span></li>
-                          <li><span>jhr1494@gmail.com</span></li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="row mt-5">
-          <div class="col-md-12 text-center">
-
-              <p class="copyright">
-                  Copyright &copy;
-                  <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-                  is made with <i class="fa fa-heart" aria-hidden="true"></i> by 3Team(Do.cU)
-              </p>
-          </div>
-      </div>
-      </div>
-</footer>
-<!-- footer script -->
-<script>
-  $(document).ready(function () {
-      //콤마작업
-      function comma(str) {
-          str = String(str);
-          return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
-      }
-
-      var d = document.querySelectorAll(".drug-text strong");
-      console.log(d);
-      change_comma();
-
-      function change_comma() {
-
-          for (var i = 0; i < d.length; i++) {
-              var num = comma(d[i].innerHTML);
-              d[i].innerHTML = num;
-          }
-
-
-      }
-
-
-      // 상단 카운트
-      var today = Number($(".today").html());
-      var total = Number($(".total").html());
-      var dataCount = Number($(".data-count").html());
-
-      $(function () {
-          var count0 = count1 = count2 = 0;
-          timeCounter();
-
-          function timeCounter() { //today
-              id0 = setInterval(count0Fn, 80);
-              function count0Fn() {
-                  count0++;
-                  if (count0 > 40) {
-                      clearInterval(id0);
-                      var str = comma(today)
-                      $(".today").html(str)
-                  } else {
-                      $(".number").eq(0).text(count0);
-                  }
-              }
-
-              id1 = setInterval(count1Fn, 30);
-
-              function count1Fn() { //total
-                  count1++;
-                  if (count1 > 100) {
-                      clearInterval(id1);
-                      var str = comma(total)
-                      $(".total").html(str)
-                  } else {
-                      $(".number").eq(1).text(count1);
-                  }
-              }
-
-              id2 = setInterval(count2Fn, 30);
-
-              function count2Fn() { //data-total
-                  count2++;
-                  if (count2 > 100) {
-                      clearInterval(id2);
-                      var str = comma(dataCount)
-                      $(".data-count").html(str)
-                  } else {
-                      $(".number").eq(2).text(count2);
-                  }
-              }
-          }
-      });
-
-  });
+        })
+    </script>
 
 
 
-</script>
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <h2 class="footer-heading">Petsitting</h2>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                </div>
+
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <h2 class="footer-heading">Quick Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="py-2 d-block">Home</a></li>
+                        <li><a href="#" class="py-2 d-block">About</a></li>
+                        <li><a href="#" class="py-2 d-block">Board</a></li>
+                        <li><a href="#" class="py-2 d-block">Seach</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <h2 class="footer-heading">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <span>The 11th and 12th floors of the 16th J-Stower in Gangnam-gu, Seoul</span>
+                            <li><span>+82 010 1111 2222</span></li>
+                            <li><span>jhr1494@gmail.com</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+
+                <p class="copyright">
+                    Copyright &copy;
+                    <scrip>document.write(new Date().getFullYear());</scrip> All rights reserved | This template
+                    is made with <i class="fa fa-heart" aria-hidden="true"></i> by 3Team(Do.cU)
+                </p>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- footer script -->
+    <script>
+        $(document).ready(function () {
+            //콤마작업
+            function comma(str) {
+                str = String(str);
+                return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+            }
+
+            var d = document.querySelectorAll(".drug-text strong");
+            console.log(d);
+            change_comma();
+
+            function change_comma() {
+
+                for (var i = 0; i < d.length; i++) {
+                    var num = comma(d[i].innerHTML);
+                    d[i].innerHTML = num;
+                }
+
+
+            }
+
+
+            // 상단 카운트
+            var today = Number($(".today").html());
+            var total = Number($(".total").html());
+            var dataCount = Number($(".data-count").html());
+
+            $(function () {
+                var count0 = count1 = count2 = 0;
+                timeCounter();
+
+                function timeCounter() { //today
+                    id0 = setInterval(count0Fn, 80);
+                    function count0Fn() {
+                        count0++;
+                        if (count0 > 40) {
+                            clearInterval(id0);
+                            var str = comma(today)
+                            $(".today").html(str)
+                        } else {
+                            $(".number").eq(0).text(count0);
+                        }
+                    }
+
+                    id1 = setInterval(count1Fn, 30);
+
+                    function count1Fn() { //total
+                        count1++;
+                        if (count1 > 100) {
+                            clearInterval(id1);
+                            var str = comma(total)
+                            $(".total").html(str)
+                        } else {
+                            $(".number").eq(1).text(count1);
+                        }
+                    }
+
+                    id2 = setInterval(count2Fn, 30);
+
+                    function count2Fn() { //data-total
+                        count2++;
+                        if (count2 > 100) {
+                            clearInterval(id2);
+                            var str = comma(dataCount)
+                            $(".data-count").html(str)
+                        } else {
+                            $(".number").eq(2).text(count2);
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
 </body>
+
 </html>
