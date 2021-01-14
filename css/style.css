@@ -435,3 +435,71 @@
 	padding: 50px;
 	font-size: 10px;
 }
+
+
+
+/* ==================board ================== */
+
+.board_list_container { 
+	font-family: 'GmarketSansMedium'; 
+	padding: 50px; 
+	font-size: 15px;}
+
+.BLQA-area { margin-top: 110px;}
+.bl_title_box{ padding: 0;}
+.bl_title_box > p { text-align: left; font-size: 20px; padding: 10px; }
+.table-bordered { border: 1px solid white; width: 100%; }
+.content-wrap { padding: 5%; }
+.table-bordered>tbody>tr>th ,td { 
+	border: none; 
+	border-bottom: 3px solid black;
+}
+
+#boardlistForm{ overflow: hidden;}
+
+.boardList-btn { background-color:#F2AB27 ;float: right; font-size: 18px; }      
+.TabDate { text-align: right;}
+.board-title { text-align: left ;}
+.BLnum{ text-align: center; }
+		
+
+.titlebox-inner { padding-top: 10px;}       
+div.gallery:hover { border: 1px solid #777; }
+div.gallery img { width: 100%; height: auto; }
+div.desc { padding: 15px; text-align: center; }
+
+.pager > li > a { margin: 2px; padding: 0px 5px; }
+
+.BLRcontainer { font-family: 'GmarketSansMedium'; margin: 0 auto; float: none;
+	padding-top: 120px; padding-left: 20%; padding-right: 20%; width: 100% auto;}
+.qa_titlebox>p { text-align: center; font-size: 20px; }
+.t-title { border: 1px solid white; }
+.titlefoot{ padding-left: 25%; overflow: hidden; }
+/* .right-btn{ float: right; font-size: 18px;} */
+.right-btn{ float: right; font-size: 18px; padding: 1px;}
+#board-title-sel{ appearance: auto; }
+
+.titlebox {
+	overflow: hidden; padding-top: 35px;}
+
+
+.BLQA-area > .board_list_container {
+	font-family: 'GmarketSansMedium';
+	padding: 50px 0px; 
+	font-size: 15px;
+}
+   
+    .qa_blr_title_box > p { text-align: center; font-size: 20px; padding: 10px; border-bottom: 3px solid black; }
+    .qa_blr_title_box {  padding: 0;}
+    .blr_table { border: 1px solid white; width: 100%;}
+
+    .titlefoot{ padding-left: 25%; overflow: hidden; }
+    .blq-right-btn{ float: right; font-size: 18px;}
+    .innertitle { text-align: center; padding: 3px;}
+    .container{padding-right:5px ;}
+    .container-inner > .inner-control ,.container-inner >.form-control {
+        padding: 3px;
+    }
+				
+
+
