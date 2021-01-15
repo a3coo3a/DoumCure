@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do.cU(Cure yourself)</title>
+
+  <!-- 부트스크랩 참조파일 -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- 파비콘 -->
+  <link rel="shortcut icon" href="../img/title_icon.png">
+
+  <!-- 개인 디자인 추가 -->
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/style_header_footer.css" />
+  <link rel="stylesheet" href="../css/style(addSearch).css" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body style="overflow-x:hidden; overflow-y:auto;">
+<!-- header -->
+<header>
+    <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
+    <!-- sns -->
+    <div class="container-fluid">
+        <div class="row title-top">
+            <div class="col-lg-6 col-md-6 col-xs-6 title">
+                <img src="../img/title_icon.png" alt="title_icon">
+                <span>Do.cU(Cure yourself)</span>
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-xs-6 sns">
+                <img src="../img/main/kakao.png" alt="sns_kakao">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 네비바 -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid nav-menu">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <img src="../img/title_icon.png" alt="">
+                <a class="navbar-brand" href="#">Do.cU</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">HOME</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BOARD
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">자유게시판</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">증상별 검색</a></li>
+                            <li><a href="#">성분별 검색</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- 창크기가 980미만으로 가면 2줄로 생기는 문제가 발생하여 검색창 생략
+
+                    <form class="navbar-form navbar-left" action="/action_page.php">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">JOIN</a></li>
+                    <li><a href="#">LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 사이드바 -->
+    <div id="rightSide">
+        <div id="right_zzim">
+            <li class="seach-place">약국찾기</li>
+            <li class="like">즐겨찾기</li>
+            <li class="recTit">최근본약품</li>
+
+            <!-- 데이터 지정 후 구현예정
+                <ul> --본 상품이 뿌려질 부분-- </ul>
+    
+                <div id="paging"><a class="btn_prev" style="cursor:pointer">이전</a><span id="currentPage"></span><span
+                        id="totalPageCount"></span><a class="btn_next" style="cursor:pointer">다음</a></div>
+                
+            -->
+        </div>
+        <!-- top버튼(브라우저용) -->
+        <div id="top-btn">
+            <i class="fas fa-arrow-circle-up"></i>
+            <li>TOP</li>
+        </div>
+    </div>
+
+    <!-- top버튼(모바일용) -->
+    <div id="top-btn-m">
+        <i class="fas fa-arrow-circle-up"></i>
+        <li>TOP</li>
+    </div>
+
+</header>
+
+<!-- section -->
+<section class="medi-area">
+
+  <div class="container medi_container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 right-line">
+        <div>
+          <h4 class="medi-gray">업체명</h4>
+          <h5 class="medi-gray">분류</h5>
+          <h2 class="com-title-size">제품명</h2>
+          <h6 class="medi-gray">price</h6>
+        </div>
+        <div class="medi-com-img">
+            <img src="../img/user/bookmarkicon.png" alt="medi">
+            <div class="medi-com-bm empty-stars"><img src="../img/medi/empty-stars.png" alt="star"></div>
+        </div>
+        <div class="medi-info-detail">
+
+          <div class="medi-info-box">
+            <div class="com-title">효능 효과</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+    
+          <div class="medi-info-box">
+            <div class="com-title">용법 용량</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+    
+          <div class="medi-info-box">
+            <div class="com-title">성분</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+            <br/>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+    
+          <div class="medi-info-box">
+            <div class="com-title">주의 사항</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 right-line">
+        <div>
+          <h4 class="medi-gray">업체명</h4>
+          <h5 class="medi-gray">분류</h5>
+          <h2 class="com-title-size">제품명</h2>
+          <h6 class="medi-gray">price</h6>
+        </div>
+        <div class="medi-com-img">
+            <img src="../img/user/bookmarkicon.png" alt="medi">
+            <div class="medi-com-bm empty-stars"><img src="../img/medi/empty-stars.png" alt="star"></div>
+        </div>
+        <div class="medi-info-detail">
+
+          <div class="medi-info-box">
+            <div class="com-title">효능 효과</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+    
+          <div class="medi-info-box">
+            <div class="com-title">용법 용량</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+    
+          <div class="medi-info-box">
+            <div class="com-title">성분</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+            <br/>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+    
+          <div class="medi-info-box">
+            <div class="com-title">주의 사항</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div>
+          <h4 class="medi-gray">업체명</h4>
+          <h5 class="medi-gray">분류</h5>
+          <h2 class="com-title-size">제품명</h2>
+          <h6 class="medi-gray">price</h6>
+        </div>
+        <div class="medi-com-img">
+            <img src="../img/user/bookmarkicon.png" alt="medi">
+            <div class="medi-com-bm empty-stars"><img src="../img/medi/empty-stars.png" alt="star"></div>
+        </div>
+        <div class="medi-info-detail">
+
+          <div class="medi-info-box">
+            <div class="com-title">효능 효과</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+    
+          <div class="medi-info-box">
+            <div class="com-title">용법 용량</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+    
+          <div class="medi-info-box">
+            <div class="com-title">성분</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+            <br/>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+    
+          <div class="medi-info-box">
+            <div class="com-title">주의 사항</div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+
+</section>
+
+<!-- AOS 초기화 -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 col-sm-12">
+                <h2 class="footer-heading">Petsitting</h2>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+
+            <div class="col-md-6 col-lg-4 col-sm-12">
+                <h2 class="footer-heading">Quick Links</h2>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="py-2 d-block">Home</a></li>
+                    <li><a href="#" class="py-2 d-block">About</a></li>
+                    <li><a href="#" class="py-2 d-block">Board</a></li>
+                    <li><a href="#" class="py-2 d-block">Seach</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-4 col-sm-12">
+                <h2 class="footer-heading">Have a Questions?</h2>
+                <div class="block-23 mb-3">
+                    <ul>
+                        <span>The 11th and 12th floors of the 16th J-Stower in Gangnam-gu, Seoul</span>
+                        <li><span>+82 010 1111 2222</span></li>
+                        <li><span>jhr1494@gmail.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+
+            <p class="copyright">
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                is made with <i class="fa fa-heart" aria-hidden="true"></i> by 3Team(Do.cU)
+            </p>
+        </div>
+    </div>
+    </div>
+</footer>
+
+<!-- footer script -->
+<script>
+
+// 팝업띄우기
+function popup() {
+    var url = "popup.html";
+    var name = "popup test";
+    var option = "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width = 350px, height = 370px, top = 120px, left = 200";
+    
+    window.open(url, name, option);
+}
+popup();
+
+
+$(document).ready(function () {
+
+
+
+
+    //콤마작업
+    function comma(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+    }
+
+    var d = document.querySelectorAll(".drug-text strong");
+    var t = document.querySelectorAll(".text strong");
+    console.log(t);
+    change_comma(d);
+    change_comma(t);
+
+    function change_comma(a) {
+
+        for (var i = 0; i < a.length; i++) {
+            var num = comma(a[i].innerHTML);
+            a[i].innerHTML = num;
+        }
+    }
+
+
+
+});
+
+
+
+</script>
+
+
+</body>
+</html>

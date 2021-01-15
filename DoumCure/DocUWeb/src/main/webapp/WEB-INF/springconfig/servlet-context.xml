@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	
+	<annotation-driven />
+
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- 새롭게 선언하는 타일즈 리졸버 -->
+	<!-- 타일즈 템플릿 설정 -->
+	<beans:bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/tiles/tiles.xml</beans:value>	<!-- 타일즈 템플릿 설정 파일 경로 -->	
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<!-- 타일즈 설정 -->
+	<!-- 2가지이상의 뷰 리졸버를 설정하려면 UrlBasedViewResolver -->
+	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+		<beans:property name="order" value="1" />  <!-- 첫번째로 동작 -->
+	</beans:bean>
+	
+	<!-- 기본에 존재하는 뷰리졸버 -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2" /> <!-- 두번째로 동작 -->
+	</beans:bean>
+	
+	<!-- <context:component-scan base-package="com.team404.controller" />
+	<context:component-scan base-package="com.team404.freeboard.service" /> -->
+	<!-- com.team404로 시작하는 모든 파일 -->
+	<context:component-scan base-package="com.team3.*" >
+		<!-- include는 해당어노테이션만 읽도록 추가, exclude는 해당 어노테이션을 제외, 
+			expression = 어노테이션의 타입, controller 썻을때 import 된 경로 -->
+		<!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/> -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+	</context:component-scan>
+	
+	<!-- 파일업로드 설정(id를 반드시 multipartRsolver선언) -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 최대 업로드 가능한 크기 -->
+		<beans:property name="maxUploadSize" value="52428800"/>
+		<!-- 인코딩 설정 -->
+		<beans:property name="defaultEncoding" value="UTF-8"/>
+	</beans:bean>
+	
+</beans:beans>

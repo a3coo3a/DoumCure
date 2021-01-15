@@ -23,10 +23,19 @@
     /*카카오 지도 css*/
     #map{
       width: 100%;
-      height: 350px;
+      height: 400px;
       margin: 0 auto;
     }
-
+    @media (min-width: 1281px) {
+      #map{
+        height: 600px;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1280px) {
+      #map{
+        height: 500px;
+      }
+    }
     /* medistore css */
     .form-group{
       display: inline;
@@ -67,6 +76,21 @@
     }
     .medi-store p {
       margin-bottom: 0;
+    }
+    .medi-store a{
+      color:  rgba(0, 0, 0, 0.8);
+    }
+    .medi-store a:hover{
+      color : ;
+    }
+    .pager li>a, .pager li>span {
+      border: none;
+      padding: 5px 10px;
+      color:  rgba(0, 0, 0, 0.8);
+    }
+    .pager li>a:focus, .pager li>a:hover{
+      background-color: #66e992;
+      color: #fff;
     }
     </style>
 </head>
@@ -177,6 +201,7 @@
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div id="map"></div>
+        <p id="result"></p>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="medi-store-title">
@@ -221,23 +246,38 @@
 
         <!-- 검색후 나오는 매장 데이터 -->
         <div class="medi-store">
-          <h4 class="store-name">우리약국1</h4>
+          <h4 class="store-name"><a href="#">우리약국1</a></h4>
           <p>경기도 서울시 강남구 </p>
           <p>02-0000-0000</p>
         </div>
 
         <div class="medi-store">
-          <h4 class="store-name">우리약국2</h4>
+          <h4 class="store-name"><a href="#">우리약국2</a></h4>
           <p>경기도 서울시 강남구 </p>
           <p>02-0000-0000</p>
         </div>
 
         <div class="medi-store">
-          <h4 class="store-name">우리약국3</h4>
+          <h4 class="store-name"><a href="#">우리약국3</a></h4>
           <p>경기도 서울시 강남구 </p>
           <p>02-0000-0000</p>
         </div>
-      
+
+        <div class="medi-store">
+          <h4 class="store-name"><a href="#">우리약국4</a></h4>
+          <p>경기도 서울시 강남구 </p>
+          <p>02-0000-0000</p>
+        </div>
+        <!-- 페이지네이션 -->
+      <ul class="pager">
+        <li><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+        <li><a href="#">1</a></li>
+        <li class="active"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+      </ul>
       </div>  <!--오른쪽end-->
     </div>
   </div>
@@ -378,6 +418,7 @@
 <!-- mediStore script -->
 <!-- kakao map -->
 <script>
+  //------------ 지도생성 ----------------------//
   var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
   var options = { //지도를 생성할 때 필요한 기본 옵션
     center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
@@ -386,6 +427,22 @@
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
+// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+//*----------- 지역크기별 확대 축소 ----------------------//
+// 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
+kakao.maps.event.addListener(map, 'zoom_changed', function() {        
+    
+    // 지도의 현재 레벨을 얻어옵니다
+    var level = map.getLevel();
+    
+    var message = '현재 지도 레벨(크기)은 ' + level + ' 입니다';
+    $('#result').html(message);  
+    
+    
+});
 
 </script>
 

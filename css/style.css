@@ -183,8 +183,7 @@
 	padding: 50px;
 	font-size: 10px;
 }
-.user-area,
-.medi-area {
+.user-area {
 	margin-top: 110px;
 }
 .user-bg {
@@ -280,7 +279,8 @@
 	float: left;
 }
 /* user-table */
-.user-borad-title {
+.user-borad-title,
+.medi-borad-title {
 	margin-left: 20px;
 }
 .user-table thead tr th {
@@ -289,7 +289,8 @@
 .user-table thead {
 	font-size: 12px;
 }
-.user-table a {
+.user-table a,
+.medi-table .la-area a {
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -432,7 +433,7 @@
 /* ====================== MEDI ====================== */
 .medi_container {
 	font-family: 'GmarketSansMedium';
-	padding: 50px;
+	padding: 30px;
 	font-size: 10px;
 }
 
