@@ -20,7 +20,42 @@
   <link rel="stylesheet" href="../css/style.css" />
 
 <style>
+<<<<<<< HEAD
 </style>
+=======
+     /* 게시글 등록 */
+     /* .BLQA-area > .board_list_container {
+        font-family: 'GmarketSansMedium';
+        padding: 50px 0px; 
+        font-size: 15px;
+    }
+    .BLQA-area {margin-top: 110px;}
+    .qa_blr_title_box > p { text-align: center; font-size: 20px; padding: 10px; }
+    .qa_blr_title_box { padding: 0;}
+    .table-bordered { border: 1px solid white; width: 100%; }
+
+    .titlefoot{ padding-left: 25%; overflow: hidden; }
+    .board_list_container > .content-wrap { padding: 10%;  padding-top: 0px;}
+    .table-bordered>tbody>tr>th {
+        border: none;
+        border-bottom: 3px solid black;
+        font-size: 17px;
+    }
+    .table-bordered>tbody>tr>td {
+        border: none;
+        border-bottom: 1px solid black;         
+    }
+    
+    #boardlistForm{
+        overflow: hidden;
+    }
+
+    .boardList-btn {
+        background-color:#F2AB27 ;
+        float: right; font-size: 18px;
+    } */
+    </style>
+>>>>>>> c098fe32554f4af988faca64ad9f17cee1a850d3
 
 </head>
 
@@ -227,6 +262,7 @@
 </footer>
 
 
+<<<<<<< HEAD
 
 <!-- section script -->
     <script> 
@@ -240,5 +276,91 @@
             };
             reader.readAsDataURL(event.target.files[0]);
         } 
+=======
+</header>
+
+<!-- section 본문시작-->
+<section>
+<div class="BLQA-area">
+    <div class="container board_list_container ">
+        <div class="row content-wrap">
+            <div class="qa_blr_title_box col-lg-12 ">
+                <p>Q&A게시판</p>
+            </div>
+            <!--공지사항 리스트 -->
+            <form action="boardlistForm" method="POST" name="boardlistForm">
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="BLnum">num</th>
+                        <th class="board-title">title</th>
+                        <th class="TabDate">regdate</th>
+                        <th class="pan" ><i class="fa fa-unlock">비밀글</i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="BLnum">1</td>
+                        <td class="board-title">제목입니다</td>
+                        <td class="TabDate">20.01.12</td>
+                        <td class="pan" ><i class="fa fa-unlock"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="BLnum">2</td>
+                        <td class="board-title">제목입니다</td>
+                        <td class="TabDate">등록일</td>
+                        <td class="pan"></td>
+                    </tr>
+                    <tr>
+                        <td class="BLnum">3</td>
+                        <td class="board-title">제목입니다</td>
+                        <td class="TabDate">등록일</td>
+                        <td class="pan"></td>
+                    </tr>
+                    <tr>
+                        <td class="BLnum">4</td>
+                        <td class="board-title">제목입니다</td>
+                        <td class="TabDate">등록일</td>
+                        <td class="pan"></td>
+                    </tr>
+                    <tr>
+                        <td class="BLnum">5</td>
+                        <td class="board-title">제목입니다</td>
+                        <td class="TabDate">등록일</td>
+                        <td class="pan"></td>
+                    </tr>
+
+                    <!-- <tbody>
+                        <c:forEach var="vo" items="${list }">
+                        <tr>
+                            <td>${vo.bno }</td>
+                            <td><a href="freeDetail?bno=${vo.bno }">${vo.title }</a></td>
+                            <td>${vo.writer }</td>
+                            <td><fmt:formatDate value="${vo.regdate }" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
+                            <td><fmt:formatDate value="${vo.updatedate }" pattern="yyyy년MM월dd일  hh시mm분"/></td>
+                        </tr>
+                    </c:forEach>
+                </tbody> -->
+                
+            </table>
+            
+            <button type="submit" class="btn boardList-btn">write</button>
+            <input type="hidden" name="pageNum" value="1"> <!-- 검색버튼이 눌리면 무조건 페이지번호를 1번호으로 다시 세팅 -->
+            <input type="hidden" name="amount" value="${pageVO.amount }">
+                <ul class="pager">
+                    <li><a href="#"><<</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">>></a></li>
+                </ul>
+            </form>
+
+        </div>
+    </div>
+</div>
+</section>
+>>>>>>> c098fe32554f4af988faca64ad9f17cee1a850d3
 
     </script>
