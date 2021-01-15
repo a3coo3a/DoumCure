@@ -482,25 +482,49 @@ div.desc { padding: 15px; text-align: center; }
 
 .titlebox {
 	overflow: hidden; padding-top: 35px;}
-
-
 .BLQA-area > .board_list_container {
 	font-family: 'GmarketSansMedium';
 	padding: 50px 0px; 
 	font-size: 15px;
 }
-   
-    .qa_blr_title_box > p { text-align: center; font-size: 20px; padding: 10px; border-bottom: 3px solid black; }
-    .qa_blr_title_box {  padding: 0;}
-    .blr_table { border: 1px solid white; width: 100%;}
+.qa_blr_title_box > p { text-align: center; font-size: 20px; padding: 10px; border-bottom: 3px solid black; }
+.qa_blr_title_box {  padding: 0;}
+.blr_table { border: 1px solid white; width: 100%;}
 
-    .titlefoot{ padding-left: 25%; overflow: hidden; }
-    .blq-right-btn{ float: right; font-size: 18px;}
-    .innertitle { text-align: center; padding: 3px;}
-    .container{padding-right:5px ;}
-    .container-inner > .inner-control ,.container-inner >.form-control {
-        padding: 3px;
-    }
-				
+.blq-right-btn{ float: right; font-size: 18px;}
+.innertitle { text-align: center; padding: 3px;}
+.container{padding-right:5px ;}
+.container-inner > .inner-control ,.container-inner >.form-control {
+	padding: 3px;
+}
+
+
+.BLQA-area {margin-top: 110px;}
+.qa_blr_title_box > p { text-align: center; font-size: 20px; padding: 10px; }
+.qa_blr_title_box { padding: 0;}
+.table-bordered { border: 1px solid white; width: 100%; }
+
+.titlefoot{ padding-left: 25%; overflow: hidden; }
+.board_list_container > .content-wrap { padding: 10%;  padding-top: 0px;}
+.table-bordered>tbody>tr>th {
+	border: none;
+	border-bottom: 3px solid black;
+	font-size: 17px;
+}
+.table-bordered>tbody>tr>td {
+	border: none;
+	border-bottom: 1px solid black;         
+}
+
+#boardlistForm{
+	overflow: hidden;
+}
+
+.boardList-btn {
+	background-color:#F2AB27 ;
+	float: right; font-size: 18px;
+}
+
+
 
 
