@@ -1,0 +1,47 @@
+----------- User table-------------
+-- 권한의 M,U로만 작성하여 M:관리자, U:일반유저 로 구분
+
+create table users (
+    USERID varchar2(50) primary key,  -- id PK, FK
+    USERPW varchar2(100) not null,   
+    USERPHONENUM varchar2(50) default 010-0000-0000,   
+    USERADDRZIPNUM varchar2(50) default '00000',
+    USERADDRBASIC varchar2(300) default '기본주소',
+    USERADDRDETAIL varchar2(300) default '상세주소',
+    USERBOOKMARK01 varchar2(20),   -- 즐겨찾기 (prono FK)
+    USERBOOKMARK02 varchar2(20),   -- 즐겨찾기 (prono FK)
+    USERBOOKMARK03 varchar2(20),   -- 즐겨찾기 (prono FK)
+    USERMANAGE varchar2(20) check (USERMANAGE in('M','U'))  -- 권한
+)
+
+----------- Board table-------------
+create table bbs (
+    BBSNO NUMBER(10), --글번호 FK 
+    BBSWRITE varchar2(50), --글쓴이 PK
+    BBSTITLE varchar2(200) not null , -- 제목
+    BBSCONTENT varchar2(2000) not null , -- 내용 
+    uploadpath VARCHAR2(50) not null, -- 파일 경로
+    fileloca VARCHAR2(50) not null , -- 이미지 정보
+    filename VARCHAR2(50)  not null , -- 파일명
+    filerealname VARCHAR2(50) not null, -- 실제 파일면
+    BBSOC varchar2(10) CHECK (BBSOC IN ('ON','OFF')), -- 비밀글체크 
+    BBSCATE varchar2(50), --카테고리
+    BBSREGDATE date default sysdate -- 등록일 
+)
+alter table bbs add CONSTRAINT bbswrite_pk PRIMARY KEY (bbswrite);
+create SEQUENCE bbs_seq INCREMENT BY 1 START WITH 1 NOCACHE;
+
+----------- Medi table-------------
+create table MEDI (
+    PRONO varchar2(20) primary key,
+    PRONAME varchar2(50) not null,
+    PROCOM varchar2(200) not null,
+    PROEFFI varchar2(200) default '내용없음',
+    PROSAVE varchar2(1000) default '내용없음',
+    PRODATE varchar2(200) default '내용없음',
+    PROUSE varchar2(1000) default '내용없음',
+    PROMAIN varchar2(2000) default '내용없음',
+    PROSUB varchar2(2000) default '내용없음',
+    PRODANGER varchar2(2000) default '내용없음',
+    PROIMG varchar2(1000)
+)
