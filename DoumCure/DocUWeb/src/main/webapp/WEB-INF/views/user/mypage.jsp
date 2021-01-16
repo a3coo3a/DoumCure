@@ -25,7 +25,7 @@
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 profile-box">
             <div class="user-profile-img">
-              <img src="../img/user/basic_profile.png" alt="profile">
+              <img src="${pageContext.request.contextPath }/resources/img/user/basic_profile.png" alt="profile">
               <div class="user-profile-emoji">😘</div>
             </div>
             <div class="user-profile-info">
@@ -39,15 +39,15 @@
       <div class="product-box">
           <h3><span class="glyphicon glyphicon-bookmark"></span>&nbsp;즐겨찾기</h3>
             <div class="bookmark-product">
-              <div class="bookmark-img"><a href="#"><img src="../img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
+              <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
               <div class="bookmark-name"><a href="#">제품명01</a></div>
             </div>
             <div class="bookmark-product">
-              <div class="bookmark-img"><a href="#"><img src="../img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
+              <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
               <div class="bookmark-name"><a href="#">제품명01</a></div>
             </div>
             <div class="bookmark-product">
-              <div class="bookmark-img"><a href="#"><img src="../img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
+              <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
               <div class="bookmark-name"><a href="#">제품명01</a></div>
             </div>
       </div>
@@ -57,15 +57,15 @@
         <div class="product-box">
           <h3><span class="glyphicon glyphicon-sunglasses"></span>&nbsp;최근 본 상품</h3>
           <div class="bookmark-product">
-            <div class="bookmark-img"><a href="#"><img src="../img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
+            <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
             <div class="bookmark-name"><a href="#">제품명01</a></div>
           </div>
           <div class="bookmark-product">
-            <div class="bookmark-img"><a href="#"><img src="../img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
+            <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
             <div class="bookmark-name"><a href="#">제품명01</a></div>
           </div>
           <div class="bookmark-product">
-            <div class="bookmark-img"><a href="#"><img src="../img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
+            <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
             <div class="bookmark-name"><a href="#">제품명01</a></div>
           </div>
         </div>

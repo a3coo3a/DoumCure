@@ -90,7 +90,7 @@
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="medi-store-title">
-          <h3>약국찾기<img src="../img/medi/medistoreicon.png" alt=""></h3>
+          <h3>약국찾기<img src="${pageContext.request.contextPath }/resources/img/medi/medistoreicon.png" alt=""></h3>
         </div>    
         <div class="medi-sel-box">
           <div class="form-group">

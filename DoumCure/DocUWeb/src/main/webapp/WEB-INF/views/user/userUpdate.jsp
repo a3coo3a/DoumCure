@@ -83,9 +83,9 @@
                 <br/>
                 <!--input2탭의 input-addon을 가져온다 -->
                 <div class="form-group">
-                  <input name="phoneNum1" class="form-control sel" placeholder="010" onKeyPress="return checkNum(event)" required> -
-                  <input name="phoneNum2" class="form-control sel" placeholder="xxxx" onKeyPress="return checkNum(event)" required> -
-                  <input name="phoneNum3" class="form-control sel" placeholder="xxxx" onKeyPress="return checkNum(event)" required>
+                  <input name="phoneNum1" class="form-control sel" placeholder="010" onKeyPress="return checkNum(event)" /> -
+                  <input name="phoneNum2" class="form-control sel" placeholder="xxxx" onKeyPress="return checkNum(event)" /> -
+                  <input name="phoneNum3" class="form-control sel" placeholder="xxxx" onKeyPress="return checkNum(event)" />
                   <br/>
                 <p id="checkNum"></p>
                 </div>

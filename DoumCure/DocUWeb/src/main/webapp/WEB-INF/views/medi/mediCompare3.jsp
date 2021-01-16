@@ -14,8 +14,8 @@
           <h6 class="medi-gray">price</h6>
         </div>
         <div class="medi-com-img">
-            <img src="../img/user/bookmarkicon.png" alt="medi">
-            <div class="medi-com-bm empty-stars"><img src="../img/medi/empty-stars.png" alt="star"></div>
+            <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
+            <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star"></div>
         </div>
         <div class="medi-info-detail">
 
@@ -51,8 +51,8 @@
           <h6 class="medi-gray">price</h6>
         </div>
         <div class="medi-com-img">
-            <img src="../img/user/bookmarkicon.png" alt="medi">
-            <div class="medi-com-bm empty-stars"><img src="../img/medi/empty-stars.png" alt="star"></div>
+            <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
+            <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star"></div>
         </div>
         <div class="medi-info-detail">
 
@@ -89,8 +89,8 @@
           <h6 class="medi-gray">price</h6>
         </div>
         <div class="medi-com-img">
-            <img src="../img/user/bookmarkicon.png" alt="medi">
-            <div class="medi-com-bm empty-stars"><img src="../img/medi/empty-stars.png" alt="star"></div>
+            <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
+            <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star"></div>
         </div>
         <div class="medi-info-detail">
 

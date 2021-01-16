@@ -6,6 +6,7 @@
   
   <mapper namespace="com.team3.medi.mapper.MediMapper">
   
+  <!-- 구현을 위한 테스트 입니다 지우고 작성하세요 -->
  	<select id="test" resultType="int">
  		select count(*) from MEDI 	
  	</select>

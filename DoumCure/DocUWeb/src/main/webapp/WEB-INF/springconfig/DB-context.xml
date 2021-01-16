@@ -35,4 +35,7 @@
 	<!-- *, **의 차이는 파일과 폴더라고 보시면 됩니다.첫번째는 모든파일, 두번째는 모든 하위폴더  -->
 	<mybatis-spring:scan base-package="com.team3.*.mapper"/>
 	<mybatis-spring:scan base-package="com.team3.*.*.mapper"/>
+	
+	
+	
 </beans>
