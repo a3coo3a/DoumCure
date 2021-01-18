@@ -5,15 +5,50 @@
   
   
   <mapper namespace="com.team3.board.mapper.BoardMapper">
-  
- 	<!-- 구현을 위한 테스트 입니다 지우고 작성하세요 -->
- 	<select id="test" resultType="int">
- 		select count(*) from BBS	
- 	</select>
+  	
+ 	<!-- 글 등록 -->
+ 	<insert id="bbsRegist" >
+ 		insert into bbs (BBSNO, BBSWRITE,BBSTITLE,BBSCONTENT,
+ 			uploadpath, fileloca,filename,filerealname,BBSOC)
+		VALUES (BBS_SEQ.nextval,#{bbsWrite},#{bbsTetle},#{bbsContent},
+			 #{uploadPath},#{fileLoca} ,#{fileName},#{fileRealName},#{bbsoc})
+ 	</insert>	
  	
+ 	<!-- 글 목록 조회 -->
+ 	<select id="getbbsList" resultType="BoardVO">
+	 	<!-- select * from bbs where BBSNO = #{bbsNo} order by bno desc --> 			
+ 			
+ 	<![CDATA[  
+		select *
+		from (
+		    select rownum as rn,
+		           a.*
+		    from (select *
+		          from bbs
+		          	]]>
+		          	
+		          	<if test="searchType=='bbsTitle'">where bbsTitle like '%'||#{searchName}||'%'</if>
+		          	<if test="searchType=='bbsWriter'">where bbsWriter like'%'||#{searchName}||'%'</if>
+		          	<if test="searchType=='bbsContent'">where bbsContent like '%'||#{searchName}||'%'</if>
+		          	<if test="searchType=='bbsTitcont'">where bbsTitle like '%'||#{searchName}||'%'or bbsContent like '%'|| #{searchName}||'%'</if>
+		          	<if test="searchType==null or searchType=='' ">where 1 = 1 </if>
+		  <![CDATA[         
+		          order by bbsNo desc) a
+		      )
+		where rn > (#{pageNum}-1) * #{amount} and rn <= #{pageNum} * #{amount}
+		]]>
+	</select>
  	
- 	
- 	
+ 	<!-- 글 전체 개수 -->
+ 	<select id="getTotal" resultType="int">
+		select count(*) as total from bbs
+		<if test="searchType=='bbsTitle'">where bbsTitle like '%'||#{searchName}||'%'</if>
+       	<if test="searchType=='bbsWriter'">where bbsWriter like'%'||#{searchName}||'%'</if>
+       	<if test="searchType=='bbsContent'">where bbsContent like '%'||#{searchName}||'%'</if>
+       	<if test="searchType=='bbsTitcont'">where bbsTitle like '%'||#{searchName}||'%'or bbsContent like '%'|| #{searchName}||'%'</if>
+       	<if test="searchType==null or searchType=='' ">where 1 = 1 </if>
+		     
+	</select>
  	
  	
  	

@@ -24,4 +24,6 @@
 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
 	</definition>
 	
+	<definition name="popup" template="/WEB-INF/views/popup.jsp" />
+	
 </tiles-definitions>

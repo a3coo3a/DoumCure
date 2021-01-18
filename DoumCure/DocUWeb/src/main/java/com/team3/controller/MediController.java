@@ -24,4 +24,9 @@ public class MediController {
 		return "medi/mediStore"; 
 	}
 	
+	@RequestMapping("/mediSearch")
+	public String mediSearch() {
+		return "medi/mediSearch"; 
+	}
+	
 }

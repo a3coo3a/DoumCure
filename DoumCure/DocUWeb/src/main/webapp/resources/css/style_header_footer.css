@@ -398,7 +398,7 @@ footer .footer-menu li a {
 
 /* 팝업 */
 .pop-img img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -411,9 +411,9 @@ footer .footer-menu li a {
     font-family: 'ELAND_Choice_L';
     font-size: 15px;
     display: block;
-    float: left;
+    float: right;
 }
 
 .pop-btn a {
-    padding-left: 90px;
+    padding-left: 10px;
 }

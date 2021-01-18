@@ -1,20 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
+ 
+
  <header>
         <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
         <!-- sns -->
         <div class="container-fluid">
             <div class="row title-top">
                 <div class="col-lg-6 col-md-6 col-xs-6 title">
-                    <img src="img/title_icon.png" alt="title_icon">
+                    <img src="${pageContext.request.contextPath }/resources/img/title_icon.png" alt="title_icon">
                     <span>Do.cU(Cure yourself)</span>
 
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-xs-6 sns">
-                    <img src="img/main/kakao.png" alt="sns_kakao">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-twitter"></i>
+                    <img id="kakao" src="${pageContext.request.contextPath }/resources/img/main/kakao.png" style="cursor: pointer;">
+                    <i class="fab fa-instagram insta"></i>
+                    <i class="fab fa-twitter twitter"></i>
                 </div>
             </div>
         </div>
@@ -29,41 +33,36 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <img src="img/title_icon.png" alt="">
-                    <a class="navbar-brand" href="#">Do.cU</a>
+                    <img src="${pageContext.request.contextPath }/resources/img/title_icon.png" alt="">
+                    <a class="navbar-brand" href="${pageContext.request.contextPath }">Do.cU</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">HOME</a></li>
+                        <li><a href="${pageContext.request.contextPath }">HOME</a></li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BOARD
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">공지사항</a></li>
-                                <li><a href="#">자유게시판</a></li>
+                                <li><a href="${pageContext.request.contextPath }/board/bbsList">공지사항</a></li>
+                                <li><a href="${pageContext.request.contextPath }/board/QAboardList">자유게시판</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">증상별 검색</a></li>
-                                <li><a href="#">성분별 검색</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="${pageContext.request.contextPath }/medi/mediSearch">SEARCH</a></li>
                     </ul>
 
-                    <!-- 창크기가 980미만으로 가면 2줄로 생기는 문제가 발생하여 검색창 생략
-
-                        <form class="navbar-form navbar-left" action="/action_page.php">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                    -->
+                    <c:choose>
+                    <c:when test="${sessionScope.userVO == null }">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">JOIN</a></li>
-                        <li><a href="#">LOGIN</a></li>
-                    </ul>
+                        <li><a href="${pageContext.request.contextPath }/user/join">JOIN</a></li>
+                        <li><a href="${pageContext.request.contextPath }/user/login">LOGIN</a></li>
+                    </ul>                    
+                    </c:when>
+                    <c:otherwise>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="${pageContext.request.contextPath }/user/mypage">MYPAGE</a></li>
+                        <li><a href="${pageContext.request.contextPath }/user/logout">LOGOUT</a></li>
+                    </ul> 
+                    </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </nav>
@@ -71,29 +70,41 @@
         <!-- 사이드바 -->
         <div id="rightSide">
             <div id="right_zzim">
-                <li class="seach-place">약국찾기</li>
+                <li class="seach-place" onclick="location.href = '${pageContext.request.contextPath }/medi/mediStore'" style="cursor: pointer;" >약국찾기</li>
                 <li class="like">즐겨찾기</li>
-                <li class="recTit">최근본약품</li>
+               <!--  <li class="recTit">최근본약품</li> -->
 
-                <!-- 데이터 지정 후 구현예정
-                    <ul> --본 상품이 뿌려질 부분-- </ul>
-        
-                    <div id="paging"><a class="btn_prev" style="cursor:pointer">이전</a><span id="currentPage"></span><span
-                            id="totalPageCount"></span><a class="btn_next" style="cursor:pointer">다음</a></div>
-                    
-                -->
+                <c:choose>
+				<c:when test="${sessionScope.userVO == null}">
+                    <ul style="margin-top: 70%; text-align: center;"><a href=${pageContext.request.contextPath }/user/login>로그인 후<br/>이용가능합니다</a> </ul>
+				
+				</c:when>                
+        		<c:otherwise>
+	                <!-- 데이터 지정 후 구현예정-->
+                    <ul>
+                    	<li><img src=""></li>
+                    	<li><img src=""></li>
+                    	<li><img src=""></li>
+                    </ul>
+                            		
+        		</c:otherwise>
+                </c:choose>
+                
             </div>
             <!-- top버튼(브라우저용) -->
-            <div id="top-btn">
+            <div id="top-btn" style="cursor: pointer;" onclick="window.scrollTo(0,0);">
                 <i class="fas fa-arrow-circle-up"></i>
                 <li>TOP</li>
             </div>
         </div>
 
         <!-- top버튼(모바일용) -->
-        <div id="top-btn-m">
+        <div id="top-btn-m" id="top-btn" style="cursor: pointer;" onclick="window.scrollTo(0,0);">
             <i class="fas fa-arrow-circle-up"></i>
             <li>TOP</li>
         </div>
 
     </header>
+
+
+    
