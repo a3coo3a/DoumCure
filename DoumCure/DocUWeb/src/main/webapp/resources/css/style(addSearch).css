@@ -417,6 +417,11 @@ body {
 	background-color: #41bf6d;
 	color: #ffffff;
 }
+.user-join-btn{
+	background-color: #73BF41;
+	color: #ffffff;
+}
+
 /* kakao, naver btn */
 .kakao-user-btn {
 	color: #fff;

@@ -324,7 +324,7 @@
 	    		
 	    }
 	    var storeInfo = "";
-	    for(var i = 0; i<5;i++){
+	    for(var i = 0; i<(places.length<=5?places.length:5);i++){
 	    	storeInfo += "<div class='medi-store'>";
 			storeInfo += "<h4 class='store-name'><a href='" + places[i].place_url + "'>" + places[i].place_name + "</a></h4>";
 			storeInfo += "<p>" + places[i].road_address_name + " (" + places[i].address_name + ") </p>";

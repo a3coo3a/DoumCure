@@ -10,9 +10,13 @@
   		select count(*) from USERS where userId = #{userId}
   	</select>
   
+  	<select id="userCheck" resultType="UserVO">
+  		select * from USERS where userId = #{userId}
+  	</select>
   
-  
-  
+  	<insert id="join">
+  		insert into USERS values(#{userId}, #{userPw}, #{userNickName},#{userPhoneNum},#{userAddrZipNum}, #{userAddrBasic}, #{userAddrDetailL}, #{userBookMark01}, #{userBookMark02}, #{userBookMark03}, #{userManage})
+	</insert>
   
   
   

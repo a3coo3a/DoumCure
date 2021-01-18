@@ -4,6 +4,7 @@
 create table users (
     USERID varchar2(50) primary key,  -- id PK, FK
     USERPW varchar2(100) not null,   
+    USERNICKNAME varchar2(50) default '닉네임',
     USERPHONENUM varchar2(50) default 010-0000-0000,   
     USERADDRZIPNUM varchar2(50) default '00000',
     USERADDRBASIC varchar2(300) default '기본주소',
@@ -11,8 +12,9 @@ create table users (
     USERBOOKMARK01 varchar2(20),   -- 즐겨찾기 (prono FK)
     USERBOOKMARK02 varchar2(20),   -- 즐겨찾기 (prono FK)
     USERBOOKMARK03 varchar2(20),   -- 즐겨찾기 (prono FK)
-    USERMANAGE varchar2(20) check (USERMANAGE in('M','U'))  -- 권한
-)
+    USERMANAGE varchar2(20) default 'U'     
+);
+ALTER TABLE users ADD CONSTRAINT user_man_chk CHECK(USERMANAGE in('M','U'));
 
 ----------- Board table-------------
 create table bbs (
