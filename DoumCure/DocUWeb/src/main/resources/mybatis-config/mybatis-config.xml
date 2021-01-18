@@ -6,9 +6,8 @@
 <!-- mapper에서 사용할 단축이름을 typeAliases에 기술합니다. -->
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.team3.command.FreeBoardVO" alias="FreeBoardVO"/>
-		<typeAlias type="com.team3.command.ReplyVO" alias="ReplyVO"/>
+		<typeAlias type="com.team3.command.BoardVO" alias="BoardVO"/>
 		<typeAlias type="com.team3.command.UserVO" alias="UserVO"/>
-		<typeAlias type="com.team3.command.SnsBoardVO" alias="SnsBoardVO"/>
+		<typeAlias type="com.team3.command.MediVO" alias="MediVO"/>
 	</typeAliases>
 </configuration>

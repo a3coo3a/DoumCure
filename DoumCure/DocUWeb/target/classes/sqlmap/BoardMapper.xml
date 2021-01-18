@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="com.team3.board.mapper.BoardMapper">
+  
+ 	<!-- 구현을 위한 테스트 입니다 지우고 작성하세요 -->
+ 	<select id="test" resultType="int">
+ 		select count(*) from BBS	
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+  
+  </mapper>
