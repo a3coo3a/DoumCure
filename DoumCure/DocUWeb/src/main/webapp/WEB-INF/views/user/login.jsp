@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
     <!-- 카카오 로그인  -->
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <!-- 네이버 로그인 -->
+    <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+    
+    <!-- 쿠키 다루는 라이브러리 -->
     <script src="${pageContext.request.contextPath }/resources/js/js.cookie.js"></script>
 <!-- login css -->
   <style>
@@ -34,6 +38,14 @@
   	color: rgba(0, 0, 0, 0.8);
     text-decoration: none;
   }
+  #check {
+  	color : red;
+  }
+  #naverIdLogin a {
+  	display : block; 
+  	width : 100%; 
+  	height : 100%
+  }  
   </style>
   
   <section class="user-bg user-area">
@@ -57,18 +69,30 @@
                   <a href='#' class="user-right">ID / PW찾기</a>
                 </div> 
                 <div class="form-group">
-                    <p id="check"></p>
+                    <p id="check">${msg }</p>
                     <button type="button" class="btn btn-lg user-btn btn-block" onclick="check()">로그인</button>
                     <button type="button" class="btn btn-lg user-join-btn btn-block" onclick="location.href='id_pwJoin'">회원가입</button>
                 </div>
                 <hr class="user_line">
-                <div class="form-group">
-                    <button type="button" class="btn btn-lg btn-block kakao-user-btn" id="custom-login-btn" onclick="location.href='javascript:loginWithKakao()'"><img src="${pageContext.request.contextPath }/resources/img/user/kakaolink_btn_small.png">카카오로그인</button>
-                    <button type="button" class="btn btn-lg btn-block naver-user-btn"><img src="${pageContext.request.contextPath }/resources/img/user/navericon.PNG">네이버로그인</button>
+                <div class="form-group" >
+                    <button type="button" class="btn btn-lg btn-block kakao-user-btn" id="custom-login-btn" onclick="location.href='javascript:loginWithKakao()'"><img src="${pageContext.request.contextPath }/resources/img/user/kakaolink_btn_small.png">카카오로그인</button>               
+                    
+                   	
+                    <button type="button" class="btn btn-lg btn-block naver-user-btn" >
+                    	<div id="naverIdLogin" style="position:relative; top:-3px;"></div>
+                    	네이버로그인
+                    </button>
+                    
+                    
                 </div>
                 	
               </form>
               
+              <form action="kakaoLoginForm" id="kakaoLoginForm">
+              	<input type="hidden" id="kakaoId">
+              	<input type="hidden" id="kakaoPw">
+              	<input type="hidden" id="kakaoNickName">
+              </form>
             </div>
           </div>
         </div>
@@ -81,25 +105,25 @@
 	var chpw = false;
 	
 	function checkId(){
-    var id = $("#id").val().replace(/\s/gi, "");
+    var id = $("#userId").val().replace(/\s/gi, "");
 		if( id.length <= 0){
-      		console.log(id.length);
+      		//console.log(id.length);
       		$("#check").html('아이디를 입력해주세요');
-			$("#check").css("color","red");
       		chid = false;
 		}else if(id.length > 0){
-      		console.log(id.length);
+      		//console.log(id.length);
 			$("#check").html("");
      		chid = true;
 		}
 	}
 	
 	function checkPw(){
-		if($('#password').val() == ""){
+		if($('#userPw').val() == ""){
+			
 			$('#check').html('비밀번호를 입력해주세요');
-			$('#check').css("color","red");
       		chpw = false;
-		}else if($("#password").val() != "") {
+		}else if($("#userPw").val() != "") {
+			
 			$('#check').html("");
       		chpw = true;
     	}
@@ -110,7 +134,7 @@
 		if(chid){
       		checkPw();
     	}
-		if(chid && chpw && chpwma){
+		if(chid && chpw){
       		$("#loginForm").submit();
 		}
 	}
@@ -179,10 +203,10 @@ Kakao.isInitialized()
         // 닉네임
         //console.log(res.properties.nickname);
         
-      	$("#userId").val(res.id);
-      	$("#userPw").val(res.id);
-      	$("#userNickName").val(res.properties.nickname);
-      	$("#loginForm").submit();
+      	$("#kakaoId").val(res.id);
+      	$("#kakaoPw").val(res.id);
+      	$("#kakaoNickName").val(res.properties.nickname);
+      	$("#kakaoLoginForm").submit();
         
       },
       fail: function(error) {   // 실패시 에러 메세지 출력
@@ -195,3 +219,28 @@ Kakao.isInitialized()
   }
 
 </script>
+
+<!-- 네이버 로그인 -->
+<!-- 참고사이트 : https://m.blog.naver.com/PostView.nhn?blogId=yongyos&logNo=221542684624&proxyReferer=https:%2F%2Fwww.google.com%2F -->
+<script type="text/javascript">
+	// 버튼을 클릭해서 팝업창이 뜨게 설정
+	$(".naver-user-btn").click(function(){
+		$("#naverIdLogin")[0].children[0].click();
+	})
+
+
+	var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "j81MALFzCvcyoXYbiyNa",
+			callbackUrl: "http://localhost:8282/docuweb/user/navercallback",
+			isPopup: true, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 1, height: 40}
+		}
+	);
+	
+	/* 설정정보를 초기화하고 연동을 준비 */
+	naverLogin.init();
+	
+	
+	
+	</script>

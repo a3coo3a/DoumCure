@@ -5,6 +5,10 @@
   
 <!-- 타일즈 문서 선언 -->
 <tiles-definitions>
+
+	
+	
+	
 	<!-- 공통화면부분은 가장 아래 쪽에 작성한다. 직접 맵핑이 있는경우 먼저 적용될 수 있게 위에 공통은 아래에  -->
 	<definition name="base" template="/WEB-INF/tiles/template.jsp">
 		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
@@ -25,5 +29,11 @@
 	</definition>
 	
 	<definition name="popup" template="/WEB-INF/views/popup.jsp" />
+	
+	
+	<!-- 타일즈 미 적용 -->
+	<definition name="navercollback" template="/WEB-INF/views/user/navercallback.jsp"/>
+		
+	
 	
 </tiles-definitions>
