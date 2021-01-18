@@ -8,6 +8,7 @@
 
 
 
+
    <!-- Footer -->
 
    <footer class="footer">
@@ -21,10 +22,10 @@
             <div class="col-md-6 col-lg-4 col-sm-12">
                 <h2 class="footer-heading">Quick Links</h2>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="py-2 d-block">Home</a></li>
-                    <li><a href="#" class="py-2 d-block">About</a></li>
-                    <li><a href="#" class="py-2 d-block">Board</a></li>
-                    <li><a href="#" class="py-2 d-block">Seach</a></li>
+                    <li><a href="${pageContext.request.contextPath }" class="py-2 d-block">Home</a></li>
+                    <li><a href="#about" class="py-2 d-block">About</a></li>
+                    <li><a href="${pageContext.request.contextPath }/board/bbsList" class="py-2 d-block">Board</a></li>
+                    <li><a href="${pageContext.request.contextPath }/medi/mediSearch" class="py-2 d-block">Seach</a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-lg-4 col-sm-12">

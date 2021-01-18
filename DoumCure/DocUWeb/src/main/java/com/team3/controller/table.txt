@@ -27,10 +27,9 @@ create table bbs (
     BBSOC varchar2(10) CHECK (BBSOC IN ('ON','OFF')), -- 비밀글체크 
     BBSCATE varchar2(50), --카테고리
     BBSREGDATE date default sysdate -- 등록일 
-)
+);
 alter table bbs add CONSTRAINT bbsno_pk PRIMARY KEY (BBSNO);
 create SEQUENCE bbs_seq INCREMENT BY 1 START WITH 1 NOCACHE;
-
 ----------- Medi table-------------
 create table MEDI (
     PRONO varchar2(20) primary key,
