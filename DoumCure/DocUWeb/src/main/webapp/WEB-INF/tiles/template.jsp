@@ -14,7 +14,6 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-
     <!-- 파비콘 -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/img/title_icon.png">
 
@@ -22,6 +21,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style_header_footer.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style(addSearch).css" />
+	<script src="${pageContext.request.contextPath }/resources/js/kakaoSDK.js"></script>
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  

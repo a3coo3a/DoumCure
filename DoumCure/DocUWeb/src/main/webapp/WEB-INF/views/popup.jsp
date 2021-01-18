@@ -7,10 +7,17 @@
 
     <!-- 개인 디자인 추가 -->
     <!-- <link rel="stylesheet" href="css/reset.css" /> -->
-    <link rel="stylesheet" href="css/style_header_footer.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style_header_footer.css" />
 </head>
 
-
+<style>
+.pop-img img{
+	cursor: default;
+}
+.pop-img a{
+	
+}
+</style>
 
 <body>
     <div class=" pop-img">
@@ -21,8 +28,38 @@
     <div class="pop-btn">
         <input type="checkbox">
         <span>오늘 하루만 이 창을 닫습니다</span>
-        <a href="#">닫기 </a>
+        <a class="popupClose" href="#">닫기 </a>
     </div>
+    
+    <script>
+    var box = document.querySelector("input[type='checkbox']");
+    var a = document.querySelector(".popupClose");
+    
+    box.onclick = function(){
+        
+        if(box.checked){ //체크O
+            createCookie("mainPop");
+            window.close(); //팝업창 종료
+        }
+    }
+    
+    function createCookie(name){
+        var date = new Date();
+        date.setDate( date.getDate() + 1 ); //1일 설정
+
+        var cookie = "";
+        cookie += name + "=true;"; //쿠키 이름, 값 설정
+        cookie += "expires=" + date.toUTCString(); //시간설정
+
+        document.cookie = cookie;
+    }
+
+    
+    a.onclick = function() {
+    	 window.close();
+	}
+    
+    </script>
 
 </body>
 

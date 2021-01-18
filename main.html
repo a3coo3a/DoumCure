@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style_header_footer.css" />
     <link rel="stylesheet" href="css/style(addSearch).css" />
+    <script src="js/kakaoSDK.js"></script>
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -30,9 +31,9 @@
 </head>
 
 <body style="overflow-x:hidden; overflow-y:auto;">
+    <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
 
     <header>
-        <script src="https://kit.fontawesome.com/bd2222aea4.js" crossorigin="anonymous"></script>
         <!-- sns -->
         <div class="container-fluid">
             <div class="row title-top">
@@ -43,7 +44,7 @@
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-xs-6 sns">
-                    <img src="img/main/kakao.png" alt="sns_kakao">
+                    <img id="kakao" src="img/main/kakao.png" alt="sns_kakao">
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-twitter"></i>
                 </div>
@@ -509,18 +510,36 @@
 
 
 <script>
-    
+
+    //카카오공유
+    $(document).ready(function () {
+
+        var kakao = document.querySelector("#kakao");
+        console.log(kakao);
+
+        kakao.addEventListener("click", function () {
+            Kakao.init('fbb4d33c4d104dfee8ff11bced9882b7');
+            console.log(Kakao.isInitialized());
+
+            Kakao.Link.sendCustom({
+            templateId: 45127
+            });
+            
+        });
+    });
+
+
     // 팝업띄우기
     function popup() {
         var url = "popup.html";
         var name = "popup test";
         var option = "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width = 350px, height = 370px, top = 120px, left = 200";
-        
+
         window.open(url, name, option);
     }
     popup();
 
-    
+
     $(document).ready(function () {
 
 
@@ -534,9 +553,10 @@
 
         var d = document.querySelectorAll(".drug-text strong");
         var t = document.querySelectorAll(".text strong");
-        console.log(t);
+        // console.log(t);
         change_comma(d);
         change_comma(t);
+
 
         function change_comma(a) {
 

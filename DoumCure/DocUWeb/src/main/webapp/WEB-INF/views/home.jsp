@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+html {
+  scroll-behavior: smooth;
+}
+    
     <!-- 슬라이드 -->
     <section class="main_slider">
         <div id="carousel-main" class="carousel slide" data-ride="carousel">
@@ -195,7 +200,7 @@
 
                 <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
                     <div class="col-md-3 col-lg-3 col-xs-12">
-                        <div class=" main-list-small more">
+                        <div class=" main-list-small more" onclick="location.href = '${pageContext.request.contextPath }/board/bbsList'" style="cursor: pointer;"> 
                             <i class="fa fa-arrow-right" aria-hidden="true"> MORE</i>
                         </div>
                     </div>
@@ -245,7 +250,8 @@
         </div>
 
     </section>
-
+	
+	<div id = "about"></div>
     <!-- 소배너 -->
     <section class="ben">
         <span>COMMENT</span>
@@ -317,21 +323,36 @@
 
 
 <script>
-    
-    // 팝업띄우기
-    function popup() {
-        var url = "popup.jsp";
-        var name = "popup test";
-        var option = "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width = 350px, height = 370px, top = 120px, left = 200";
-        
-        window.open(url, name, option);
-    }
-    popup();
+	function more() {
+		location.href = "${pageContext.request.contextPath }/board/bbsList";
+	}
 
+	function getCookie(name){
+	    var cookies = document.cookie.split("; "); //쿠키자르기
+	
+	    //쿠키확인
+	    for(var i in cookies){
+	        if(cookies[i].search(name) != -1){ //쿠키를 탐색
+	            return true;
+	        }
+	    }
+	
+	}
     
     $(document).ready(function () {
 
+		//팝업띄우기
+    	//mainpop쿠키가 없는 경우에 팝업창을 실행
+        if(!getCookie("mainPop")){ //false -- 쿠키없음
+            
+            //open(팝업창경로, 이름, 옵션(문자열한줄로!))
+        	var url = "${pageContext.request.contextPath }/popup";
+            var name = "popup test";
+            var option = "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width = 350px, height = 370px, top = 120px, left = 200";
+            
+            window.open(url, name, option);
 
+        }
 
 
         //콤마작업
