@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../css/style.css" />
 
     <style>
-        .BLQA-area>.board_list_container {
+        /* .BLQA-area>.board_list_container {
             font-family: 'GmarketSansMedium';
             padding: 20px 0px;
             font-size: 15px;
@@ -68,7 +68,7 @@
         .container-inner>.inner-control,
         .form-control {
             padding: 3px;
-        }
+        } */
     </style>
 
 </head>
@@ -155,17 +155,40 @@
     </header>
 
     <!-- section 본문시작-->
-    <div class="bbs-area">
-        <div class="container bbs-list-container ">
-            <div class="row bbs-content-wrap">
-                <div class="bbs-list-title-box col-lg-12 ">
-                    <p id="notice">공지사항 게시판</p>
-                </div>
-                <!--공지사항 리스트 -->
-                <form action="boardlistForm" method="POST" name="boardlistForm">
+    <section>
+        <div class="bbs-area">
+            <div class="container bbs-list-container ">
+                <div class="row bbs-content-wrap">
+                    <div class="bbs-list-title-box col-lg-12 ">
+                        <p id="notice">공지사항 게시판</p>
+                    </div>
+                    <!--QA리스트 리스트 -->
+                    <form action="qabbsListForm">
+                        <div class="search-wrap">
+                            <button type="submit" class="btn btn-info search-btn">검색</button>
+
+                            <input type="text" class="form-control search-input" name="searchName"
+                                value="${pageVO.cri.searchName }">
+
+                            <select class="form-control search-select" name="searchType">
+                                <option value="title" ${pageVO.cri.searchType eq 'title' ? 'selected' : '' }>제목</option>
+                                <option value="content" ${pageVO.cri.searchType eq 'content' ? 'selected' : '' }>내용
+                                </option>
+                                <option value="writer" ${pageVO.cri.searchType eq 'writer' ? 'selected' : '' }>작성자
+                                </option>
+                                <option value="titcont" ${pageVO.cri.searchType eq 'titcont' ? 'selected' : '' }>제목+내용
+                                </option>
+                            </select>
+                        </div>
+
+                        <input type="hidden" name="pageNum" value="1"> <!-- 검색버튼이 눌리면 무조건 페이지번호를 1번호으로 다시 세팅 -->
+                        <input type="hidden" name="amount" value="${pageVO.amount }">
+                    </form>
+
                     <table class="table bbs-table-bordered">
                         <tr>
                             <th class="bbs-list-num">num</th>
+                            <th>writer</th>
                             <th class="bbs-list-title">title</th>
                             <th class="bbs-list-Date">regdate</th>
                             <th class="bbs-list-pan">secret</i>
@@ -173,6 +196,7 @@
                         </tr>
                         <tr>
                             <td class="bbs-list-num">1</td>
+                            <td>작성자</td>
                             <td class="bbs-list-title">제목입니다</td>
                             <td class="bbs-list-Date">20.01.12</td>
                             <td class="bbs-list-pan"><i class="fa fa-unlock"></i>
@@ -180,24 +204,28 @@
                         </tr>
                         <tr>
                             <td class="bbs-list-num">2</td>
+                            <td>작성자</td>
                             <td class="bbs-list-title">제목입니다</td>
                             <td class="bbs-list-Date">등록일</td>
                             <td class="bbs-list-pan"></td>
                         </tr>
                         <tr>
                             <td class="bbs-list-num">3</td>
+                            <td>작성자</td>
                             <td class="bbs-list-title">제목입니다</td>
                             <td class="bbs-list-Date">등록일</td>
                             <td class="bbs-list-pan"></td>
                         </tr>
                         <tr>
                             <td class="bbs-list-num">4</td>
+                            <td>작성자</td>
                             <td class="bbs-list-title">제목입니다</td>
                             <td class="bbs-list-Date">등록일</td>
                             <td class="bbs-list-pan"></td>
                         </tr>
                         <tr>
                             <td class="bbs-list-num">5</td>
+                            <td>작성자</td>
                             <td class="bbs-list-title">제목입니다</td>
                             <td class="bbs-list-Date">등록일</td>
                             <td class="bbs-list-pan"></td>
@@ -215,71 +243,92 @@
                             </c:forEach>
                           </tbody> -->
                     </table>
+                    <form action="freeList" name="pageForm">
+                        <div class="text-center">
+                            <hr>
+                            <ul class="pagination pagination-sm">
+                                <!-- 3.이전버튼 활성화여부 -->
+                                <c:if test="${pageVO.prev}">
+                                    <li>
+                                        <!-- href="#"은 a태그가 이동이 없고  클릭용으로 사용하기 위한 것 -->
+                                        <!-- 데이터 셋 으로 값 주기 = 제이슨 방식 "객체 '키': '값' " -> 히든으로 넘겨줄것 이기에 단일값만 보내주기로 수정  -->
+                                        <a href="#" data-page="${pageVO.startPage-1 }">이전</a>
+                                    </li>
+                                </c:if>
+                                <!-- 1.페이지네이션 번호 처리 -->
+                                <c:forEach var="num" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+                                    <li class="${pageVO.pageNum == num ? 'active' : '' }">
+                                        <a href="#" data-page="${num}">${num}</a>
+                                    </li>
+                                </c:forEach>
+                                <!-- 2.다음버튼 활성화여부 -->
+                                <c:if test="${pageVO.next }">
+                                    <li>
+                                        <a href="#" data-page="${pageVO.endPage+1 }">다음</a>
+                                    </li>
+                                </c:if>
+                            </ul>
+                            <c:if test="${sessionScope.userVO != null }">
+                                <button type="button" class="btn qa-bbsList-btn"
+                                    onclick="location.href='freeRegist' ">글쓰기</button>
+                            </c:if>
+                        </div>
 
-                    <input type="hidden" name="pageNum" value="1"> <!-- 검색버튼이 눌리면 무조건 페이지번호를 1번호으로 다시 세팅 -->
-                    <input type="hidden" name="amount" value="${pageVO.amount }">
-                    <button type="submit" class="btn qa-bbsList-btn">write</button>
+                        <!-- 폼형식으로 보내는데 숨겨서 보낼값 hidden으로 표시 -->
+                        <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
+                        <input type="hidden" name="amount" value="${pageVO.cri.amount }">
+                        <input type="hidden" name="searchType" value="${pageVO.cri.searchType }">
+                        <input type="hidden" name="searchName" value="${pageVO.cri.searchName }">
 
-                    <ul class="pager">
-                        <li>
-                            <a href="#">
-                                <<< /a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">>></a></li>
-                    </ul>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-        </section>
+    </section>
 
-        <!-- footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4 col-sm-12">
-                        <h2 class="footer-heading">Petsitting</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
-                    </div>
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <h2 class="footer-heading">Petsitting</h2>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary
+                        regelialia.</p>
+                </div>
 
-                    <div class="col-md-6 col-lg-4 col-sm-12">
-                        <h2 class="footer-heading">Quick Links</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Home</a></li>
-                            <li><a href="#" class="py-2 d-block">About</a></li>
-                            <li><a href="#" class="py-2 d-block">Board</a></li>
-                            <li><a href="#" class="py-2 d-block">Seach</a></li>
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <h2 class="footer-heading">Quick Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="py-2 d-block">Home</a></li>
+                        <li><a href="#" class="py-2 d-block">About</a></li>
+                        <li><a href="#" class="py-2 d-block">Board</a></li>
+                        <li><a href="#" class="py-2 d-block">Seach</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <h2 class="footer-heading">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <span>The 11th and 12th floors of the 16th J-Stower in Gangnam-gu, Seoul</span>
+                            <li><span>+82 010 1111 2222</span></li>
+                            <li><span>jhr1494@gmail.com</span></li>
                         </ul>
                     </div>
-                    <div class="col-md-6 col-lg-4 col-sm-12">
-                        <h2 class="footer-heading">Have a Questions?</h2>
-                        <div class="block-23 mb-3">
-                            <ul>
-                                <span>The 11th and 12th floors of the 16th J-Stower in Gangnam-gu, Seoul</span>
-                                <li><span>+82 010 1111 2222</span></li>
-                                <li><span>jhr1494@gmail.com</span></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-md-12 text-center">
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
 
-                    <p class="copyright">
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                        template
-                        is made with <i class="fa fa-heart" aria-hidden="true"></i> by 3Team(Do.cU)
-                    </p>
-                </div>
+                <p class="copyright">
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                    template
+                    is made with <i class="fa fa-heart" aria-hidden="true"></i> by 3Team(Do.cU)
+                </p>
             </div>
-    </div>
+        </div>
+        </div>
     </footer>
 
     <script>

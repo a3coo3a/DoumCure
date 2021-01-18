@@ -1,54 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <section>
   <div class="bbs-area">
     <div class="container bbs-list-container ">
       <div class="row bbs-content-wrap">
         <div class="bbs-list-title-box col-lg-12 ">
-          <button type="submit" class="btn bbsList-btn">write</button>
+          <button type="submit" class="btn bbsList-btn" onclick="location.href='bbsRegist' ">write</button>
           <p id="notice">공지사항 게시판</p>
         </div>
         
         <!--공지사항 리스트 -->
-        <form action="boardlistForm" method="POST" name="boardlistForm">
+        <form action="bbslistForm" method="POST" name="bsdlistForm">
           <table class="table bbs-table-bordered">
             <tr>
               <th class="bbs-list-num">num</th>
+			  <th >write</th>
               <th class="bbs-list-title">title</th>
               <th class="bbs-list-Date">regdate</th>
-
-              </th>
             </tr>
             <tr>
-              <td class="bbs-list-num">1</td>
-              <td class="bbs-list-title">제목입니다</td>
-              <td class="bbs-list-Date">20.01.12</td>
-
-              </td>
-            </tr>
-            <tr>
-              <td class="bbs-list-num">2</td>
-              <td class="bbs-list-title">제목입니다</td>
-              <td class="bbs-list-Date">등록일</td>
-
-            </tr>
-            <tr>
-              <td class="bbs-list-num">3</td>
-              <td class="bbs-list-title">제목입니다</td>
-              <td class="bbs-list-Date">등록일</td>
-
-            </tr>
-            <tr>
-              <td class="bbs-list-num">4</td>
-              <td class="bbs-list-title">제목입니다</td>
-              <td class="bbs-list-Date">등록일</td>
-
-            </tr>
-            <tr>
-              <td class="bbs-list-num">5</td>
-              <td class="bbs-list-title">제목입니다</td>
-              <td class="bbs-list-Date">등록일</td>
-
+			<c:forEach var="vo" items="${list }">
+         		<tr>
+	             <td>${vo.bno }</td>
+	             <td><a href="bbsDetail?bbsno=${vo.bbsNo }">${vo.bbsTitle}</a></td>
+	             <td>${vo.writer }</td>
+	             <td><fmt:formatDate value="${vo.bbsRegdate }" pattern="yy-MM-dd일  hh시mm분ss초"/></td>
+	             <td><fmt:formatDate value="${vo.updatedate }" pattern="yy-MM-dd일  hh시mm분"/></td>
+                </tr>
+			</c:forEach>
+              
             </tr>
 
             <!-- <tbody>
@@ -68,14 +51,29 @@
           <input type="hidden" name="amount" value="${pageVO.amount }">
 
           <ul class="pager">
-            <li><a href="#"><<</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">>></a></li>
-          </ul>
+            <c:if test="${pageVO.prev}">
+                        <li>
+                        		<!-- href="#"은 a태그가 이동이 없고  클릭용으로 사용하기 위한 것 -->
+                         		<!-- 데이터 셋 으로 값 주기 = 제이슨 방식 "객체 '키': '값' " -> 히든으로 넘겨줄것 이기에 단일값만 보내주기로 수정  -->
+                        	<a href="#" data-page="${pageVO.startPage-1 }">이전</a>
+                        </li>                    	
+                    	</c:if>
+                    	 <!-- 1.페이지네이션 번호 처리 -->
+                    	<c:forEach var="num" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+                    	<li class="${pageVO.pageNum == num ? 'active' : '' }">
+                    		<a href="#" data-page="${num}">${num}</a>
+                    	</li>
+                    	</c:forEach>
+                    	<!-- 2.다음버튼 활성화여부 -->
+                        <c:if test="${pageVO.next }">
+                        <li>
+                        	<a href="#" data-page="${pageVO.endPage+1 }">다음</a>
+                        </li>
+                        </c:if>
+                    </ul>
+                    <c:if test="${sessionScope.userVO != null }">
+					 <button type="button" class="btn btn-info" onclick="location.href='freeRegist' ">글쓰기</button>
+                    </c:if>
         </form>
 
 
