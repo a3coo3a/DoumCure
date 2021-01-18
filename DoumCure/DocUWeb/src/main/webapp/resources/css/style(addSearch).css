@@ -1216,3 +1216,37 @@ div.desc {
 .container-inner>.inner-control, .form-control {
 	padding: 3px;
 }
+
+	/*자게 그리드*/
+	.bbs-content-wrap > .board-table {
+	float: none; /*col의 플로팅 해제 */
+	margin: 0 auto;
+}
+/*---검색버튼--- */
+.bbs-content-wrap > .search-wrap {
+	overflow: hidden; /*부모요소에 히든 */
+	margin-bottom: 20px;
+}
+
+.search-btn, .search-input, .search-select {
+	float: right; /*우측 플로팅 */
+}
+
+.search-input {
+	width: 140px;s
+}
+
+.search-select {
+	width: 80px;
+}
+.pagination {
+	margin: 0; 
+	/*페이지 네이션의 기본 마진 0*/
+}
+.pagination > li ,
+#pageForm > .text-center .btn {
+	float: right; /*오른쪽으로 쌓아서 우측정렬 시킨다*/
+	border: 0; /*border스타일 해제*/
+	border-radius: 0; /*윤곽 0*/
+	padding: 5px 10px; /*버튼 패딩을 페이지네이션과 맞춘다*/
+}
