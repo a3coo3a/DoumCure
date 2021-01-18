@@ -19,4 +19,9 @@ public class MediController {
 		return "medi/mediList";
 	}
 	
+	@RequestMapping("/mediStore")
+	public String mediStore() {
+		return "medi/mediStore"; 
+	}
+	
 }
