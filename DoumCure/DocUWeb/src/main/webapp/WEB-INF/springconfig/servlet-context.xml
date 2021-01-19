@@ -59,4 +59,25 @@
 		<beans:property name="defaultEncoding" value="UTF-8"/>
 	</beans:bean>
 	
+	<!-- oauth2 naver login -->
+	<beans:bean id="naverClientID" class="java.lang.String">
+        <beans:constructor-arg value="j81MALFzCvcyoXYbiyNa" />
+	</beans:bean>
+	<beans:bean id="naverClientSecret" class="java.lang.String">
+	        <beans:constructor-arg value="B1XJQvULcw" />
+	</beans:bean>
+	<beans:bean id="naverRedirectUrl" class="java.lang.String">
+	        <beans:constructor-arg value="http://localhost:8282/docuweb/user/auth/naver/callback" />
+	</beans:bean>
+	    
+	<beans:bean id="naverSns" class="com.team3.docuweb.auth.NaverValue">
+	        <beans:constructor-arg value="naver" />
+	        <beans:constructor-arg ref="naverClientID" />
+	        <beans:constructor-arg ref="naverClientSecret" />
+	        <beans:constructor-arg ref="naverRedirectUrl" />
+	</beans:bean>
+	
+	
+	
+	
 </beans:beans>

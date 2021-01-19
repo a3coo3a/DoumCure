@@ -1,14 +1,21 @@
 package com.team3.controller;
 
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.team3.command.UserVO;
+import com.team3.docuweb.auth.NaverLogin;
+import com.team3.docuweb.auth.NaverValue;
 import com.team3.user.service.UserService;
 
 @Controller
@@ -17,6 +24,11 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	
+	
+	// 서블릿에 id값에 맞추어 가지고 옴.
+	@Inject
+	private NaverValue naverSns;
 	
 	@RequestMapping({"/join","/login","/id_pwJoin","/mypage","/userUpdate","/navercallback"})
 	public void views() {
@@ -70,9 +82,33 @@ public class UserController {
 	}
 	
 	@RequestMapping("/naverForm")
-	public String naverForm() {
+	public String naverForm(Model model) throws Exception {
 		System.out.println("------------------네이버 도착----------------------");
+		
+		
+		
+		NaverLogin naverLogin = new NaverLogin(naverSns);
+		System.out.println(naverLogin.getNaverAuthURL());
+		model.addAttribute("naver_url", naverLogin.getNaverAuthURL());
+		
+		
+		
+		
 		return "redirect:../";
+	}
+	
+	@RequestMapping("/auth/naver/callback")
+	public String NaverLoginCallback(Model model, @RequestParam String code) throws IOException, InterruptedException, ExecutionException {
+		// 1. code를 이용해서 access_token받기
+		NaverLogin naverLogin = new NaverLogin(naverSns);
+		// 2. access_token을 이용해서 사용자 profile 정보 가져오기
+		String profile = naverLogin.getUserProfile(code);
+		System.out.println("profile>>"+ profile);
+		model.addAttribute("result", profile);
+		// 3. DB에 해당 유저가 존재하는지를 체크
+		
+		// 4. 존재하면 로그인, 미존재시 DB저장 후 로그인
+		return "/loginResult";
 	}
 	
 }
