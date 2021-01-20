@@ -7,16 +7,16 @@
   <mapper namespace="com.team3.board.mapper.BoardMapper">
   	
  	<!-- 글 등록 -->
- 	<insert id="freeRegist" >
+ <!-- 	<insert id="freeRegist" >
  		insert into bbs (BBSNO, BBSWRITE,BBSTITLE,BBSCONTENT,
  			uploadpath, fileloca,filename,filerealname,BBSOC)
 		VALUES (BBS_SEQ.nextval,#{bbsWrite},#{bbsTetle},#{bbsContent},
 			 #{uploadPath},#{fileLoca} ,#{fileName},#{fileRealName},#{bbsoc})
- 	</insert>	
+ 	</insert>	 -->
  	
  	<!-- 글 목록 조회 -->
  	<select id="getfreeList" resultType="BoardVO">
-	 	<!-- select * from bbs where BBSNO = #{bbsNo} order by bno desc --> 			
+	 	<!-- select * from bbs where BBSNO = #{bbsNo} order by bno desc --> 		
  			
  	<![CDATA[  
 		select *
@@ -50,8 +50,18 @@
 		     
 	</select>
  	
+ 	<!-- 게시글 등록 -->
+ 	<insert id="insertFile" >
+ 		insert into bbs (BBSNO, BBSWRITE,BBSTITLE,BBSCONTENT,
+ 			uploadpath, fileloca,filename,filerealname,BBSOC)
+		VALUES (BBS_SEQ.nextval,#{bbsWrite},#{bbsTetle},#{bbsContent},
+			 #{uploadPath},#{fileLoca} ,#{fileName},#{fileRealName},#{bbsoc})
+ 	</insert>
  	
  	
  	
-  
+ 	
+ 	
+ 	
+
   </mapper>

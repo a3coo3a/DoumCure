@@ -9,9 +9,12 @@ public interface BoardService {
 
 	//추상메서드 선언
 	
-	public void freeRegist(BoardVO vo);//글 등록
+//	public void freeRegist(BoardVO vo);//글 등록
 	public ArrayList<BoardVO> getfreeList(Criteria cri); //글 목록 조회
 	public int getTotal(Criteria cri);//전체게시글
+	
+	public boolean insertFile(BoardVO vo); //게시물등록
+
 	
 	
 }

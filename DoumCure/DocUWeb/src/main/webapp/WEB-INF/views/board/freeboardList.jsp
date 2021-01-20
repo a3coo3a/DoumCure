@@ -53,7 +53,7 @@
 						</c:forEach>
                     </table>
 
-                    <button type="submit" class="btn qa-bbsList-btn"  onclick = "regbtn()">글쓰기</button>
+                    <button type="submit" class="btn qa-bbsList-btn"  onclick = "location.href='freeboardRegist'">글쓰기</button>
                     
                     
                     <form action="freeboardList" name="pageForm">
@@ -102,18 +102,30 @@
 
 
     <script>
-        function setThumbnail(event) {
-            var reader = new FileReader();
-
-            reader.onload = function (event) {
-                var img = document.createElement("img");
-                img.setAttribute("src", event.target.result);
-                document.querySelector("div#image_container").appendChild(img);
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-
-      
+ 
+    		window.onload = function() {
+    			 if(history.state === '' ) return;
+    			 
+    			 var msg = "${msg}"; //컨트롤러에서 넘어온 메시지
+    			 if(msg !== '') {
+    				 alert(msg);
+    				 //브라우저의 기록을 새롭게 변경(데이터, 페이지제목, 변경할주소)
+    				 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
+    				 history.replaceState('', null, null); 
+    			 }
+    			 
+    			 /* if (document.getElementById(lock).innerhtml == "OFF") {
+		            document.getElementById(lock).className = "fas fa-lock-open";
+		
+		          } else {
+		          	document.getElementById(lock).innerhtml == "ON"
+		            document.getElementById(lock).className = "fa fa-unlock";
+		
+		          }  */
+    		}
+    			 
+		          
+    		
     	//페이징
     	/*  
     		1. 페이지네이션을  a-> form태그로 변경
@@ -133,40 +145,60 @@
     		
     		document.pageForm.submit(); //폼값 서브밋
     	}
-     
-
-    		window.onload = function() {
-    			 if(history.state === '' ) return;
-    			 
-    			 var msg = "${msg}"; //컨트롤러에서 넘어온 메시지
-    			 if(msg !== '') {
-    				 alert(msg);
-    				 //브라우저의 기록을 새롭게 변경(데이터, 페이지제목, 변경할주소)
-    				 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
-    				 history.replaceState('', null, null); 
-    			 }
-    			 
-    			 if (document.getElementById(lock).innerhtml == "OFF") {
-		            document.getElementById(lock).className = "fas fa-lock-open";
-		
-		          } else {
-		          	document.getElementById(lock).innerhtml == "ON"
-		            document.getElementById(lock).className = "fa fa-unlock";
-		
-		          } 
-		          
-		          
-		          
-    		}
-    			 
-		          
-    		
-    		function regbtn(){
-    			location.href='freeboardRegist';
-    		}
-    		
     	
-    		
+
+    	$(document).ready(function () {
+    		$("#uploadBtn").click(regist);
+
+    		function regist() {
+    			//회원만 등록 가능하도록 처리
+    			var writer = "${sessionScope.userVO.userId}";
+    			var file = $("#file").val();
+    			
+    			
+    			//파일 확장자체크
+    			file = file.substring(file.lastIndexOf('.')+1,file.length).toLowerCase();
+    			console.log(file);
+    			
+    			if(file != "jpg" && file != "png" && file != "jpeg"){
+    				alert("이미지(jpg,png,jpeg)만 등록이 가능합니다")
+    				return;
+    			} else if(writer == ''){ //세션이 없다면
+    				alert("로그인 필요한 서비스입니다")
+    				return;
+    			}
+
+    			//파일비동기 전송시 반드시 필요한  FormData()객체 생성
+    			var data = $("#file")
+    			console.log(data[0]);
+    			console.log(data[0].files);//파일 태그에 담긴 파일을 확인하는 키값
+    			console.log(data[0].files[0]); //전손해야되는 파일데이터의 정보
+    			
+    			var content = $("#content").val();
+    			var formData = new FormData();
+    			formData.append("file",data[0].files[0]); //file이름으로 file저장
+    			formData.append("content", content);
+    			
+    			$.ajax({
+    				type: "POST",
+    				url: "upload",
+    				processData: false, //폼형식이  &변수= 값의 현태로 변경되는것을 막는다.
+    				contentType: false, //false로 지정하면 기본적으로 "multipart/form-data"으로 선언됨
+    				data: formData, //폼데이터객체
+    				success: function (result) {
+    					if(result === 'success'){
+    						$("#file").val("");// 데이터 초기화
+    						$("#content").val("")//content 초기화
+    						$(".fileDiv").css("display", "none"); //미리보기 숨기기
+    						getList();//호출 목록
+    					}else {
+    						alert("업로드 실패, 관리자에게 문의하세요");
+    					}
+    				},
+    				error:function(status,error){}
+
+    			})
+    		}; //등록 end  		
 
     		 
 
