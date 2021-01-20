@@ -1,6 +1,7 @@
 package com.team3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import javax.inject.Inject;
@@ -15,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.team3.command.BoardVO;
 import com.team3.command.UserVO;
+import com.team3.common.util.Criteria;
+import com.team3.common.util.PageVO;
 import com.team3.docuweb.auth.NaverLogin;
 import com.team3.docuweb.auth.NaverValue;
 import com.team3.user.service.UserService;
@@ -32,26 +36,26 @@ public class UserController {
 	@Inject
 	private NaverValue naverSns;
 	
-	@RequestMapping({"/join","/login","/id_pwJoin","/mypage","/userUpdate","/navercallback"})
+	@RequestMapping({"/join","/login","/id_pwJoin","/userUpdate","/navercallback"})
 	public void views() {
 	}
 	
 	@RequestMapping("/loginForm")
 	public String loginForm(UserVO vo, HttpSession session,
-							RedirectAttributes RA) {
+							RedirectAttributes RA, Model model) {
 		
 		System.out.println("loginForm:"+vo.toString());
 		
-		UserVO userVO = userService.userCheck(vo);
+		int result = userService.login(vo);
 		
-		if(userVO != null) {
+		if(result == 1) {
+			UserVO userVO = userService.getInfo(vo.getUserId());
 			session.setAttribute("userVO", userVO);
 			return "redirect:../";
 		}else {
-			RA.addFlashAttribute("msg", "아이디와 비밀번호를 확인해 주세요");
-			return "redirect:/user/login";
+		RA.addFlashAttribute("msg", "아이디와 비밀번호를 확인해 주세요");
+		return "redirect:/user/login";
 		}
-		
 	}
 	
 	
@@ -68,12 +72,21 @@ public class UserController {
 		
 		System.out.println("kakaoForm:"+vo.toString());
 		
-		UserVO userVO = userService.userCheck(vo);
+		UserVO userVO = userService.getInfo(vo.getUserId());
 		
 		if(userVO == null) {
 			int res = userService.join(vo);
 			System.out.println(res);
+			if(res == 1) {
+				System.out.println("조인성공");
+				userVO = userService.getInfo(userVO.getUserId());
+				System.out.println("꺼내온 VO : "+userVO.toString());
+				session.setAttribute("userVO", userVO);
+			}
 		}else if(userVO != null) {
+			System.out.println("null아님");
+			userVO = userService.getInfo(userVO.getUserId());
+			System.out.println("null아님 Vo확인 : "+ userVO.toString());
 			session.setAttribute("userVO", userVO);
 		}
 		
@@ -136,4 +149,34 @@ public class UserController {
 		
 		
 	}
+	
+	//mypage 내가 쓴글
+		@RequestMapping("/mypage")
+		public String mypage(Model model, Criteria cri, HttpSession session) {
+			
+			//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
+			
+			UserVO user = (UserVO)session.getAttribute("userVO");
+			if(user != null) {
+			System.out.println("id:"+user.getUserId());
+			ArrayList<BoardVO> list = userService.getMyBbsList(cri, user);
+			System.out.println(list);
+			int total = userService.getTotal(user);//전체 게시물 수 
+			System.out.println(total);
+			PageVO pageVO = new PageVO(cri, total);
+				
+			//화면에 전달할 값
+			model.addAttribute("list", list);
+			model.addAttribute("pageVO", pageVO);
+			
+			}else if(user == null) {
+				model.addAttribute("errorMsg", "세션값이 없습니다.");
+			}
+			
+			return "user/mypage";
+		}
+	
+	
+	
+	
 }

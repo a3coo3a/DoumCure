@@ -99,9 +99,9 @@
               </form>
               
               <form action="kakaoLoginForm" id="kakaoLoginForm">
-              	<input type="hidden" id="kakaoId">
-              	<input type="hidden" id="kakaoPw">
-              	<input type="hidden" id="kakaoNickName">
+              	<input type="hidden" id="kakaoId" name="kakaoId">
+              	<input type="hidden" id="kakaoPw" name="kakaoPw">
+              	<input type="hidden" id="kakaoNickName" name="kakaoNickName">
               </form>
             </div>
           </div>
@@ -134,6 +134,7 @@ $(document).ready(function(){
 })
 </script>
 
+<!-- id/pw 로그인 -->
 <script>
 	var chid = false;
 	var chpw = false;

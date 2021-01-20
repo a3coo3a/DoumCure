@@ -1,9 +1,13 @@
 package com.team3.user.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.team3.command.BoardVO;
 import com.team3.command.UserVO;
+import com.team3.common.util.Criteria;
 import com.team3.user.mapper.UserMapper;
 
 @Service("userService")
@@ -31,23 +35,30 @@ public class UserServiceImpl implements UserService{
 		return userMapper.idCheck(vo);
 	}
 	@Override
-	public UserVO userCheck(UserVO vo) {
-		return userMapper.userCheck(vo);
-	}
-	@Override
 	public int join(UserVO vo) {
 		UserVO voUpdate = dbDefault(vo);
 		return userMapper.join(voUpdate);
 	}
 
 	@Override
-	public UserVO login(UserVO vo) {
+	public int login(UserVO vo) {
 		return userMapper.login(vo);
 	}
 
 	@Override
 	public UserVO getInfo(String userId) {
 		return userMapper.getInfo(userId);
+	}
+
+	@Override
+	public int getTotal(UserVO vo) {
+		return userMapper.getTotal(vo);
+	}
+
+	@Override
+	public ArrayList<BoardVO> getMyBbsList(Criteria cri, UserVO vo) {
+		String userId = vo.getUserId();
+		return userMapper.getMyBbsList(cri, userId);
 	}
 
 	

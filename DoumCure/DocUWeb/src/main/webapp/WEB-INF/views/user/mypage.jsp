@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!-- mypage css -->
   <style>
   .user_container a {
@@ -21,6 +23,7 @@
   
   <section class="user-area">
 
+	
   <div class="container user_container">
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 profile-box">
@@ -29,9 +32,8 @@
               <div class="user-profile-emoji">😘</div>
             </div>
             <div class="user-profile-info">
-              <div class="nickname">닉네임</div>
-              <div class="userid">아이디</div>
-              <button type="button">정보수정</button>
+              <div class="nickname">${sessionScope.userVO.userNickName }</div>
+              <button type="button" onclick="location.href='userUpdate'">정보수정</button>
             </div>
           
       </div>
@@ -88,34 +90,86 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td class="title-align"><a href="#">title01</a></td>
-            <td class="date-align date-line">2021-01-12</td>
-          </tr>
-          <tr>
-            <td class="title-align"><a href="#">title02</a></td>
-            <td class="date-align date-line">2021-01-12</td>
-          </tr>
-          <tr>
-            <td class="title-align"><a href="#">title03</a></td>
-            <td class="date-align date-line">2021-01-12</td>
-          </tr>
+        	<c:forEach var="myBbs" items="${list }">
+	          <tr>
+	            <td class="title-align"><a href="bbsDetail?bbsno=${myBbs.bbsNo }">${myBbs.bbsTitle }</a></td>
+	            <td class="date-align date-line"><fmt:formatDate value="${myBbs.bbsRegdate}" pattern="yyyy-MM-dd HH:mm"/></td>
+	          </tr>
+          </c:forEach>
         </tbody>
 
       </table>
       <!-- 페이지네이션 -->
-      <ul class="pager">
-        <li><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-        <li><a href="#">1</a></li>
-        <li class="active"><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-      </ul>
+      
+      <form action="mypage" name="pagerForm">
+                    
+                    <hr>
+                    <ul class="pager">
+                    <c:if test="${pageVO.prev }">
+                        <li><a href="#" data-page="${pageVO.startPage-1}"><span class="glyphicon glyphicon-chevron-left"></span></a></li>  <!-- a태그의 #의 의미 : 특정한 동작이 없을때 값,  -->
+                    </c:if>
+                    <!-- 1. 페이지네이션 번호 처리 -->
+                    <c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage}">
+                        <li  class="${num == pageVO.pageNum?'active':''}"><a href="#" data-page="${num}">${num }</a></li>
+                        
+                    </c:forEach>
+                    <c:if test="${pageVO.next }">    
+                        <li><a href="#" data-page="${pageVO.endPage+1}"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                    </c:if>
+                    </ul>
+                    
+                    <!-- 폼형식으로 보내는데 숨겨서 보낼값 hidden으로 표시 -->
+                    <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
+                    <input type="hidden" name="amount" value="${pageVO.cri.amount }">
+                    <input type="hidden" name="searchType" value="${pageVO.cri.searchType }">
+                    <input type="hidden" name="searchName" value="${pageVO.cri.searchName }">
+		    </form>
     </div>
   </div>
 </div>
 
 
 </section>
+<!-- session확인 -->
+<script>
+$(document).ready(function(){
+	console.log("session : ${userVO.userId}");
+	console.log("session : ${userVO.userNickName}");
+
+})
+</script>
+
+<!-- 페이지 네이션 -->
+<script>
+
+	$(document).ready(function(){
+		if("${errorMsg}")
+			alert("${errorMsg}");
+		return;
+	})
+	
+	$(document).ready(function(){
+		
+		if('${pageVO.cri.pageNum }'){
+			window.scrollBy( 0, 0 );
+		}
+	
+	})
+		$(".pager").click(function(){
+			// a태그의 고유이벤트를 막는다
+			event.preventDefault();
+			
+			// a태그가 아니라면 이 함수는 종료
+			if(event.target.tagName !== "A") return; 
+			
+			console.dir(event.target);
+			var pageNum = event.target.dataset.page;
+			//console.log(pageNum);
+			
+			//히든 폼에 pageNum타겟값을 저장
+			document.pagerForm.pageNum.value = pageNum
+			
+			// form의 값을 보내보자
+			document.pagerForm.submit();
+		}) 
+</script>

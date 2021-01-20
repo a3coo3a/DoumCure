@@ -70,10 +70,10 @@
               <br/>
               <form name="userUpdateForm" action="userUpdateForm.user" method="post" id="userUpdateForm">
                 <div class="form-group">
-                  <input type="text" name="id" class="form-control" id="id">
+                  <input type="text" name="userId" class="form-control" id="userId">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="pw" class="form-control" id="password" placeholder="* PASSWORD (영 대/소문자, 숫자, 특수문자 3종류 이상 조합 6자 이상)" onkeyup="checkPw()">
+                  <input type="password" name="userPw" class="form-control" id="password" placeholder="* PASSWORD (영 대/소문자, 숫자 조합 6자 이상)" onkeyup="checkPw()">
                   <p id="checkPw"></p>
                 </div>
                 <div class="form-group">
@@ -81,7 +81,10 @@
                   <span id="matchCheckPw"></span>
                 </div>
                 <br/>
-                <!--input2탭의 input-addon을 가져온다 -->
+                <div class="form-group">
+                    <input type="text" name="userNickName" class="form-control" id="userNickName" placeholder="NickName을 적어주세요" >
+                  <p id="checkPwMsg"></p>
+                </div>
                 <div class="form-group">
                   <input name="phoneNum1" class="form-control sel" placeholder="010" onKeyPress="return checkNum(event)" /> -
                   <input name="phoneNum2" class="form-control sel" placeholder="xxxx" onKeyPress="return checkNum(event)" /> -
