@@ -79,13 +79,14 @@ public class BoardController {
 	public String upload(@RequestParam("file") MultipartFile file,
 			 @RequestParam("bbsTitle") String bbsTitle ,
 			 @RequestParam("bbsContent") String bbsContent ,
-			 @RequestParam("bbsOC") String bbsOC,
+			 @RequestParam("lock") String bbsOC,
 			 HttpSession session) {
 		
 		try {
 		
 		UserVO userVO = (UserVO)session.getAttribute("userVO");
 		String bbsWriter = userVO.getUserId(); //작성자정보
+		
 		
 		//System.out.println(file);
 		//System.out.println(content);
@@ -129,21 +130,21 @@ public class BoardController {
 		boolean result = boardService.insertFile(vo); //성공시 true, 실패시 false
 		
 		if(result) { //성공
-			return "success";
+			return "redirect:/board/freeboardList";
 		} else {
 			return "fail";
 		}
-		
-		
+
+
 		} catch (NullPointerException e) {
-		System.out.println("세션정보가 없음");
-		return "fail";
+			System.out.println("세션정보가 없음");
+			return "fail";
 		} catch (Exception e) {
-		e.printStackTrace();
-		return "fail";
+			e.printStackTrace();
+			return "fail";
 		}
 		
-		}
+	}
 			
 		
 		
