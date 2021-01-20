@@ -65,7 +65,10 @@
                     <span id="matchCheckPw"></span>
                 </div>
                 <br/>
-                <!--input2탭의 input-addon을 가져온다 -->
+                <div class="form-group">
+                    <input type="text" name="userNickName" class="form-control" id="userNickName" placeholder="NickName을 적어주세요" >
+                  <p id="checkPwMsg"></p>
+                </div>
                 <div class="form-group">
                       <input type="hidden" name="userPhoneNum" id="userPhoneNum">
                       <input name="phoneNum1" class="form-control sel" placeholder="010" onKeyPress="return checkNum(event)" > -
@@ -77,7 +80,7 @@
                 <br/>                
                 <div class="form-group">
                     <div class="form-group">
-                      <input type="text" name="userAddrZipNum" class="form-control" id="userAddrZipNum" placeholder="우편번호" >
+                      <input type="text" name="userAddrZipNum" class="form-control" id="userAddrZipNum" placeholder="우편번호" readonly>
                       <button type="button" class="btn btn-lg btn-info mini-btn" name="addSearch" id="addSearch" onclick="goPopup()">주소찾기</button>
                     </div>
                     <input type="text" name="userAddrBasic" class="form-control" id="userAddrBasic" placeholder="기본주소">

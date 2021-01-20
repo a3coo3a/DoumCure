@@ -123,14 +123,11 @@ public class UserController {
 	@RequestMapping("/joinForm")
 	public String join(UserVO vo, RedirectAttributes RA) {
 		
-		System.out.println(vo.toString());
-		
 		int result = userService.join(vo);
 		
-		System.out.println(result);
 		
 		if(result == 1) {//성공
-			RA.addFlashAttribute("joinMsg",vo.getUserId());
+			RA.addFlashAttribute("joinMsg",vo);
 			return "redirect:/user/login";
 		}else {
 			RA.addFlashAttribute("joinMsg","가입에 실패 했습니다. 관리자에게 문의하세요");

@@ -54,7 +54,11 @@
           <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-12 user-text-bg user-text-area">
             	<div align="center" id="join-sccess">
-            		<h2><u>${joinMsg}</u> 님, 환영합니다!</h2>
+            		<h2>
+            			<span id="nickname_Y">${joinMsg.userNickName} 님, 환영합니다!</span>
+            			<span id="nickname_N">가입을 축하드립니다! </span>
+            			
+            		</h2>
             		<img src="${pageContext.request.contextPath }/resources/img/user/welcome.png" alt="welcome">
             		<hr/>
             	</div>
@@ -110,8 +114,15 @@
 <script>
 $(document).ready(function(){
 	var joinMsg = '${joinMsg}';
-	console.log(joinMsg);
+	console.log(joinMsg.userNickName);
 	if(joinMsg){
+		if(joinMsg.userNickName === undefined){
+			$("#nickname_Y").hide();
+			$("#nickname_N").show();
+		}else{
+			$("#nickname_Y").show();
+			$("#nickname_N").hide();
+		}
 		$("#join-sccess").show();
 		$(".user-join-btn").hide();
 		$(".user_line").hide();
