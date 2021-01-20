@@ -19,16 +19,16 @@ public class BoardServiceImpl implements BoardService{
 	
 	//글 등록
 	@Override
-	public void bbsRegist(BoardVO vo) {
+	public void freeRegist(BoardVO vo) {
 		
 		boardMapper.bbsRegist(vo);
 	}
 
 	//글 목록 조회 
 	@Override
-	public ArrayList<BoardVO> getbbsList(Criteria cri) {
+	public ArrayList<BoardVO> getfreeList(Criteria cri) {
 		
-		return boardMapper.getbbsList(cri);
+		return boardMapper.getfreeList(cri);
 	}
 
 	//글 총 겟수
