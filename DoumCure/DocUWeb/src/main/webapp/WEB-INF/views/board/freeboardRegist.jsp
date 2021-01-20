@@ -8,12 +8,12 @@
       <div class="container board_list_container ">
         <div class="row content-wrap">
           <div class="qa_blr_title_box col-lg-12 ">
-            <p>Q&A 글작성</p>
+            <p>자유게시판 글작성</p>
           </div>
         </div>
       </div>
 
-      <form action="qaregistForm" method="post" name="qaregistForm">
+      <form action="freeRegistForm" method="post" name="qaregistForm">
 
         <div class="container">
           <div class="container-inner row">
@@ -49,7 +49,7 @@
           <div class="titlefoot row">
             <div class="blq-right-btn  col-sm-6 ">
               <i id="lock" class="fas fa-lock-open" onclick="change('lock')" aria hidden="true">공개글</i>
-              <button type="button" class="btn btn-info" id="uploadBtn">등록하기</button>
+              <button type="button" class="btn btn-info" id="uploadBtn" onclick="freeRegist()">등록하기</button>
               <button class="btn" type="button" onclick="location.href='QAboardList' ">목록</button>
             </div>
           </div>
@@ -73,8 +73,7 @@
       reader.readAsDataURL(event.target.files[0]);
     }
 
-    // <i class="fa fa-unlock-alt"></i>
-    // <i class="fa fa-unlock"></i>
+
 
     function change(lock) {
       if (document.getElementById(lock).className == "fa fa-unlock") {
@@ -88,5 +87,20 @@
       }
 
     }
+    
+    	function freeRegist() {
+    		if(document.registForm.title.value === '') {
+    			document.getElementById("msgTitle").innerHTML = "제목은 필수 입니다";
+    			document.registForm.writer.focus();
+    			return;
+    		} else if(document.registForm.content.value === '') {
+    			document.getElementById("msgContent").innerHTML = "내용은 필수 입니다";
+    			document.registForm.title.focus();
+    			return;
+    		} else {
+    			document.freeRegistForm.submit(); //서브밋
+    		}
+			 		
+		} 
 
   </script>

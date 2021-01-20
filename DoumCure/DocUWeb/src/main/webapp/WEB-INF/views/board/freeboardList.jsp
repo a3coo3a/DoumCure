@@ -10,11 +10,11 @@
         <div class="container bbs-list-container ">
             <div class="row bbs-content-wrap">
                 <div class="bbs-list-title-box col-lg-12 ">
-                    <p id="notice">Q&A 게시판</p>
+                    <p id="notice">자유게시판</p>
                 </div>
                 
-                <!--QA리스트 리스트 -->
-                <form action="qabbsListForm">
+                <!--자유게시판 리스트 -->
+                <form action="freeboardList">
                     <div class="search-wrap">
                         <button type="submit" class="btn btn-info search-btn">검색</button>
 
@@ -44,10 +44,10 @@
                         <c:forEach var="vo" items="${list}">
 	                           <tr>
 	                               <td>${vo.bbsNo }</td>
-	                               <td><a href="qaboardDetail?bbsNo=${vo.bbsNo }">${vo.bbsTitle }</a></td>
+	                               <td><a href="freeboardDetail?bbsNo=${vo.bbsNo }">${vo.bbsTitle }</a></td>
 	                               <td>${vo.bbsWrite }</td>
 	                               <td><fmt:formatDate value="${vo.bbsRegdate}" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
-	                               <td>${vo.bbsOC}</td>
+	                               <td id="lock">${vo.bbsOC}</td>
 	                               <%-- <td><fmt:formatDate value="${vo.updatedate }" pattern="yyyy년MM월dd일  hh시mm분"/></td> --%>
 	                           </tr>
 						</c:forEach>
@@ -55,24 +55,12 @@
 
                     <input type="hidden" name="pageNum" value="1"> <!-- 검색버튼이 눌리면 무조건 페이지번호를 1번호으로 다시 세팅 -->
                     <input type="hidden" name="amount" value="${pageVO.amount }">
-                    <button type="submit" class="btn qa-bbsList-btn">글쓰기</button>
+                    <button type="submit" class="btn qa-bbsList-btn"  onclick = "regbtn()">글쓰기</button>
 
-                   <!--  <ul class="pager">
-                        <li>
-                            <a href="#">이전</a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">이후</a></li>
-                    </ul> -->
                     
-                    
-                    <form action="qabbsListForm" name="pageForm">
+                    <form action="freeboardList" name="pageForm">
 	                   <div class="text-center">
-	                   <hr>
+	                   
 	                   <ul class="pagination pagination-sm">
 	                   	 <!-- 3.이전버튼 활성화여부 -->
 	                   	<c:if test="${pageVO.prev}">
@@ -96,7 +84,7 @@
 	                       </c:if>
 	                   </ul>
 	                   <c:if test="${sessionScope.userVO != null }">
-	                   <button type="button" class="btn btn-info" onclick="location.href='qaboardRegist' ">글쓰기</button>
+	                   <button type="button" class="btn btn-info" onclick = "regbtn()">글쓰기</button>
 	                   </c:if>
 	                   </div>
 	                   
@@ -158,25 +146,27 @@
     				 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
     				 history.replaceState('', null, null); 
     			 }
+    			 
+    	/* 		 if (document.getElementById(lock).innerhtml == "OFF") {
+		            document.getElementById(lock).className = "fas fa-lock-open";
+		
+		          } else {
+		          	document.getElementById(lock).innerhtml == "ON"
+		            document.getElementById(lock).className = "fa fa-unlock";
+		
+		          } */
+		          
+    		}
+    			 
+		          
+    		
+    		function regbtn(){
+    			location.href='freeboardRegist';
     		}
     		
-    		function change(lock) {
-    		      if (document.getElementById(lock).className == "fa fa-unlock") {
-    		        document.getElementById(lock).className = "fas fa-lock-open";
-    		        document.getElementById(lock).innerHTML = "공개글";
-    		      }
-    		      else {
-    		        document.getElementById(lock).className = "fa fa-unlock";
-    		        document.getElementById(lock).innerHTML = "비공개글";
-
-    		      }
-
-    		    }
-
-    		/* <i id="lock" class="fas fa-lock-open" onclick="change('lock')" aria hidden="true"></i> */
-    		  </script>
     	
-    	
- 
-        
+    		
+
+    		 
+
     </script>
