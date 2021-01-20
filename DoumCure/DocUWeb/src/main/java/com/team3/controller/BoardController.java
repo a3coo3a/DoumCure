@@ -64,7 +64,7 @@ public class BoardController {
 		boardService.freeRegist(vo); //insert실행
 		RA.addFlashAttribute("msg", "정상적으로 등록처리 되었습니다"); //메시지를 리스트 화면으로 전달
 
-		return "redirect:/freeBoard/freeList";
+		return "redirect:/board/freeboardList";
 	}
 
 	

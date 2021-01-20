@@ -53,10 +53,8 @@
 						</c:forEach>
                     </table>
 
-                    <input type="hidden" name="pageNum" value="1"> <!-- 검색버튼이 눌리면 무조건 페이지번호를 1번호으로 다시 세팅 -->
-                    <input type="hidden" name="amount" value="${pageVO.amount }">
                     <button type="submit" class="btn qa-bbsList-btn"  onclick = "regbtn()">글쓰기</button>
-
+                    
                     
                     <form action="freeboardList" name="pageForm">
 	                   <div class="text-center">
@@ -83,9 +81,9 @@
 	                       </li>
 	                       </c:if>
 	                   </ul>
-	                   <c:if test="${sessionScope.userVO != null }">
-	                   <button type="button" class="btn btn-info" onclick = "regbtn()">글쓰기</button>
-	                   </c:if>
+		                  <%--  <c:if test="${sessionScope.userVO != null }">
+	                    	<button type="submit" class="btn qa-bbsList-btn"  onclick = "regbtn()">글쓰기</button>
+		                   </c:if> --%>
 	                   </div>
 	                   
 	                   <!-- 폼형식으로 보내는데 숨겨서 보낼값 hidden으로 표시 -->
@@ -93,6 +91,7 @@
 	                   <input type="hidden" name="amount" value="${pageVO.cri.amount}">
 	                   <input type="hidden" name="searchType" value="${pageVO.cri.searchType }">
 	                   <input type="hidden" name="searchName" value="${pageVO.cri.searchName }">
+
 	
 		    		</form>
                     
@@ -147,14 +146,16 @@
     				 history.replaceState('', null, null); 
     			 }
     			 
-    	/* 		 if (document.getElementById(lock).innerhtml == "OFF") {
+    			 if (document.getElementById(lock).innerhtml == "OFF") {
 		            document.getElementById(lock).className = "fas fa-lock-open";
 		
 		          } else {
 		          	document.getElementById(lock).innerhtml == "ON"
 		            document.getElementById(lock).className = "fa fa-unlock";
 		
-		          } */
+		          } 
+		          
+		          
 		          
     		}
     			 

@@ -48,7 +48,8 @@
 
           <div class="titlefoot row">
             <div class="blq-right-btn  col-sm-6 ">
-              <i id="lock" class="fas fa-lock-open" onclick="change('lock')" aria hidden="true">공개글</i>
+              <input type="checkbox" value="OFF" checked="checked" id="lock" class="fas fa-lock-open"
+                onclick="change('lock')" aria hidden="true">
               <button type="button" class="btn btn-info" id="uploadBtn" onclick="freeRegist()">등록하기</button>
               <button class="btn" type="button" onclick="location.href='QAboardList' ">목록</button>
             </div>
@@ -75,17 +76,20 @@
 
 
 
+
     function change(lock) {
       if (document.getElementById(lock).className == "fa fa-unlock") {
         document.getElementById(lock).className = "fas fa-lock-open";
         document.getElementById(lock).innerHTML = "공개글";
+        document.getElementById(lock).value = "OFF";
+
       }
       else {
         document.getElementById(lock).className = "fa fa-unlock";
         document.getElementById(lock).innerHTML = "비공개글";
+        document.getElementById(lock).value = "ON";
 
       }
-
     }
     
     	function freeRegist() {
