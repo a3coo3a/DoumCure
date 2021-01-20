@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+
+/* 회사 로고 이미지 이미지 크기는 149 * 14px */
+.pop-address-search .pop-address-search-inner .logo { background: url('http://localhost:8282/docuweb/resources/img/user/wideLogo.png') no-repeat; background-position:center; }
+

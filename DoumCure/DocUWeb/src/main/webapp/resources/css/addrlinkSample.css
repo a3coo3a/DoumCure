@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+/***************************************************/
+/* 이미지 */
+/***************************************************/
+/* 바탕 배경 이미지 최적의 이미지 크기는 468 * 251px */
+/*.pop-address-search .pop-address-search-inner { background-image: url(이용기관사이트 이미지 url); }*/
+/* 회사 로고 이미지 이미지 크기는 149 * 14px */
+.pop-address-search .pop-address-search-inner .logo { background: url('http://localhost:8282/docuweb/resources/img/title_icon.png') no-repeat; background-position:center; }
+
+/***************************************************/
+/* 배경색상 */
+/***************************************************/
+/* 바탕 배경색상 */
+.pop-address-search .pop-address-search-inner { background-color:#ECECEC; }
+
+/* 검색창 색상 */
+.pop-address-search .pop-address-search-inner .wrap input { background-color:#FFFFFF; }
+
+/* 검색버튼 색상 */
+.pop-address-search .pop-address-search-inner .wrap { background-color:#FFFFFF; }
+
+/* 본문 배경색(홀수) */
+.pop-address-search .pop-address-search-inner .result table.data-col tbody tr:nth-child(odd) td {background:#FFFFFF}
+
+/* 본문 배경색(짝수) */
+.pop-address-search .pop-address-search-inner .result table.data-col tbody tr:nth-child(even) td {background:#FFFFFF}
+
+/***************************************************/
+/* 글자색상 */
+/***************************************************/
+/* 검색 결과  글자색상 */
+table.data-col  { color:#FFFFFF; }
+table.data-col tbody tr td.subj { color:#333333; }
+
+/* 검색창 글자 색상 */
+.pop-address-search .pop-address-search-inner .wrap input { color:#222222; }

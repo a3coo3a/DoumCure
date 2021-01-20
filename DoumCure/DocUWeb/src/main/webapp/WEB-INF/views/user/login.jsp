@@ -45,13 +45,20 @@
   	display : block; 
   	width : 100%; 
   	height : 100%
-  }  
+  } 
+
   </style>
   
   <section class="user-bg user-area">
         <div class="container user_container">
           <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-12 user-text-bg user-text-area">
+            	<div align="center" id="join-sccess">
+            		<h2><u>${joinMsg}</u> 님, 환영합니다!</h2>
+            		<img src="${pageContext.request.contextPath }/resources/img/user/welcome.png" alt="welcome">
+            		<hr/>
+            	</div>
+            	
               <h4 align="center">로그인</h4>
               <br/>
               
@@ -98,6 +105,23 @@
         
         
 </section>
+
+<!-- 가입실패시 메세지 -->
+<script>
+$(document).ready(function(){
+	var joinMsg = '${joinMsg}';
+	console.log(joinMsg);
+	if(joinMsg){
+		$("#join-sccess").show();
+		$(".user-join-btn").hide();
+		$(".user_line").hide();
+		$(".kakao-user-btn").hide();
+		$(".naver-user-btn").hide();	
+	}else{
+		$("#join-sccess").hide();
+	}
+})
+</script>
 
 <script>
 	var chid = false;
