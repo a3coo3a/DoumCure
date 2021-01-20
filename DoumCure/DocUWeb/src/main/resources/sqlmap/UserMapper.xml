@@ -15,7 +15,7 @@
   	</select>
   
   	<insert id="join">
-  		insert into USERS values(#{userId}, #{userPw}, #{userNickName},#{userPhoneNum},#{userAddrZipNum}, #{userAddrBasic}, #{userAddrDetailL}, #{userBookMark01}, #{userBookMark02}, #{userBookMark03}, #{userManage})
+  		insert into USERS values(#{userId}, #{userPw}, #{userNickName},#{userPhoneNum},#{userAddrZipNum}, #{userAddrBasic}, #{userAddrDetail}, #{userBookMark01}, #{userBookMark02}, #{userBookMark03}, #{userManage})
 	</insert>
   
   	<select id="login" resultType="int">
@@ -40,5 +40,12 @@
 		) where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <= #{cri.pageNum}*#{cri.amount}
 		]]>
   	</select>
+  	
+  	<update id="userUpdate">
+  		update USERS set userPw = #{userPw}, userNickName = #{userNickName}, userPhoneNum = #{userPhoneNum}, userAddrZipNum = #{userAddrZipNum}, userAddrBasic = #{userAddrBasic}, userAddrDetail = #{userAddrDetail} where userId = #{userId}
+  	</update>
   
+  	<delete id="userDelete">
+  		delete from USERS where userId = #{userId} and userPw = #{userPw}
+  	</delete>
   </mapper>

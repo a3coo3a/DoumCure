@@ -51,7 +51,7 @@
             <br/>
             <form name="joinForm" action="joinForm" method="post" id="joinForm">
               <div class="form-group">
-                <input type="text" name="userId" class="form-control" id="userId" check_result="fail" placeholder="* ID (영문포함 4자 이상)" onkeyup="checkId()">
+                <input type="text" name="userId" class="form-control" id="userId" placeholder="* ID (영문포함 4자 이상)" onkeyup="checkId()">
                 <button type="button" class="btn btn-lg btn-info mini-btn" name="idCheck" id="idCheck">ID중복확인</button>
                 <p id="checkIdMsg"></p>
               </div>
@@ -149,7 +149,7 @@ $("#idCheck").click(function(){
 		// 콜백으로 받아온 데이터를 가입폼에 입력
 		$("#userAddrZipNum").val(zipNo);
 		$("#userAddrBasic").val(roadAddrPart1);
-		$("#userAddrDetailL").val(addrDetail);
+		$("#userAddrDetail").val(addrDetail);
 		
 	}
 </script>

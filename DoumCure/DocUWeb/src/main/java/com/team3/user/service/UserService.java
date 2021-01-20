@@ -13,4 +13,6 @@ public interface UserService {
 	public UserVO getInfo(String userId);
 	public int getTotal(UserVO vo);
 	public ArrayList<BoardVO> getMyBbsList(Criteria cri,UserVO vo);
+	public int userUpdate(UserVO vo);
+	public int userDelete(String userId, String userPw);
 }

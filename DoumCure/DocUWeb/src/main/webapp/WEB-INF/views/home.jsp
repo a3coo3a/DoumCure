@@ -384,4 +384,12 @@ html {
 </script>
 
 
+<!-- 탈퇴시 성공 메시지 -->
+<script>
+var deleteMsg = "${deleteMsg}";
+if(deleteMsg){
+	alert("${deleteMsg}");
+}
+</script>
+
     

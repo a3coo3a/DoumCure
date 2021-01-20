@@ -36,15 +36,15 @@ public class UserController {
 	@Inject
 	private NaverValue naverSns;
 	
+	// 화면구현
 	@RequestMapping({"/join","/login","/id_pwJoin","/userUpdate","/navercallback"})
 	public void views() {
 	}
 	
+	// id- pw 로그인
 	@RequestMapping("/loginForm")
 	public String loginForm(UserVO vo, HttpSession session,
-							RedirectAttributes RA, Model model) {
-		
-		System.out.println("loginForm:"+vo.toString());
+							RedirectAttributes RA) {
 		
 		int result = userService.login(vo);
 		
@@ -53,12 +53,12 @@ public class UserController {
 			session.setAttribute("userVO", userVO);
 			return "redirect:../";
 		}else {
-		RA.addFlashAttribute("msg", "아이디와 비밀번호를 확인해 주세요");
-		return "redirect:/user/login";
+			RA.addFlashAttribute("msg", "아이디와 비밀번호를 확인해 주세요");
+			return "redirect:/user/login";
 		}
 	}
 	
-	
+	// 카카오 로그인
 	@RequestMapping("/kakaoLoginForm")
 	public String kakaoLoginForm(@RequestParam("kakaoId") String kakaoId,
 								 @RequestParam("kakaoPw") String kakaoPw,
@@ -96,6 +96,7 @@ public class UserController {
 		return "redirect:../";
 	}
 	
+	// 네이버 로그인
 	@RequestMapping("/naverForm")
 	public String naverForm(Model model) throws Exception {
 		System.out.println("------------------네이버 도착----------------------");
@@ -126,6 +127,8 @@ public class UserController {
 		return "/loginResult";
 	}
 	
+	
+	// 아이디 중복체크
 	@ResponseBody
 	@RequestMapping("/idCheck")
 	public int idCheck(@RequestBody UserVO vo) {
@@ -133,6 +136,7 @@ public class UserController {
 		return result;
 	}
 
+	// 가입 db등록
 	@RequestMapping("/joinForm")
 	public String join(UserVO vo, RedirectAttributes RA) {
 		
@@ -150,31 +154,90 @@ public class UserController {
 		
 	}
 	
-	//mypage 내가 쓴글
-		@RequestMapping("/mypage")
-		public String mypage(Model model, Criteria cri, HttpSession session) {
+	//mypage 화면구현 및 내가 쓴 글
+	@RequestMapping("/mypage")
+	public String mypage(Model model, Criteria cri, HttpSession session) {
+		
+		//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
+		
+		UserVO user = (UserVO)session.getAttribute("userVO");
+		if(user != null) {
+		ArrayList<BoardVO> list = userService.getMyBbsList(cri, user);
+		int total = userService.getTotal(user);//전체 게시물 수 
+		PageVO pageVO = new PageVO(cri, total);
 			
-			//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
-			
-			UserVO user = (UserVO)session.getAttribute("userVO");
-			if(user != null) {
-			System.out.println("id:"+user.getUserId());
-			ArrayList<BoardVO> list = userService.getMyBbsList(cri, user);
-			System.out.println(list);
-			int total = userService.getTotal(user);//전체 게시물 수 
-			System.out.println(total);
-			PageVO pageVO = new PageVO(cri, total);
-				
-			//화면에 전달할 값
-			model.addAttribute("list", list);
-			model.addAttribute("pageVO", pageVO);
-			
-			}else if(user == null) {
-				model.addAttribute("errorMsg", "세션값이 없습니다.");
-			}
-			
-			return "user/mypage";
+		//화면에 전달할 값
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
+		
+		}else if(user == null) {
+			model.addAttribute("errorMsg", "세션값이 없습니다.");
 		}
+		
+		return "user/mypage";
+	}
+
+	
+	// 회원 정보 업데이트
+	@RequestMapping("/userUpdateForm")
+	public String userUpdate(UserVO vo, RedirectAttributes RA,
+							HttpSession session) {
+		int result = userService.userUpdate(vo);
+		
+		if(result == 1) {
+			UserVO userVO = userService.getInfo(vo.getUserId());
+			session.setAttribute("userVO", userVO);
+			RA.addFlashAttribute("updateMsg","회원정보가 수정되었습니다.");
+		}else {
+			RA.addFlashAttribute("updateMsg","정보 수정에 실패 하였습니다. 관리자에게 문의해주세요");
+		}
+			
+		return "redirect:/user/userUpdate";
+	}
+	
+	
+	// 회원 탈퇴
+	@RequestMapping("/deleteForm")
+	public String deleteForm(@RequestParam("deletePw") String userPw, HttpSession session,
+							RedirectAttributes RA) {
+		UserVO vo = (UserVO)session.getAttribute("userVO");
+		
+		int result = userService.userDelete(vo.getUserId(),userPw);
+		
+		if(result == 1) {
+			session.invalidate();
+			RA.addFlashAttribute("deleteMsg", "탈퇴되었습니다. 다음에 또 만나요~!");
+			return "redirect:../";
+		}else {
+			RA.addFlashAttribute("updateMsg", "탈퇴에 실패 했습니다. 관리자에게 문의하세요");
+			return "redirect:/user/userUpdate";
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

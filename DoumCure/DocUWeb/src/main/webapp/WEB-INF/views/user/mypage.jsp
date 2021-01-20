@@ -57,7 +57,7 @@
         <hr class="user-line product-box">
         
         <div class="product-box">
-          <h3><span class="glyphicon glyphicon-sunglasses"></span>&nbsp;최근 본 상품</h3>
+          <h3><span class="glyphicon glyphicon-sunglasses" id="point"></span>&nbsp;최근 본 상품</h3>
           <div class="bookmark-product">
             <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
             <div class="bookmark-name"><a href="#">제품명01</a></div>
@@ -78,7 +78,7 @@
     <hr class="user-line">
   <div class="row">
     <div class="col-lg-10 col-md-10 col-sm-12 user-text-bg user-mypage-area">
-      <h4 class="user-borad-title"><span class="glyphicon glyphicon-pencil"></span>&nbsp;내가 쓴 글</h4>
+      <h4 class="user-borad-title"><span class="glyphicon glyphicon-pencil" ></span>&nbsp;내가 쓴 글</h4>
      
       <table class="table table-hover user-table">
 
@@ -101,7 +101,7 @@
       </table>
       <!-- 페이지네이션 -->
       
-      <form action="mypage" name="pagerForm">
+      <form action="mypage#point" name="pagerForm" >
                     
                     <hr>
                     <ul class="pager">
@@ -146,6 +146,13 @@ $(document).ready(function(){
 		if("${errorMsg}")
 			alert("${errorMsg}");
 		return;
+		
+		var page_url = window.location.href; 
+		var page_id = page_url.substring(page_url.lastIndexOf("#") + 1);
+		if(page_id == 'point'){
+			$('html, body').animate({ scrollTop: $('#point').offset().top }, 300);
+		}
+		
 	})
 	
 	$(document).ready(function(){
