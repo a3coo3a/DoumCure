@@ -14,7 +14,7 @@ public class BoardVO {
     private String bbsWrite; //varchar2(50) primary key, --글쓴이 PK
     private String bbsTitle; //varchar2(200) not null , -- 제목
     private String bbsContent; //varchar2(2000) not null , -- 내용 
-    private String upLoadPath; //VARCHAR2(50) not null, -- 파일 경로
+    private String uploadPath; //VARCHAR2(50) not null, -- 파일 경로
     private String fileLoca; //VARCHAR2(50) not null , -- 이미지 정보
     private String fileName; //VARCHAR2(50)  not null , -- 파일명
     private String fileRealName; //VARCHAR2(50) not null, -- 실제 파일면

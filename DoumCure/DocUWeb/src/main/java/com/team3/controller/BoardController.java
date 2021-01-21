@@ -76,20 +76,20 @@ public class BoardController {
 
 	@RequestMapping(value = "/freeRegistForm", method = RequestMethod.POST)
 	@ResponseBody
-	public String upload(@RequestParam("file") MultipartFile file,
+	public String upload(
+			 @RequestParam("file") MultipartFile file,
 			 @RequestParam("bbsTitle") String bbsTitle ,
-			 @RequestParam("bbsContent") String bbsContent ,
-			 @RequestParam("lock") String bbsOC,
+			 @RequestParam("bbsContent") String bbsContent,
+			 @RequestParam("bbsOC") String bbsOC,
 			 HttpSession session) {
 		
-		try {
+//		try {
 		
 		UserVO userVO = (UserVO)session.getAttribute("userVO");
 		String bbsWriter = userVO.getUserId(); //작성자정보
-		
-		
-		//System.out.println(file);
-		//System.out.println(content);
+				
+		System.out.println(file);
+		System.out.println(bbsContent);
 		
 		//1. 날짜별로 폴더로 관리
 		Date date  = new Date();
@@ -97,9 +97,9 @@ public class BoardController {
 		String fileLoca = sdf.format(date);
 					
 		//2. 저장할 폴더
-		String upLoadPath = "D:\\spring\\upload\\" + fileLoca;
+		String uploadPath = "D:\\spring\\upload\\" + fileLoca;
 		
-		File folder = new File(upLoadPath);
+		File folder = new File(uploadPath);
 		if(!folder.exists() ) {
 			folder.mkdir(); //폴더생성
 		}
@@ -115,33 +115,32 @@ public class BoardController {
 		String fileName = uuids + fileExtension ;//변경해서 저장할 파일이름
 		
 		System.out.println("=================");
-		System.out.println("저장할폴더:" + upLoadPath);
+		System.out.println("작성자:" + bbsWriter);
+		System.out.println("제목: " + bbsTitle);
+		System.out.println("내용:" +  bbsContent);
+		System.out.println("비밀글" + bbsOC );
+		System.out.println("저장할폴더:" + uploadPath);
 		System.out.println("파일실제이름:" + fileRealName);
 		System.out.println("파일사이즈:" + size);
 		System.out.println("파일확장자:" + fileExtension);
 		System.out.println("변경해서저장할파일명:" + fileName);
 		
 		//4. 파일 업로드처리
-		File saveFile = new File(upLoadPath + "\\" + fileName);
-		file.transferTo(saveFile); //스프링의 업로드처리
+//		File saveFile = new File(uploadPath + "\\" + fileName);
+//		file.transferTo(saveFile); //스프링의 업로드처리
 		
 		//5. DB에 insert작업
-		BoardVO vo = new BoardVO(0, bbsWriter, bbsTitle, bbsContent, upLoadPath, fileLoca, fileName, fileRealName, null, null, null);
-		boolean result = boardService.insertFile(vo); //성공시 true, 실패시 false
-		
-		if(result) { //성공
-			return "redirect:/board/freeboardList";
-		} else {
-			return "fail";
-		}
+		BoardVO vo = new BoardVO(0, bbsWriter, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, bbsOC, null, null);
+		boardService.insertFile(vo); //성공시 true, 실패시 false
 
-		} catch (NullPointerException e) {
-			System.out.println("세션정보가 없음");
-			return "fail";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "fail";
-		}
+//		} catch (NullPointerException e) {
+//			System.out.println("세션정보가 없음");
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			e.printStackTrace();			
+//		}
+		
+		return "redirect:/board/freeboardList";
 		
 	}
 			

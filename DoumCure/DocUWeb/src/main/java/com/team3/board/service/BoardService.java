@@ -13,7 +13,7 @@ public interface BoardService {
 	public ArrayList<BoardVO> getfreeList(Criteria cri); //글 목록 조회
 	public int getTotal(Criteria cri);//전체게시글
 	
-	public boolean insertFile(BoardVO vo); //게시물등록
+	public void insertFile(BoardVO vo); //게시물등록
 
 	
 	

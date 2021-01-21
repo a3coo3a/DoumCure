@@ -1183,6 +1183,8 @@ div.desc {
 
 .BLQA-area {
 	margin-top: 110px;
+    margin-left: 32px;
+    margin-right: 32px;
 }
 
 .qa_blr_title_box>p {
@@ -1223,6 +1225,28 @@ div.desc {
 .container-inner>.inner-control, .form-control {
 	padding: 3px;
 }
+.freeRegistForm-outline{
+	margin: 10%
+}
+
+.reply-content{
+	overflow: hidden;
+}
+.content-down-r {
+	float: right;
+	padding-top: 5px
+}
+
+.content-down-l {
+	float: left;
+	
+}
+/* 잠금 아이콘  */
+i {
+    font-weight: 900;
+    padding: 10px;
+    font-size: 16px;
+}
 
 	/*자게 그리드*/
 	.bbs-content-wrap > .board-table {
@@ -1260,13 +1284,12 @@ div.desc {
 
 /* 파일 업로드시 미리보기  */
 	.fileDiv {
-		height: 100px;
-		width: 200px;
+		width: 50% auto;
 		display: none;
 		margin-bottom: 10px;
 	}
 	
 	.fileDiv img {
-		width: 100%;
-		height: 100%;
+		width: 50% auto;
+		
 	}
