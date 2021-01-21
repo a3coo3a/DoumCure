@@ -21,16 +21,16 @@
             <div class="innertitle col-md-3 col-sm-12">
               NAME
             </div>
-            <!-- <td><input class="form-control input-sm" name="writer" value="${sessionScope.userVO.userId }" readonly><span id="msgId"></span></td> -->
+         
             <div class="inner-control col-md-7 col-sm-12 ">
-              <input class="form-control Large input " name="writer" value="작성자" readonly>
+              <input class="form-control Large input " name="writer" value="${sessionScope.userVO.userId }" readonly>
             </div>
 
 
             <div class="innertitle col-md-3 col-sm-12">
               TITLE</div>
             <div class="inner-control  col-md-7 col-sm-12 ">
-              <input class="form-control Large input " name="title"><span id="msgTitle">
+              <input class="form-control Large input " name="title"><span id="msgTitle"></span>
             </div>
 
             <div class="innertitle col-md-3 col-sm-12">
@@ -43,12 +43,12 @@
                   <label for="file">이미지업로드</label>
                   <input type="file" name="file" id="file">
                 </div>
-                <textarea class="form-control" rows="10" name="content" id="content"></textarea>
-                	 <i id="lock" class="fas fa-lock-open" value="OFF" aria hidden="true">공개글</i>
-                	<!--  <i id="lock" class="fa fa-unlock"  aria hidden="true">비공개글</i> -->
+                <textarea class="form-control" rows="10" name="content" id="content"></textarea><span id="msgContent"></span>
+                	<!--  <i id="lock" class="fas fa-lock-open" onclick="change(lock)">공개글</i>  -->
+                	<!--  <i id="lock" class="fa fa-unlock" value="ON" aria hidden="true" onclick="change(lock)">비공개글</i>  -->
                 	 
-              <!--   <input type="checkbox" id="lock" name="bbsOC" class="fa fa-unlock"
-                  onclick="change( )" hidden="true">잠금 -->
+               <!--  <input type="checkbox" id="lock" name="bbsOC" class="fa fa-unlock"
+                  onclick="change( )" hidden="true"><p>잠금<p>  -->
                 <button type="button" class="btn btn-info" id="uploadBtn">등록하기</button>
                 <button class="btn" type="button" onclick="location.href='freeboardList' ">목록</button>
               </div>
@@ -59,7 +59,6 @@
 
     </div>
   </section>
-  
   
   <!-- section script -->
   <script>
@@ -77,7 +76,7 @@
     
 
 	
-
+ 
  			
     $(document).ready(function () {
 		$("#uploadBtn").click(regist);
@@ -96,10 +95,10 @@
 				alert("이미지(jpg,png,jpeg)만 등록이 가능합니다")
 				return;
 			} 
-			/* else if(writer == ''){ //세션이 없다면
+			 else if(writer == ''){ //세션이 없다면
 				alert("로그인 필요한 서비스입니다")
 				return;
-			} */
+			} 
 			document.freeRegistForm.submit(); //서브밋
 			}; //등록 end  		
 
@@ -127,19 +126,16 @@
 		    });
 		
 			
-			
-			$('.reply-content').click(function() {
+			 
+/* 		$('.reply-content').click(function() {
 				 console.log(this);
-			    $("i", this).toggleClass("fa fa-unlock  fas fa-lock-open"); 
-			    $('.reply-content').not(this).find("i").removeClass("fas fa-lock-open").addClass("fa fa-unlock");
-						
-			});
+			    $("i", this).toggleClass("fa fa-unlock").attr('value','OFF').html('공개글');
+			    $("i", this).toggleClass("fas fa-lock-open").attr('value','ON').html("비공개글");
 			
+			}); 
+			 */
 			
-		 /*   function change() {
-			   
-			
-			   }
+		/*   function change(lock) {
 			      if (document.getElementById(lock).className == "fa fa-unlock") {
 			        document.getElementById(lock).className = "fas fa-lock-open";
 			        document.getElementById(lock).innerHTML = "공개글";
@@ -151,8 +147,10 @@
 			        document.getElementById(lock).value="ON"
 
 			      }
+			
+			   } */
 
-			    } */
+			    
 
 		
     	/* function freeRegist() {

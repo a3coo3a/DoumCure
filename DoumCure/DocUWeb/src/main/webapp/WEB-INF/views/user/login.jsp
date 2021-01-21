@@ -45,13 +45,24 @@
   	display : block; 
   	width : 100%; 
   	height : 100%
-  }  
+  } 
+
   </style>
   
   <section class="user-bg user-area">
         <div class="container user_container">
           <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-12 user-text-bg user-text-area">
+            	<div align="center" id="join-sccess">
+            		<h2>
+            			<span id="nickname_Y">${joinMsg.userNickName} 님, 환영합니다!</span>
+            			<span id="nickname_N">가입을 축하드립니다! </span>
+            			
+            		</h2>
+            		<img src="${pageContext.request.contextPath }/resources/img/user/welcome.png" alt="welcome">
+            		<hr/>
+            	</div>
+            	
               <h4 align="center">로그인</h4>
               <br/>
               
@@ -88,9 +99,9 @@
               </form>
               
               <form action="kakaoLoginForm" id="kakaoLoginForm">
-              	<input type="hidden" id="kakaoId">
-              	<input type="hidden" id="kakaoPw">
-              	<input type="hidden" id="kakaoNickName">
+              	<input type="hidden" id="kakaoId" name="kakaoId">
+              	<input type="hidden" id="kakaoPw" name="kakaoPw">
+              	<input type="hidden" id="kakaoNickName" name="kakaoNickName">
               </form>
             </div>
           </div>
@@ -99,6 +110,31 @@
         
 </section>
 
+<!-- 가입실패시 메세지 -->
+<script>
+$(document).ready(function(){
+	var joinMsg = '${joinMsg}';
+	console.log(joinMsg.userNickName);
+	if(joinMsg){
+		if(joinMsg.userNickName === undefined){
+			$("#nickname_Y").hide();
+			$("#nickname_N").show();
+		}else{
+			$("#nickname_Y").show();
+			$("#nickname_N").hide();
+		}
+		$("#join-sccess").show();
+		$(".user-join-btn").hide();
+		$(".user_line").hide();
+		$(".kakao-user-btn").hide();
+		$(".naver-user-btn").hide();	
+	}else{
+		$("#join-sccess").hide();
+	}
+})
+</script>
+
+<!-- id/pw 로그인 -->
 <script>
 	var chid = false;
 	var chpw = false;

@@ -10,14 +10,42 @@
   		select count(*) from USERS where userId = #{userId}
   	</select>
   
-  	<select id="userCheck" resultType="UserVO">
+  	<select id="getInfo" resultType="UserVO">
   		select * from USERS where userId = #{userId}
   	</select>
   
   	<insert id="join">
-  		insert into USERS values(#{userId}, #{userPw}, #{userNickName},#{userPhoneNum},#{userAddrZipNum}, #{userAddrBasic}, #{userAddrDetailL}, #{userBookMark01}, #{userBookMark02}, #{userBookMark03}, #{userManage})
+  		insert into USERS values(#{userId}, #{userPw}, #{userNickName},#{userPhoneNum},#{userAddrZipNum}, #{userAddrBasic}, #{userAddrDetail}, #{userBookMark01}, #{userBookMark02}, #{userBookMark03}, #{userManage})
 	</insert>
   
+  	<select id="login" resultType="int">
+  		select count(*) from USERS where userId = #{userId} and userPw = #{userPw}
+  	</select>
   
+  	<select id="getTotal" resultType="int">
+  		select count(*) from BBS where BBSWRITE = #{userId}
+  	</select>
+  	
+  	<select id="getMyBbsList" resultType="BoardVO">
+  		<![CDATA[
+  		select *
+		from(
+		    select rownum as rn, 
+		           b.*
+		    from(
+		        select *
+		        from bbs
+		        where bbswrite = #{userId}
+		        order by bbsno desc) b
+		) where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <= #{cri.pageNum}*#{cri.amount}
+		]]>
+  	</select>
+  	
+  	<update id="userUpdate">
+  		update USERS set userPw = #{userPw}, userNickName = #{userNickName}, userPhoneNum = #{userPhoneNum}, userAddrZipNum = #{userAddrZipNum}, userAddrBasic = #{userAddrBasic}, userAddrDetail = #{userAddrDetail} where userId = #{userId}
+  	</update>
   
+  	<delete id="userDelete">
+  		delete from USERS where userId = #{userId} and userPw = #{userPw}
+  	</delete>
   </mapper>

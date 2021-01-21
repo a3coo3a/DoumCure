@@ -17,8 +17,8 @@
       outline: none;
     } 
 
-    .form-control[name=id],
-    .form-control[name=zip-code]{
+    .form-control[name=userId],
+    .form-control[name=userAddrZipNum]{
       display: inline;
       width: 60%;
     }
@@ -49,15 +49,15 @@
         <div class="col-lg-9 col-md-9 col-sm-12 user-text-bg user-text-area">
             <h2 align="center">회원가입</h2>
             <br/>
-            <form name="joinForm" action="joinForm.user" method="post" id="joinForm">
+            <form name="joinForm" action="joinForm" method="post" id="joinForm">
               <div class="form-group">
-                <input type="text" name="id" class="form-control" id="id" placeholder="* ID (영문포함 4자 이상)" onkeyup="checkId()">
+                <input type="text" name="userId" class="form-control" id="userId" placeholder="* ID (영문포함 4자 이상)" onkeyup="checkId()">
                 <button type="button" class="btn btn-lg btn-info mini-btn" name="idCheck" id="idCheck">ID중복확인</button>
-                <p id="checkId"></p>
+                <p id="checkIdMsg"></p>
               </div>
                 <div class="form-group">
-                    <input type="password" name="pw" class="form-control" id="password" placeholder="* PASSWORD (영 대/소문자, 숫자, 특수문자 3종류 이상 조합 6자 이상)" onkeyup="checkPw()">
-                  <p id="checkPw"></p>
+                    <input type="password" name="userPw" class="form-control" id="userPw" placeholder="* PASSWORD (영 대/소문자, 숫자 조합 6자 이상)" onkeyup="checkPw()">
+                  <p id="checkPwMsg"></p>
                 </div>
                 <div class="form-group">
                     
@@ -65,31 +65,34 @@
                     <span id="matchCheckPw"></span>
                 </div>
                 <br/>
-                <!--input2탭의 input-addon을 가져온다 -->
                 <div class="form-group">
-                    
-                      <input name="phoneNum1" class="form-control sel" placeholder="010" onKeyPress="return checkNum(event)" required> -
-                      <input name="phoneNum2" class="form-control sel" placeholder="xxxx" onKeyPress="return checkNum(event)" required> -
-                      <input name="phoneNum3" class="form-control sel" placeholder="xxxx" onKeyPress="return checkNum(event)" required>
+                    <input type="text" name="userNickName" class="form-control" id="userNickName" placeholder="NickName을 적어주세요" >
+                  <p id="checkPwMsg"></p>
+                </div>
+                <div class="form-group">
+                      <input type="hidden" name="userPhoneNum" id="userPhoneNum">
+                      <input name="phoneNum1" class="form-control sel" placeholder="010" onKeyPress="return checkNum(event)" > -
+                      <input name="phoneNum2" class="form-control sel" placeholder="xxxx" onKeyPress="return checkNum(event)" > -
+                      <input name="phoneNum3" class="form-control sel" placeholder="xxxx" onKeyPress="return checkNum(event)" >
                     <br/>
                 <p id="checkNum"></p>
                 </div>
                 <br/>                
                 <div class="form-group">
                     <div class="form-group">
-                      <input type="text" name="zip-code" class="form-control" id="zip-code" placeholder="우편번호" >
-                      <button type="button" class="btn btn-lg btn-info mini-btn" name="addSearch" id="addSearch">주소찾기</button>
+                      <input type="text" name="userAddrZipNum" class="form-control" id="userAddrZipNum" placeholder="우편번호" readonly>
+                      <button type="button" class="btn btn-lg btn-info mini-btn" name="addSearch" id="addSearch" onclick="goPopup()">주소찾기</button>
                     </div>
-                    <input type="text" name="basicAddress" class="form-control" id="addr-basic" placeholder="기본주소" onkeyup="checkBaAdd()">
+                    <input type="text" name="userAddrBasic" class="form-control" id="userAddrBasic" placeholder="기본주소">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="detailAddress" class="form-control" id="addr-detail" placeholder="상세주소" onkeyup="checkDeAdd()">
+                    <input type="text" name="userAddrDetailL" class="form-control" id="userAddrDetailL" placeholder="상세주소">
                 </div>
                 <div class="form-group">
                     <button type="button" class="btn btn-lg btn-success btn-block" onclick="check()">회원가입</button>
                 </div>
                 <div class="form-group">
-                    <button type="button" class="btn btn-lg btn-info btn-block" onclick="location.href='login.user'">로그인</button>
+                    <button type="button" class="btn btn-lg btn-info btn-block" onclick="location.href='login'">로그인</button>
                 </div>
             </form>
         </div>
@@ -98,6 +101,71 @@
 
 </section>
 
+<!-- id 중복확인 서밋 -->
+<script>
+
+$("#idCheck").click(function(){
+	if($("#userId").val() === ''){
+		alert("아이디를 작성해 주세요");
+		$("#userId").focus();
+		return;
+	}
+	
+	var userId = $("#userId").val();
+	$.ajax({
+		type : "POST",
+		url : "idCheck",
+		data : JSON.stringify({"userId":userId}),
+		contentType : "application/json; charset=utf-8",
+		success : function(data){
+			if( data === 0){
+				$("#idCheck").hide();
+				$("#checkIdMsg").css("color","blue");
+				$("#checkIdMsg").html("사용가능한 아이디 입니다.");
+				
+			}else{
+				$("#checkIdMsg").html("존재하는 아이디 입니다.");
+				$("#userId").focus();
+			}
+		},
+		error : function(status, error){
+			console.log("상태 : " + status);
+			console.log("에러 : " + error)
+		}
+	});   // ajax end
+	
+	
+})
+
+
+</script>
+
+<!-- 주소찾기 -->
+<script>
+	function goPopup(){
+		var pop = window.open("${pageContext.request.contextPath}/resources/popup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	}
+	function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+		// 콜백으로 받아온 데이터를 가입폼에 입력
+		$("#userAddrZipNum").val(zipNo);
+		$("#userAddrBasic").val(roadAddrPart1);
+		$("#userAddrDetail").val(addrDetail);
+		
+	}
+</script>
+   
+   
+<!-- 가입실패시 메세지 -->
+<script>
+$(document).ready(function(){
+	var joinMsg = '${joinMsg}';
+	if(joinMsg){
+		alert(joinMsg);
+	}
+})
+</script>
+
+<!-- 작성확인 및 서밋 -->
 <script>
 	var chid = false;
 	var chpw = false;
@@ -119,67 +187,77 @@
 	
 	function checkId(){
 		var idReg = /^(?=.*[A-Za-z])[가-힣A-Za-z0-9]{4,}$/;
-		if(!idReg.test($("#id").val())){
-      $("#checkId").html("아이디는 (영문포함 4자 이상)이어야 합니다.")
-      $("#checkId").css("color","red");
-      $("#id").focus();
-      chid = false;
-      return chid;
-		}else if(idReg.test($("#id").val())){
-			$("#checkId").html("");
-      chid = true;
-      return chid;
+		
+		$("#idCheck").show();
+		if(!idReg.test($("#userId").val())){
+	      $("#checkIdMsg").html("아이디는 (영문포함 4자 이상)이어야 합니다.")
+	      $("#checkIdMsg").css("color","red");
+	      $("#userId").focus();
+	      chid = false;
+	      return chid;
+		}else if(idReg.test($("#userId").val())){
+		  $("#checkIdMsg").html("");
+	      chid = true;
+	      return chid;
 		}
 	}
 	
 	function checkPw(){
-		var pwReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[가-힣A-Za-z\d@$!%*#?&]{6,}$/;
+		var pwReg = /^(?=.*[A-Za-z])(?=.*\d)[가-힣A-Za-z\d@$!%*#?&]{6,}$/;
 		
-		if(!pwReg.test($('#password').val())){
-			$('#checkPw').html('비밀번호 (영 대/소문자, 숫자, 특수문자 3종류 이상 조합 6자 이상)여야 합니다.');
-      $('#checkPw').css("color","red");
-      $("#password").focus();
-      chpw = false;
+		if(!pwReg.test($('#userPw').val())){
+		  $('#checkPw').html('비밀번호 (영 대/소문자, 숫자 조합 6자 이상)여야 합니다.');
+	      $('#checkPwMsg').css("color","red");
+	      $("#userPw").focus();
+	      chpw = false;
       return chpw;
-		}else if(pwReg.test($("#password").val())) {
-			$('#checkPw').html("");
-      chpw = true;
-      return chpw;
-    }
+		}else if(pwReg.test($("#userPw").val())) {
+			$('#checkPwMsg').html("");
+	      chpw = true;
+	      return chpw;
+   	 	}
 	}
 	
 	function matchCheckPw(){
-    if($('#password').val() == ""){
-      chpwma = false;
-      return chpwma;
-    }else if($('#password').val() != $('#password-confrim').val()){
-			$('#matchCheckPw').html('비밀번호가 다릅니다');
-      $('#matchCheckPw').css("color","red");
-      $("#password-confrim").focus();
-      chpwma = false;
-      return chpwma;
-		}else if($('#password').val() == $('#password-confrim').val()){
-      $('#matchCheckPw').html('비밀번호가  같습니다');
-			$('#matchCheckPw').css("color","blue");
-      chpwma = true;
-      return chpwma;
+	    if($('#userPw').val() == ""){
+	      chpwma = false;
+	      return chpwma;
+	    }else if($('#userPw').val() != $('#password-confrim').val()){
+			  $('#matchCheckPw').html('비밀번호가 다릅니다');
+		      $('#matchCheckPw').css("color","red");
+		      $("#password-confrim").focus();
+		      chpwma = false;
+		      return chpwma;
+		}else if($('#userPw').val() == $('#password-confrim').val()){
+	     	  $('#matchCheckPw').html('비밀번호가  같습니다');
+		  $('#matchCheckPw').css("color","blue");
+	      chpwma = true;
+	      return chpwma;
 		}
 	}
 	
 	function check(){
-    
+	
+       	$("#userPhoneNum").val($(".sel[name=phoneNum1]").val() + "-" + $(".sel[name=phoneNum2]").val() + "-" + $(".sel[name=phoneNum3]").val());
+       console.log(	$("#idCheck").css("display") )
+       	if($("#idCheck").css("display") !== "none"){
+       		alert("아이디 중복확인은 필수 입니다.");
+       		$("#userId").focus();
+       		return;
+       	}
+       	
 		if(checkId()){
-      if(checkPw()){
-        if(matchCheckPw()){
-          $("#joinForm").submit();
-        }else{
-          $("#password-confrim").focus();
-        }
-      }else{
-        $("#password").focus();
-      }
-    }else{
-      $("#id").focus();
-    }
+	      if(checkPw()){
+	        if(matchCheckPw()){
+	          $("#joinForm").submit();
+	        }else{
+	          $("#password-confrim").focus();
+	        }
+	      }else{
+	        $("#userPw").focus();
+	      }
+	    }else{
+	      $("#userId").focus();
+	    }
 	}
 </script>
