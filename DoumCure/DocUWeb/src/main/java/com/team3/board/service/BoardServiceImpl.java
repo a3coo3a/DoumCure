@@ -39,9 +39,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public boolean insertFile(BoardVO vo) {
+	public void insertFile(BoardVO vo) {
 		
-		return boardMapper.insertFile(vo);
+		boardMapper.insertFile(vo);
 	}
 
 	

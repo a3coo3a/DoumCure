@@ -47,8 +47,15 @@
 	                               <td><a href="freeboardDetail?bbsNo=${vo.bbsNo }">${vo.bbsTitle }</a></td>
 	                               <td>${vo.bbsWrite }</td>
 	                               <td><fmt:formatDate value="${vo.bbsRegdate}" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
-	                               <td id="lock">${vo.bbsOC}</td>
-	                               <%-- <td><fmt:formatDate value="${vo.updatedate }" pattern="yyyy년MM월dd일  hh시mm분"/></td> --%>
+	                               <td id="lock">
+		                               	<c:if test="${vo.bbsOC eq 'OFF'}">
+		                               	  <i  class="fas fa-lock-open"></i>
+		                               	</c:if>
+		                               	<c:if test="${vo.bbsOC eq 'ON'}">
+		                               	  <i  class="fa fa-unlock"></i>
+		                               	</c:if>
+	                               </td>
+
 	                           </tr>
 						</c:forEach>
                     </table>
@@ -100,8 +107,11 @@
     </div>    
 </section>
 
-
     <script>
+    
+    
+    
+    
  
     		window.onload = function() {
     			 if(history.state === '' ) return;
@@ -113,15 +123,9 @@
     				 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
     				 history.replaceState('', null, null); 
     			 }
-    			 
-    			 /* if (document.getElementById(lock).innerhtml == "OFF") {
-		            document.getElementById(lock).className = "fas fa-lock-open";
-		
-		          } else {
-		          	document.getElementById(lock).innerhtml == "ON"
-		            document.getElementById(lock).className = "fa fa-unlock";
-		
-		          }  */
+    			     
+			    
+			    
     		}
     			 
 		          

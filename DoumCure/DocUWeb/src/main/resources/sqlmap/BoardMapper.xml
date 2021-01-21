@@ -53,9 +53,9 @@
  	<!-- 게시글 등록 -->
  	<insert id="insertFile" >
  		insert into bbs (BBSNO, BBSWRITE,BBSTITLE,BBSCONTENT,
- 			uploadpath, fileloca,filename,filerealname)
-		VALUES (BBS_SEQ.nextval,#{bbsWrite},#{bbsTetle},#{bbsContent},
-			 #{uploadPath},#{fileLoca} ,#{fileName},#{fileRealName})
+ 			uploadpath, fileloca,filename,filerealname, bbsOC)
+		VALUES (BBS_SEQ.nextval,#{bbsWrite},#{bbsTitle},#{bbsContent}
+			 #{uploadPath},#{fileLoca} ,#{fileName},#{fileRealName},#{bbsOC})
  	</insert>
  	
  	
