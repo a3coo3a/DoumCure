@@ -11,22 +11,18 @@ import com.team3.medi.service.MediService;
 @RequestMapping("/medi")
 public class MediController {
 
-	@Autowired
-	MediService mediService;
+	//@Autowired
+	//MediService mediService;
 	
-	@RequestMapping("/mediList")
-	public String mediList() {
-		return "medi/mediList";
+	@RequestMapping({"/mediList","/mediStore","/mediSearch","/mediDetail","mediCompare2","mediCompare3"})
+	public void views() {
 	}
 	
-	@RequestMapping("/mediStore")
-	public String mediStore() {
-		return "medi/mediStore"; 
-	}
 	
-	@RequestMapping("/mediSearch")
-	public String mediSearch() {
-		return "medi/mediSearch"; 
-	}
+	
+	
+	
+	
+	
 	
 }

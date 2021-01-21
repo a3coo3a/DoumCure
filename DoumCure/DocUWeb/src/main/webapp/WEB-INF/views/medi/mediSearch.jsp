@@ -62,6 +62,12 @@
 
             </div>
         </div>
+    
+    <button type="button" id="testDB">자료확인</button>    
+	<div id="demo">
+	
+	</div>        
+        
     </section>
     
     <script src="${pageContext.request.contextPath }/resources/js/jquery.rwdImageMaps.js"></script>
@@ -119,4 +125,80 @@
 
         })
     </script>
+    
+    
+    <!-- db가져오기 -->
+    <script>
+    
+    	$("#testDB").click(function(){
+    		
+    		/* var xhr = new XMLHttpRequest();
+    		var url = 'http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService1/getMdcinPrductItem'; 
+    		var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'LuM5DnSzbI6oFnaF80YIASKwb%2BNY3Yx81cHaLl092LcrO87cegLawf1nxeKQn4zIGq%2FJJZh21ujVKxctiTl3FA%3D%3D'; 
+    		queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
+    		queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('3');
+    		xhr.open('GET', url + queryParams);
+    		xhr.onreadystatechange = function () {
+    		    if (this.status == 200 && this.readyState == 4) {
+    		        console.log('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+    		   
+    		    
+    		    }
+    		};
+
+    		xhr.send(''); */
+    		var url = 'http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService1/getMdcinPrductItem'; 
+    		var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'LuM5DnSzbI6oFnaF80YIASKwb%2BNY3Yx81cHaLl092LcrO87cegLawf1nxeKQn4zIGq%2FJJZh21ujVKxctiTl3FA%3D%3D'; 
+    		queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
+    		queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('3');
+    		
+    		$.ajax({
+    			crossOrigin : true,
+    			url : url + queryParams,
+    			type : "GET",
+    			dataType : "xml",
+    			success : function(xml){
+    				$(xml).find('item').each(function(){
+    					var ITEM_NAME = $(this).find("ITEM_NAME").text();
+    					var ENTP_NAME = $(this).find("ENTP_NAME").text();
+    					var EE_DOC_ID = $(this).find("EE_DOC_ID").text();
+    					
+    					var data = "ITEM_NAME :" + ITEM_NAME + ",<br/>ENTP_NAME : " + ENTP_NAME + ",<br/>EE_DOC_ID : " + EE_DOC_ID;
+    					$("#demo").append(data);
+    				})
+    			}
+    			
+    			
+    			
+    			
+    			
+    		}); 		
+    		
+    		
+    		
+    	});  // click end
+    	
+    	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+    
     
