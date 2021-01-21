@@ -8,8 +8,8 @@ import com.team3.medi.mapper.MediMapper;
 @Service("mediService")
 public class MediServiceImpl implements MediService {
 
-	@Autowired
-	MediMapper mediMapper;
+	//@Autowired
+	//MediMapper mediMapper;
 	
 	
 	

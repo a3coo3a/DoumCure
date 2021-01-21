@@ -18,11 +18,11 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper boardMapper;
 	
 	//글 등록
-	@Override
-	public void freeRegist(BoardVO vo) {
-		
-		boardMapper.bbsRegist(vo);
-	}
+//	@Override
+//	public boolean freeRegist(BoardVO vo) {
+//		
+//		return boardMapper.bbsRegist(vo);
+//	}
 
 	//글 목록 조회 
 	@Override
@@ -37,5 +37,13 @@ public class BoardServiceImpl implements BoardService{
 	
 		return boardMapper.getTotal(cri);
 	}
+
+	@Override
+	public boolean insertFile(BoardVO vo) {
+		
+		return boardMapper.insertFile(vo);
+	}
+
+	
 
 }

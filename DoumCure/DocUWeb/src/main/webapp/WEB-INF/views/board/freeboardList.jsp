@@ -53,10 +53,8 @@
 						</c:forEach>
                     </table>
 
-                    <input type="hidden" name="pageNum" value="1"> <!-- 검색버튼이 눌리면 무조건 페이지번호를 1번호으로 다시 세팅 -->
-                    <input type="hidden" name="amount" value="${pageVO.amount }">
-                    <button type="submit" class="btn qa-bbsList-btn"  onclick = "regbtn()">글쓰기</button>
-
+                    <button type="submit" class="btn qa-bbsList-btn"  onclick = "location.href='freeboardRegist'">글쓰기</button>
+                    
                     
                     <form action="freeboardList" name="pageForm">
 	                   <div class="text-center">
@@ -83,9 +81,9 @@
 	                       </li>
 	                       </c:if>
 	                   </ul>
-	                   <c:if test="${sessionScope.userVO != null }">
-	                   <button type="button" class="btn btn-info" onclick = "regbtn()">글쓰기</button>
-	                   </c:if>
+		                  <%--  <c:if test="${sessionScope.userVO != null }">
+	                    	<button type="submit" class="btn qa-bbsList-btn"  onclick = "regbtn()">글쓰기</button>
+		                   </c:if> --%>
 	                   </div>
 	                   
 	                   <!-- 폼형식으로 보내는데 숨겨서 보낼값 hidden으로 표시 -->
@@ -93,6 +91,7 @@
 	                   <input type="hidden" name="amount" value="${pageVO.cri.amount}">
 	                   <input type="hidden" name="searchType" value="${pageVO.cri.searchType }">
 	                   <input type="hidden" name="searchName" value="${pageVO.cri.searchName }">
+
 	
 		    		</form>
                     
@@ -103,18 +102,30 @@
 
 
     <script>
-        function setThumbnail(event) {
-            var reader = new FileReader();
-
-            reader.onload = function (event) {
-                var img = document.createElement("img");
-                img.setAttribute("src", event.target.result);
-                document.querySelector("div#image_container").appendChild(img);
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-
-      
+ 
+    		window.onload = function() {
+    			 if(history.state === '' ) return;
+    			 
+    			 var msg = "${msg}"; //컨트롤러에서 넘어온 메시지
+    			 if(msg !== '') {
+    				 alert(msg);
+    				 //브라우저의 기록을 새롭게 변경(데이터, 페이지제목, 변경할주소)
+    				 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
+    				 history.replaceState('', null, null); 
+    			 }
+    			 
+    			 /* if (document.getElementById(lock).innerhtml == "OFF") {
+		            document.getElementById(lock).className = "fas fa-lock-open";
+		
+		          } else {
+		          	document.getElementById(lock).innerhtml == "ON"
+		            document.getElementById(lock).className = "fa fa-unlock";
+		
+		          }  */
+    		}
+    			 
+		          
+    		
     	//페이징
     	/*  
     		1. 페이지네이션을  a-> form태그로 변경
@@ -134,39 +145,8 @@
     		
     		document.pageForm.submit(); //폼값 서브밋
     	}
-     
-
-    		window.onload = function() {
-    			 if(history.state === '' ) return;
-    			 
-    			 var msg = "${msg}"; //컨트롤러에서 넘어온 메시지
-    			 if(msg !== '') {
-    				 alert(msg);
-    				 //브라우저의 기록을 새롭게 변경(데이터, 페이지제목, 변경할주소)
-    				 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
-    				 history.replaceState('', null, null); 
-    			 }
-    			 
-    	/* 		 if (document.getElementById(lock).innerhtml == "OFF") {
-		            document.getElementById(lock).className = "fas fa-lock-open";
-		
-		          } else {
-		          	document.getElementById(lock).innerhtml == "ON"
-		            document.getElementById(lock).className = "fa fa-unlock";
-		
-		          } */
-		          
-    		}
-    			 
-		          
-    		
-    		function regbtn(){
-    			location.href='freeboardRegist';
-    		}
-    		
     	
-    		
 
-    		 
+ 
 
     </script>
