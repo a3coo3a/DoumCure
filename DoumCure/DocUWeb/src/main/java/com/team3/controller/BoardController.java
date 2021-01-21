@@ -126,7 +126,7 @@ public class BoardController {
 		file.transferTo(saveFile); //스프링의 업로드처리
 		
 		//5. DB에 insert작업
-		BoardVO vo = new BoardVO(0, bbsWriter, bbsTitle, bbsContent, upLoadPath, fileLoca, fileName, fileRealName, bbsOC, null, null);
+		BoardVO vo = new BoardVO(0, bbsWriter, bbsTitle, bbsContent, upLoadPath, fileLoca, fileName, fileRealName, null, null, null);
 		boolean result = boardService.insertFile(vo); //성공시 true, 실패시 false
 		
 		if(result) { //성공
@@ -134,7 +134,6 @@ public class BoardController {
 		} else {
 			return "fail";
 		}
-
 
 		} catch (NullPointerException e) {
 			System.out.println("세션정보가 없음");
