@@ -120,3 +120,63 @@
         })
     </script>
     
+    
+    <!-- 데이터 가져오기 -->
+    <script>
+    /* 참고사이트
+    	http://www.tcpschool.com/ajax/ajax_server_response
+    	https://www.w3schools.com/xml/xml_http.asp
+    	
+    	onreadystatechange 상태의 의미
+    	readyState 프로퍼티
+    	 1. UNSENT (숫자 0) : XMLHttpRequest 객체가 생성됨.
+	   	 2. OPENED (숫자 1) : open() 메소드가 성공적으로 실행됨.
+    	 3. HEADERS_RECEIVED (숫자 2) : 모든 요청에 대한 응답이 도착함.
+    	 4. LOADING (숫자 3) : 요청한 데이터를 처리 중임.
+    	 5. DONE (숫자 4) : 요청한 데이터의 처리가 완료되어 응답할 준비가 완료됨.
+    	status 프로퍼티
+    	 - 200 : 서버에 문서가 존재함.
+    	 - 404 : 서버에 문서가 존재하지 않음.
+    	
+    */
+    
+    // 클릭할때마다 아래 실행될수 있게 작성
+    // 요청
+    var xhttp = new XMLHttpRequest();   // 객체생성
+    xhttp.onreadystatechange = function() {     // onreadystatechange : readyState 프로퍼티 값이 변할때마다 자동 호출, 총 5번 호출, 응답의 도착순간을 특정할 수 있음.
+        if (this.readyState == 4 && this.status == 200) {
+           // Typical action to be performed when the document is ready:
+           document.getElementById("demo").innerHTML = xhttp.responseText;     //responseText : 텍스트 문자열로 반환
+        }
+    };
+    xhttp.open("GET", "filename", true);
+    xhttp.send();  
+    
+    
+    // 응답
+    xmlDoc = xhttp.responseXML;
+	txt = "";
+	x = xmlDoc.getElementsByTagName("ARTIST");
+	for (i = 0; i < x.length; i++) {
+	  txt += x[i].childNodes[0].nodeValue + "<br>";
+	  }
+	document.getElementById("demo").innerHTML = txt;
+	xhttp.open("GET", "cd_catalog.xml", true);
+	xhttp.send();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	</script>
+    
