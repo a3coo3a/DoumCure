@@ -1257,3 +1257,16 @@ div.desc {
 	border-radius: 0; /*윤곽 0*/
 	padding: 5px 10px; /*버튼 패딩을 페이지네이션과 맞춘다*/
 }
+
+/* 파일 업로드시 미리보기  */
+	.fileDiv {
+		height: 100px;
+		width: 200px;
+		display: none;
+		margin-bottom: 10px;
+	}
+	
+	.fileDiv img {
+		width: 100%;
+		height: 100%;
+	}
