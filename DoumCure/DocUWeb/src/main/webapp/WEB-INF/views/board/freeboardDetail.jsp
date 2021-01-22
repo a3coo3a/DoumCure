@@ -38,23 +38,22 @@
 							</div>
 
 							<div class="reply-group">
-								<img src="freeDetailForm?fileLoca=${vo.fileLoca}&fileName=${vo.fileName}">
-								<%-- <img src="${vo.file }">	 --%>						
-								<!-- <label for="file">이미지업로드</label> <input type="file" name="file"id="file"> -->
+								<img src="view?fileloca=${vo.fileRealName}&filename=${vo.fileRealName}">						
+								<!-- <label for="file">이미지업로드</label> <input type="file" name="file"id="file">  -->
 							</div>
 
 							<textarea class="form-control" rows="10" name="content"
 								id="content" readonly>${vo.bbsContent }</textarea>
 							<div class="content-down-l">
-								<input type="checkbox" id="bbsCO" name="bbsOC" value="${vo.bbsOC }" checked="checked" readonly> 비밀글
+								<%-- <input type="checkbox" id="bbsCO" name="bbsOC" value="${vo.bbsOC }" checked="checked" readonly> 비밀글 --%>
+								<%-- <span  id="fa fa-unlock" value="${vo.bbsOC }">비밀글</span> --%>
 
 							</div>
 
 							<div class="content-down-r">
 								<button type="button" class="btn btn-warning" id="uploadBtn"
 									onclick="location.href='freeboardModify?bbsNo=${vo.bbsNo}&writer=${vo.bbsWrite }' ">수정하기</button>
-								<button class="btn" type="button"
-									onclick="location.href='freeList' ">목록</button>
+								<button class="btn" type="button" onclick="location.href='freeboardList' ">목록</button>
 							</div>
 						</div>
 					</div>
@@ -76,9 +75,11 @@
 			 //브라우저의 기록을 새롭게 변경(데이터, 페이지제목, 변경할주소)
 			 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
 			 history.replaceState('', null, null); 
+			 
+			 
+			 
 		 }
 		     
-
 		  //자바 스크립트 파일 미리보기 기능
 		  function readURL(input) {
 		    if (input.files && input.files[0]) {

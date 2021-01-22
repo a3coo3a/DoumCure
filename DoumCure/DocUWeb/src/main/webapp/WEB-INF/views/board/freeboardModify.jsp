@@ -20,14 +20,15 @@
                         </div>
                         <!-- <td><input class="form-control input-sm" name="writer" value="${sessionScope.userVO.userId }" readonly><span id="msgId"></span></td> -->
                         <div class="inner-control col-md-7 col-sm-12 ">
-                            <input class="form-control Large input " name="writer"  value="${sessionScope.userVO.userId }" readonly>
+                            <input class="form-control Large input " name="writer"  
+                          value="${vo.bbsWrite}" readonly>
                         </div>
     
     
                         <div class="innertitle col-md-3 col-sm-12">
                             TITLE</div>
                         <div class="inner-control  col-md-7 col-sm-12 ">
-                            <input class="form-control Large input " name="title"  value=""><span id="msgTitle">
+                            <input class="form-control Large input " name="title" 	value="${vo.bbsTitle}" readonly><span id="msgTitle">
                         </div>
     
                         	<div class="innertitle col-md-3 col-sm-12">COMMNET</div>
@@ -35,26 +36,26 @@
 						<div class="reply-content">
 							<div class="fileDiv">
 								<img id="fileImg" src="../resources/img/title_icon.png">
+
 							</div>
 
-							<div class="reply-group">
-								<img src="view?fileLoca=폴더경로&filename=파일명">
-								<!-- <label for="file">이미지업로드</label> <input type="file" name="file"id="file"> -->
+								<div class="reply-group">
+								<img src="view?fileloca=${vo.fileRealName}&filename=${vo.fileRealName}">						
+								<!-- <label for="file">이미지업로드</label> <input type="file" name="file"id="file">  -->
 							</div>
 
-							<textarea class="form-control" rows="10" name="content"
+								<textarea class="form-control" rows="10" name="content"
 								id="content" readonly>${vo.bbsContent }</textarea>
 							<div class="content-down-l">
-								<input type="checkbox" id="bbsCO" name="bbsOC"> 비밀글
-
+								<input type="checkbox" id="bbsCO" name="bbsOC" value="${vo.bbsOC }" checked="checked" readonly> 비밀글 
 							</div>
+
 
 							<div class="content-down-r">
 								<button type="button" class="btn btn-warning" id="uploadBtn"
-									onclick="location.href='freeboardModify?bbsNo=${vo.bbsNo}&writer=${vo.bbsWrite }' ">수정하기</button>
-								<button class="btn" type="button"
-									onclick="location.href='freeList' ">목록</button>
-							</div>
+									onclick="location.href='freeboardModify?bbsNo=${vo.bbsNo}&writer=${vo.bbsWrite }' ">등록하기</button>
+							<button class="btn" type="button" onclick="location.href='freeboardList' ">목록</button>
+								</div>
 						</div>
 					</div>
 

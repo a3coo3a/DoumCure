@@ -1,6 +1,7 @@
 package com.team3.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,12 +11,15 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -152,14 +156,27 @@ public class BoardController {
 			//화면으로 넘어갈때 bno기반의 데이터를 가지고 상세화면으로 가도록 getContent()로 처리
 			BoardVO vo = boardService.getfreeContent(bbsNo);
 			model.addAttribute("vo", vo); //bno게시글에 대한 정보
-
+			
+			
 			System.out.println(vo.toString());
 			//void형 메서드는 요청의 결과가 디스패쳐서블릿으로 return됩니다.
 		}
-//		
-//	
-//	
-//
+		
+		//이미지
+		@RequestMapping("/view/{fileLoca}/{fileName:.+}")
+		@ResponseBody
+		public byte[] getFile(@RequestParam("fileLoca") String fileLoca, @RequestParam("fileName")String fileName) {
+		File file = new File( "D:\\spring\\upload\\"+ fileLoca + "\\" + fileName);
+		byte[] result = null;
+		try {
+		result = FileCopyUtils.copyToByteArray(file);
+		} catch (IOException e) {
+		e.printStackTrace();
+		}
+		return result;
+		}
+
+		
 //		@RequestMapping("/getList")
 //		@ResponseBody
 //		public ArrayList<SnsBoardVO> geList(){
@@ -173,68 +190,8 @@ public class BoardController {
 //			
 //		}
 //		
-//		//이미지처리 메서드
-//		/*
-//		@RequestMapping("/display/{fileLoca}/{fileName:.+}") //fileName뒤에 특수문자를 받는 문법
-//		@ResponseBody
-//		public byte[] display(@PathVariable("fileLoca") String fileLoca,
-//							  @PathVariable("fileName") String fileName) {
-//			
-//			System.out.println(fileLoca);
-//			System.out.println(fileName);
-//			
-//			String uploadPath = "D:\\course\\spring\\upload\\" + fileLoca;
-//			
-//			//참조할 경로
-//			File file = new File(uploadPath + "\\" + fileName);
-//			
-//			byte[] result = null;
-//			try {
-//				//스프링에서 파일데이터를 복사해서 바이트배열타입으로 리턴해주는 메서드
-//				result = FileCopyUtils.copyToByteArray(file);
-//			
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//
-//			return result;
-//		}
-//		*/
-//		@RequestMapping("/display/{fileLoca}/{fileName:.+}") //fileName뒤에 특수문자를 받는 문법
-//		@ResponseBody
-//		public ResponseEntity<byte[]> display(@PathVariable("fileLoca") String fileLoca,
-//							  @PathVariable("fileName") String fileName) {
-//			
-//			System.out.println(fileLoca);
-//			System.out.println(fileName);
-//			
-//			String uploadPath = "D:\\spring\\upload\\" + fileLoca;
-//			
-//			//참조할 경로
-//			File file = new File(uploadPath + "\\" + fileName);
-//			
-//			
-//			ResponseEntity<byte[]> result = null;		
-//			try {
-//				//1. 헤더정보
-//				HttpHeaders header = new HttpHeaders();
-//				header.add("Content-Type", Files.probeContentType(file.toPath() )); //컨텐츠타입: 해당 경로 파일에 마임타입을 저장
-//				
-//				//2. body에 담을 내용
-//				//스프링에서 파일데이터를 복사해서 바이트배열타입으로 리턴해주는 메서드
-//				byte[] arr = FileCopyUtils.copyToByteArray(file);
-//			
-//				result = new ResponseEntity<byte[]>(arr, header, HttpStatus.OK); //(바디에 담을 데이터, 헤더정보, 상태코드)
-//						
-//				
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//
-//			return result;
-//		}
-//		
-//	
+
+	
 	
 //		//글 업데이트
 //		@RequestMapping(value = "/freeUpdate", method = RequestMethod.POST)
