@@ -47,8 +47,8 @@
                   <input type="file" name="file" id="file">
                 </div>
                 <textarea class="form-control" rows="10" name="content" id="content"></textarea><span id="msgContent"></span>
-                	<!--  <i id="lock" class="fas fa-lock-open" onclick="change(lock)">공개글</i>  -->
-                	<!--  <i id="lock" class="fa fa-unlock" value="ON" aria hidden="true" onclick="change(lock)">비공개글</i>  -->
+                	<i id="unlock" class="fas fa-lock-open" value="OFF" onclick="changeType()">공개글</i>
+                	<i id="lock" class="fa fa-unlock" value="ON" aria hidden="true" onclick="changeType()" style="display: none;">비공개글</i>
                 	 
                <!--  <input type="checkbox" id="lock" name="bbsOC" class="fa fa-unlock"
                   onclick="change( )" hidden="true"><p>잠금<p>  -->
@@ -65,6 +65,17 @@
   
   <!-- section script -->
   <script>
+  
+  function changeType() {
+	console.log(event.target);	
+	if(event.target.innerHTML === "공개글"){
+		$("#unlock").css('display','none');
+		$("#lock").css('display', 'block');
+	}else{
+		$("#unlock").css('display','block');
+		$("#lock").css('display', 'none');
+	}
+}
 
 	//자바 스크립트 파일 미리보기 기능
 	function readURL(input) {

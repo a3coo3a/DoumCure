@@ -52,7 +52,7 @@ html {
                 </div>
 
             </div>
-            <div class="row search-input">
+            <div class="row main-search-input">
                 <form>
                     <div class="inner-form">
                         <div class="input-field first-wrap">
@@ -219,7 +219,7 @@ html {
                     <div class="col-md-4 col-lg-4 col-sm-12 count">
                         <div class="text">
                             <!-- 추후 파라미터값 변경예정 -->
-                            <strong class="number today">12</strong>
+                            <strong class="number today">${day }</strong>
                         </div>
                         <div class="text">
                             <span>TODAY</span>
@@ -229,7 +229,7 @@ html {
                     <div class="col-md-4 col-lg-4 col-sm-12 count">
                         <div class="text">
                             <!-- 추후 파라미터값 변경예정 -->
-                            <strong class="number total">1150</strong>
+                            <strong class="number total">${total }</strong>
                         </div>
                         <div class="text">
                             <span>TOTAL</span>
@@ -268,6 +268,8 @@ html {
                     <div class="col-md-8 col-sm-8 col-xs-6 comment-div">
                         <div class="benner-list">
                             <span class="comment-title">Young</span>
+                            
+                            
                             <p class="comment-content">
                                 안녕하십니까 ?
                             </p>
@@ -340,7 +342,7 @@ html {
 	}
     
     $(document).ready(function () {
-
+ 
 		//팝업띄우기
     	//mainpop쿠키가 없는 경우에 팝업창을 실행
         if(!getCookie("mainPop")){ //false -- 쿠키없음
@@ -363,7 +365,6 @@ html {
 
         var d = document.querySelectorAll(".drug-text strong");
         var t = document.querySelectorAll(".text strong");
-        console.log(t);
         change_comma(d);
         change_comma(t);
 

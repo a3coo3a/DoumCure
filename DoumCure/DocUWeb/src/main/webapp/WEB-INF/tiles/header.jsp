@@ -16,9 +16,9 @@
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-xs-6 sns">
-                    <img id="kakao" src="${pageContext.request.contextPath }/resources/img/main/kakao.png" style="cursor: pointer;">
-                    <i class="fab fa-instagram insta"></i>
-                    <i class="fab fa-twitter twitter"></i>
+                    <img class="kakao" src="${pageContext.request.contextPath }/resources/img/main/kakao.png" style="cursor: pointer;">
+                    <i class="fab fa-instagram insta" style="cursor: pointer;"></i>
+                    <i class="fab fa-twitter twitter" style="cursor: pointer;"></i>
                 </div>
             </div>
         </div>
@@ -34,16 +34,16 @@
                     </button>
 
                     <img src="${pageContext.request.contextPath }/resources/img/title_icon.png" alt="">
-                    <a class="navbar-brand" href="${pageContext.request.contextPath }">Do.cU</a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath }/home">Do.cU</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="${pageContext.request.contextPath }">HOME</a></li>
+                        <li><a href="${pageContext.request.contextPath }/home">HOME</a></li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BOARD
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="${pageContext.request.contextPath }/board/bbsList">공지사항</a></li>
-                                <li><a href="${pageContext.request.contextPath }/board/QAboardList">자유게시판</a></li>
+                                <li><a href="${pageContext.request.contextPath }/board/freeboardList">자유게시판</a></li>
                             </ul>
                         </li>
                         <li><a href="${pageContext.request.contextPath }/medi/mediSearch">SEARCH</a></li>
@@ -52,7 +52,7 @@
                     <c:choose>
                     <c:when test="${sessionScope.userVO == null }">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="${pageContext.request.contextPath }/user/join">JOIN</a></li>
+                        <li><a href="${pageContext.request.contextPath }/user/id_pwJoin">JOIN</a></li>
                         <li><a href="${pageContext.request.contextPath }/user/login">LOGIN</a></li>
                     </ul>                    
                     </c:when>
@@ -105,6 +105,61 @@
         </div>
 
     </header>
+    
+    <script type="text/javascript">
+	
+    /* ========== Sns 공유 ============ */
+    $(".kakao").click(sendLink);
+	$(".twitter").click(twitter);
+	
+    /* 카카오 */
+    function sendLink() {
+    Kakao.Link.sendCustom({
+        templateId: 45127,
+        templateArgs: {
+        },
+    })
+    }
+    
+	
+    /* 트위터 */
+    function twitter(url, text) {
+    	var url = 'http://localhost:8282/docuweb/home';
+    	var text = 'Do.cU(Cure yourself)';
+    	var turl = "http://twitter.com/share?url="+encodeURIComponent(url)+ "&text=" + encodeURIComponent(text); 
+    	window.open(turl,'twitter','width=626,height=436');
+     }
+
+    /* 페이스북 - 보류 */
+
+/*   (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }
+  (document, 'script', 'facebook-jssdk'));
+
+    
+ 	$(".insta").click = function() {
+ 		FB.ui({
+ 	        method        : 'share_open_graph',
+ 	        action_type: 'og.shares',
+ 	        action_properties: JSON.stringify({
+ 	            object: {
+ 	                'og:url': 'http://localhost:8282/docuweb/home',
+ 	                'og:title': 'Do.cU(Cure yourself)',
+ 	                'og:description': '증상에 맞는 약을 찾을때는 Do.cU !',
+ 	                'og:image': '${pageContext.request.contextPath }/resources/img/title_icon.png',
+ 	            }
+ 	        })
+ 	    });
+	} */
+  
+  
+	</script>
+    
 
 
     

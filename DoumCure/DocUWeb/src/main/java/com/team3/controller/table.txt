@@ -46,3 +46,6 @@ create table MEDI (
     PRODANGER varchar2(2000) default '내용없음',
     PROIMG varchar2(1000)
 )
+
+------------visit count--------------
+CREATE TABLE VISIT (V_DATE DATE);

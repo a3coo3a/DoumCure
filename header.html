@@ -30,6 +30,16 @@
         /* 디자인추가 */
     </style>
 
+    <!-- 카카오공유 -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('fbb4d33c4d104dfee8ff11bced9882b7');
+
+        // SDK 초기화 여부를 판단합니다.
+        console.log(Kakao.isInitialized());
+    </script>
+
 </head>
 
 <body style="overflow-x:hidden; overflow-y:auto;">
@@ -46,9 +56,9 @@
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-xs-6 sns">
-                    <img src="img/main/kakao.png" alt="sns_kakao">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-twitter"></i>
+                    <img src="img/main/kakao.png"  class="kakao" >
+                    <i class="fab fa-instagram insta"></i>
+                    <i class="fab fa-twitter twit"></i>
                 </div>
             </div>
         </div>
@@ -131,3 +141,18 @@
         </div>
 
     </header>
+
+    <script type="text/javascript">
+
+    $(".kakao").click(sendLink);
+
+    function sendLink() {
+        var img = "img/title_icon.png";
+    Kakao.Link.sendCustom({
+        templateId: 45127,
+        templateArgs: {
+        
+        },
+    })
+    }
+    </script>

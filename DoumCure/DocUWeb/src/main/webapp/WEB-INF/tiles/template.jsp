@@ -25,6 +25,25 @@
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  
+    
+    <!-- 카카오공유 -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('fbb4d33c4d104dfee8ff11bced9882b7');
+
+        // SDK 초기화 여부를 판단합니다.
+        //console.log(Kakao.isInitialized());
+    </script>
+    
+    <!-- 페이스북 공유 -->
+    <!-- You can use Open Graph tags to customize link previews.
+	Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+	<meta property="og:url"           content="http://http://localhost:8282/docuweb/home" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="Do.cU(Cure yourself)" />
+	<meta property="og:description"   content="증상에 맞는 약을 찾을때는 Do.cU !" />
+	<meta property="og:image"         content="${pageContext.request.contextPath }/resources/img/title_icon.png" />
 
 </head>
 
