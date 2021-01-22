@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.team3.board.service.BoardService;
 import com.team3.command.BoardVO;
@@ -75,18 +76,17 @@ public class BoardController {
 //	}
 
 	@RequestMapping(value = "/freeRegistForm", method = RequestMethod.POST)
-	@ResponseBody
 	public String upload(
 			 @RequestParam("file") MultipartFile file,
 			 @RequestParam("bbsTitle") String bbsTitle ,
 			 @RequestParam("bbsContent") String bbsContent,
-			 @RequestParam("bbsOC") String bbsOC,
+			 @RequestParam(value = "bbsOC", defaultValue = "off") String bbsOC,
 			 HttpSession session) {
 		
-//		try {
+		try {
 		
 		UserVO userVO = (UserVO)session.getAttribute("userVO");
-		String bbsWriter = userVO.getUserId(); //작성자정보
+		String bbsWrite = userVO.getUserId(); //작성자정보
 				
 		System.out.println(file);
 		System.out.println(bbsContent);
@@ -115,7 +115,7 @@ public class BoardController {
 		String fileName = uuids + fileExtension ;//변경해서 저장할 파일이름
 		
 		System.out.println("=================");
-		System.out.println("작성자:" + bbsWriter);
+		System.out.println("작성자:" + bbsWrite);
 		System.out.println("제목: " + bbsTitle);
 		System.out.println("내용:" +  bbsContent);
 		System.out.println("비밀글" + bbsOC );
@@ -126,40 +126,147 @@ public class BoardController {
 		System.out.println("변경해서저장할파일명:" + fileName);
 		
 		//4. 파일 업로드처리
-//		File saveFile = new File(uploadPath + "\\" + fileName);
-//		file.transferTo(saveFile); //스프링의 업로드처리
+		File saveFile = new File(uploadPath + "\\" + fileName);
+		file.transferTo(saveFile); //스프링의 업로드처리
 		
 		//5. DB에 insert작업
-		BoardVO vo = new BoardVO(0, bbsWriter, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, bbsOC, null, null);
+		BoardVO vo = new BoardVO(0, bbsWrite, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, bbsOC, null, null);
 		boardService.insertFile(vo); //성공시 true, 실패시 false
 
-//		} catch (NullPointerException e) {
-//			System.out.println("세션정보가 없음");
-//			e.printStackTrace();
-//		} catch (Exception e) {
-//			e.printStackTrace();			
-//		}
+		} catch (NullPointerException e) {
+			System.out.println("세션정보가 없음");
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();			
+		}
 		
 		return "redirect:/board/freeboardList";
 		
 	}
+				
+	
+	//상세화면과 변경화면이 기능이 같기 때문에 하나로 묶어서 사용합니다.
+		@RequestMapping(value = {"/freeboardDetail", "/freeboardModify"}, method = RequestMethod.GET)
+		public void freeModify(@RequestParam("bbsNo") int bbsNo, Model model ) {
 			
-		
-		
+			//화면으로 넘어갈때 bno기반의 데이터를 가지고 상세화면으로 가도록 getContent()로 처리
+			BoardVO vo = boardService.getfreeContent(bbsNo);
+			model.addAttribute("vo", vo); //bno게시글에 대한 정보
+
+			System.out.println(vo.toString());
+			//void형 메서드는 요청의 결과가 디스패쳐서블릿으로 return됩니다.
+		}
+//		
+//	
+//	
+//
+//		@RequestMapping("/getList")
+//		@ResponseBody
+//		public ArrayList<SnsBoardVO> geList(){
+//			
+//			ArrayList<SnsBoardVO> list = snsBoardService.getList();
+//			
+//			System.out.println(list.toString());
+//			
+//			
+//			return list;
+//			
+//		}
+//		
+//		//이미지처리 메서드
+//		/*
+//		@RequestMapping("/display/{fileLoca}/{fileName:.+}") //fileName뒤에 특수문자를 받는 문법
+//		@ResponseBody
+//		public byte[] display(@PathVariable("fileLoca") String fileLoca,
+//							  @PathVariable("fileName") String fileName) {
+//			
+//			System.out.println(fileLoca);
+//			System.out.println(fileName);
+//			
+//			String uploadPath = "D:\\course\\spring\\upload\\" + fileLoca;
+//			
+//			//참조할 경로
+//			File file = new File(uploadPath + "\\" + fileName);
+//			
+//			byte[] result = null;
+//			try {
+//				//스프링에서 파일데이터를 복사해서 바이트배열타입으로 리턴해주는 메서드
+//				result = FileCopyUtils.copyToByteArray(file);
+//			
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//
+//			return result;
+//		}
+//		*/
+//		@RequestMapping("/display/{fileLoca}/{fileName:.+}") //fileName뒤에 특수문자를 받는 문법
+//		@ResponseBody
+//		public ResponseEntity<byte[]> display(@PathVariable("fileLoca") String fileLoca,
+//							  @PathVariable("fileName") String fileName) {
+//			
+//			System.out.println(fileLoca);
+//			System.out.println(fileName);
+//			
+//			String uploadPath = "D:\\spring\\upload\\" + fileLoca;
+//			
+//			//참조할 경로
+//			File file = new File(uploadPath + "\\" + fileName);
+//			
+//			
+//			ResponseEntity<byte[]> result = null;		
+//			try {
+//				//1. 헤더정보
+//				HttpHeaders header = new HttpHeaders();
+//				header.add("Content-Type", Files.probeContentType(file.toPath() )); //컨텐츠타입: 해당 경로 파일에 마임타입을 저장
+//				
+//				//2. body에 담을 내용
+//				//스프링에서 파일데이터를 복사해서 바이트배열타입으로 리턴해주는 메서드
+//				byte[] arr = FileCopyUtils.copyToByteArray(file);
+//			
+//				result = new ResponseEntity<byte[]>(arr, header, HttpStatus.OK); //(바디에 담을 데이터, 헤더정보, 상태코드)
+//						
+//				
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//
+//			return result;
+//		}
+//		
+//	
 	
-	
-	
-	//글 상세 
-	
-	//글 변경화면
-	
-	
-	//글 업뎃
-	
-	
-	//글 삭제
-	
-	
-	
-	
-}
+//		//글 업데이트
+//		@RequestMapping(value = "/freeUpdate", method = RequestMethod.POST)
+//		public String freeUpdate(BoardVO vo, RedirectAttributes RA) {
+//			
+//			int result = boardService.update(vo);		
+//			
+//			if(result == 1) { //업데이트 성공
+//				RA.addFlashAttribute("msg", "정상적으로 수정되었습니다");
+//			} else { //업데이트 실패
+//				RA.addFlashAttribute("msg", "수정에 실패했습니다");
+//			}
+//			
+//			return "redirect:/freeBoard/freeList";
+//		}
+//		
+//		
+//		@RequestMapping(value = "/freeDelete", method = RequestMethod.POST)
+//		public String freeDelete(@RequestParam("bno") int bno, RedirectAttributes RA) {
+//			
+//			int result = boardService.delete(bno);
+//			
+//			if(result == 1) {
+//				RA.addFlashAttribute("msg", bno + "번 게시글이 삭제 되었습니다");
+//			} else {
+//				RA.addFlashAttribute("msg", "게시글 삭제에 실패했습니다");
+//			}
+//			
+//			return "redirect:/freeBoard/freeList";
+//		}
+//		
+//		
+	}
+
+

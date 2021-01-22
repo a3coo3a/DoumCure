@@ -39,7 +39,7 @@ public class PageVO {
 		// 20개씩 보일때 amount
 		// 데이터 60개 -> pageNum 2번 누르면 realEnd = 3
 		//특정조건에서 endPage를 변경
-		int realEnd = (int) Math.ceil(total/(double)this.amount);
+		int realEnd = (int) Math.ceil( this.total/(double)this.amount);
 		if(this.endPage > realEnd) {
 			this.endPage = realEnd;
 		}

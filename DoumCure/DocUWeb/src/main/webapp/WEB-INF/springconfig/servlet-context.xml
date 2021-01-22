@@ -77,7 +77,6 @@
 	        <beans:constructor-arg ref="naverRedirectUrl" />
 	</beans:bean>
 	
-	<!-- cors setting -->
-	<beans:import resource="classpath:cors-config/cors-config.xml"/>
+
 	
 </beans:beans>

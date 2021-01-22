@@ -31,11 +31,6 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<!-- session 유효시간 처리 (단위:분) -->
-	<session-config>
-		<session-timeout>60*24</session-timeout>
-	</session-config>
-
 	<!-- 한글처리 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
