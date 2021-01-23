@@ -17,19 +17,16 @@ import org.slf4j.LoggerFactory;
 
 public class URLFilter implements Filter{
 
-	private static final Logger logger = LoggerFactory.getLogger(URLFilter.class);
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		logger.info("URLFilter init call.....");
-		
+		System.out.println("필터시작이에요~~");
 		
 	}
 
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-		logger.info("URLFilter doFillter call.....");
-
+		System.out.println("필터 내용이에요");
 		
 		HttpServletRequest request = (HttpServletRequest) req;
 	    HttpServletResponse response = (HttpServletResponse) res;
@@ -38,14 +35,14 @@ public class URLFilter implements Filter{
 	    response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
 	    response.setHeader("Access-Control-Max-Age", "3600");
 	    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
-		    
+		
+	    System.out.println("필터 끝");
 		    
 		chain.doFilter(req, res);
 	}
 
 	@Override
 	public void destroy() {
-		logger.info("URLFilter destroy call.....");
 		
 	}
 

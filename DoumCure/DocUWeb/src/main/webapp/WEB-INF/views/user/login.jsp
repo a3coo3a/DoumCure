@@ -269,7 +269,7 @@ Kakao.isInitialized()
 	var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "j81MALFzCvcyoXYbiyNa",
-			callbackUrl: "http://localhost:8282/docuweb/user/auth/naver/callback",
+			callbackUrl: "naver-callback",
 			isPopup: true, /* 팝업을 통한 연동처리 여부 */
 			loginButton: {color: "green", type: 1, height: 40}
 		}

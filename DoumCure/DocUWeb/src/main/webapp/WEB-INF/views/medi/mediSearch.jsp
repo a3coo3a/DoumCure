@@ -1,6 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+    <style>
+    .seaech-detail-etc,
+    .mediConfirm,
+    .sendBtn1{
+    	display : none;
+    }
+    .mediConfirm{
+    	margin-right : 10px;
+    	font-weight: bolder;
+    	font-size : 16px;
+    }
+    </style>
+    
+    
+    
     <section class="medi-area">
         <strong>증상별 검색</strong>
         <hr>
@@ -39,6 +54,7 @@
                                     <span class="hash-name medi-left">여드름</span>
                                     <span class="hash-name medi-left">콧물</span>
                                     <span class="hash-name medi-left">미열</span>
+                                    <span class="hash-name medi-left">기타</span>
                                 </div>
                             </div>
                         
@@ -46,13 +62,17 @@
                         <hr>
                         <!-- <span>그 외 증상은 검색을 이용해 주세요</span> -->
                         <div class="seaech-detail-etc">
-                            <p>OTHER</p>
-                            <form>
+                           <form action="mediList" method="post">
+                            <p class="seaech-detail-etc-tit">OTHER</p>
+                            <span class="mediConfirm"></span>
+                            <button type="submit" class="btn btn-default sendBtn1">검색</button>
+                            <input type="hidden" name="mediSearchData" class="mediSearchData">
+                         
                                 <div class="col-lg-10 col-md-10 col-sm-10 search-bar form-group">
-                                <input type="text" class="form-control" placeholder="그 외 증상은 검색을 이용해 주세요">
+                                <input type="text" class="form-control mediSearch" placeholder="그 외 증상은 검색을 이용해 주세요">
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 form-group">
-                                    <button type="submit" class="btn btn-default">확인</button>
+                                    <button type="button" class="btn btn-default sendBtn2">확인</button>
                                 </div>
                             </form>
                         </div>
@@ -63,11 +83,7 @@
             </div>
         </div>
     
-    <button type="button" id="testDB">자료확인</button>    
-	<div id="demo">
-	
-	</div>        
-        
+    
     </section>
     
     <script src="${pageContext.request.contextPath }/resources/js/jquery.rwdImageMaps.js"></script>
@@ -84,10 +100,10 @@
             var detail = $(".search-detail")[0].childNodes[1];
             var hash = document.querySelectorAll(".hash-name");
             
-            var head = ["두통","기침","콧물","여드름","발열"];
-            var body = ["변비", "위염", "장염", "소화불량", "속쓰림"];
-            var arm = ["염증","관절","타박상","멍","근육통"];
-            var leg = ["근육통","염증","저림","타박상","관절"]
+            var head = ["두통","기침","콧물","여드름","발열","기타"];
+            var body = ["변비", "위염", "장염", "소화불량", "속쓰림","기타"];
+            var arm = ["염증","관절","타박상","멍","근육통","기타"];
+            var leg = ["근육통","염증","저림","타박상","관절","기타"]
 
             map.addEventListener("click", function(){
                 $(".search-detail-view").css('display','block');
@@ -130,74 +146,44 @@
     <!-- db가져오기 -->
     <script>
     
-    	$("#testDB").click(function(){
-    		
-    		/* var xhr = new XMLHttpRequest();
-    		var url = 'http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService1/getMdcinPrductItem'; 
-    		var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'LuM5DnSzbI6oFnaF80YIASKwb%2BNY3Yx81cHaLl092LcrO87cegLawf1nxeKQn4zIGq%2FJJZh21ujVKxctiTl3FA%3D%3D'; 
-    		queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
-    		queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('3');
-    		xhr.open('GET', url + queryParams);
-    		xhr.onreadystatechange = function () {
-    		    if (this.status == 200 && this.readyState == 4) {
-    		        console.log('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
-    		   
-    		    
-    		    }
-    		};
-
-    		xhr.send(''); */
-    		var url = 'http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService1/getMdcinPrductItem'; 
-    		var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'LuM5DnSzbI6oFnaF80YIASKwb%2BNY3Yx81cHaLl092LcrO87cegLawf1nxeKQn4zIGq%2FJJZh21ujVKxctiTl3FA%3D%3D'; 
-    		queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
-    		queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('3');
-    		
-    		$.ajax({
-    			crossOrigin : true,
-    			url : url + queryParams,
-    			type : "GET",
-    			dataType : "xml",
-    			success : function(xml){
-    				$(xml).find('item').each(function(){
-    					var ITEM_NAME = $(this).find("ITEM_NAME").text();
-    					var ENTP_NAME = $(this).find("ENTP_NAME").text();
-    					var EE_DOC_ID = $(this).find("EE_DOC_ID").text();
-    					
-    					var data = "ITEM_NAME :" + ITEM_NAME + ",<br/>ENTP_NAME : " + ENTP_NAME + ",<br/>EE_DOC_ID : " + EE_DOC_ID;
-    					$("#demo").append(data);
-    				})
+    	$(".medi-info").click(mediSearch);
+    	
+    	$(".sendBtn2").click(function(){
+    		$(".seaech-detail-etc-tit").hide();
+			$(".mediConfirm").show();
+			$(".sendBtn1").show();
+			$(".mediSearch").hide();
+			$(".sendBtn2").hide();
+			$(".mediConfirm").html($(".mediSearch").val()).show();
+			$(".mediSearchData").val($(".mediSearch").val());
+    	});
+    	
+    
+    	function mediSearch(event){    		
+    		if(event.target.tagName == "SPAN"){
+    			//console.log(event.target.innerHTML);
+    			if(event.target.innerHTML == "기타"){		// 기타 누를때만 검색창이 나오게
+    				$(".seaech-detail-etc").show();
+    				$(".seaech-detail-etc-tit").show();
+    				$(".mediConfirm").hide();
+    				$(".sendBtn1").hide();
+    				$(".mediSearch").show();
+    				$(".sendBtn2").show();
+    				$(".mediSearch").val("");
+    			}else{
+    				$(".seaech-detail-etc").show();
+    				$(".seaech-detail-etc-tit").hide();
+    				$(".mediConfirm").show();
+    				$(".sendBtn1").show();
+    				$(".mediSearch").hide();
+    				$(".sendBtn2").hide();
+    				$(".mediConfirm").html(event.target.innerHTML).show();
+    				$(".mediSearchData").val(event.target.innerHTML);
+    				$(".mediSearch").val("");
+    				
     			}
-    			
-    			
-    			
-    			
-    			
-    		}); 		
-    		
-    		
-    		
-    	});  // click end
-    	
-    	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    		}
+    	}
     
     </script>
     

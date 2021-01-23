@@ -34,15 +34,13 @@ alter table bbs add CONSTRAINT bbsno_pk PRIMARY KEY (BBSNO);
 create SEQUENCE bbs_seq INCREMENT BY 1 START WITH 1 NOCACHE;
 ----------- Medi table-------------
 create table MEDI (
-    PRONO varchar2(20) primary key,
-    PRONAME varchar2(50) not null,
-    PROCOM varchar2(200) not null,
-    PROEFFI varchar2(200) default '내용없음',
-    PROSAVE varchar2(1000) default '내용없음',
-    PRODATE varchar2(200) default '내용없음',
-    PROUSE varchar2(1000) default '내용없음',
-    PROMAIN varchar2(2000) default '내용없음',
-    PROSUB varchar2(2000) default '내용없음',
-    PRODANGER varchar2(2000) default '내용없음',
-    PROIMG varchar2(1000)
+    PRONO varchar2(50) primary key,
+    PRONAME varchar2(200),
+    PROCOM varchar2(100),
+    PROEFFI varchar2(1500),
+    PROSAVE varchar2(300),
+    PRODATE varchar2(100),
+    PROMAIN varchar2(1000),
+    PROSUB varchar2(2000),
+    PROIMG varchar2(30)
 )

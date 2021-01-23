@@ -15,9 +15,8 @@ public class MediVO {
 	private String proEffi; 	//varchar2(200) default '내용없음',
 	private String proSave; 	//varchar2(1000) default '내용없음',
 	private String proDate; 	//varchar2(200) default '내용없음',
-	private String proUse; 		//varchar2(1000) default '내용없음',
 	private String proMain; 	//varchar2(2000) default '내용없음',
 	private String proSub; 		//varchar2(2000) default '내용없음',
-	private String proDanger;	//varchar2(2000) default '내용없음',
 	private String proImg;		//varchar2(1000)
+	
 }

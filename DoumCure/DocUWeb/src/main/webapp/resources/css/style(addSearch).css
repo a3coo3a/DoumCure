@@ -816,6 +816,7 @@ html, body {
 
 .medi-table .lg-area {
 	width: 40%;
+	text-align: center;
 	height: 21px;
 	line-height: 21px;
 }
