@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.team3.command.BoardVO;
+import com.team3.command.MediVO;
 import com.team3.command.UserVO;
 import com.team3.common.util.Criteria;
 import com.team3.common.util.PageVO;
+import com.team3.medi.service.MediService;
 import com.team3.user.service.UserService;
 
 @Controller
@@ -26,8 +28,11 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	MediService mediService;
+	
 	// 화면구현
-	@RequestMapping({"/join","/login","/id_pwJoin","/userUpdate","/navercallback"})
+	@RequestMapping({"/join","/login","/id_pwJoin","/userUpdate"})
 	public void views() {
 	}
 	
@@ -118,9 +123,22 @@ public class UserController {
 	@RequestMapping("/mypage")
 	public String mypage(Model model, Criteria cri, HttpSession session) {
 		
-		//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
-		
 		UserVO user = (UserVO)session.getAttribute("userVO");
+		
+		//화면 넘어갈때, 즐겨찾기 제품 정보 가져가기
+		if(!user.getUserBookMark01().equals("0")) {
+			MediVO vo1 = mediService.getInfo(user.getUserBookMark01());
+			model.addAttribute("vo1", vo1);
+		} 
+		if(!user.getUserBookMark02().equals("0")) {
+			MediVO vo2 = mediService.getInfo(user.getUserBookMark02());
+			model.addAttribute("vo2", vo2);
+		}
+		if(!user.getUserBookMark03().equals("0")) {
+			MediVO vo3 = mediService.getInfo(user.getUserBookMark03());
+			model.addAttribute("vo3", vo3);
+		}
+		//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
 		if(user != null) {
 		ArrayList<BoardVO> list = userService.getMyBbsList(cri, user);
 		int total = userService.getTotal(user);//전체 게시물 수 
@@ -129,7 +147,6 @@ public class UserController {
 		//화면에 전달할 값
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", pageVO);
-		
 		
 		
 		

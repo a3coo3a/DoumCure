@@ -9,9 +9,9 @@ create table users (
     USERADDRZIPNUM varchar2(50) default '00000',
     USERADDRBASIC varchar2(300) default '기본주소',
     USERADDRDETAIL varchar2(300) default '상세주소',
-    USERBOOKMARK01 varchar2(20),   -- 즐겨찾기 (prono FK)
-    USERBOOKMARK02 varchar2(20),   -- 즐겨찾기 (prono FK)
-    USERBOOKMARK03 varchar2(20),   -- 즐겨찾기 (prono FK)
+    USERBOOKMARK01 varchar2(20) default '0',   -- 즐겨찾기 (prono FK)
+    USERBOOKMARK02 varchar2(20) default '0',   -- 즐겨찾기 (prono FK)
+    USERBOOKMARK03 varchar2(20) default '0',   -- 즐겨찾기 (prono FK)
     USERMANAGE char(2) default 'U'     
 );
 ALTER TABLE users ADD CONSTRAINT user_man_chk CHECK(USERMANAGE in('M','U'));

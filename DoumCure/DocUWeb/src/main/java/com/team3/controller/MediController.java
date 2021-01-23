@@ -50,7 +50,7 @@ public class MediController {
 
 	@RequestMapping("/mediDetail")
 	public String mediDetail(@RequestParam("proNo") String proNo, Model model) {
-		//System.out.println("mediDetail:"+proNo);
+		System.out.println("mediDetail:"+proNo);
 		
 		MediVO mediVO = mediService.getInfo(proNo);
 		

@@ -61,7 +61,7 @@
         
         <!-- 목록으로 -->
         <div>
-			<button type="button" class="btn medi-com-btn" onclick="history.go(-1)"><span class="glyphicon glyphicon-list"></span>&nbsp;목록으로</button>        
+			<button type="button" class="btn medi-com-btn" onclick="history.go(-1)"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;뒤로</button>        
         </div>
         
         
@@ -79,11 +79,6 @@ $(document).ready(function(){
 	var bookmark02 = "${userVO.userBookMark02}";
 	var bookmark03 = "${userVO.userBookMark03}";
 	var proNo = "${mediVO.proNo }";
-	
-	console.log("bo01:"+bookmark01);
-	console.log("bo02:"+bookmark02);
-	console.log("bo03:"+bookmark03);
-	console.log(proNo);
 	
 	if(bookmark01 == proNo | bookmark02 == proNo | bookmark03 == proNo){
 		 if($(".medi-com-img").children().hasClass("empty-stars")){
@@ -114,7 +109,6 @@ function starChange(){
       			type : "POST",
       			data : {"proNo":"${mediVO.proNo }"},
       			success : function(data){
-      				console.log(data);
       				// 3 : 즐겨찾기가 가득차 있음
       				// 2 : 이미 존재하는 즐겨찾기 
       				// 1 : 추가 성공
@@ -122,7 +116,6 @@ function starChange(){
       				if (data == 3){
       					alert("즐겨찾기가 이미 가득찼습니다.");  
       				}else if (data == 2 || data == 1) {
-      					console.log("왓나?");
       					if($(".medi-com-img").children().hasClass("empty-stars")){
       						$(".medi-com-img").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
       				    	$(".medi-com-img").children().addClass("full-stars").removeClass("empty-stars");
@@ -143,12 +136,10 @@ function starChange(){
 	    	 type : "POST",
 	    	 data : {"proNo":"${mediVO.proNo }"},
 	    	 success : function(data){
-	    		 console.log(data);
 	    			// 3 : 즐겨찾기에 없음.
 	    			// 1 : 삭제 성공
 	    			// 0 : 실패
 	    		if(data == 3 || data == 1){
-	    			console.log("이곳은 왓나?");
 	    			if($(".medi-com-img").children().hasClass("full-stars")){
   						$(".medi-com-img").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
   				    	$(".medi-com-img").children().addClass("empty-stars").removeClass("full-stars");

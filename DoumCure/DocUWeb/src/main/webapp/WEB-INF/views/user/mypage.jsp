@@ -42,37 +42,18 @@
           <h3><span class="glyphicon glyphicon-bookmark"></span>&nbsp;즐겨찾기</h3>
             <div class="bookmark-product">
               <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
-              <div class="bookmark-name"><a href="#">${sessionScope.userVO.userBookMark01 }</a></div>
+              <div class="bookmark-name"><a href="../medi/mediDetail?proNo=${vo1.proNo }">${vo1.proName }</a></div>
             </div>
             <div class="bookmark-product">
               <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
-              <div class="bookmark-name"><a href="#">제품명01</a></div>
+              <div class="bookmark-name"><a href="../medi/mediDetail?proNo=${vo2.proNo }">${vo2.proName }</a></div>
             </div>
             <div class="bookmark-product">
               <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
-              <div class="bookmark-name"><a href="#">제품명01</a></div>
+              <div class="bookmark-name"><a href="../medi/mediDetail?proNo=${vo3.proNo }">${vo3.proName }</a></div>
             </div>
       </div>
       
-        <hr class="user-line product-box">
-        
-        <div class="product-box">
-          <h3><span class="glyphicon glyphicon-sunglasses" id="point"></span>&nbsp;최근 본 상품</h3>
-          <div class="bookmark-product">
-            <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
-            <div class="bookmark-name"><a href="#">제품명01</a></div>
-          </div>
-          <div class="bookmark-product">
-            <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
-            <div class="bookmark-name"><a href="#">제품명01</a></div>
-          </div>
-          <div class="bookmark-product">
-            <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
-            <div class="bookmark-name"><a href="#">제품명01</a></div>
-          </div>
-        </div>
-
-
       </div>
     </div>
     <hr class="user-line">
@@ -132,16 +113,32 @@
 
 
 </section>
-<!-- session확인 -->
+
+<!-- 즐겨찾기 이미지 -->
 <script>
-$(document).ready(function(){
-	console.log("session : ${userVO.userId}");
-	console.log("session : ${userVO.userNickName}");
-
-})
+ $(document).ready(function(){
+	
+	 $.ajax({
+		 url : "http://apis.data.go.kr/1470000/MdcinGrnIdntfcInfoService/getMdcinGrnIdntfcInfoList?servicekey=LuM5DnSzbI6oFnaF80YIASKwb%2BNY3Yx81cHaLl092LcrO87cegLawf1nxeKQn4zIGq%2FJJZh21ujVKxctiTl3FA%3D%3D&item_seq="+"${vo1.proNo }",
+	 	type : "GET",
+	 	contentType : "application/json; charset=utf-8",
+	 	header : {
+	 		"Access-Control-Allow-Origin" : "*"
+	 	},
+	 	success : function(data){
+	 		console.log(data);
+	 	},
+	 	error : function(error){
+	 		console.log(error);
+	 	}
+	 });
+	 
+	 
+	 
+	 
+	 
+ });
 </script>
-
-
 
 <!-- 페이지 네이션 -->
 <script>
