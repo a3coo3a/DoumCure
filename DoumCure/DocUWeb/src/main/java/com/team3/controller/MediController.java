@@ -19,10 +19,13 @@ public class MediController {
 		return "medi/mediList";
 	}
 	
+	
 	@RequestMapping("/mediStore")
-	public String mediStore() {
-		return "medi/mediStore"; 
+	public String Store() {
+
+		return "medi/mediStore";
 	}
+	
 	
 	@RequestMapping("/mediSearch")
 	public String mediSearch() {
