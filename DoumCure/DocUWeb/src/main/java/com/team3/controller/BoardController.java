@@ -2,6 +2,7 @@ package com.team3.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
+
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -39,6 +42,7 @@ public class BoardController {
 	@Autowired
 	@Qualifier("boardService")
 	private BoardService boardService;
+	
 	
 	//자유게시판 글 목록
 	@RequestMapping("/freeboardList")
@@ -85,7 +89,8 @@ public class BoardController {
 			 @RequestParam("file") MultipartFile file,
 			 @RequestParam("bbsTitle") String bbsTitle ,
 			 @RequestParam("bbsContent") String bbsContent,
-			 @RequestParam(value = "bbsOC", defaultValue = "off") String bbsOC,
+			 @RequestParam(value = "bbsOC" , required = false) String bbsOC,
+			 @RequestParam(value = "bbsCate", defaultValue = "free" ) String bbsCate,
 			 HttpSession session) {
 		
 		try {
@@ -129,13 +134,14 @@ public class BoardController {
 		System.out.println("파일사이즈:" + size);
 		System.out.println("파일확장자:" + fileExtension);
 		System.out.println("변경해서저장할파일명:" + fileName);
+		System.out.println("카테고리:"+ bbsCate);
 		
 		//4. 파일 업로드처리
 		File saveFile = new File(uploadPath + "\\" + fileName);
 		file.transferTo(saveFile); //스프링의 업로드처리
 		
 		//5. DB에 insert작업
-		BoardVO vo = new BoardVO(0, bbsWrite, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, bbsOC, null, null);
+		BoardVO vo = new BoardVO(0, bbsWrite, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, bbsOC, bbsCate, null);
 		boardService.insertFile(vo); //성공시 true, 실패시 false
 
 		} catch (NullPointerException e) {
@@ -150,9 +156,12 @@ public class BoardController {
 	}
 				
 	
+
+	
 	//상세화면과 변경화면이 기능이 같기 때문에 하나로 묶어서 사용합니다.
-		@RequestMapping(value = {"/freeboardDetail", "/freeboardModify"}, method = RequestMethod.GET)
+		@RequestMapping(value = {"/freeboardDetail", "/freeboardModify"})
 		public void freeModify(@RequestParam("bbsNo") int bbsNo, Model model ) {
+			
 			
 			//화면으로 넘어갈때 bno기반의 데이터를 가지고 상세화면으로 가도록 getContent()로 처리
 			BoardVO vo = boardService.getfreeContent(bbsNo);
@@ -163,22 +172,33 @@ public class BoardController {
 			//void형 메서드는 요청의 결과가 디스패쳐서블릿으로 return됩니다.
 		}
 		
+	
 		//이미지불러오기
 		@RequestMapping("/view/{fileLoca}/{fileName:.+}")
 		@ResponseBody
-		public byte[] getFile(@PathVariable("fileLoca") String fileLoca, @PathVariable("fileName") String fileName) {
-			System.out.println(fileLoca);
-			System.out.println(fileName);
-		File file = new File( "D:\\spring\\upload\\"+ fileLoca + "\\" + fileName);
-		byte[] result = null;
+		public ResponseEntity<byte[]> getFile(@PathVariable("fileLoca") String fileLoca, @PathVariable("fileName") String fileName) {
+		System.out.println(fileLoca);
+		System.out.println(fileName);
+
+		File file = new File( "D:/spring/upload/"+ fileLoca + "/" + fileName);
+
+		ResponseEntity<byte[]> result = null;
+
 		try {
-		result = FileCopyUtils.copyToByteArray(file);
+		    HttpHeaders header = new HttpHeaders();
+		    header.add("contehn-Type", Files.probeContentType(file.toPath()));
+
+		byte[] arr =  FileCopyUtils.copyToByteArray(file);
+
+		result = new ResponseEntity<byte[]>(arr, header, HttpStatus.OK);
 		} catch (IOException e) {
+
 		e.printStackTrace();
-		}
-		return result;
+
 		}
 
+		return result;
+		}
 		
 //		@RequestMapping("/getList")
 //		@ResponseBody
@@ -208,11 +228,11 @@ public class BoardController {
 				RA.addFlashAttribute("msg", "수정에 실패했습니다");
 			}
 			
-			return "redirect:/freeBoard/freeList";
+			return "redirect:/board/freeboardList";
 		}
 		
-		
-		@RequestMapping(value = "/freeboardelete", method = RequestMethod.POST)
+		//삭제
+		@RequestMapping(value = "/freeboardelete")
 		public String freeboardelet(@RequestParam("bbsNo") int bbsNo, RedirectAttributes RA) {
 			
 			int result = boardService.freeDelete(bbsNo);
@@ -226,7 +246,23 @@ public class BoardController {
 			return "redirect:/board/freeboardList";
 		}
 		
+
+		
+		
+		
+		
+//		=====================================
+		
+		
+		@RequestMapping(value = "/bbsList")
+		public String bbslist() {
+			
+			return "board/bbsList";
+		}
+		
+		
+		
+		
+		
 		
 	}
-
-

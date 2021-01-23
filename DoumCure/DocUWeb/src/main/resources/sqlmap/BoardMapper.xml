@@ -52,8 +52,8 @@
  	
  	<!-- 게시글 등록 -->
  	<insert id="insertFile" >
- 		insert into bbs (BBSNO, BBSWRITE,BBSTITLE,BBSCONTENT,uploadpath, fileloca,filename,filerealname,BBSOC)
-		VALUES (BBS_SEQ.nextval,#{bbsWrite},#{bbsTitle},#{bbsContent}, #{uploadPath},#{fileLoca} ,#{fileName},#{fileRealName},#{bbsOC})
+ 		insert into bbs (BBSNO, BBSWRITE,BBSTITLE,BBSCONTENT,uploadpath, fileloca,filename,filerealname,BBSOC,BBSCATE)
+		VALUES (BBS_SEQ.nextval,#{bbsWrite},#{bbsTitle},#{bbsContent}, #{uploadPath},#{fileLoca} ,#{fileName},#{fileRealName},#{bbsOC},#{bbsCate})
  	</insert>
  	
  	<select id="getfreeContent" resultType="BoardVO">

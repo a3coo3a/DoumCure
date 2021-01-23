@@ -12,7 +12,7 @@
           <div class="t-control">
             <select name="bbs-title-sel" id="bbs-title-sel">
               <option value="notice">공지사항</option>
-              <option value="health" selected="select">건강정보</option>
+              <option value="health" selected="selected">건강정보</option>
             </select>
             <div>
               <div class="t-title">NAME</div>

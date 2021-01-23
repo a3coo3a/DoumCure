@@ -14,7 +14,7 @@
                 </div>
                 
                 <!--자유게시판 리스트 -->
-                <form action="freeboardList" enctpe="multipart/form-data">
+                <form action="freeboardList" enctpe="multipart/form-data" >
                     <div class="search-wrap">
                         <button type="submit" class="btn btn-info search-btn">검색</button>
 
@@ -60,9 +60,9 @@
 						</c:forEach>
                     </table>
 
-		         <%--        <c:if test="${sessionScope.userVO != null }">  --%>
+		          <c:if test="${sessionScope.userVO != null }"> 
                     	<button type="submit" class="btn qa-bbsList-btn"  onclick = "location.href='freeboardRegist'">글쓰기</button>
-		                 <%-- </c:if>  --%>
+		          </c:if> 
                     
                     
                     <form action="freeboardList" name="pageForm">

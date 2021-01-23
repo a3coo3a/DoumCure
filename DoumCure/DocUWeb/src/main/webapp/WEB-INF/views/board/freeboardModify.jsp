@@ -21,7 +21,7 @@
                     
                     <div class="innertitle col-md-3 col-sm-12">NUM</div>
 					<div class="inner-control col-md-7 col-sm-12 ">
-						<input class="form-control Large input " name="num"
+						<input class="form-control  " name="num"
 							value="${vo.bbsNo}"readonly>
 					</div>
     
@@ -30,7 +30,7 @@
                         </div>
                         <!-- <td><input class="form-control input-sm" name="writer" value="${sessionScope.userVO.userId }" readonly><span id="msgId"></span></td> -->
                         <div class="inner-control col-md-7 col-sm-12 ">
-                            <input class="form-control Large input " name="writer"  
+                            <input class="form-control " name="writer"  
                           value="${vo.bbsWrite}" readonly>
                         </div>
     
@@ -52,8 +52,8 @@
 								<div class="reply-group">
 								<%-- <img src="view?fileloca=${vo.fileRealName}&filename=${vo.fileRealName}">
 								<img src="view/fileloca/fileRealName"> --%>
-								<img src="view/${vo.fileLoca}/${vo.fileRealName}">
-							<!-- 	<label for="file">이미지업로드</label> <input type="file" name="file"id="file">  -->
+								<%-- <img src="view/${vo.fileLoca}/${vo.fileRealName}"> --%>
+							<label for="file">이미지업로드</label> <input type="file" name="file"id="file"> 
 							</div>
 
 								<textarea class="form-control" rows="10" name="content"
@@ -126,14 +126,13 @@ deleteBtn.onclick = function () {
 
     });
  */
-    
- /*    //비밀글 체크 여부
+       //비밀글 체크 여부
 	  var bbsOC = "off";
 	  //태그.is(":속성") 체크여부 true/false
 	  if( $("#bbsOC").is(":checked")){
 		  bbsOC ="on";
 	  }
     
-    */
+    
 
     </script>
