@@ -1,19 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
 <section>
         <div class="BLQA-area">
             <div class="container board_list_container ">
                 <div class="row content-wrap">
                     <div class="qa_blr_title_box col-lg-12 ">
-                        <p>Q&A 수정하기</p>
+                        <p>자유게시판 수정하기</p>
                     </div>
                 </div>
             </div>
     
-            <form action="freeModiForm" method="post" name="freeModiForm">
+            <form action="freeModiForm" method="post" name="freeModiForm" enctype="multipart/form-data">
     
                 <div class="container">
                     <div class="container-inner row">
+                    
+                    <div class="innertitle col-md-3 col-sm-12">NUM</div>
+					<div class="inner-control col-md-7 col-sm-12 ">
+						<input class="form-control Large input " name="num"
+							value="${vo.bbsNo}"readonly>
+					</div>
     
                         <div class="innertitle col-md-3 col-sm-12">
                             NAME
@@ -28,7 +38,7 @@
                         <div class="innertitle col-md-3 col-sm-12">
                             TITLE</div>
                         <div class="inner-control  col-md-7 col-sm-12 ">
-                            <input class="form-control Large input " name="title" 	value="${vo.bbsTitle}" readonly><span id="msgTitle">
+                            <input class="form-control Large input " name="title" value="${vo.bbsTitle}">
                         </div>
     
                         	<div class="innertitle col-md-3 col-sm-12">COMMNET</div>
@@ -40,21 +50,23 @@
 							</div>
 
 								<div class="reply-group">
-								<img src="view?fileloca=${vo.fileRealName}&filename=${vo.fileRealName}">						
-								<!-- <label for="file">이미지업로드</label> <input type="file" name="file"id="file">  -->
+								<%-- <img src="view?fileloca=${vo.fileRealName}&filename=${vo.fileRealName}">
+								<img src="view/fileloca/fileRealName"> --%>
+								<img src="view/${vo.fileLoca}/${vo.fileRealName}">
+							<!-- 	<label for="file">이미지업로드</label> <input type="file" name="file"id="file">  -->
 							</div>
 
 								<textarea class="form-control" rows="10" name="content"
-								id="content" readonly>${vo.bbsContent }</textarea>
+								id="content" >${vo.bbsContent }</textarea>
 							<div class="content-down-l">
-								<input type="checkbox" id="bbsCO" name="bbsOC" value="${vo.bbsOC }" checked="checked" readonly> 비밀글 
+								<input type="checkbox" id="bbsCO" name="bbsOC" value="${vo.bbsOC }" checked="checked" > 비밀글 
 							</div>
 
 
 							<div class="content-down-r">
-								<button type="button" class="btn btn-warning" id="uploadBtn"
-									onclick="location.href='freeboardModify?bbsNo=${vo.bbsNo}&writer=${vo.bbsWrite }' ">등록하기</button>
-							<button class="btn" type="button" onclick="location.href='freeboardList' ">목록</button>
+								<button type="button" class="btn btn-danger" id="deleteBtn" onclick="location.href='freeboardelete?bbsNo=${vo.bbsNo}' ">삭제하기</button>
+								<button type="button" class="btn btn-danger" id="updateBtn" onclick="location.href='freeboardModify?bbsNo=${vo.bbsNo}' ">수정완료</button>
+							<button  type="button"  class="btn" onclick="location.href='freeboardList' ">목록</button>
 								</div>
 						</div>
 					</div>
@@ -67,23 +79,27 @@
 </section>
 
 <script> 
-    window.onload = function() {
-		 if(history.state === '' ) return;
-		 
-		 var msg = "${msg}"; //컨트롤러에서 넘어온 메시지
-		 if(msg !== '') {
-			 alert(msg);
-			 //브라우저의 기록을 새롭게 변경(데이터, 페이지제목, 변경할주소)
-			 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
-			 history.replaceState('', null, null); 
-		 }
-		     
-	    
-	    
+
+/* var updateBtn = document.getElementById("updateBtn");
+updateBtn.onclick = function () {
+	if(document.freeModiForm.title.value === ''){
+		alert("제목은 필수입니다.")
+		document.freeModiForm.title.focus();
+	}else if (document.freeModiForm.content.value === '' ){
+		alert("제목은 필수입니다.")
+		document.freeModiForm.content.focus();
+	} else {
+		
 	}
+}
 
 
 
+var deleteBtn = document.getElementById("deleteBtn");
+deleteBtn.onclick = function () {
+
+}
+*/
   /*   $(document).ready(function () {
       $("#uploadBtn").click(regist);
 
@@ -111,14 +127,13 @@
     });
  */
     
-    //비밀글 체크 여부
+ /*    //비밀글 체크 여부
 	  var bbsOC = "off";
 	  //태그.is(":속성") 체크여부 true/false
 	  if( $("#bbsOC").is(":checked")){
 		  bbsOC ="on";
-		  
 	  }
     
-    
+    */
 
     </script>

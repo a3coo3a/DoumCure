@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -162,10 +163,12 @@ public class BoardController {
 			//void형 메서드는 요청의 결과가 디스패쳐서블릿으로 return됩니다.
 		}
 		
-		//이미지
+		//이미지불러오기
 		@RequestMapping("/view/{fileLoca}/{fileName:.+}")
 		@ResponseBody
-		public byte[] getFile(@RequestParam("fileLoca") String fileLoca, @RequestParam("fileName")String fileName) {
+		public byte[] getFile(@PathVariable("fileLoca") String fileLoca, @PathVariable("fileName") String fileName) {
+			System.out.println(fileLoca);
+			System.out.println(fileName);
 		File file = new File( "D:\\spring\\upload\\"+ fileLoca + "\\" + fileName);
 		byte[] result = null;
 		try {
@@ -193,37 +196,37 @@ public class BoardController {
 
 	
 	
-//		//글 업데이트
-//		@RequestMapping(value = "/freeUpdate", method = RequestMethod.POST)
-//		public String freeUpdate(BoardVO vo, RedirectAttributes RA) {
-//			
-//			int result = boardService.update(vo);		
-//			
-//			if(result == 1) { //업데이트 성공
-//				RA.addFlashAttribute("msg", "정상적으로 수정되었습니다");
-//			} else { //업데이트 실패
-//				RA.addFlashAttribute("msg", "수정에 실패했습니다");
-//			}
-//			
-//			return "redirect:/freeBoard/freeList";
-//		}
-//		
-//		
-//		@RequestMapping(value = "/freeDelete", method = RequestMethod.POST)
-//		public String freeDelete(@RequestParam("bno") int bno, RedirectAttributes RA) {
-//			
-//			int result = boardService.delete(bno);
-//			
-//			if(result == 1) {
-//				RA.addFlashAttribute("msg", bno + "번 게시글이 삭제 되었습니다");
-//			} else {
-//				RA.addFlashAttribute("msg", "게시글 삭제에 실패했습니다");
-//			}
-//			
-//			return "redirect:/freeBoard/freeList";
-//		}
-//		
-//		
+		//글 업데이트
+		@RequestMapping(value = "/freeModiForm", method = RequestMethod.POST)
+		public String freeUpdate(BoardVO vo, RedirectAttributes RA) {
+			
+			int result = boardService.freeupdate(vo);		
+			
+			if(result == 1) { //업데이트 성공
+				RA.addFlashAttribute("msg", "정상적으로 수정되었습니다");
+			} else { //업데이트 실패
+				RA.addFlashAttribute("msg", "수정에 실패했습니다");
+			}
+			
+			return "redirect:/freeBoard/freeList";
+		}
+		
+		
+		@RequestMapping(value = "/freeboardelete", method = RequestMethod.POST)
+		public String freeboardelet(@RequestParam("bbsNo") int bbsNo, RedirectAttributes RA) {
+			
+			int result = boardService.freeDelete(bbsNo);
+			
+			if(result == 1) {
+				RA.addFlashAttribute("msg", bbsNo + "번 게시글이 삭제 되었습니다");
+			} else {
+				RA.addFlashAttribute("msg", "게시글 삭제에 실패했습니다");
+			}
+			
+			return "redirect:/board/freeboardList";
+		}
+		
+		
 	}
 
 

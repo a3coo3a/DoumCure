@@ -38,17 +38,34 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.getTotal(cri);
 	}
 
+	//등록
 	@Override
 	public void insertFile(BoardVO vo) {
 		
 		boardMapper.insertFile(vo);
 	}
 
+	//상세
 	@Override
 	public BoardVO getfreeContent(int bbsNo) {
 		
 		return boardMapper.getfreeContent(bbsNo);
 	}
+
+	@Override
+	public int freeupdate(BoardVO vo) {
+		
+		return 0;
+	}
+
+	
+	
+	@Override
+	public int freeDelete(int bbsno) {
+	
+		return boardMapper.freeDelete(bbsno);
+	}
+
 
 	
 
