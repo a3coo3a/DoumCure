@@ -45,7 +45,14 @@
   		update USERS set userPw = #{userPw}, userNickName = #{userNickName}, userPhoneNum = #{userPhoneNum}, userAddrZipNum = #{userAddrZipNum}, userAddrBasic = #{userAddrBasic}, userAddrDetail = #{userAddrDetail} where userId = #{userId}
   	</update>
   
+  	<update id="userBmUpdate">
+		update USERS set userBookMark01=#{userBookMark01}, userBookMark02 = #{userBookMark02}, userBookMark03 = #{userBookMark03} where userId = #{userId}  	
+  	</update>
+  	
   	<delete id="userDelete">
   		delete from USERS where userId = #{userId} and userPw = #{userPw}
   	</delete>
+  	
+  	
+  	
   </mapper>

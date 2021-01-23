@@ -17,4 +17,5 @@ public interface UserMapper {
 	public ArrayList<BoardVO> getMyBbsList(@Param("cri") Criteria cri,@Param("userId") String userId);
 	public int userUpdate(UserVO vo);
 	public int userDelete(@Param("userId") String userId,@Param("userPw") String userPw);
+	public int userBmUpdate(UserVO userVO);
 }

@@ -72,6 +72,11 @@ public class UserServiceImpl implements UserService{
 		return userMapper.userDelete(userId, userPw);
 	}
 
+	@Override
+	public int userBmUpdate(UserVO userVO) {
+		return userMapper.userBmUpdate(userVO);
+	}
+
 	
 
 }

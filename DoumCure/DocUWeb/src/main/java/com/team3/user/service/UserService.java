@@ -15,4 +15,5 @@ public interface UserService {
 	public ArrayList<BoardVO> getMyBbsList(Criteria cri,UserVO vo);
 	public int userUpdate(UserVO vo);
 	public int userDelete(String userId, String userPw);
+	public int userBmUpdate(UserVO userVO);
 }

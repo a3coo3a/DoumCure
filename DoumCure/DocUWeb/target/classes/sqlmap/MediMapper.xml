@@ -33,16 +33,10 @@
  		select * from MEDI where proNo = #{proNO}
  	</select>
  	
- 	<update id="addBookmark1">
- 		update USERS set userBookMark01=#{proNo} where userId = #{userId}
- 	</update>
  	
- 	<update id="addBookmark2">
- 		update USERS set userBookMark02=#{proNo} where userId = #{userId}
- 	</update>
  	
- 	<update id="addBookmark3">
- 		update USERS set userBookMark03=#{proNo} where userId = #{userId}
- 	</update>
+ 	
+ 	
+ 	
   
   </mapper>

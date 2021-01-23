@@ -12,9 +12,6 @@ public interface MediMapper {
 	public ArrayList<MediVO> getList(@Param("cri") Criteria cri,@Param("mediSearchData") String mediSearchData);
 	public int getTotal(String mediSearchData);
 	public MediVO getInfo(String proNo);
-	public int addBookmark1(@Param("userId") String userId,@Param("proNo") String proNo);
-	public int addBookmark2(@Param("userId") String userId,@Param("proNo") String proNo);
-	public int addBookmark3(@Param("userId") String userId,@Param("proNo") String proNo);
 	
 	
 	

@@ -40,6 +40,7 @@ public class UserController {
 		
 		if(result == 1) {
 			UserVO userVO = userService.getInfo(vo.getUserId());
+			System.out.println(userVO.toString());
 			session.setAttribute("userVO", userVO);
 			return "redirect:../";
 		}else {
@@ -129,6 +130,9 @@ public class UserController {
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", pageVO);
 		
+		
+		
+		
 		}else if(user == null) {
 			model.addAttribute("errorMsg", "세션값이 없습니다.");
 		}
@@ -173,7 +177,11 @@ public class UserController {
 		}
 	}
 	
-	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("userVO");
+		return "redirect:/";
+	}
 	
 	
 	

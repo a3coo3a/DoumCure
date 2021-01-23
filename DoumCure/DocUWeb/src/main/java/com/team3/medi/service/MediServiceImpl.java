@@ -32,20 +32,7 @@ public class MediServiceImpl implements MediService {
 		return mediMapper.getInfo(proNo);
 	}
 
-	@Override
-	public int addBookmark1(String userId, String proNo) {
-		return mediMapper.addBookmark1(userId, proNo);
-	}
-
-	@Override
-	public int addBookmark2(String userId, String proNo) {
-		return mediMapper.addBookmark2(userId, proNo);
-	}
-
-	@Override
-	public int addBookmark3(String userId, String proNo) {
-		return mediMapper.addBookmark3(userId, proNo);
-	}
+	
 
 	
 

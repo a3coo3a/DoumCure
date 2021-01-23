@@ -23,7 +23,7 @@
       <div class="col-lg-12 col-xs-12">
         
         <div class="medi-borad-title">#${mediSearchData }</div>
-        <button type="button" class="medi-right medi-com-btn">비교하기</button>
+        <button type="button" class="medi-right medi-com-btn" onclick="proCompare()">비교하기</button>
         <table class="table table-hover medi-table">
   
           <thead>
@@ -33,24 +33,25 @@
               <th class="sm-area">code</th>
               <th class="lg-area">제품명</th>
               <th class="lg-area">효과 / 효능</th>
-              <th class="sm-area"></th>
             </tr>
           </thead>
   
           <tbody>
             <c:forEach var="mediList" items="${list }" varStatus="status">
+            
+            
             <tr>
               <td class="sm-area">
-                <input type="checkbox" class="medi-checkbox" name="" id="" >
+                <input type="checkbox" class="medi-checkbox" name="compareCh" value="${mediList.proNo }">
               </td>
               <td class="sm-area"></td>
               <td class="sm-area">${mediList.proNo }</td>
               <td class="lg-area"><a href="mediDetail?proNo=${mediList.proNo}">${mediList.proName }</a></td>
               <td class="lg-area">${mediList.proEffi }</td>
-              <td class="sm-area empty-stars">
-                  <img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="stars">
-              </td>
+              
             </tr>
+            
+            
             </c:forEach>
           </tbody>
   
@@ -82,24 +83,34 @@
                     <input type="hidden" name="searchName" value="${pageVO.cri.searchName }">
                     <input type="hidden" name="mediSearchData" value="${mediSearchData }">
 		    </form>
-
-
-
-
-      <!-- 페이지네이션 -->
-      <!-- <div class="medi-more-list">
-        <button type="button"><span class="glyphicon glyphicon-chevron-down"></span> 더보기</button>
-      </div> -->
-      
       
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- 디자인 -->
 <script>
+
+function proCompare(){
+	var totCh_count = $("input:checkbox[name='compareCh']").length;
+	var ch_count = $("input:checkbox[name='compareCh']:checked").length;
+	console.log(ch_count);
+	for(var i = 0; i <totCh_count;i++){
+		if(document.getElementsByName("compareCh")[i].checked == true){
+			console.log(i);
+			console.log(document.getElementsByName("compareCh")[i].value);
+			
+			
+			
+		}		
+		
+	}
+}
+
+</script>
+
+<script>
+/* 왕관이미지 */
   $(document).ready(function(){
 	  if("${pageVO.pageNum}" == 1){
 	    $("tbody").children('tr:eq(0)').children('td:eq(1)').html("<img src='${pageContext.request.contextPath }/resources/img/medi/no1.png' alt='no1'>")
@@ -107,18 +118,6 @@
 	    $("tbody").children('tr:eq(2)').children('td:eq(1)').html("<img src='${pageContext.request.contextPath }/resources/img/medi/no3.png' alt='no3'>")
 	  }
   })
-  
-  function starChange(event){
-    if($(this).hasClass("empty-stars")){
-      $(this).children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
-      $(this).addClass("full-stars").removeClass("empty-stars");
-    }else if($(this).hasClass("full-stars")){
-      $(this).children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
-      $(this).addClass("empty-stars").removeClass("full-stars");
-    }
-  }
-
-  $(".sm-area").click(starChange)
 </script>
 
 <!-- 페이지 네이션 -->
