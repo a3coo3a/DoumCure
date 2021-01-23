@@ -497,7 +497,9 @@ div.desc { padding: 15px; text-align: center;}
 .container-inner > .inner-control , .form-control {
 	padding: 3px;}
 
-
+	input {
+		appearance: auto ;}
+		
 	/*자게 그리드*/
 	.bbs-content-wrap > .board-table {
 	float: none; /*col의 플로팅 해제 */

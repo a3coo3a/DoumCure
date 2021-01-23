@@ -48,11 +48,11 @@
 	                               <td>${vo.bbsWrite }</td>
 	                               <td><fmt:formatDate value="${vo.bbsRegdate}" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
 	                               <td id="lock">
-		                               	<c:if test="${vo.bbsOC eq 'OFF'}">
-		                               	  <i  class="fas fa-lock-open"></i>
+		                               	<c:if test="${vo.bbsOC eq 'off'}">
+		                               	  <i class="fas fa-lock-open"></i>
 		                               	</c:if>
-		                               	<c:if test="${vo.bbsOC eq 'ON'}">
-		                               	  <i  class="fa fa-unlock"></i>
+		                               	<c:if test="${vo.bbsOC eq 'on'}">
+		                               	  <i class="fa fa-unlock"></i>
 		                               	</c:if>
 	                               </td>
 
@@ -60,7 +60,9 @@
 						</c:forEach>
                     </table>
 
-                    <button type="submit" class="btn qa-bbsList-btn"  onclick = "location.href='freeboardRegist'">글쓰기</button>
+		               <%--    <c:if test="${sessionScope.userVO != null }"> --%>
+                    	<button type="submit" class="btn qa-bbsList-btn"  onclick = "location.href='freeboardRegist'">글쓰기</button>
+		                <%--    </c:if>  --%>
                     
                     
                     <form action="freeboardList" name="pageForm">
@@ -75,7 +77,7 @@
 	                       	<a href="#" data-page="${pageVO.startPage-1 }">이전</a>
 	                       </li>                    	
 	                   	</c:if>
-	                   	 <!-- 1.페이지네이션 번호 처리 -->
+	                   	<!-- 1.페이지네이션 번호 처리 -->
 	                   	<c:forEach var="num" begin="${pageVO.startPage}" end="${pageVO.endPage}">
 	                   	<li class="${pageVO.pageNum == num ? 'active' : '' }">
 	                   		<a href="#" data-page="${num}">${num}</a>
@@ -88,9 +90,6 @@
 	                       </li>
 	                       </c:if>
 	                   </ul>
-		                  <%--  <c:if test="${sessionScope.userVO != null }">
-	                    	<button type="submit" class="btn qa-bbsList-btn"  onclick = "regbtn()">글쓰기</button>
-		                   </c:if> --%>
 	                   </div>
 	                   
 	                   <!-- 폼형식으로 보내는데 숨겨서 보낼값 hidden으로 표시 -->
@@ -109,10 +108,6 @@
 
     <script>
     
-    
-    
-    
- 
     		window.onload = function() {
     			 if(history.state === '' ) return;
     			 

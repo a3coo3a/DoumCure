@@ -26,12 +26,13 @@ create table bbs (
     fileloca VARCHAR2(50) not null , -- 이미지 정보
     filename VARCHAR2(50)  not null , -- 파일명
     filerealname VARCHAR2(50) not null, -- 실제 파일면
-    BBSOC varchar2(10) CHECK (BBSOC IN ('ON','OFF')), -- 비밀글체크 
+    BBSOC varchar2(10), -- 비밀글체크 
     BBSCATE varchar2(50), --카테고리
     BBSREGDATE date default sysdate -- 등록일 
 );
 alter table bbs add CONSTRAINT bbsno_pk PRIMARY KEY (BBSNO);
 create SEQUENCE bbs_seq INCREMENT BY 1 START WITH 1 NOCACHE;
+COMMIT;
 ----------- Medi table-------------
 create table MEDI (
     PRONO varchar2(50) primary key,

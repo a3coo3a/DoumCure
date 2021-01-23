@@ -1095,18 +1095,20 @@ html, body {
 	border-bottom: 3px solid black;
 	font-size: 17px;
 	width: 20%;
+	text-align: center;
 }
 
 .bbs-table-bordered>tbody>tr>td {
 	border: none;
 	border-bottom: 1px solid black;
 	width: 20%;
+	text-align: center;
 }
 
 .bbs-table-bordered>tbody>tr>td:last-child, .bbs-table-bordered>tbody>tr>th:last-child,
 	.bbs-table-bordered>tbody>tr>td:first-child, .bbs-table-bordered>tbody>tr>th:first-child
 	{
-	width: 4%;
+	width: 10%;
 }
 
 #boardlistForm {
@@ -1242,6 +1244,9 @@ div.desc {
 	float: left;
 	
 }
+
+input {	appearance: auto ;}
+
 /* 잠금 아이콘  */
 i {
     font-weight: 900;
@@ -1275,14 +1280,19 @@ i {
 	margin: 0; 
 	/*페이지 네이션의 기본 마진 0*/
 }
-.pagination > li ,
 #pageForm > .text-center .btn {
-	float: right; /*오른쪽으로 쌓아서 우측정렬 시킨다*/
 	border: 0; /*border스타일 해제*/
 	border-radius: 0; /*윤곽 0*/
 	padding: 5px 10px; /*버튼 패딩을 페이지네이션과 맞춘다*/
 }
-
+.pagination > li {
+	border: 0; /*border스타일 해제*/
+	border-radius: 0; /*윤곽 0*/
+	padding: 5px 10px; /*버튼 패딩을 페이지네이션과 맞춘다*/
+}
+.pagination > li > a{
+	margin: 0px 3px 
+}
 /* 파일 업로드시 미리보기  */
 	.fileDiv {
 		width: 50% auto;

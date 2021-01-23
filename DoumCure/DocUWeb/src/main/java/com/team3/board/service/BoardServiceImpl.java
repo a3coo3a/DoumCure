@@ -44,6 +44,12 @@ public class BoardServiceImpl implements BoardService{
 		boardMapper.insertFile(vo);
 	}
 
+	@Override
+	public BoardVO getfreeContent(int bbsNo) {
+		
+		return boardMapper.getfreeContent(bbsNo);
+	}
+
 	
 
 }
