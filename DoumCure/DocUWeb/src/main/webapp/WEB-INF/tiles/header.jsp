@@ -43,7 +43,7 @@
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="${pageContext.request.contextPath }/board/bbsList">공지사항</a></li>
-                                <li><a href="${pageContext.request.contextPath }/board/QAboardList">자유게시판</a></li>
+                                <li><a href="${pageContext.request.contextPath }/board/freeboardList">자유게시판</a></li>
                             </ul>
                         </li>
                         <li><a href="${pageContext.request.contextPath }/medi/mediSearch">SEARCH</a></li>
