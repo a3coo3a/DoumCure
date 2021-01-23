@@ -23,7 +23,10 @@
       <div class="col-lg-12 col-xs-12">
         
         <div class="medi-borad-title">#${mediSearchData }</div>
-        <button type="button" class="medi-right medi-com-btn" onclick="proCompare()">비교하기</button>
+        <form action="" method="post" id="comSend">
+        <input type="hidden" id="proNos" name="proNos">
+        	<button type="button" class="medi-right medi-com-btn" onclick="proCompare()">비교하기</button>
+        </form>
         <table class="table table-hover medi-table">
   
           <thead>
@@ -89,24 +92,52 @@
   </div>
 </section>
 
+<!-- 비교하기  -->
 <script>
+/* 선택 갯수 제한하기 2,3 */
+ $("input[name='compareCh']").on("click" , function(){
 
+		var cnt = $("input:checked[name='compareCh']").size();
+
+		if(cnt > 3){
+			$(this).attr("checked" , false);
+			alert("선택은 3개까지 가능합니다.");
+		}		
+
+	});
+
+/* 비교 페이지 보내기 */
 function proCompare(){
 	var totCh_count = $("input:checkbox[name='compareCh']").length;
 	var ch_count = $("input:checkbox[name='compareCh']:checked").length;
-	console.log(ch_count);
-	for(var i = 0; i <totCh_count;i++){
-		if(document.getElementsByName("compareCh")[i].checked == true){
-			console.log(i);
-			console.log(document.getElementsByName("compareCh")[i].value);
-			
-			
-			
-		}		
-		
+	var proNos = '';
+	
+	if(ch_count < 2){
+		alert("2개 이상 선택하셔야 비교 가능합니다.");
 	}
-}
-
+	
+	if(ch_count == 2){
+		for(var i = 0; i <totCh_count;i++){
+			if(document.getElementsByName("compareCh")[i].checked == true){
+				proNos += document.getElementsByName("compareCh")[i].value + "-";
+			} // if end		
+		} // for end
+		$("#proNos").val(proNos);
+		$("#comSend").attr("action","mediCompare2");
+		$("#comSend").submit();
+	} // 2if end
+	
+	if(ch_count == 3){
+		for(var i = 0; i <totCh_count;i++){
+			if(document.getElementsByName("compareCh")[i].checked == true){
+				proNos += document.getElementsByName("compareCh")[i].value + "-";
+			} // if end		
+		} // for end
+		$("#proNos").val(proNos);
+		$("#comSend").attr("action","mediCompare3");
+		$("#comSend").submit();
+	} // 3if end
+}// method end
 </script>
 
 <script>

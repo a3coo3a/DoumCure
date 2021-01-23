@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-       <style>
-
+   <style>
 .medi-info-box .line{
 	color : #C2E8CA;
+}
+.medi-info-box .content{
+	font-size: 12px;
 }
 </style>
  <section class="medi-area">
@@ -13,8 +14,8 @@
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 right-line">
         <div>
-          <h4 class="medi-gray">업체명</h4>
-          <h2 class="com-title-size">제품명</h2>
+          <h4 class="medi-gray">${vo1.proCom }</h4>
+          <h2 class="com-title-size">${vo1.proName }</h2>
         </div>
         <div class="medi-com-img">
             <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
@@ -23,33 +24,41 @@
         <div class="medi-info-detail">
 
           <div class="medi-info-box">
-            <div class="com-title">효능 효과</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+            <div class="title-name">보관 방법</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo1.proSave }</div>
+          </div>
+          
+          <div class="medi-info-box">
+            <div class="title-name">사용 기한</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo1.proDate }</div>
+          </div>
+
+          <div class="medi-info-box">
+            <div class="title-name">효능 효과</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo1.proEffi }</div>
           </div>
     
           <div class="medi-info-box">
-            <div class="com-title">용법 용량</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+            <div class="title-name">주성분</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo1.proMain }</div>
           </div>
-    
-          <div class="medi-info-box">
-            <div class="com-title">성분</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-            <br/>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-          </div>
-    
-          <div class="medi-info-box">
-            <div class="com-title">주의 사항</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+
+		  <div class="medi-info-box">
+            <div class="title-name">부성분</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo1.proSub }</div>
           </div>
 
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 right-line">
         <div>
-          <h4 class="medi-gray">업체명</h4>
-          <h2 class="com-title-size">제품명</h2>
+          <h4 class="medi-gray">${vo2.proCom }</h4>
+          <h2 class="com-title-size">${vo2.proName }</h2>
         </div>
         <div class="medi-com-img">
             <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
@@ -58,25 +67,33 @@
         <div class="medi-info-detail">
 
           <div class="medi-info-box">
-            <div class="com-title">효능 효과</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+            <div class="title-name">보관 방법</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo2.proSave }</div>
+          </div>
+          
+          <div class="medi-info-box">
+            <div class="title-name">사용 기한</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo2.proDate }</div>
+          </div>
+
+          <div class="medi-info-box">
+            <div class="title-name">효능 효과</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo2.proEffi }</div>
           </div>
     
           <div class="medi-info-box">
-            <div class="com-title">용법 용량</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+            <div class="title-name">주성분</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo2.proMain }</div>
           </div>
-    
-          <div class="medi-info-box">
-            <div class="com-title">성분</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-            <br/>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-          </div>
-    
-          <div class="medi-info-box">
-            <div class="com-title">주의 사항</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+
+		  <div class="medi-info-box">
+            <div class="title-name">부성분</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo2.proSub }</div>
           </div>
 
 
@@ -84,36 +101,45 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div>
-          <h4 class="medi-gray">업체명</h4>
-          <h2 class="com-title-size">제품명</h2>
+          <h4 class="medi-gray">${vo3.proCom }</h4>
+          <h2 class="com-title-size">${vo3.proName }</h2>
         </div>
         <div class="medi-com-img">
             <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
             <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star"></div>
         </div>
         <div class="medi-info-detail">
+	
+		  <div class="medi-info-box">
+            <div class="title-name">보관 방법</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo3.proSave }</div>
+          </div>
+          
+          <div class="medi-info-box">
+            <div class="title-name">사용 기한</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo3.proDate }</div>
+          </div>
 
           <div class="medi-info-box">
-            <div class="com-title">효능 효과</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+            <div class="title-name">효능 효과</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo3.proEffi }</div>
           </div>
     
           <div class="medi-info-box">
-            <div class="com-title">용법 용량</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+            <div class="title-name">주성분</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo3.proMain }</div>
           </div>
-    
-          <div class="medi-info-box">
-            <div class="com-title">성분</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-            <br/>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+
+		  <div class="medi-info-box">
+            <div class="title-name">부성분</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${vo3.proSub }</div>
           </div>
-    
-          <div class="medi-info-box">
-            <div class="com-title">주의 사항</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-          </div>
+
 
 
         </div>
@@ -121,6 +147,10 @@
     </div>
   </div> 
 
+ <!-- 목록으로 -->
+     <div>
+		<button type="button" class="btn medi-com-btn" onclick="history.go(-1)"><span class="glyphicon glyphicon-list"></span>&nbsp;뒤로...</button>        
+     </div>
 
 
 </section>

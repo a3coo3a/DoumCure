@@ -28,7 +28,6 @@
         <div class="medi-info-detail">
         
           <div class="medi-info-box">
-            <div></div>
             <div class="title-name">보관 방법</div>
             <div class="line">－－－－－－－</div>
             <div class="content">${mediVO.proSave }</div>
@@ -116,7 +115,6 @@ function starChange(){
       			data : {"proNo":"${mediVO.proNo }"},
       			success : function(data){
       				console.log(data);
-      				
       				// 3 : 즐겨찾기가 가득차 있음
       				// 2 : 이미 존재하는 즐겨찾기 
       				// 1 : 추가 성공
@@ -139,7 +137,7 @@ function starChange(){
       	    	 }
       		});
     }else if($(this).children().hasClass("full-stars")){
-	      // 북마크 삭제
+	      // 북마크 삭제d
 	      $.ajax({
 	    	 url : "rmBookmark",
 	    	 type : "POST",
@@ -151,8 +149,10 @@ function starChange(){
 	    			// 0 : 실패
 	    		if(data == 3 || data == 1){
 	    			console.log("이곳은 왓나?");
-					$(this).children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
-				    $(this).children().addClass("empty-stars").removeClass("full-stars");
+	    			if($(".medi-com-img").children().hasClass("full-stars")){
+  						$(".medi-com-img").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
+  				    	$(".medi-com-img").children().addClass("empty-stars").removeClass("full-stars");
+  					 }
 				}else if(data == 0){
 					alert("즐겨찾기 삭제에 실패 했습니다. 관리자에게 문의하세요");
 				}

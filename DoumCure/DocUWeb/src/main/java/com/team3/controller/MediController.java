@@ -29,7 +29,7 @@ public class MediController {
 	 @Autowired
 	 UserService userService;
 
-	@RequestMapping({ "/mediStore", "/mediSearch", "mediCompare2", "mediCompare3" })
+	@RequestMapping({ "/mediStore", "/mediSearch"})
 	public void views() {
 	}
 
@@ -96,6 +96,7 @@ public class MediController {
 		return result;
 	}
 	
+	@ResponseBody
 	@RequestMapping("/rmBookmark")
 	public int rmBookmark(@RequestParam("proNo") String proNo, HttpSession session) {
 		System.out.println("remove :"+proNo);
@@ -106,30 +107,65 @@ public class MediController {
 		System.out.println("remove3 :"+userVO.getUserBookMark03());	
 		
 		int result = 0;
+		
 		if(userVO.getUserBookMark01().equals(proNo)) {
+			System.out.println("1");
 			userVO.setUserBookMark01("0");
 			result = userService.userBmUpdate(userVO);
+			
 		}else if(userVO.getUserBookMark02().equals(proNo)) {
+			System.out.println("2");
 			userVO.setUserBookMark02("0");
 			result = userService.userBmUpdate(userVO);
+			
 		}else if(userVO.getUserBookMark03().equals(proNo)) {
+			System.out.println("3");
 			userVO.setUserBookMark03("0");
 			result = userService.userBmUpdate(userVO);
 		}else {
 			result = 3;
 		}
 		System.out.println(result);
+		
 		if(result == 1) {
 			UserVO vo = userService.getInfo(userVO.getUserId());
 			System.out.println("제거후:"+vo.toString());
 			session.setAttribute("userVO", vo);
 		}
+		
 		return result;
 	}
 	
+	@RequestMapping("/mediCompare2")
+	public String mediCompare2(@RequestParam("proNos") String proNos, Model model) {
+		String proNo1 = proNos.split("-")[0];
+		String proNo2 = proNos.split("-")[1];
+		
+		MediVO vo1 = mediService.getInfo(proNo1);
+		MediVO vo2 = mediService.getInfo(proNo2);
+		
+		model.addAttribute("vo1", vo1);
+		model.addAttribute("vo2", vo2);
+		
+		return "medi/mediCompare2";
+	}
 	
-	
-	
+	@RequestMapping("/mediCompare3")
+	public String mediCompare3(@RequestParam("proNos") String proNos, Model model) {
+		String proNo1 = proNos.split("-")[0];
+		String proNo2 = proNos.split("-")[1];
+		String proNo3 = proNos.split("-")[2];
+		
+		MediVO vo1 = mediService.getInfo(proNo1);
+		MediVO vo2 = mediService.getInfo(proNo2);
+		MediVO vo3 = mediService.getInfo(proNo3);
+		
+		model.addAttribute("vo1", vo1);
+		model.addAttribute("vo2", vo2);
+		model.addAttribute("vo3", vo3);
+		
+		return "medi/mediCompare3";
+	}
 	
 	
 	
