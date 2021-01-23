@@ -62,6 +62,25 @@
  	
  	
  	
+ 	<update id="update">
+		update FREEBOARD 
+		set BBSWRITE = #{bbsWrite},
+			BBSTITLE = #{title},
+			bbsTitle = #{bbsTitle},
+			bbsContent = #{bbsContent},
+			uploadPath = #{uploadPath},
+			fileLoca = #{fileLoca} ,
+			fileName = #{fileName},
+			fileRealName = #{fileRealName},
+			bbsOC = #{bbsOC}			
+		where BBSNO = #{bbsNo}
+	</update>
+ 	
+ 	
+ 	<!-- 삭제 -->
+ 	<delete id="freeDelete">
+ 		delete from bbs where bbsNo = #{bbsNo}
+ 	</delete>
  	
 
   </mapper>

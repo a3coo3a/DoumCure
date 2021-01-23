@@ -15,7 +15,6 @@
 
 
     <form action="freeRegistForm" method="post" name="freeRegistForm" enctype="multipart/form-data">
-
       <div class="container">
         <div class="container-inner row">
 
@@ -29,7 +28,7 @@
           <div class="innertitle col-md-3 col-sm-12">
             TITLE</div>
           <div class="inner-control  col-md-7 col-sm-12 ">
-            <input class="form-control Large input " name="bbsTitle"><span id="msgTitle"></span>
+            <input class="form-control Large input " name="bbsTitle">
           </div>
 
           <div class="innertitle col-md-3 col-sm-12">
@@ -44,10 +43,12 @@
               
               <div class="reply-group">
                 <label for="file">이미지업로드</label>
-                <input type="file" name="file" id="file">
+             <!--  <input type="button" class="btn btn-default btn-xs pull-right" id="add" name="add" value="파일추가" class ="form-controll" ></button>
+               <label for="file">이미지업로드</label>
+              <input type="button" class="btn btn-default btn-xs pull-right" onclick="delbtn()" value="파일삭제" class ="form-controll" ></button> -->
+                 <input type="file" name="file" id="file" class ="form-controll">
               </div>
-              <textarea class="form-control" rows="10" name="bbsContent" id="content"></textarea><span
-                id="msgContent"></span>
+              <textarea class="form-control" rows="10" name="bbsContent" id="content"></textarea><span id="msgContent"></span>
                 <div class ="content-down-l">
 				<input type="checkbox" id="bbsCO" name= "bbsOC"> 비밀글
          <!-- 
@@ -56,7 +57,7 @@
           -->
                 </div>
               <div class ="content-down-r">
-              <button type="button" class="btn btn-info" id="uploadBtn">등록하기</button>
+                <button type="button" class="btn btn-info" id="uploadBtn">등록하기</button>
               <button class="btn" type="button" onclick="location.href='freeboardList' ">목록</button>
               </div>
             </div>
@@ -94,7 +95,34 @@
   });
 
 
+  
+  $(document).ready(function () {
+      $("#uploadBtn").click(regist);
 
+      function regist() {
+
+        //회원만 등록 가능하도록 처리
+        var writer = "${sessionScope.userVO.userId}";
+        var file = $("#file").val();
+
+        //파일 확장자체크
+        file = file.substring(file.lastIndexOf('.') + 1, file.length).toLowerCase();
+        console.log(file);
+
+        if (file != "jpg" && file != "png" && file != "jpeg") {
+          alert("이미지(jpg,png,jpeg)만 등록이 가능합니다")
+          return;
+        }
+        else if (writer == '') { //세션이 없다면
+          alert("로그인 필요한 서비스입니다")
+          return;
+        }
+        document.freeRegistForm.submit(); //서브밋
+      }; //등록 end  		
+
+    });
+  
+/* 
   $(document).ready(function () {
     $("#uploadBtn").click(regist);
 
@@ -119,7 +147,7 @@
       document.freeRegistForm.submit(); //서브밋
     }; //등록 end  		
 
-  });
+  }); */
 
 
 	 /*  function changeType() {

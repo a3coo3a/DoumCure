@@ -15,7 +15,12 @@ public interface BoardService {
 	public void insertFile(BoardVO vo); //게시물등록
 	
 	public BoardVO getfreeContent(int bbsNo); //상세
-
+	
+		
+	// 수정
+	public int freeupdate(BoardVO vo); 
+	
+	public int freeDelete(int bbsno); //삭제
 	
 	
 }
