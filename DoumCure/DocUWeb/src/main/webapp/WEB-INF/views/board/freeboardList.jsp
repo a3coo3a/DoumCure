@@ -14,7 +14,7 @@
                 </div>
                 
                 <!--자유게시판 리스트 -->
-                <form action="freeboardList">
+                <form action="freeboardList" enctpe="multipart/form-data">
                     <div class="search-wrap">
                         <button type="submit" class="btn btn-info search-btn">검색</button>
 
@@ -36,8 +36,8 @@
                     <table class="table bbs-table-bordered">
                         <tr>
                             <th class="bbs-list-num">번호</th>
-                            <th >글쓴이</th>
                             <th class="bbs-list-title">제목</th>
+                            <th >글쓴이</th>
                             <th class="bbs-list-Date">등록일</th>
                             <th class="bbs-list-pan">secret</th>
                         </tr>
@@ -48,9 +48,9 @@
 	                               <td>${vo.bbsWrite }</td>
 	                               <td><fmt:formatDate value="${vo.bbsRegdate}" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
 	                               <td id="lock">
-		                               	<c:if test="${vo.bbsOC eq 'off'}">
+		                               	<%-- <c:if test="${vo.bbsOC eq 'off'}">
 		                               	  <i class="fas fa-lock-open"></i>
-		                               	</c:if>
+		                               	</c:if> --%>
 		                               	<c:if test="${vo.bbsOC eq 'on'}">
 		                               	  <i class="fa fa-unlock"></i>
 		                               	</c:if>
@@ -60,9 +60,9 @@
 						</c:forEach>
                     </table>
 
-		               <%--    <c:if test="${sessionScope.userVO != null }"> --%>
+		         <%--        <c:if test="${sessionScope.userVO != null }">  --%>
                     	<button type="submit" class="btn qa-bbsList-btn"  onclick = "location.href='freeboardRegist'">글쓰기</button>
-		                <%--    </c:if>  --%>
+		                 <%-- </c:if>  --%>
                     
                     
                     <form action="freeboardList" name="pageForm">
@@ -100,14 +100,13 @@
 
 	
 		    		</form>
-                    
             </div>
         </div>
     </div>    
 </section>
 
+
     <script>
-    
     		window.onload = function() {
     			 if(history.state === '' ) return;
     			 
@@ -117,13 +116,13 @@
     				 //브라우저의 기록을 새롭게 변경(데이터, 페이지제목, 변경할주소)
     				 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
     				 history.replaceState('', null, null); 
-    			 }
-    			     
-			    
-			    
+    			 }	     
     		}
     			 
-		          
+
+    		
+    		
+
     		
     	//페이징
     	/*  
