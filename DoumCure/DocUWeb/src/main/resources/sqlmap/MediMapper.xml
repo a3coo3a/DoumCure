@@ -6,18 +6,43 @@
   
   <mapper namespace="com.team3.medi.mapper.MediMapper">
   
-  <!-- 구현을 위한 테스트 입니다 지우고 작성하세요 -->
- 	<select id="test" resultType="int">
- 		select count(*) from MEDI 	
+ 	<select id="getList" resultType="MediVO">
+  		<![CDATA[
+  		select *
+		from
+		(select rownum as rn,
+		        pro.*
+				from(
+				    select  
+				           b.*
+				    from(
+				        select *
+				        from MEDI
+				        where proeffi like '%'||#{mediSearchData}||'%'
+				        order by proname) b
+				) pro
+		)where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <= #{cri.pageNum}*#{cri.amount}
+		]]>
+  	</select>
+ 	
+ 	<select id="getTotal" resultType="int">
+ 		select count(*) from MEDI where proeffi like '%'||#{mediSearchData}||'%'
  	</select>
  	
+ 	<select id="getInfo" resultType="MediVO">
+ 		select * from MEDI where proNo = #{proNO}
+ 	</select>
  	
+ 	<update id="addBookmark1">
+ 		update USERS set userBookMark01=#{proNo} where userId = #{userId}
+ 	</update>
  	
+ 	<update id="addBookmark2">
+ 		update USERS set userBookMark02=#{proNo} where userId = #{userId}
+ 	</update>
  	
- 	
- 	
- 	
- 	
- 	
+ 	<update id="addBookmark3">
+ 		update USERS set userBookMark03=#{proNo} where userId = #{userId}
+ 	</update>
   
   </mapper>

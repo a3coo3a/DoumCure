@@ -32,7 +32,7 @@
 	
 	
 	<!-- 타일즈 미 적용 -->
-	<definition name="navercollback" template="/WEB-INF/views/user/navercallback.jsp"/>
+	<definition name="navercollback" template="/WEB-INF/views/user/naver-callback.jsp"/>
 		
 	
 	

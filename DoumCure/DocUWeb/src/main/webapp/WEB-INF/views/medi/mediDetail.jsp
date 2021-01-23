@@ -1,80 +1,100 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
+.medi-info-box .content{
+	font-size : 15px;
+}
+.medi-info-box .line{
+	color : #C2E8CA;
+}
+</style>
 <section class="medi-area">
 
-<div class="container medi_container">
-  <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 medidetail-box">
-          <div class="medi-prod-img">
+  <div class="container medi_container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div>
+          <h4 class="medi-gray">${mediVO.proCom }</h4>
+           <h5 class="medi-gray">${mediVO.proNo }</h5>
+          <h2>${mediVO.proName }</h2>
+        </div>
+        <div class="medi-com-img">
             <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
-            <div class="medi-bookmark empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star"></div>
-          </div>
-          <div class="medi-price">
-            <div class="medi-prod-sm-name">price</div>
-            <button type="button" class="medi-btn">비교함담기</button>
-          </div>
+            <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star1"></div>
+        </div>
+        <div class="medi-info-detail">
         
-    </div>
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 medi-right">
-      <div class="medi-info">
-        
-        <div class="medi-prod-sm-name"><h6>업체명</h6></div>
-        <div class="medi-prod-sm-name">분류</div>
-        <div class="medi-prod-name"><h4>제품명</h4></div>
-        <p class="hash-name medi-left">#감기</p>
-        <p class="hash-name medi-left">#기침</p>
-        <p class="hash-name medi-left">#목아픔</p>
-      </div>
-    </div>
-  </div>
+          <div class="medi-info-box">
+            <div>${userVO.userBookMark01 }</div>
+            <div class="title-name">보관 방법</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${mediVO.proSave }</div>
+          </div>
+          
+          <div class="medi-info-box">
+            <div class="title-name">사용 기한</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${mediVO.proDate }</div>
+          </div>
+
+          <div class="medi-info-box">
+            <div class="title-name">효능 효과</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${mediVO.proEffi }</div>
+          </div>
     
-  <hr>
+          <div class="medi-info-box">
+            <div class="title-name">주성분</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${mediVO.proMain }</div>
+          </div>
 
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-sm-12 medi-info-detail">
-      
-      <div class="medi-info-box">
-        <div class="title-name">효능 효과</div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-      </div>
-
-      <div class="medi-info-box">
-        <div class="title-name">용법 용량</div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-      </div>
-
-      <div class="medi-info-box">
-        <div class="title-name">성분</div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-        <br/>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
-      </div>
-
-      <div class="medi-info-box">
-        <div class="title-name">주의 사항</div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.</div>
+		  <div class="medi-info-box">
+            <div class="title-name">부성분</div>
+            <div class="line">－－－－－－－</div>
+            <div class="content">${mediVO.proSub }</div>
+          </div>
+          
+        </div>
       </div>
       
-    </div>
-  </div>   
-
 </section>
 
 
 <!-- mediDetail script -->
 <script>
   
-  function starChange(){
-    if($(".medi-bookmark").hasClass("empty-stars")){
-      $(".medi-bookmark img").attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
-      $(".medi-bookmark").addClass("full-stars").removeClass("empty-stars");
-    }else if($(".medi-bookmark").hasClass("full-stars")){
-      $(".medi-bookmark img").attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
-      $(".medi-bookmark").addClass("empty-stars").removeClass("full-stars");
+function starChange(){
+    if($(this).children().hasClass("empty-stars")){
+      $(this).children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
+      $(this).children().addClass("full-stars").removeClass("empty-stars");
+    
+      $.ajax({
+    	 url:"addBookmark",
+    	 data : {"proNo":"${mediVO.proNo }"},
+    	 success: function(data){
+    		 // 0 : 회원없음
+    		 // 1 : 이미 존재
+    		 // 2 : 추가
+    		 // 3 : 실패
+    		 
+    		 console.log(data);
+    	 }, 
+    	 error : function(error){
+    		 console.log(error);
+    	 } 
+      });
+      
+    }else if($(this).children().hasClass("full-stars")){
+      $(this).children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
+      $(this).children().addClass("empty-stars").removeClass("full-stars");
+      
+      
+      
+      
     }
   }
 
-  $(".medi-prod-img").click(starChange)
-  $(".medi-prod-sm-name").click(starChange)
+  $(".medi-com-img").click(starChange)
   
 </script>

@@ -1,10 +1,7 @@
 package com.team3.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +17,6 @@ import com.team3.command.BoardVO;
 import com.team3.command.UserVO;
 import com.team3.common.util.Criteria;
 import com.team3.common.util.PageVO;
-import com.team3.docuweb.auth.NaverLogin;
-import com.team3.docuweb.auth.NaverValue;
 import com.team3.user.service.UserService;
 
 @Controller
@@ -30,11 +25,6 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
-	
-	// 서블릿에 id값에 맞추어 가지고 옴.
-	@Inject
-	private NaverValue naverSns;
 	
 	// 화면구현
 	@RequestMapping({"/join","/login","/id_pwJoin","/userUpdate","/navercallback"})
@@ -95,38 +85,7 @@ public class UserController {
 		
 		return "redirect:../";
 	}
-	
-	// 네이버 로그인
-	@RequestMapping("/naverForm")
-	public String naverForm(Model model) throws Exception {
-		System.out.println("------------------네이버 도착----------------------");
-		
-		
-		
-		NaverLogin naverLogin = new NaverLogin(naverSns);
-		System.out.println(naverLogin.getNaverAuthURL());
-		model.addAttribute("naver_url", naverLogin.getNaverAuthURL());
-		
-		
-		
-		
-		return "redirect:../";
-	}
-	
-	@RequestMapping("/auth/naver/callback")
-	public String NaverLoginCallback(Model model, @RequestParam String code) throws IOException, InterruptedException, ExecutionException {
-		// 1. code를 이용해서 access_token받기
-		NaverLogin naverLogin = new NaverLogin(naverSns);
-		// 2. access_token을 이용해서 사용자 profile 정보 가져오기
-		String profile = naverLogin.getUserProfile(code);
-		System.out.println("profile>>"+ profile);
-		model.addAttribute("result", profile);
-		// 3. DB에 해당 유저가 존재하는지를 체크
-		
-		// 4. 존재하면 로그인, 미존재시 DB저장 후 로그인
-		return "/loginResult";
-	}
-	
+
 	
 	// 아이디 중복체크
 	@ResponseBody

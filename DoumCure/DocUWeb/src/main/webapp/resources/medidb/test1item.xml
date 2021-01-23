@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<header>
+<resultCode>00</resultCode>
+<resultMsg>NORMAL SERVICE.</resultMsg>
+</header>
+<body>
+<numOfRows>1</numOfRows>
+<pageNo>1</pageNo>
+<totalCount>52696</totalCount>
+<items>
+<item>
+<ITEM_SEQ>195500002</ITEM_SEQ>
+<ITEM_NAME>종근당염산에페드린정</ITEM_NAME>
+<ENTP_NAME>(주)종근당</ENTP_NAME>
+<ITEM_PERMIT_DATE>19550117</ITEM_PERMIT_DATE>
+<CNSGN_MANUF/>
+<ETC_OTC_CODE>전문의약품</ETC_OTC_CODE>
+<CLASS_NO>[02220]진해거담제</CLASS_NO>
+<CHART>본품은 백색의 정제다.</CHART>
+<BAR_CODE>8806433032005</BAR_CODE>
+<MATERIAL_NAME>총량 : 1정 중 80밀리그램-|성분명 : 염산에페드린|분량 : |단위 : 밀리그램|규격 : KP|성분정보 : |비고 :</MATERIAL_NAME>
+<EE_DOC_ID>https://nedrug.mfds.go.kr/pbp/cmn/pdfDownload/195500002/EE</EE_DOC_ID>
+<UD_DOC_ID>https://nedrug.mfds.go.kr/pbp/cmn/pdfDownload/195500002/UD</UD_DOC_ID>
+<NB_DOC_ID>https://nedrug.mfds.go.kr/pbp/cmn/pdfDownload/195500002/NB</NB_DOC_ID>
+<INSERT_FILE/>
+<STORAGE_METHOD>기밀용기에 넣어 건냉암소에 보관.</STORAGE_METHOD>
+<VALID_TERM>제조일로부터 36 개월</VALID_TERM>
+<REEXAM_TARGET/>
+<REEXAM_DATE/>
+<PACK_UNIT/>
+<EDI_CODE/>
+<DOC_TEXT/>
+<PERMIT_KIND_NAME>허가</PERMIT_KIND_NAME>
+<ENTP_NO>1459</ENTP_NO>
+<MAKE_MATERIAL_FLAG/>
+<NEWDRUG_CLASS_NAME/>
+<INDUTY_TYPE>의약품</INDUTY_TYPE>
+<CANCEL_DATE>20200101</CANCEL_DATE>
+<CANCEL_NAME>유효기간만료</CANCEL_NAME>
+<CHANGE_DATE/>
+<NARCOTIC_KIND_CODE/>
+<GBN_NAME>효능효과변경, 2015-12-17/용법용량변경, 2015-12-17/사용상주의사항변경(부작용포함), 2015-12-17/효능효과변경, 1995-01-01/용법용량변경, 1995-01-01/사용상주의사항변경(부작용포함), 1995-01-01</GBN_NAME>
+<TOTAL_CONTENT>1정 중 80밀리그램</TOTAL_CONTENT>
+<EE_DOC_DATA><DOC title="효능효과" type="EE">
+  <SECTION title="">
+    <ARTICLE title="1. 다음 질환에서의 기침 : 기관지천식, 감기, 급&#8226;만성기관지염, 상기도염" />
+    <ARTICLE title="2. 비점막의 충혈·종창" />
+  </SECTION>
+</DOC></EE_DOC_DATA>
+<UD_DOC_DATA><DOC title="용법용량" type="UD">
+  <SECTION title="">
+    <ARTICLE title="">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[성인 : 에페드린염산염으로서 1회 12.5 ～ 25 mg 1일 1 ～ 3회 경구투여한다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[증상에 따라 적절히 증감한다.]]></PARAGRAPH>
+    </ARTICLE>
+  </SECTION>
+</DOC></UD_DOC_DATA>
+<NB_DOC_DATA><DOC title="사용상주의사항" type="NB">
+  <SECTION title="">
+    <ARTICLE title="1. 경고">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[앰플주사제는 용기 절단시 유리파편이 혼입되어, 이상반응을 초래할 수 있으므로 사용시 유리파편 혼입이 최소화 될 수 있도록 신중하게 절단사용하되, 특히 어린이, 노약자 사용시에는 각별히 주의할 것(유리앰플주사제에 한함).]]></PARAGRAPH>
+    </ARTICLE>
+    <ARTICLE title="2. 다음 환자에는 투여하지 말 것.">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[1) 이 약 및 이 약의 구성성분에 과민반응 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[2) 고혈압 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[3) 갑상샘중독증 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[4) 녹내장 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[5) 당뇨병 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[6) 전립선비대증 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[7) 크롬친화세포종 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[8) MAO억제제를 투여중이거나 투여를 중지한 지 2주 이내인 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[9) 허혈심장병 환자]]></PARAGRAPH>
+    </ARTICLE>
+    <ARTICLE title="3. 다음 환자에는 신중히 투여할 것.">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[1) 디기탈리스제제를 투여 받고 있는 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[2) 심질환 환자]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[3) 소아]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[4) 갑상샘기능항진증, 폐쇄각녹내장 및 신장애 환자]]></PARAGRAPH>
+    </ARTICLE>
+    <ARTICLE title="4. 이상반응">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[1) 순환기계 : 심계항진, 빈맥, 전흉부 통증, 혈압상승, 심실성 부정맥이 나타날 수 있으며, 분만중의 주사시에는 태아에 빈맥이 나타날 수 있다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[2) 정신신경계 : 어지럼, 두통, 두중감, 진전, 신경과민, 불면, 발한, 갈증, 무력감, 근무력증 등이 나타날 수 있다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[3) 소화기계 : 구역, 구토, 식욕부진 등이 나타날 수 있다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[4) 비뇨기계 : 배뇨장애가 나타날 수 있다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[5) 과민반응 : 발진 등이 나타날 수 있으므로 이러한 경우에는 투여를 중지한다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[6) 기타 : 구갈이 나타날 수 있다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[7) 고량투여 시 불안, 환각, 망상을 수반한 정신증상이 나타날 수 있고 장기연용 시 의존성과 내성 발현이 보고되어 있으므로 이러한 경우에는 투여를 중지한다.]]></PARAGRAPH>
+    </ARTICLE>
+    <ARTICLE title="5. 일반적 주의">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[1) 과도하게 투여를 계속하는 경우 부정맥 또는 심정지를 일으킬 수 있으므로 주사의 경우에는 특히 주의한다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[2) 용법ㆍ용량에 맞게 투여하여도 효과가 나타나지 않는 경우에는 이 약이 적당하지 않은 것으로 생각하고 투여를 중지한다. 특히 소아에 투여시에는 사용법을 정확히 지도하고 경과를 충분히 관찰한다.]]></PARAGRAPH>
+    </ARTICLE>
+    <ARTICLE title="6. 상호작용">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[1) 갑상선제제(티록신, 리오티로닌 등)와 병용투여 시 이 약의 작용이 증가될 수 있으므로 감량하는 등 신중히 투여한다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[2) 클로로포름, 시클로프로판, 할로탄 등의 할로겐화 마취제와 병용투여 시 심실성 부정맥을 일으킬 수 있으므로 병용을 피한다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[3) 이 약을 에피네프린, 이소프로테레놀 등의 카테콜아민류와 병용하면 부정맥 또는 심정지를 일으킬 수 있으므로 병용투여하지 않는다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[4) 테오필린과 병용으로 구역, 신경질, 불면이 증가될 수 있다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[5) 에르고타민은 혈관수축 및 혈압상승효과를 증가시키므로 에르고타민과 병용을 권장하지 않는다.]]></PARAGRAPH>
+    </ARTICLE>
+    <ARTICLE title="7. 임부 및 수유부에 대한 투여">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[1) 에페드린은 태반을 통과하고 태아의 심박수 및 심장박동 변동성을 증가시키므로 임부 또는 임신하고 있을 가능성이 있는 여성에서 이 약의 사용은 피해야 한다.]]></PARAGRAPH>
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[2) 이 약은 모유로 이행되므로 수유중에는 투여하지 않는다. 수유 중 이 약을 투여 받은 수유부의 영아에서 과민성 및 수면형태 장애가 보고되었다.]]></PARAGRAPH>
+    </ARTICLE>
+    <ARTICLE title="8. 고령자에 대한 투여">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[일반적으로 고령자는 생리기능이 저하되어 있으므로 감량하는 등 주의한다.]]></PARAGRAPH>
+    </ARTICLE>
+    <ARTICLE title="9. 적용상의 주의">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[특수한 경우를 제외하고는 정맥주사 및 유제로 사용하지 않는다.]]></PARAGRAPH>
+    </ARTICLE>
+    <ARTICLE title="10. 저장상의 주의사항">
+      <PARAGRAPH tagName="p" textIndent="" marginLeft=""><![CDATA[차광하여 보관한다.]]></PARAGRAPH>
+    </ARTICLE>
+  </SECTION>
+</DOC></NB_DOC_DATA>
+<PN_DOC_DATA/>
+<MAIN_ITEM_INGR>염산에페드린</MAIN_ITEM_INGR>
+<INGR_NAME>스테아린산마그네슘/탈크/옥수수전분/유당</INGR_NAME>
+</item>
+</items>
+</body>
+</response>

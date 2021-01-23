@@ -42,7 +42,7 @@
           <h3><span class="glyphicon glyphicon-bookmark"></span>&nbsp;즐겨찾기</h3>
             <div class="bookmark-product">
               <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
-              <div class="bookmark-name"><a href="#">제품명01</a></div>
+              <div class="bookmark-name"><a href="#">${sessionScope.userVO.userBookMark01 }</a></div>
             </div>
             <div class="bookmark-product">
               <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
@@ -129,6 +129,8 @@
 </div>
 
 
+
+
 </section>
 <!-- session확인 -->
 <script>
@@ -138,6 +140,8 @@ $(document).ready(function(){
 
 })
 </script>
+
+
 
 <!-- 페이지 네이션 -->
 <script>

@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    
+       <style>
+
+.medi-info-box .line{
+	color : #C2E8CA;
+}
+</style>
  <section class="medi-area">
 
   <div class="container medi_container">
@@ -9,9 +14,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 right-line">
         <div>
           <h4 class="medi-gray">업체명</h4>
-          <h5 class="medi-gray">분류</h5>
           <h2 class="com-title-size">제품명</h2>
-          <h6 class="medi-gray">price</h6>
         </div>
         <div class="medi-com-img">
             <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
@@ -46,9 +49,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 right-line">
         <div>
           <h4 class="medi-gray">업체명</h4>
-          <h5 class="medi-gray">분류</h5>
           <h2 class="com-title-size">제품명</h2>
-          <h6 class="medi-gray">price</h6>
         </div>
         <div class="medi-com-img">
             <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
@@ -84,9 +85,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div>
           <h4 class="medi-gray">업체명</h4>
-          <h5 class="medi-gray">분류</h5>
           <h2 class="com-title-size">제품명</h2>
-          <h6 class="medi-gray">price</h6>
         </div>
         <div class="medi-com-img">
             <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
@@ -129,6 +128,16 @@
 
 <script>
 
-// 별클릭시 즐겨찾기 구현 필요
+function starChange(){
+    if($(this).children().hasClass("empty-stars")){
+      $(this).children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
+      $(this).children().addClass("full-stars").removeClass("empty-stars");
+    }else if($(this).children().hasClass("full-stars")){
+      $(this).children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
+      $(this).children().addClass("empty-stars").removeClass("full-stars");
+    }
+  }
+
+  $(".medi-com-img").click(starChange)
 
 </script>
