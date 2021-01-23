@@ -123,10 +123,12 @@ function starChange(){
       				// 0 : 실패
       				if (data == 3){
       					alert("즐겨찾기가 이미 가득찼습니다.");  
-      				}else if (data == 2 && data == 1) {
+      				}else if (data == 2 || data == 1) {
       					console.log("왓나?");
-      					$(this).children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
-      		      		$(this).children().addClass("full-stars").removeClass("empty-stars");
+      					if($(".medi-com-img").children().hasClass("empty-stars")){
+      						$(".medi-com-img").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
+      				    	$(".medi-com-img").children().addClass("full-stars").removeClass("empty-stars");
+      					 }
       				}else if(data == 0){
       					alert("즐겨찾기 추가에 실패 했습니다. 관리자에게 문의하세요");
       				}
@@ -147,7 +149,7 @@ function starChange(){
 	    			// 3 : 즐겨찾기에 없음.
 	    			// 1 : 삭제 성공
 	    			// 0 : 실패
-	    		if(data == 3 && data == 1){
+	    		if(data == 3 || data == 1){
 	    			console.log("이곳은 왓나?");
 					$(this).children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
 				    $(this).children().addClass("empty-stars").removeClass("full-stars");

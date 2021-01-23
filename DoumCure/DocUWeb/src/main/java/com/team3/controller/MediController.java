@@ -101,9 +101,9 @@ public class MediController {
 		System.out.println("remove :"+proNo);
 		UserVO userVO = (UserVO)session.getAttribute("userVO");
 		System.out.println("remove :"+userVO.getUserId());				
-		System.out.println("remove :"+userVO.getUserBookMark01());		
-		System.out.println("remove :"+userVO.getUserBookMark02());		
-		System.out.println("remove :"+userVO.getUserBookMark03());	
+		System.out.println("remove1 :"+userVO.getUserBookMark01());		
+		System.out.println("remove2 :"+userVO.getUserBookMark02());		
+		System.out.println("remove3 :"+userVO.getUserBookMark03());	
 		
 		int result = 0;
 		if(userVO.getUserBookMark01().equals(proNo)) {
@@ -118,7 +118,7 @@ public class MediController {
 		}else {
 			result = 3;
 		}
-		
+		System.out.println(result);
 		if(result == 1) {
 			UserVO vo = userService.getInfo(userVO.getUserId());
 			System.out.println("제거후:"+vo.toString());
