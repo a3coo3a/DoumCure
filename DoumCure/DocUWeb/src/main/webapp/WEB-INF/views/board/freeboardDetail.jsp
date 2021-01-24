@@ -21,13 +21,13 @@
 					
 					<div class="innertitle col-md-3 col-sm-12">NUM</div>
 					<div class="inner-control col-md-7 col-sm-12 ">
-						<input class="form-control Large input " name="num"
+						<input class="form-control" name="num"
 							value="${vo.bbsNo}" readonly>
 					</div>
 					
 					<div class="innertitle col-md-3 col-sm-12">NAME</div>
 					<div class="inner-control col-md-7 col-sm-12 ">
-						<input class="form-control Large input " name="writer"
+						<input class="form-control" name="writer"
 							value="${vo.bbsWrite}" readonly>
 					</div>
 
@@ -45,7 +45,8 @@
 							</div>
 
 							<div class="reply-group">
-								<img src="view/fileLoca=${vo.fileLoca}&fileName=${vo.fileName}">						
+								<%-- <img src="view/fileLoca=${vo.fileLoca}&fileName=${vo.fileName}">	 --%>	
+									<img src="view/${vo.fileLoca}/${vo.fileRealName}">			
 								<!-- <label for="file">이미지업로드</label> <input type="file" name="file"id="file">  -->
 							</div>
 
@@ -58,10 +59,8 @@
 							</div>
 
 							<div class="content-down-r">
-			    				<c:if test="${userVO.userId == boardVO.bbsWrite }"> 
 								<button type="button" class="btn btn-warning" id="uploadBtn"
 									onclick="location.href='freeboardModify?bbsNo=${vo.bbsNo}&writer=${vo.bbsWrite }'">변경하기</button>
-									</c:if>
 								<button class="btn" type="button" onclick="location.href='freeboardList' ">목록</button>
 							</div>
 						</div>
@@ -90,14 +89,21 @@
 		        console.log(event.target);//event.target은 이벤트로 선택된 요소를 의미
 		      }
 		    }
-		  } */
-		  
+		  } 	  
 		  
 		  $("#file").change(function () {
 		    readURL(this); //this는 #file자신 태그를 의미
 		  });
+ */
  
+ $(document).ready(function () {
+ var write = "${vo.bbsWrite}";
+ var id = "${sessionScope.userVO.userId}";
+ if(id !== write ){
+	 $("#uploadBtn").css("display", "none" );
+	 
+ 	}
 	    
-	
+ });
 
     </script>
