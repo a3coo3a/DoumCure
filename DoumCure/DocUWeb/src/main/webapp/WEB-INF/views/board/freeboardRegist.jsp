@@ -107,12 +107,12 @@
         file = file.substring(file.lastIndexOf('.') + 1, file.length).toLowerCase();
         console.log(file);
 
-/*         if (file != "jpg" && file != "png" && file != "jpeg") {
+         if (file != "jpg" && file != "png" && file != "jpeg") {
           alert("이미지(jpg,png,jpeg)만 등록이 가능합니다")
           return;
         }
         else 
- */        	
+        	
         	if (writer == '') { //세션이 없다면
           alert("로그인 필요한 서비스입니다")
           return;
