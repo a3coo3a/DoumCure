@@ -219,7 +219,15 @@ header {
 }
 
 
-/* 우측 사이드바 -- 약국찾기, 즐겨찾기, 최근 본 약품 */
+/* 우측 사이드바 -- 약국찾기, 즐겨찾기*/
+#rightSide-h{
+	position: fixed;
+    top: 50%;
+    right: 10px;
+    z-index: 6;
+    background-image: url("../img/title_icon.png");
+}
+
 #rightSide {
     position: fixed;
     top: 50%;
@@ -233,6 +241,25 @@ header {
     background-color: white;
     width: 114px;
     height: 300px;
+}
+
+.rightSide-h{
+      position: fixed;
+      border-right: 1px solid white;
+      top: 50%;
+      right: 123px;
+      width: 20px;
+      height: 63px;
+      text-align: center;
+      padding-top: 25px;
+      z-index: 7;
+      background-color: #41bf6d;
+      font-family: 'GmarketSansBold';
+      color: white;
+}
+
+#rightSide .sideHidden{
+      right: -125px;
 }
 
 .recTit,
