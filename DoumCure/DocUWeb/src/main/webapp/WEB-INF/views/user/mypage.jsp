@@ -23,13 +23,21 @@
 	height : 150px;
 	line-height : 150px;
   }
+  .noBMarea{
+  	margin-bottom: 100px;
+  }
+  @media ( max-width : 767px) {
+  .nickname{
+  	width: 80px;
+  }
+  }
   </style>
   
   <section class="user-area">
 
 	
   <div class="container user_container">
-    <div class="row">
+    <div class="row noBMarea">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 profile-box">
             <div class="user-profile-img">
               <img src="${pageContext.request.contextPath }/resources/img/user/basic_profile.png" alt="profile">

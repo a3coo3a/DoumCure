@@ -45,3 +45,26 @@ create table MEDI (
     PROSUB varchar2(2000),
     PROIMG varchar2(30)
 )
+
+----------- Mediimg table-------------
+create table MEDIIMG (
+	MEDINO varchar2(20) primary key,
+    MEDIIMG varchar2(200)
+);
+
+------------visit count--------------
+CREATE TABLE VISIT (V_DATE DATE);
+
+------------store count--------------
+CREATE TABLE STORE 
+(
+  STORE_NAME VARCHAR2(100 BYTE) NOT NULL 
+, SI VARCHAR2(100 BYTE) NOT NULL 
+, GU VARCHAR2(100 BYTE) NOT NULL 
+, RO VARCHAR2(100 BYTE) NOT NULL 
+, ZIP_CODE VARCHAR2(50 BYTE) 
+, ADDR VARCHAR2(300 BYTE) NOT NULL 
+, TEL VARCHAR2(50 BYTE) 
+, X_CODE VARCHAR2(50 BYTE) NOT NULL 
+, Y_CODE VARCHAR2(50 BYTE) NOT NULL 
+)

@@ -86,7 +86,7 @@
                     <input type="text" name="userAddrBasic" class="form-control" id="userAddrBasic" placeholder="기본주소">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="userAddrDetailL" class="form-control" id="userAddrDetailL" placeholder="상세주소">
+                    <input type="text" name="userAddrDetail" class="form-control" id="userAddrDetail" placeholder="상세주소">
                 </div>
                 <div class="form-group">
                     <button type="button" class="btn btn-lg btn-success btn-block" onclick="check()">회원가입</button>
