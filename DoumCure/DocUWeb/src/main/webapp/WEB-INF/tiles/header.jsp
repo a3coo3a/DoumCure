@@ -56,7 +56,13 @@
                                 <li><a href="${pageContext.request.contextPath }/board/freeboardList">자유게시판</a></li>
                             </ul>
                         </li>
-                        <li><a href="${pageContext.request.contextPath }/medi/mediSearch">SEARCH</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="${pageContext.request.contextPath }/medi/mediSearch">증상검색</a></li>
+                                <li><a href="${pageContext.request.contextPath }/medi/mediStore">약국검색</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <c:choose>
@@ -78,6 +84,14 @@
         </nav>
 
         <!-- 사이드바 -->
+        <!-- 비활성 -->
+        <div>
+            <div class="rightSide-h">
+                <li class="side-hidden">&gt;</li>    
+            </div>
+        </div>
+        
+        <!-- 활성 -->
         <div id="rightSide">
             <div id="right_zzim">
                 <li class="seach-place" onclick="location.href = '${pageContext.request.contextPath }/medi/mediStore'" style="cursor: pointer;" >약국찾기</li>
@@ -106,6 +120,7 @@
                 <i class="fas fa-arrow-circle-up"></i>
                 <li>TOP</li>
             </div>
+            
         </div>
 
         <!-- top버튼(모바일용) -->
@@ -164,5 +179,18 @@
  	    });
 	} */
   
-  
+  /* 사이드바 히든 */
+  	$(".rightSide-h").click(function(){
+        if($(".side-hidden").html() === "&gt;"){
+            $(".side-hidden").html("&lt;");
+            $("#right_zzim").addClass("sideHidden");
+            $(".rightSide-h").css('right','0px');
+
+
+        }else{
+            $(".side-hidden").html("&gt;");
+            $("#right_zzim").removeClass("sideHidden");
+            $(".rightSide-h").css('right','123px');
+        }
+    });
 	</script>

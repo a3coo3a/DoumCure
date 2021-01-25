@@ -327,6 +327,7 @@ html {
             </div>
         </div>
     </section>
+    
 
 
 <script>
@@ -397,6 +398,26 @@ var deleteMsg = "${deleteMsg}";
 if(deleteMsg){
 	alert("${deleteMsg}");
 }
+</script>
+
+<script>
+	$(".btn-search").click(function(){
+		var search = $("#search").val();
+		
+		if(search === ""){
+			alert("검색어를 입력해주세요");
+		}else{
+		console.log(search);
+		location.href = "${pageContext.request.contextPath }/medi/mediList?mediSearchData="+search;	
+		}
+	})
+</script>
+
+
+    <!-- AOS 초기화 -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
 </script>
 
     
