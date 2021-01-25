@@ -186,22 +186,36 @@ public class MediController {
 	public Map<String, String> mediGetBM(HttpSession session) {
 		Map<String, String> result = new HashMap<String, String>();
 		UserVO userVO = (UserVO)session.getAttribute("userVO");
-		MediVO vo1 = mediService.getInfo(userVO.getUserBookMark01());
-		MediVO vo2 = mediService.getInfo(userVO.getUserBookMark02());
-		MediVO vo3 = mediService.getInfo(userVO.getUserBookMark03());
 		
-		String proImg1 = mediService.getImg(vo1.getProNo());
-		String proImg2 = mediService.getImg(vo2.getProNo());
-		String proImg3 = mediService.getImg(vo3.getProNo());
+		MediVO vo1 = null;
+		String proImg1 = "0";
+		if(!(userVO.getUserBookMark01().equals("0"))) {
+			vo1 = mediService.getInfo(userVO.getUserBookMark01());
+			proImg1 = mediService.getImg(vo1.getProNo());
+			result.put("proName1", vo1.getProName());
+			result.put("proImg1", proImg1);
+		}
 		
-		result.put("proName1", vo1.getProName());
-		result.put("proName2", vo2.getProName());
-		result.put("proName3", vo3.getProName());
-		result.put("proImg1", proImg1);
-		result.put("proImg2", proImg2);
-		result.put("proImg3", proImg3);
+		String proImg2 = "0";
+		MediVO vo2 = null;
+		if(!(userVO.getUserBookMark02().equals("0"))) {
+			vo2 = mediService.getInfo(userVO.getUserBookMark02());
+			proImg2 = mediService.getImg(vo2.getProNo());
+			result.put("proName2", vo2.getProName());
+			result.put("proImg2", proImg2);
+		}
+		
+		String proImg3 = "0";
+		MediVO vo3 = null;
+		if(!(userVO.getUserBookMark03().equals("0"))) {
+			vo3 = mediService.getInfo(userVO.getUserBookMark03());
+			proImg3 = mediService.getImg(vo3.getProNo());
+			result.put("proName3", vo3.getProName());
+			result.put("proImg3", proImg3);
+		}
 		
 		
+		System.out.println(result);
 		return result;
 	}
 	

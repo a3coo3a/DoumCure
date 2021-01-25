@@ -12,11 +12,16 @@
  .side-medi-bm .bm02,
  .side-medi-bm .bm03{
  	height: 10%;
+ 	overflow: hidden;
  }
  .side-medi-bm .bm01-img img,
  .side-medi-bm .bm02-img img,
  .side-medi-bm .bm03-img img{
  	height: 50px;
+ }
+ .side-medi-bm a{
+ 	text-decoration: none;
+ 	color: #589232;
  }
 
  </style>
@@ -123,12 +128,24 @@
         		<c:otherwise>
 	             <!-- 데이터 지정 후 구현예정-->
                     <ul class="side-medi-bm">
-                    	<li class="bm01-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
-                    	<li class="bm01"></li>
-                    	<li class="bm02-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
-                    	<li class="bm02"></li>
-                    	<li class="bm03-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
-                    	<li class="bm03"></li>
+                        <c:if test="${sessionScope.userVO.userBookMark01 != 0 }">
+                        <a href="${pageContext.request.contextPath }/medi/mediDetail?proNo=${userVO.userBookMark01}">
+                    		<li class="bm01-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
+	                    	<li class="bm01"></li>
+                    	</a>
+                    	</c:if>
+                    	<c:if test="${sessionScope.userVO.userBookMark02 != 0 }">
+                    	<a href="${pageContext.request.contextPath }/medi/mediDetail?proNo=${userVO.userBookMark02}">
+    	                	<li class="bm02-img"><img src=""></li>
+        	            	<li class="bm02"></li>
+        	            </a>
+                    	</c:if>
+          			    <c:if test="${sessionScope.userVO.userBookMark03 != 0 }">
+          			    <a href="${pageContext.request.contextPath }/medi/mediDetail?proNo=${userVO.userBookMark03}">
+                    		<li class="bm03-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
+                    		<li class="bm03"></li>
+                    	</a>
+                    	</c:if>
                     </ul>
                             		
         		</c:otherwise>
@@ -161,24 +178,27 @@ $(document).ready(function(){
 			url : "${pageContext.request.contextPath }/medi/mediGetBM",
 			contentType : "application/json; charset:UTF-8",
 			success : function(data){
+				console.log("data:"+data);
 				console.log(data.proName1);
 				console.log(data.proImg1);
-				console.log($(".bm01").children());
-				if(data.proImg1 == null){
-				//	$(".bm01").children().attr("src", "${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
-				}else{
-					//$(".bm01").children().attr("src", data.proImg1);
+				if(data.proImg1 != null){
+					$(".bm01-img").children().attr("src", data.proImg1);
 				}
 				$(".bm01").html(data.proName1);
-				
 				console.log(data.proName2);
 				console.log(data.proImg2);
-				//$(".bm02").children().attr("src", data.proImg2);
+				if(data.proImg2 != null){
+					$(".bm02-img").children().attr("src", data.proImg2);
+				}else{
+					$(".bm02-img").children().attr("src", "${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
+				}
 				$(".bm02").html(data.proName2);
 				
 				console.log(data.proName3);
 				console.log(data.proImg3);
-				//$(".bm03").children().attr("src", data.proImg3);
+				if(data.proImg3 != null){
+					$(".bm03-img").children().attr("src", data.proImg3);
+				}
 				$(".bm03").html(data.proName3);
 			},
 			error : function(error){
@@ -247,19 +267,11 @@ $(document).ready(function(){
             $(".side-hidden").html("&lt;");
             $("#right_zzim").addClass("sideHidden");
             $(".rightSide-h").css('right','0px');
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 7d3e4e07c518fcf5f016810d18fe5cef4bb010df
         }else{
             $(".side-hidden").html("&gt;");
             $("#right_zzim").removeClass("sideHidden");
             $(".rightSide-h").css('right','123px');
         }
     });
-<<<<<<< HEAD
 	</script>
-=======
-	</script>
->>>>>>> 7d3e4e07c518fcf5f016810d18fe5cef4bb010df
