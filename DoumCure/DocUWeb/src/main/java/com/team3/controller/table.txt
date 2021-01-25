@@ -46,6 +46,11 @@ create table MEDI (
     PROIMG varchar2(30)
 )
 
+----------- Mediimg table-------------
+create table MEDIIMG (
+	MEDINO varchar2(20) primary key,
+    MEDIIMG varchar2(200)
+);
 
 ------------visit count--------------
 CREATE TABLE VISIT (V_DATE DATE);
