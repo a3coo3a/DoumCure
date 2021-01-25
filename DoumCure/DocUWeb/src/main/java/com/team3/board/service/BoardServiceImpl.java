@@ -61,7 +61,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public int freeupdate2(BoardVO vo) {
 		
-		return 0;
+		return boardMapper.freeupdate2(vo);
 	}
 	
 	
