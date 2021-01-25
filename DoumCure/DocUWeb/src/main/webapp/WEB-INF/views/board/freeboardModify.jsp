@@ -48,12 +48,10 @@
 								<img id="fileImg" src="../resources/img/title_icon.png">
 
 							</div>
-
 								<div class="reply-group">
-								<%-- <img src="view?fileloca=${vo.fileRealName}&filename=${vo.fileRealName}">
-								<img src="view/fileloca/fileRealName"> --%>
-								<%-- <img src="view/${vo.fileLoca}/${vo.fileRealName}"> --%>
-							<label for="file">이미지업로드</label> <input type="file" name="file"id="file"> 
+								<img class="img-thumbnail" src="display/${vo.fileLoca}/${vo.fileName}"><br>			
+								<label for="file">이미지업로드</label>
+							 <input type="file" name="file"id="file"> 
 							</div>
 
 								<textarea class="form-control" rows="10" name="content"

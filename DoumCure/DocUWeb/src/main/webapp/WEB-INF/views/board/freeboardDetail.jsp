@@ -46,7 +46,8 @@
 
 							<div class="reply-group">
 								<%-- <img src="view/fileLoca=${vo.fileLoca}&fileName=${vo.fileName}">	 --%>	
-									<img src="view/${vo.fileLoca}/${vo.fileRealName}">			
+								
+									<img class="img-thumbnail" src="display/${vo.fileLoca}/${vo.fileName}">				
 								<!-- <label for="file">이미지업로드</label> <input type="file" name="file"id="file">  -->
 							</div>
 

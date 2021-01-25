@@ -89,7 +89,7 @@ public class BoardController {
 			 @RequestParam("file") MultipartFile file,
 			 @RequestParam("bbsTitle") String bbsTitle ,
 			 @RequestParam("bbsContent") String bbsContent,
-			 @RequestParam(value = "bbsOC" , required = false) String bbsOC,
+			 @RequestParam(value = "bbsOC" , defaultValue = "off") String bbsOC,
 			 @RequestParam(value = "bbsCate", defaultValue = "free" ) String bbsCate,
 			 HttpSession session) {
 		
@@ -174,31 +174,38 @@ public class BoardController {
 		
 	
 		//이미지불러오기
-		@RequestMapping("/view/{fileLoca}/{fileName:.+}")
-		@ResponseBody
-		public ResponseEntity<byte[]> getFile(@PathVariable("fileLoca") String fileLoca, @PathVariable("fileName") String fileName) {
-		System.out.println(fileLoca);
-		System.out.println(fileName);
+				@RequestMapping("/display/{fileLoca}/{fileName:.+}")
+				@ResponseBody
+				public ResponseEntity<byte[]> getFile(@PathVariable("fileLoca") String fileLoca,
+													@PathVariable("fileName") String fileName) {
+				System.out.println(fileLoca);
+				System.out.println(fileName);
 
-		File file = new File( "D:/spring/upload/"+ fileLoca + "/" + fileName);
+					
+					
+				String uploadPath = "D:/spring/upload/" +fileLoca ;
+				
+				//파일 객체 생성
+				File file = new File( uploadPath + "\\" + fileName);
 
-		ResponseEntity<byte[]> result = null;
+				ResponseEntity<byte[]> result = null;
 
-		try {
-		    HttpHeaders header = new HttpHeaders();
-		    header.add("contehn-Type", Files.probeContentType(file.toPath()));
+				try {
+					if(fileName!=null & fileName.length()!=0) {
+						HttpHeaders header = new HttpHeaders();
+						header.add("contehn-Type", Files.probeContentType(file.toPath()));
+						byte[] arr =  FileCopyUtils.copyToByteArray(file);
+						result = new ResponseEntity<byte[]>(arr, header, HttpStatus.OK);
+		
+					}
+				} catch (IOException e) {
 
-		byte[] arr =  FileCopyUtils.copyToByteArray(file);
+				e.printStackTrace();
 
-		result = new ResponseEntity<byte[]>(arr, header, HttpStatus.OK);
-		} catch (IOException e) {
+				}
 
-		e.printStackTrace();
-
-		}
-
-		return result;
-		}
+				return result;
+				}
 		
 //		@RequestMapping("/getList")
 //		@ResponseBody
@@ -230,6 +237,10 @@ public class BoardController {
 			
 			return "redirect:/board/freeboardList";
 		}
+		
+		
+		
+		
 		
 		//삭제
 		@RequestMapping(value = "/freeboardelete")
