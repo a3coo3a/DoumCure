@@ -42,7 +42,7 @@ html {
         </div>
     </section>
 
-    <!-- 검색창 -->
+     <!-- 검색창 -->
     <section class="search-section" style="background-attachment:fixed">
         <div class="container">
             <div class="row search-div">
@@ -52,7 +52,7 @@ html {
                 </div>
 
             </div>
-            <div class="row search-input">
+            <div class="row main-search-input">
                 <form>
                     <div class="inner-form">
                         <div class="input-field first-wrap">
@@ -219,7 +219,7 @@ html {
                     <div class="col-md-4 col-lg-4 col-sm-12 count">
                         <div class="text">
                             <!-- 추후 파라미터값 변경예정 -->
-                            <strong class="number today">12</strong>
+                            <strong class="number today">${day }</strong>
                         </div>
                         <div class="text">
                             <span>TODAY</span>
@@ -229,7 +229,7 @@ html {
                     <div class="col-md-4 col-lg-4 col-sm-12 count">
                         <div class="text">
                             <!-- 추후 파라미터값 변경예정 -->
-                            <strong class="number total">1150</strong>
+                            <strong class="number total">${total }</strong>
                         </div>
                         <div class="text">
                             <span>TOTAL</span>
@@ -292,7 +292,12 @@ html {
                         <div class="benner-list">
                             <span class="comment-title">Rin</span>
                             <p class="comment-content">
-                                안녕하십니까 ?
+                                	안녕하십니까 ?</br>
+                                	코로나가 끝나지 않은 이 시기에 <br/>
+                                	작은 증상으로 병원가기도 불안불안😥<br/> 
+                                	저희 사이트가 작고 예쁜 사이트가 도움이 되었으면 좋겠네요<br/>
+                                	여러모로 아쉬운 것이 많은 디자인이지만 이쁘게 봐주시길 바라고 있어요  😘   <br/>
+                                	3명이서 정말정말 열심히 했다구요 👩‍💻👩‍💻👩‍💻                   
                             </p>
                         </div>
                     </div>
@@ -365,7 +370,7 @@ html {
 
         var d = document.querySelectorAll(".drug-text strong");
         var t = document.querySelectorAll(".text strong");
-        console.log(t);
+       //console.log(t);
         change_comma(d);
         change_comma(t);
 
