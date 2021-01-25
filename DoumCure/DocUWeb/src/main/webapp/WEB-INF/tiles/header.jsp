@@ -92,9 +92,9 @@
         		<c:otherwise>
 	                <!-- 데이터 지정 후 구현예정-->
                     <ul>
-                    	<li><img src=""></li>
-                    	<li><img src=""></li>
-                    	<li><img src=""></li>
+                    	<li><img src="">a</li>
+                    	<li><img src="">b</li>
+                    	<li><img src="">c</li>
                     </ul>
                             		
         		</c:otherwise>

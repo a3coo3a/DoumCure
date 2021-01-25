@@ -77,7 +77,7 @@
                 </div> 
                 <div class="form-group">
                   <input type="checkbox" id="idSaveCheck"> <label for="idSaveCheck">ID 기억하기</label> 
-                  <a href='#' class="user-right">ID / PW찾기</a>
+                  <!-- <a href='#' class="user-right">ID / PW찾기</a> -->
                 </div> 
                 <div class="form-group">
                     <p id="check">${msg }</p>
@@ -88,12 +88,12 @@
                 <div class="form-group" >
                     <button type="button" class="btn btn-lg btn-block kakao-user-btn" id="custom-login-btn" onclick="location.href='javascript:loginWithKakao()'"><img src="${pageContext.request.contextPath }/resources/img/user/kakaolink_btn_small.png">카카오로그인</button>               
                     
-                   	
+                   	<!-- 
                     <button type="button" class="btn btn-lg btn-block naver-user-btn" >
                     	<div id="naverIdLogin" style="position:relative; top:-3px;"></div>
                     	네이버로그인
                     </button>
-                   
+                    -->
                 </div>
                 	
               </form>

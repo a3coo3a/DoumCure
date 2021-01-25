@@ -47,7 +47,7 @@ public class UserController {
 			UserVO userVO = userService.getInfo(vo.getUserId());
 			System.out.println(userVO.toString());
 			session.setAttribute("userVO", userVO);
-			return "redirect:../";
+			return "redirect:../home";
 		}else {
 			RA.addFlashAttribute("msg", "아이디와 비밀번호를 확인해 주세요");
 			return "redirect:/user/login";
@@ -89,7 +89,7 @@ public class UserController {
 		
 		//System.out.println(userVO);  // 없으면 null, null 은 toString이 안됨
 		
-		return "redirect:../";
+		return "redirect:../home";
 	}
 
 	
@@ -200,7 +200,7 @@ public class UserController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("userVO");
-		return "redirect:/";
+		return "redirect:/home";
 	}
 	
 	
