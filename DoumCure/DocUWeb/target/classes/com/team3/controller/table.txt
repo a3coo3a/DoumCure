@@ -1,6 +1,5 @@
 ----------- User table-------------
 -- 권한의 M,U로만 작성하여 M:관리자, U:일반유저 로 구분
-
 create table users (
     USERID varchar2(50) primary key,  -- id PK, FK
     USERPW varchar2(100) not null,   
@@ -15,7 +14,6 @@ create table users (
     USERMANAGE char(2) default 'U'     
 );
 ALTER TABLE users ADD CONSTRAINT user_man_chk CHECK(USERMANAGE in('M','U'));
-
 ----------- Board table-------------
 create table bbs (
     BBSNO NUMBER(10) not null, --글번호 pk 

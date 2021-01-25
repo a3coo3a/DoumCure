@@ -47,8 +47,8 @@
                   <input type="file" name="file" id="file">
                 </div>
                 <textarea class="form-control" rows="10" name="content" id="content"></textarea><span id="msgContent"></span>
-                	<i id="unlock" class="fas fa-lock-open" value="OFF" onclick="changeType()">공개글</i>
-                	<i id="lock" class="fa fa-unlock" value="ON" aria hidden="true" onclick="changeType()" style="display: none;">비공개글</i>
+                	<i id="lock" class="fas fa-lock-open" onclick="change(lock)">공개글</i>
+                	<i id="lock" class="fa fa-unlock" value="ON" aria hidden="true" onclick="change(lock)">비공개글</i>
                 	 
                <!--  <input type="checkbox" id="lock" name="bbsOC" class="fa fa-unlock"
                   onclick="change( )" hidden="true"><p>잠금<p>  -->

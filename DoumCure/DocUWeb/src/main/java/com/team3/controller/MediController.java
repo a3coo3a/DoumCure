@@ -21,9 +21,8 @@ public class MediController {
 	
 	
 	@RequestMapping("/mediStore")
-	public String Store() {
-
-		return "medi/mediStore";
+	public String mediStore() {
+		return "medi/mediStore"; 
 	}
 	
 	
