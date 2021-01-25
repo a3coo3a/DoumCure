@@ -175,7 +175,7 @@ public class UserController {
 			RA.addFlashAttribute("updateMsg","정보 수정에 실패 하였습니다. 관리자에게 문의해주세요");
 		}
 			
-		return "redirect:/user/userUpdate";
+		return "redirect:/user/mypage";
 	}
 	
 	

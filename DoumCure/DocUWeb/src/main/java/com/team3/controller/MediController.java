@@ -184,9 +184,9 @@ public class MediController {
 		UserVO userVO = (UserVO)session.getAttribute("userVO");
 		ArrayList<MediVO> sideList = null;
 		
-		if(!userVO.getUserBookMark01().equals("0")) {
-			
-		}
+//		if(!userVO.getUserBookMark01().equals("0")) {
+//			
+//		}
 		return sideList;
 	}
 	
