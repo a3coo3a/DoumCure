@@ -2,6 +2,7 @@ package com.team3.controller;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpSession;
 
@@ -182,12 +183,21 @@ public class MediController {
 	public ArrayList<MediVO> mediGetBM(HttpSession session) {
 		
 		UserVO userVO = (UserVO)session.getAttribute("userVO");
-		ArrayList<MediVO> sideList = null;
+		MediVO vo1 = mediService.getInfo(userVO.getUserBookMark01());
+		MediVO vo2 = mediService.getInfo(userVO.getUserBookMark02());
+		MediVO vo3 = mediService.getInfo(userVO.getUserBookMark03());
 		
-//		if(!userVO.getUserBookMark01().equals("0")) {
-//			
-//		}
-		return sideList;
+		System.out.println(vo1.toString());
+		System.out.println(vo2.toString());
+		System.out.println(vo3.toString());
+		
+		ArrayList<MediVO> sideList = new ArrayList<MediVO>();
+		sideList.add(vo1);
+		sideList.add(vo2);
+		sideList.add(vo3);
+		
+		System.out.println(sideList);
+		return null;
 	}
 	
 	

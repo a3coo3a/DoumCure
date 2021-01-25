@@ -115,6 +115,27 @@
         </div>
 
     </header>
+
+<!-- 사이드바 즐겨찾기 -->
+<script>
+$(document).ready({
+	
+	$.ajax(
+		type : "POST",
+		url : "${pageContext.request.contextPath }/medi/mediGetBM",
+		success : function(data){
+			console.log(data);
+		},
+		error : function(error){
+			console.log("error:"+error);
+		}
+	);	 // ajax end
+});
+</script>
+
+
+
+
     
     <script type="text/javascript">
 	
