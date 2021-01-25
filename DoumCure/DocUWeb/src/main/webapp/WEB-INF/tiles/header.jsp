@@ -2,7 +2,24 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
  <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
- 
+  <style>
+ .side-medi-bm{
+ 	font-size: 10px;
+ 	height: 250px;
+ 	text-align: center;
+ }
+ .side-medi-bm .bm01,
+ .side-medi-bm .bm02,
+ .side-medi-bm .bm03{
+ 	height: 10%;
+ }
+ .side-medi-bm .bm01-img img,
+ .side-medi-bm .bm02-img img,
+ .side-medi-bm .bm03-img img{
+ 	height: 50px;
+ }
+
+ </style>
 
  <header>
  		 <!-- 카카오공유 -->
@@ -104,11 +121,14 @@
 				
 				</c:when>                
         		<c:otherwise>
-	                <!-- 데이터 지정 후 구현예정-->
-                    <ul>
-                    	<li><img src="">a</li>
-                    	<li><img src="">b</li>
-                    	<li><img src="">c</li>
+	             <!-- 데이터 지정 후 구현예정-->
+                    <ul class="side-medi-bm">
+                    	<li class="bm01-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
+                    	<li class="bm01"></li>
+                    	<li class="bm02-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
+                    	<li class="bm02"></li>
+                    	<li class="bm03-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
+                    	<li class="bm03"></li>
                     </ul>
                             		
         		</c:otherwise>
@@ -134,17 +154,38 @@
 <!-- 사이드바 즐겨찾기 -->
 <script>
 $(document).ready(function(){
-	
-	$.ajax({
-		type : "POST",
-		url : "${pageContext.request.contextPath }/medi/mediGetBM",
-		success : function(data){
-			console.log(data);
-		},
-		error : function(error){
-			console.log("error:"+error);
-		}
-	});	
+	console.log("${sessionScope.userVO}");
+	if("${sessionScope.userVO}" != ''){
+		$.ajax({
+			type : "POST",
+			url : "${pageContext.request.contextPath }/medi/mediGetBM",
+			contentType : "application/json; charset:UTF-8",
+			success : function(data){
+				console.log(data.proName1);
+				console.log(data.proImg1);
+				console.log($(".bm01").children());
+				if(data.proImg1 == null){
+				//	$(".bm01").children().attr("src", "${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
+				}else{
+					//$(".bm01").children().attr("src", data.proImg1);
+				}
+				$(".bm01").html(data.proName1);
+				
+				console.log(data.proName2);
+				console.log(data.proImg2);
+				//$(".bm02").children().attr("src", data.proImg2);
+				$(".bm02").html(data.proName2);
+				
+				console.log(data.proName3);
+				console.log(data.proImg3);
+				//$(".bm03").children().attr("src", data.proImg3);
+				$(".bm03").html(data.proName3);
+			},
+			error : function(error){
+				console.log("error:"+error);
+			}
+		});	
+	}
 });
 </script>
 
