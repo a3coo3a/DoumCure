@@ -246,7 +246,7 @@ public class BoardController {
 				BoardVO vo = new BoardVO(bbsNo, bbsWrite, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, bbsOC, bbsCate, null);
 				boardService.freeupdate(vo); //성공시 true, 실패시 false
 				} else {
-					BoardVO vo = new BoardVO(bbsNo, bbsWrite, bbsTitle, bbsContent, bbsOC, bbsCate, null );
+					BoardVO vo = new BoardVO(bbsNo, null , bbsTitle, bbsContent, null, null, null, null, bbsOC, null, null );
 					boardService.freeupdate2(vo);
 					
 				}

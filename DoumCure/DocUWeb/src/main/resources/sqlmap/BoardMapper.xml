@@ -74,6 +74,15 @@
 			bbsOC = #{bbsOC}			
 		where BBSNO = #{bbsNo}
 	</update>
+	
+	<update id="freeupdate2">
+		update bbs 
+		set bbsTitle = #{bbsTitle},
+			bbsContent = #{bbsContent},
+			bbsOC = #{bbsOC}			
+		where BBSNO = #{bbsNo}
+	</update>
+	
  	
  	
  	<!-- 삭제 -->

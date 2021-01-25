@@ -26,11 +26,5 @@ public class BoardVO {
 
     
     
-    public BoardVO(int bbsNo2, String bbsWrite2, String bbsTitle2, String bbsContent2, String bbsOC2, String bbsCate2,
-    		Object object) {
-    	// TODO Auto-generated constructor stub
-    }
-    
-    
     
 }
