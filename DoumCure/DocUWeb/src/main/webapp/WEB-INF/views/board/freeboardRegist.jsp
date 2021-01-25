@@ -35,17 +35,14 @@
             COMMNET
           </div>
 
-          <div class="inner-control  col-md-7 col-sm-12 ">
+        <div class="inner-control  col-md-7 col-sm-12 ">
             <div class="reply-content">
               <div class="fileDiv">
-                <img id="fileImg" src="../resources/img/title_icon.png">
+                <img id="fileImg" src="">
               </div>
               
               <div class="reply-group">
                 <label for="file">이미지업로드</label>
-             <!--  <input type="button" class="btn btn-default btn-xs pull-right" id="add" name="add" value="파일추가" class ="form-controll" ></button>
-               <label for="file">이미지업로드</label>
-              <input type="button" class="btn btn-default btn-xs pull-right" onclick="delbtn()" value="파일삭제" class ="form-controll" ></button> -->
                  <input type="file" name="file" id="file" class ="form-controll">
               </div>
               <textarea class="form-control" rows="10" name="bbsContent" id="content"></textarea><span id="msgContent"></span>
@@ -110,11 +107,13 @@
         file = file.substring(file.lastIndexOf('.') + 1, file.length).toLowerCase();
         console.log(file);
 
-        if (file != "jpg" && file != "png" && file != "jpeg") {
+/*         if (file != "jpg" && file != "png" && file != "jpeg") {
           alert("이미지(jpg,png,jpeg)만 등록이 가능합니다")
           return;
         }
-        else if (writer == '') { //세션이 없다면
+        else 
+ */        	
+        	if (writer == '') { //세션이 없다면
           alert("로그인 필요한 서비스입니다")
           return;
         }

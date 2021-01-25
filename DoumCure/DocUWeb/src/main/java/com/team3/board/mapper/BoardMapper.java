@@ -16,5 +16,8 @@ public interface BoardMapper {
 	
 	public int freeupdate(BoardVO vo); 
 	
+	public int freeupdate2(BoardVO vo); 
+	
+	
 	public int freeDelete(int bbsno); //삭제
 }

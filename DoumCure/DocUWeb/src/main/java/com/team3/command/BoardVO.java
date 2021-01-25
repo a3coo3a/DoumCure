@@ -20,7 +20,17 @@ public class BoardVO {
     private String fileLoca; //VARCHAR2(50) not null , -- 이미지 정보
     private String fileName; //VARCHAR2(50)  not null , -- 파일명
     private String fileRealName; //VARCHAR2(50) not null, -- 실제 파일면
-    private String bbsOC; //varchar2(10) CHECK (BBSOC IN ('ON','OFF')), -- 비밀글체크 
+    private String bbsOC; //varchar2(10) ('ON','OFF'), -- 비밀글체크 
     private String bbsCate; //varchar2(50), --카테고리
     private Timestamp bbsRegdate; //date default sysdate -- 등록일 
+
+    
+    
+    public BoardVO(int bbsNo2, String bbsWrite2, String bbsTitle2, String bbsContent2, String bbsOC2, String bbsCate2,
+    		Object object) {
+    	// TODO Auto-generated constructor stub
+    }
+    
+    
+    
 }
