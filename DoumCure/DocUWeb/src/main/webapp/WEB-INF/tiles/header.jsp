@@ -82,9 +82,9 @@
         		<c:otherwise>
 	                <!-- 데이터 지정 후 구현예정-->
                     <ul>
-                    	<li><img src=""></li>
-                    	<li><img src=""></li>
-                    	<li><img src=""></li>
+                    	<li id="pro1"><img src=""></li>
+                    	<li id="pro2"><img src=""></li>
+                    	<li id="pro3"><img src=""></li>
                     </ul>
                             		
         		</c:otherwise>
@@ -109,10 +109,19 @@
 
 <!-- 사이드바 즐겨찾기  -->
 <script>
+$(document).ready(function(){
 
-var bo1 = "${sessionScope.userVO.userBookMark01}"
-var bo2 = "${sessionScope.userVO.userBookMark02}"
-var bo3 = "${sessionScope.userVO.userBookMark03}"
+	$.ajax({
+		type : "POST",
+		url : "medi/mediGetBM",
+		success : function(data){
+			console.log(data);
+		},
+		error : function(error){
+			console.log(error);
+		}
+	});
 
+})
 </script>
     

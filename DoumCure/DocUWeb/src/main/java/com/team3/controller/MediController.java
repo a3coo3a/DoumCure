@@ -155,6 +155,7 @@ public class MediController {
 		return "medi/mediCompare2";
 	}
 	
+	
 	@RequestMapping("/mediCompare3")
 	public String mediCompare3(@RequestParam("proNos") String proNos, Model model) {
 		String proNo1 = proNos.split("-")[0];
@@ -176,7 +177,18 @@ public class MediController {
 		return "medi/mediCompare3";
 	}
 	
-	
+	@ResponseBody
+	@RequestMapping("/mediGetBM")
+	public ArrayList<MediVO> mediGetBM(HttpSession session) {
+		
+		UserVO userVO = (UserVO)session.getAttribute("userVO");
+		ArrayList<MediVO> sideList = null;
+		
+		if(!userVO.getUserBookMark01().equals("0")) {
+			
+		}
+		return sideList;
+	}
 	
 	
 	
