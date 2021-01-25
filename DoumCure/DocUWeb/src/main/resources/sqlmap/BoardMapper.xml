@@ -62,10 +62,9 @@
  	
  	
  	
- 	<update id="update">
-		update FREEBOARD 
+ 	<update id="freeupdate">
+		update bbs 
 		set BBSWRITE = #{bbsWrite},
-			BBSTITLE = #{title},
 			bbsTitle = #{bbsTitle},
 			bbsContent = #{bbsContent},
 			uploadPath = #{uploadPath},

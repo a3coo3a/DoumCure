@@ -54,10 +54,15 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public int freeupdate(BoardVO vo) {
+		System.out.println("여기는 서비스 입니다 " +  vo.toString());
+		return boardMapper.freeupdate(vo);
+	}
+
+	@Override
+	public int freeupdate2(BoardVO vo) {
 		
 		return 0;
 	}
-
 	
 	
 	@Override
@@ -65,6 +70,7 @@ public class BoardServiceImpl implements BoardService{
 	
 		return boardMapper.freeDelete(bbsno);
 	}
+
 
 
 	
