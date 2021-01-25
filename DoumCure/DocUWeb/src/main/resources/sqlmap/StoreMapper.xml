@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team3.store.mapper.StoreMapper">
+	
+	<select id="getGu" resultType="String">
+		SELECT gu FROM store WHERE si = #{si} GROUP by gu order by gu asc
+	</select>
+	
+	<select id="getRo" resultType="String">
+		SELECT ro FROM store WHERE si = #{si} and gu = #{gu} GROUP by ro order by ro asc
+	</select>
+	
+	<select id="getList" resultType="StoreVO">
+		SELECT * FROM store WHERE si = #{si} and gu = #{gu}
+	</select>
+	
+	<select id="avgX" resultType="Double">
+		SELECT avg(xcode) FROM store WHERE si = #{si} and gu = #{gu} and ro = #{ro}
+	</select>
+	
+	<select id="avgY" resultType="Double">
+		SELECT avg(ycode) FROM store WHERE si = #{si} and gu = #{gu} and ro = #{ro}
+	</select>
+	
+	<select id="searchKeyword" resultType="StoreVO">
+		<![CDATA[
+		
+		SELECT * FROM store WHERE storename LIKE '%' || #{key} || '%'
+		]]>
+	</select>
+	
+	<select id="searchKeywordLoca" resultType="StoreVO">
+		<![CDATA[
+		
+		SELECT * FROM store 
+		WHERE  si = #{si} and gu = #{gu}
+		and storename LIKE '%' || #{keyword} || '%'
+		]]>
+	</select>
+	
+</mapper>

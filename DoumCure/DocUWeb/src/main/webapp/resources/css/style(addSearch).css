@@ -62,18 +62,18 @@ html, body {
 	font-family: 'GmarketSansBold';
 }
 
-.search-input {
+.main-search-input {
 	display: flex;
 	text-align: center;
 	justify-content: center;
 }
 
-.search-input form {
+.main-search-input form {
 	width: 100%;
 	max-width: 790px;
 }
 
-.search-input form .inner-form {
+.main-search-input form .inner-form {
 	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
@@ -87,11 +87,11 @@ html, body {
 	margin-bottom: 10px;
 }
 
-.search-input form .inner-form .input-field {
+.main-search-input form .inner-form .input-field {
 	height: 68px;
 }
 
-.search-input form .inner-form .input-field input {
+.main-search-input form .inner-form .input-field input {
 	height: 100%;
 	background: transparent;
 	border: 0;
@@ -102,18 +102,18 @@ html, body {
 	color: #000;
 }
 
-.search-input form .inner-form .input-field input.placeholder {
+.main-search-input form .inner-form .input-field input.placeholder {
 	color: #222;
 	font-size: 16px;
 }
 
-.search-input form .inner-form .input-field input:hover, .search-input form .inner-form .input-field input:focus
+.main-search-input form .inner-form .input-field input:hover, .search-input form .inner-form .input-field input:focus
 	{
 	box-shadow: none;
 	outline: 0;
 }
 
-.search-input form .inner-form .input-field.first-wrap {
+.main-search-input form .inner-form .input-field.first-wrap {
 	-ms-flex-positive: 1;
 	flex-grow: 1;
 	display: -ms-flexbox;
@@ -123,12 +123,12 @@ html, body {
 	background: #d9f1e3;
 }
 
-.search-input form .inner-form .input-field.first-wrap input {
+.main-search-input form .inner-form .input-field.first-wrap input {
 	-ms-flex-positive: 1;
 	flex-grow: 1;
 }
 
-.search-input form .inner-form .input-field.first-wrap .svg-wrapper {
+.main-search-input form .inner-form .input-field.first-wrap .svg-wrapper {
 	min-width: 80px;
 	display: -ms-flexbox;
 	display: flex;
@@ -138,17 +138,17 @@ html, body {
 	align-items: center;
 }
 
-.search-input form .inner-form .input-field.first-wrap svg {
+.main-search-input form .inner-form .input-field.first-wrap svg {
 	width: 36px;
 	height: 36px;
 	fill: #222;
 }
 
-.search-input form .inner-form .input-field.second-wrap {
+.main-search-input form .inner-form .input-field.second-wrap {
 	min-width: 216px;
 }
 
-.search-input form .inner-form .input-field.second-wrap .btn-search {
+.main-search-input form .inner-form .input-field.second-wrap .btn-search {
 	height: 100%;
 	width: 100%;
 	white-space: nowrap;
@@ -163,30 +163,30 @@ html, body {
 	font-weight: 300;
 }
 
-.search-input form .inner-form .input-field.second-wrap .btn-search:hover
+.smain-earch-input form .inner-form .input-field.second-wrap .btn-search:hover
 	{
 	background: #009451;
 }
 
-.search-input form .inner-form .input-field.second-wrap .btn-search:focus
+.main-search-input form .inner-form .input-field.second-wrap .btn-search:focus
 	{
 	outline: 0;
 	box-shadow: none;
 }
 
-.search-input form .info {
+.main-search-input form .info {
 	font-size: 15px;
 	color: rgb(160, 160, 160);
 }
 
 @media screen and (max-width: 992px) {
-	.search-input form .inner-form .input-field {
+	.main-search-input form .inner-form .input-field {
 		height: 50px;
 	}
 }
 
 @media screen and (max-width: 767px) {
-	.search-input form .inner-form .input-field.first-wrap .svg-wrapper {
+	.main-search-input form .inner-form .input-field.first-wrap .svg-wrapper {
 		min-width: 40px;
 		display: -ms-flexbox;
 		display: flex;
@@ -196,15 +196,15 @@ html, body {
 		align-items: center;
 		padding: 0 10px;
 	}
-	.search-input form .inner-form .input-field.first-wrap svg {
+	.main-search-input form .inner-form .input-field.first-wrap svg {
 		width: 26px;
 		height: 26px;
 		fill: #222;
 	}
-	.search-input form .inner-form .input-field.second-wrap {
+	.main-search-input form .inner-form .input-field.second-wrap {
 		min-width: 100px;
 	}
-	.search-input form .inner-form .input-field.second-wrap .btn-search {
+	.main-search-input form .inner-form .input-field.second-wrap .btn-search {
 		font-size: 13px;
 	}
 }
@@ -336,7 +336,7 @@ html, body {
 
 .benner-list {
 	display: block;
-	text-align: center;
+	text-align: left;
 	margin-bottom: 20px;
 	float: left;
 }
@@ -360,6 +360,7 @@ html, body {
 
 .comment-content {
 	font-family: 'ELAND_Choice_L';
+	font-size: 17px;
 }
 
 @media ( max-width : 450px) {
@@ -1273,7 +1274,7 @@ i {
 }
 
 .search-input {
-	width: 140px;s
+	width: 140px;
 }
 
 .search-select {
