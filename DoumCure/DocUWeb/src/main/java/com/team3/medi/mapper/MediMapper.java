@@ -12,6 +12,7 @@ public interface MediMapper {
 	public ArrayList<MediVO> getList(@Param("cri") Criteria cri,@Param("mediSearchData") String mediSearchData);
 	public int getTotal(String mediSearchData);
 	public MediVO getInfo(String proNo);
+	public String getImg(String proNo);
 	
 	
 	

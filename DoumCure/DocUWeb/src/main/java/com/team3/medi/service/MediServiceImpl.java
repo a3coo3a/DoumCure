@@ -32,6 +32,11 @@ public class MediServiceImpl implements MediService {
 		return mediMapper.getInfo(proNo);
 	}
 
+	@Override
+	public String getImg(String proNo) {
+		return mediMapper.getImg(proNo);
+	}
+
 	
 
 	

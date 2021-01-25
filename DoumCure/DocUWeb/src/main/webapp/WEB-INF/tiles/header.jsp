@@ -52,7 +52,7 @@
                     <c:choose>
                     <c:when test="${sessionScope.userVO == null }">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="${pageContext.request.contextPath }/user/join">JOIN</a></li>
+                        <li><a href="${pageContext.request.contextPath }/user/id_pwJoin">JOIN</a></li>
                         <li><a href="${pageContext.request.contextPath }/user/login">LOGIN</a></li>
                     </ul>                    
                     </c:when>
@@ -107,4 +107,12 @@
     </header>
 
 
+<!-- 사이드바 즐겨찾기  -->
+<script>
+
+var bo1 = "${sessionScope.userVO.userBookMark01}"
+var bo2 = "${sessionScope.userVO.userBookMark02}"
+var bo3 = "${sessionScope.userVO.userBookMark03}"
+
+</script>
     

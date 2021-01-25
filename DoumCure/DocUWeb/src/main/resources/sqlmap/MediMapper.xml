@@ -33,7 +33,9 @@
  		select * from MEDI where proNo = #{proNO}
  	</select>
  	
- 	
+ 	<select id="getImg" resultType="String">
+ 		select mediimg from MEDIIMG where medino = #{proNo}
+ 	</select>
  	
  	
  	

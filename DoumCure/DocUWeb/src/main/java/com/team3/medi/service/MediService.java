@@ -10,6 +10,7 @@ public interface MediService {
 	public ArrayList<MediVO> getList(Criteria cri, String mediSearchData);
 	public int getTotal(String mediSearchData);
 	public MediVO getInfo(String proNo);
+	public String getImg(String proNo);
 	
 	
 }

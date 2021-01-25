@@ -615,6 +615,8 @@ html, body {
 
 .bookmark-product .bookmark-img {
 	width: 150px;
+	height : 150px;
+	line-height : 150px;
 	margin: 0 auto;
 }
 
