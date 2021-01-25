@@ -18,5 +18,6 @@ public class StoreVO {
 	private String xCode;		// x좌표-- varchar2(50) not null
 	private String yCode;		// y좌표 -- varchar2(50) not null
 	
+	private String keyword; 	//검색을 위한 변수 --- DB에 없음
 
 }

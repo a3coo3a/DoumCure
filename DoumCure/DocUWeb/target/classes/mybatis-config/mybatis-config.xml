@@ -9,5 +9,6 @@
 		<typeAlias type="com.team3.command.BoardVO" alias="BoardVO"/>
 		<typeAlias type="com.team3.command.UserVO" alias="UserVO"/>
 		<typeAlias type="com.team3.command.MediVO" alias="MediVO"/>
+		<typeAlias type="com.team3.command.StoreVO" alias="StoreVO"/>
 	</typeAliases>
 </configuration>
