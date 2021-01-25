@@ -61,7 +61,7 @@
                     </table>
 
 		          <c:if test="${sessionScope.userVO != null }"> 
-                    	<button type="submit" class="btn qa-bbsList-btn"  onclick = "location.href='freeboardRegist'">글쓰기</button>
+                    	<button type="submit" class="btn qa-bbsList-btn" onclick = "location.href='freeboardRegist'">글쓰기</button>
 		          </c:if> 
                     
                     
@@ -107,7 +107,8 @@
 
 
     <script>
-    		window.onload = function() {
+
+    window.onload = function() {
     			 if(history.state === '' ) return;
     			 
     			 var msg = "${msg}"; //컨트롤러에서 넘어온 메시지
