@@ -18,6 +18,7 @@
  .side-medi-bm .bm03-img img{
  	height: 50px;
  }
+
  </style>
 
  <header>
@@ -246,10 +247,19 @@ $(document).ready(function(){
             $(".side-hidden").html("&lt;");
             $("#right_zzim").addClass("sideHidden");
             $(".rightSide-h").css('right','0px');
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7d3e4e07c518fcf5f016810d18fe5cef4bb010df
         }else{
             $(".side-hidden").html("&gt;");
             $("#right_zzim").removeClass("sideHidden");
             $(".rightSide-h").css('right','123px');
         }
     });
+<<<<<<< HEAD
 	</script>
+=======
+	</script>
+>>>>>>> 7d3e4e07c518fcf5f016810d18fe5cef4bb010df
