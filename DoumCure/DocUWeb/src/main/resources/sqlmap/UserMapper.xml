@@ -31,15 +31,32 @@
   		select *
 		from(
 		    select rownum as rn, 
-		           b.*
+		           a.*
 		    from(
 		        select *
 		        from bbs
 		        where bbswrite = #{userId}
-		        order by bbsno desc) b
+		        order by bbsno desc) a
 		) where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <= #{cri.pageNum}*#{cri.amount}
 		]]>
   	</select>
+  	
+  	<!-- <select id="getMyBbsList" resultType="BoardVO">
+  		<![CDATA[
+  		select *
+		from(
+		    select @rownum := @rownum +1 as rn, 
+		           a.*
+		    from(
+		        select *
+		        from BBS
+		        where bbswrite = #{userId}
+		        order by bbsno desc) a
+		)b, (select @rownum := 0) as rn 
+		where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <= #{cri.pageNum}*#{cri.amount}
+		]]>
+  	</select> -->
+  	
   	
   	<update id="userUpdate">
   		update USERS set userPw = #{userPw}, userNickName = #{userNickName}, userPhoneNum = #{userPhoneNum}, userAddrZipNum = #{userAddrZipNum}, userAddrBasic = #{userAddrBasic}, userAddrDetail = #{userAddrDetail} where userId = #{userId}

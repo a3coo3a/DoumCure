@@ -24,10 +24,34 @@
 		)where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <= #{cri.pageNum}*#{cri.amount}
 		]]>
   	</select>
+  	
+  	<!-- <select id="getList" resultType="MediVO">
+  		<![CDATA[
+  		select *
+		from
+		(select @rownum := @rownum +1 as rn,  
+		        pro.*
+				from(
+				    select  
+				           a.*
+				    from(
+				        select *
+				        from MEDI
+				        where proeffi like concat('%',#{mediSearchData},'%')
+				        order by proname) a
+				) pro
+		)b, (select @rownum := 0) as rn
+		where rn > (#{cri.pageNum}-1)*#{cri.amount} and rn <= #{cri.pageNum}*#{cri.amount}
+		]]>
+  	</select> -->
  	
  	<select id="getTotal" resultType="int">
  		select count(*) from MEDI where proeffi like '%'||#{mediSearchData}||'%'
  	</select>
+ 	
+ 	<!-- <select id="getTotal" resultType="int">
+ 		select count(*) from MEDI where proeffi like concat('%',#{mediSearchData},'%')
+ 	</select> -->
  	
  	<select id="getInfo" resultType="MediVO">
  		select * from MEDI where proNo = #{proNO}
