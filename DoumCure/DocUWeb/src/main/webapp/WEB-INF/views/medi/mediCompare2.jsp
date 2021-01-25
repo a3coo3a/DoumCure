@@ -8,6 +8,16 @@
 .medi-info-box .content{
 	font-size: 12px;
 }
+.medi-com-name{
+	height: 150px;
+	overflow: auto;
+}
+
+@media ( max-width : 460px) {
+	.medi-com-name{
+		font-size: 20px;
+	}
+}
 </style>
 <section class="medi-area">
 
@@ -17,7 +27,7 @@
         <div>
           <h4 class="medi-gray">${vo1.proCom }</h4>
           <h5 class="medi-gray">${vo1.proNo }</h5>
-          <h2>${vo1.proName }</h2>
+          <h2 class="medi-com-name">${vo1.proName }</h2>
         </div>
         <div class="medi-com-img star1 ${vo1.proNo }">
             <img src="" alt="${vo1.proNo }"  id="vo1">
@@ -62,7 +72,7 @@
         <div>
           <h4 class="medi-gray">${vo2.proCom }</h4>
           <h5 class="medi-gray">${vo2.proNo }</h5>
-          <h2>${vo2.proName }</h2>
+          <h2 class="medi-com-name">${vo2.proName }</h2>
         </div>
         <div class="medi-com-img star2 ${vo2.proNo }">
             <img src="" alt="${vo2.proNo }"  id="vo2">
