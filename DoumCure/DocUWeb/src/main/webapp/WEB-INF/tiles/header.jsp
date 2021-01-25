@@ -2,7 +2,23 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
  <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
- 
+  <style>
+ .side-medi-bm{
+ 	font-size: 10px;
+ 	height: 250px;
+ 	text-align: center;
+ }
+ .side-medi-bm .bm01,
+ .side-medi-bm .bm02,
+ .side-medi-bm .bm03{
+ 	height: 10%;
+ }
+ .side-medi-bm .bm01-img img,
+ .side-medi-bm .bm02-img img,
+ .side-medi-bm .bm03-img img{
+ 	height: 50px;
+ }
+ </style>
 
  <header>
  		 <!-- 카카오공유 -->
@@ -56,7 +72,13 @@
                                 <li><a href="${pageContext.request.contextPath }/board/freeboardList">자유게시판</a></li>
                             </ul>
                         </li>
-                        <li><a href="${pageContext.request.contextPath }/medi/mediSearch">SEARCH</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="${pageContext.request.contextPath }/medi/mediSearch">증상검색</a></li>
+                                <li><a href="${pageContext.request.contextPath }/medi/mediStore">약국검색</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <c:choose>
@@ -78,6 +100,14 @@
         </nav>
 
         <!-- 사이드바 -->
+        <!-- 비활성 -->
+        <div>
+            <div class="rightSide-h">
+                <li class="side-hidden">&gt;</li>    
+            </div>
+        </div>
+        
+        <!-- 활성 -->
         <div id="rightSide">
             <div id="right_zzim">
                 <li class="seach-place" onclick="location.href = '${pageContext.request.contextPath }/medi/mediStore'" style="cursor: pointer;" >약국찾기</li>
@@ -90,11 +120,14 @@
 				
 				</c:when>                
         		<c:otherwise>
-	                <!-- 데이터 지정 후 구현예정-->
-                    <ul>
-                    	<li><img src="">a</li>
-                    	<li><img src="">b</li>
-                    	<li><img src="">c</li>
+	             <!-- 데이터 지정 후 구현예정-->
+                    <ul class="side-medi-bm">
+                    	<li class="bm01-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
+                    	<li class="bm01"></li>
+                    	<li class="bm02-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
+                    	<li class="bm02"></li>
+                    	<li class="bm03-img"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png"></li>
+                    	<li class="bm03"></li>
                     </ul>
                             		
         		</c:otherwise>
@@ -106,6 +139,7 @@
                 <i class="fas fa-arrow-circle-up"></i>
                 <li>TOP</li>
             </div>
+            
         </div>
 
         <!-- top버튼(모바일용) -->
@@ -119,17 +153,38 @@
 <!-- 사이드바 즐겨찾기 -->
 <script>
 $(document).ready(function(){
-	
-	$.ajax({
-		type : "POST",
-		url : "${pageContext.request.contextPath }/medi/mediGetBM",
-		success : function(data){
-			console.log(data);
-		},
-		error : function(error){
-			console.log("error:"+error);
-		}
-	});	
+	console.log("${sessionScope.userVO}");
+	if("${sessionScope.userVO}" != ''){
+		$.ajax({
+			type : "POST",
+			url : "${pageContext.request.contextPath }/medi/mediGetBM",
+			contentType : "application/json; charset:UTF-8",
+			success : function(data){
+				console.log(data.proName1);
+				console.log(data.proImg1);
+				console.log($(".bm01").children());
+				if(data.proImg1 == null){
+				//	$(".bm01").children().attr("src", "${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
+				}else{
+					//$(".bm01").children().attr("src", data.proImg1);
+				}
+				$(".bm01").html(data.proName1);
+				
+				console.log(data.proName2);
+				console.log(data.proImg2);
+				//$(".bm02").children().attr("src", data.proImg2);
+				$(".bm02").html(data.proName2);
+				
+				console.log(data.proName3);
+				console.log(data.proImg3);
+				//$(".bm03").children().attr("src", data.proImg3);
+				$(".bm03").html(data.proName3);
+			},
+			error : function(error){
+				console.log("error:"+error);
+			}
+		});	
+	}
 });
 </script>
 
@@ -185,5 +240,16 @@ $(document).ready(function(){
  	    });
 	} */
   
-  
+  /* 사이드바 히든 */
+  	$(".rightSide-h").click(function(){
+        if($(".side-hidden").html() === "&gt;"){
+            $(".side-hidden").html("&lt;");
+            $("#right_zzim").addClass("sideHidden");
+            $(".rightSide-h").css('right','0px');
+        }else{
+            $(".side-hidden").html("&gt;");
+            $("#right_zzim").removeClass("sideHidden");
+            $(".rightSide-h").css('right','123px');
+        }
+    });
 	</script>

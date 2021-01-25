@@ -2,10 +2,13 @@ package com.team3.controller;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -180,24 +183,26 @@ public class MediController {
 	
 	@ResponseBody
 	@RequestMapping("/mediGetBM")
-	public ArrayList<MediVO> mediGetBM(HttpSession session) {
-		
+	public Map<String, String> mediGetBM(HttpSession session) {
+		Map<String, String> result = new HashMap<String, String>();
 		UserVO userVO = (UserVO)session.getAttribute("userVO");
 		MediVO vo1 = mediService.getInfo(userVO.getUserBookMark01());
 		MediVO vo2 = mediService.getInfo(userVO.getUserBookMark02());
 		MediVO vo3 = mediService.getInfo(userVO.getUserBookMark03());
 		
-		System.out.println(vo1.toString());
-		System.out.println(vo2.toString());
-		System.out.println(vo3.toString());
+		String proImg1 = mediService.getImg(vo1.getProNo());
+		String proImg2 = mediService.getImg(vo2.getProNo());
+		String proImg3 = mediService.getImg(vo3.getProNo());
 		
-		ArrayList<MediVO> sideList = new ArrayList<MediVO>();
-		sideList.add(vo1);
-		sideList.add(vo2);
-		sideList.add(vo3);
+		result.put("proName1", vo1.getProName());
+		result.put("proName2", vo2.getProName());
+		result.put("proName3", vo3.getProName());
+		result.put("proImg1", proImg1);
+		result.put("proImg2", proImg2);
+		result.put("proImg3", proImg3);
 		
-		System.out.println(sideList);
-		return null;
+		
+		return result;
 	}
 	
 	
