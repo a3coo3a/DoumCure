@@ -269,7 +269,9 @@ html {
                         <div class="benner-list">
                             <span class="comment-title">Young</span>
                             <p class="comment-content">
-                                안녕하십니까 ?
+                            <br/>
+                            오늘도 건강하신가요? <br/>
+                            언제나 건강한 오늘과 내일을 바래 봅니다.<br/>
                             </p>
                         </div>
                     </div>

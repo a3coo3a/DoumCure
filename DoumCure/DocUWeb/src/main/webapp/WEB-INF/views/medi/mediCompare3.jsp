@@ -15,10 +15,11 @@
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 right-line">
         <div>
           <h4 class="medi-gray">${vo1.proCom }</h4>
+          <h5 class="medi-gray">${vo1.proNo }</h5>
           <h2 class="com-title-size">${vo1.proName }</h2>
         </div>
-        <div class="medi-com-img star1">
-            <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="${vo1.proNo }">
+        <div class="medi-com-img star1 ${vo1.proNo }">
+            <img src="" alt="${vo1.proNo }"  id="vo1">
             <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star"></div>
         </div>
         <div class="medi-info-detail">
@@ -58,10 +59,11 @@
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 right-line">
         <div>
           <h4 class="medi-gray">${vo2.proCom }</h4>
+          <h5 class="medi-gray">${vo2.proNo }</h5>
           <h2 class="com-title-size">${vo2.proName }</h2>
         </div>
-        <div class="medi-com-img star2">
-            <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="${vo2.proNo }">
+        <div class="medi-com-img star2 ${vo2.proNo }">
+           <img src="" alt="${vo2.proNo }"  id="vo2">
             <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star"></div>
         </div>
         <div class="medi-info-detail">
@@ -102,10 +104,11 @@
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div>
           <h4 class="medi-gray">${vo3.proCom }</h4>
+          <h5 class="medi-gray">${vo3.proNo }</h5>
           <h2 class="com-title-size">${vo3.proName }</h2>
         </div>
-        <div class="medi-com-img star3">
-            <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="${vo3.proNo }">
+        <div class="medi-com-img star3 ${vo3.proNo }">
+            <img src="" alt="${vo3.proNo }"  id="vo3">
             <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star"></div>
         </div>
         <div class="medi-info-detail">
@@ -181,11 +184,38 @@ $(document).ready(function(){
 	       $(".star3").children().addClass("full-stars").removeClass("empty-stars");
 		 }
 	}
-})
+});
+
 </script>
 
-<script>
 
+<!-- 이미지 출력 -->
+<script>
+$(document).ready(function(){
+	
+	if("${vo1.proNo}" != '' && "${vo1.proImg }" == ''){
+		$("#vo1").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
+	}else {
+		$("#vo1").attr("src","${vo1.proImg }");
+	}
+	
+	if("${vo2.proNo}" != '' && "${vo2.proImg }" == '' ){
+		$("#vo2").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
+	}else {
+		$("#vo2").attr("src","${vo2.proImg }");
+	}
+	
+	if("${vo3.proNo}" != '' && "${vo3.proImg }" == '' ){
+		$("#vo3").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
+	}else {
+		$("#vo3").attr("src","${vo3.proImg }");
+	}
+});
+</script>
+
+
+</script>
+<script>
 function starChange(){
 	var userVO = "${sessionScope.userVO}"
 		if(userVO == ''){
@@ -194,30 +224,20 @@ function starChange(){
 		}
 	if($(this).children().hasClass("empty-stars")){
 		var proNo = $(this).children().attr("alt");
-		console.log(proNo);
   		$.ajax({
   			url : "addBookmark",
   			type : "POST",
-  			data : {"proNo":proNo},
+  			data : { "proNo" : proNo },
   			success : function(data){
-  				// 3 : 즐겨찾기가 가득차 있음
-  				// 2 : 이미 존재하는 즐겨찾기 
-  				// 1 : 추가 성공
-  				// 0 : 실패
-  				if (data == 3){
+  				if (data == 3){ // 3 : 즐겨찾기가 가득차 있음
   					alert("즐겨찾기가 이미 가득찼습니다.");  
-  				}else if (data == 2 || data == 1) {
-  					if($(".medi-com-img").hasClass("star1")){
-  						$(".star1").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
-  				    	$(".star1").children().addClass("full-stars").removeClass("empty-stars");
-  					 }else if($(".medi-com-img").hasClass("star2")){
-  						$(".star2").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
-  				    	$(".star2").children().addClass("full-stars").removeClass("empty-stars");
-  					 }else if($(".medi-com-img").hasClass("star3")){
-  						$(".star3").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
-  				    	$(".star3").children().addClass("full-stars").removeClass("empty-stars");
+  				}else if (data == 2 || data == 1) { // 2 : 이미 존재하는 즐겨찾기  // 1 : 추가 성공
+  					if($(".medi-com-img").hasClass(proNo)){
+  						console.log($("."+proNo+""));
+  						$("."+proNo+"").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/full-stars.png");
+  						$("."+proNo+"").children().addClass("full-stars").removeClass("empty-stars");
   					 }
-  				}else if(data == 0){
+  				}else if(data == 0){ // 0 : 실패
   					alert("즐겨찾기 추가에 실패 했습니다. 관리자에게 문의하세요");
   				}
   			},
@@ -238,16 +258,11 @@ function starChange(){
     			// 1 : 삭제 성공
     			// 0 : 실패
     		if(data == 3 || data == 1){
-    			if($(".medi-com-img").hasClass("star1")){
-					$(".star1").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
-			    	$(".star1").children().addClass("empty-stars").removeClass("full-stars");
-				 }else if($(".medi-com-img").hasClass("star2")){
-					$(".star2").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
-			    	$(".star2").children().addClass("empty-stars").removeClass("full-stars");
-				 }else if($(".medi-com-img").hasClass("star3")){
-					$(".star3").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
-			    	$(".star3").children().addClass("empty-stars").removeClass("full-stars");
-				 }
+    			if($(".medi-com-img").hasClass(proNo)){
+						console.log($("."+proNo+""));
+						$("."+proNo+"").children().children().attr("src","${pageContext.request.contextPath }/resources/img/medi/empty-stars.png");
+						$("."+proNo+"").children().addClass("empty-stars").removeClass("full-stars");
+				}
 			}else if(data == 0){
 				alert("즐겨찾기 삭제에 실패 했습니다. 관리자에게 문의하세요");
 			}
@@ -260,7 +275,7 @@ function starChange(){
   
   
 	}
-
-  $(".medi-com-img").click(starChange)
+}
+  $(".medi-com-img").click(starChange);
 
 </script>

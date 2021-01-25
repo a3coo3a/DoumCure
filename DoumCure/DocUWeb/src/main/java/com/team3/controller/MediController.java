@@ -54,6 +54,8 @@ public class MediController {
 		
 		MediVO mediVO = mediService.getInfo(proNo);
 		
+		mediVO.setProImg(mediService.getImg(mediVO.getProNo()));
+		
 		model.addAttribute("mediVO", mediVO);
 	
 		return "medi/mediDetail";
@@ -143,6 +145,9 @@ public class MediController {
 		
 		MediVO vo1 = mediService.getInfo(proNo1);
 		MediVO vo2 = mediService.getInfo(proNo2);
+
+		vo1.setProImg(mediService.getImg(vo1.getProNo()));
+		vo2.setProImg(mediService.getImg(vo2.getProNo()));
 		
 		model.addAttribute("vo1", vo1);
 		model.addAttribute("vo2", vo2);
@@ -159,6 +164,10 @@ public class MediController {
 		MediVO vo1 = mediService.getInfo(proNo1);
 		MediVO vo2 = mediService.getInfo(proNo2);
 		MediVO vo3 = mediService.getInfo(proNo3);
+
+		vo1.setProImg(mediService.getImg(vo1.getProNo()));
+		vo2.setProImg(mediService.getImg(vo2.getProNo()));
+		vo3.setProImg(mediService.getImg(vo3.getProNo()));
 		
 		model.addAttribute("vo1", vo1);
 		model.addAttribute("vo2", vo2);

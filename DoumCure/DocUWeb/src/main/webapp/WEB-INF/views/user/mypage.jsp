@@ -19,6 +19,10 @@
     color: rgb(150, 150, 150);
     margin: 5px;
   }
+  .bookmark-product .bookmark-img {
+	height : 150px;
+	line-height : 150px;
+  }
   </style>
   
   <section class="user-area">
@@ -40,16 +44,16 @@
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 medi-right">
       <div class="product-box">
           <h3><span class="glyphicon glyphicon-bookmark"></span>&nbsp;즐겨찾기</h3>
-            <div class="bookmark-product">
-              <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
+            <div class="bookmark-product vo1">
+              <div class="bookmark-img"><a href="#"><img src="" alt="bookmarkicon" id="vo1"></a></div>
               <div class="bookmark-name"><a href="../medi/mediDetail?proNo=${vo1.proNo }">${vo1.proName }</a></div>
             </div>
-            <div class="bookmark-product">
-              <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
+            <div class="bookmark-product vo2">
+              <div class="bookmark-img"><a href="#"><img src="" alt="bookmarkicon" id="vo2"></a></div>
               <div class="bookmark-name"><a href="../medi/mediDetail?proNo=${vo2.proNo }">${vo2.proName }</a></div>
             </div>
-            <div class="bookmark-product">
-              <div class="bookmark-img"><a href="#"><img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="bookmarkicon"></a></div>
+            <div class="bookmark-product vo3">
+              <div class="bookmark-img"><a href="#"><img src="" alt="bookmarkicon" id="vo3"></a></div>
               <div class="bookmark-name"><a href="../medi/mediDetail?proNo=${vo3.proNo }">${vo3.proName }</a></div>
             </div>
       </div>
@@ -114,36 +118,37 @@
 
 </section>
 
-<!-- 즐겨찾기 이미지 -->
-<script>
- $(document).ready(function(){
-	
-	 $.ajax({
-		 url : "http://apis.data.go.kr/1470000/MdcinGrnIdntfcInfoService/getMdcinGrnIdntfcInfoList?servicekey=LuM5DnSzbI6oFnaF80YIASKwb%2BNY3Yx81cHaLl092LcrO87cegLawf1nxeKQn4zIGq%2FJJZh21ujVKxctiTl3FA%3D%3D&item_seq="+"${vo1.proNo }",
-	 	type : "GET",
-	 	contentType : "application/json; charset=utf-8",
-	 	header : {
-	 		"Access-Control-Allow-Origin" : "*"
-	 	},
-	 	success : function(data){
-	 		console.log(data);
-	 	},
-	 	error : function(error){
-	 		console.log(error);
-	 	}
-	 });
-	 
-	 
-	 
-	 
-	 
- });
-</script>
-
 <!-- 페이지 네이션 -->
 <script>
 
 	$(document).ready(function(){
+		
+		if("${vo1}" == '') {$(".vo1").hide();}
+		if("${vo2}" == '') {$(".vo2").hide();}
+		if("${vo3}" == '') {$(".vo3").hide();}
+		
+		
+		if("${vo1}" != '' && "${vo1.proImg }" == ''){
+			$("#vo1").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
+		}else {
+			$("#vo1").attr("src","${vo1.proImg }");
+		}
+		
+		if("${vo2}" != '' &&"${vo2.proImg }" == ''){
+			$("#vo2").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
+		}else {
+			$("#vo2").attr("src","${vo2.proImg }");
+		}
+		
+		if("${vo3}" != '' &&"${vo3.proImg }" == ''){
+			console.log("3333여기요?");
+			$("#vo3").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
+		}else {
+			$("#vo3").attr("src","${vo3.proImg }");
+		}
+		
+		
+		
 		if("${errorMsg}")
 			alert("${errorMsg}");
 		return;

@@ -128,14 +128,17 @@ public class UserController {
 		//화면 넘어갈때, 즐겨찾기 제품 정보 가져가기
 		if(!user.getUserBookMark01().equals("0")) {
 			MediVO vo1 = mediService.getInfo(user.getUserBookMark01());
+			vo1.setProImg(mediService.getImg(vo1.getProNo()));
 			model.addAttribute("vo1", vo1);
 		} 
 		if(!user.getUserBookMark02().equals("0")) {
 			MediVO vo2 = mediService.getInfo(user.getUserBookMark02());
+			vo2.setProImg(mediService.getImg(vo2.getProNo()));
 			model.addAttribute("vo2", vo2);
 		}
 		if(!user.getUserBookMark03().equals("0")) {
 			MediVO vo3 = mediService.getInfo(user.getUserBookMark03());
+			vo3.setProImg(mediService.getImg(vo3.getProNo()));
 			model.addAttribute("vo3", vo3);
 		}
 		//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
