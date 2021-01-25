@@ -118,9 +118,9 @@
 
 <!-- 사이드바 즐겨찾기 -->
 <script>
-$(document).ready({
+$(document).ready(function(){
 	
-	$.ajax(
+	$.ajax({
 		type : "POST",
 		url : "${pageContext.request.contextPath }/medi/mediGetBM",
 		success : function(data){
@@ -129,7 +129,7 @@ $(document).ready({
 		error : function(error){
 			console.log("error:"+error);
 		}
-	);	 // ajax end
+	});	
 });
 </script>
 
