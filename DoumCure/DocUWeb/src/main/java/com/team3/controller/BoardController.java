@@ -181,8 +181,9 @@ public class BoardController {
 				System.out.println(fileLoca);
 				System.out.println(fileName);
 
-					
-					
+//				if(fileName!=null & fileName.length()!=0) {
+//					
+//				}
 				String uploadPath = "D:/spring/upload/" +fileLoca ;
 				
 				//파일 객체 생성
@@ -191,13 +192,12 @@ public class BoardController {
 				ResponseEntity<byte[]> result = null;
 
 				try {
-					if(fileName!=null & fileName.length()!=0) {
-						HttpHeaders header = new HttpHeaders();
-						header.add("contehn-Type", Files.probeContentType(file.toPath()));
-						byte[] arr =  FileCopyUtils.copyToByteArray(file);
-						result = new ResponseEntity<byte[]>(arr, header, HttpStatus.OK);
-		
-					}
+				    HttpHeaders header = new HttpHeaders();
+				    header.add("contehn-Type", Files.probeContentType(file.toPath()));
+
+				byte[] arr =  FileCopyUtils.copyToByteArray(file);
+
+				result = new ResponseEntity<byte[]>(arr, header, HttpStatus.OK);
 				} catch (IOException e) {
 
 				e.printStackTrace();
