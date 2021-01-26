@@ -8,11 +8,12 @@
     <div class="container bbs-list-container ">
       <div class="row bbs-content-wrap">
         <div class="bbs-list-title-box col-lg-12 ">
-          <button type="submit" class="btn bbsList-btn" onclick="location.href='bbsRegist' ">write</button>
+         
+  <%--  
           <p id="notice">공지사항 게시판</p>
         </div>
         
-        <!--공지사항 리스트 -->
+      <!--공지사항 리스트 -->
         <form action="bbslistForm" method="POST" name="bsdlistForm">
           <table class="table bbs-table-bordered">
             <tr>
@@ -35,16 +36,16 @@
             </tr>
 
             <!-- <tbody>
-                              <c:forEach var="vo" items="${list }">
-                              <tr>
-                                  <td>${vo.bno }</td>
-                                  <td><a href="freeDetail?bno=${vo.bno }">${vo.title }</a></td>
-                                  <td>${vo.writer }</td>
-                                  <td><fmt:formatDate value="${vo.regdate }" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
-                                  <td><fmt:formatDate value="${vo.updatedate }" pattern="yyyy년MM월dd일  hh시mm분"/></td>
-                              </tr>
-                          </c:forEach>
-                      </tbody> -->
+                   <c:forEach var="vo" items="${list }">
+                   <tr>
+                       <td>${vo.bno }</td>
+                       <td><a href="freeDetail?bno=${vo.bno }">${vo.title }</a></td>
+                       <td>${vo.writer }</td>
+                       <td><fmt:formatDate value="${vo.regdate }" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
+                       <td><fmt:formatDate value="${vo.updatedate }" pattern="yyyy년MM월dd일  hh시mm분"/></td>
+                   </tr>
+               </c:forEach>
+           </tbody> -->
           </table>
 
           <input type="hidden" name="pageNum" value="1"> <!-- 검색버튼이 눌리면 무조건 페이지번호를 1번호으로 다시 세팅 -->
@@ -73,10 +74,10 @@
                     </ul>
                     <c:if test="${sessionScope.userVO != null }">
 					 <button type="button" class="btn btn-info" onclick="location.href='freeRegist' ">글쓰기</button>
-                    </c:if>
+                    </c:if> 
         </form>
 
-
+--%>
 
 
         <!-- 건강정보게시판 -->
@@ -88,88 +89,38 @@
 		
         <div class="bbs-titlebox-inner">
           <div class="row health_List">
-          <c:forEach var="vo" items="${list }">
+           <c:forEach var="vo" items="${list }">
             <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
               <div class="">
                 <a href="#">
-                  <img src="../img/title_icon.png" width="600" height="400">
+                <img class="img-thumbnail" src="display/${vo.fileLoca}/${vo.fileName}" width="600" height="400">
                 </a>
-                <div class="desc">건강정보_제목</div>
+                <div class="desc">${vo.bbsTitle }</div>
               </div>
             </div>
-		</c:forEach>
-            <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
+		</c:forEach> 
+		
+		<%-- <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
               <div class="galleryIn">
                 <a href="#">
-                  <img src="../img/title_icon.png" width="600" height="400">
+                  <img src="${pageContext.request.contextPath }/resources/img/title_icon.png" width="600" height="400">
                 </a>
-                <div class="desc">건강정보_제목</div>
+                <div class="desc">${vo.bbsTitle }</div>
               </div>
-            </div>
+            </div> --%>
+		
+		
+          
 
-            <div class="gallery  col-sm-12 col-md-6 col-lg-3">
-              <div>
-                <a href="#">
-                  <img src="..//img/title_icon.png" width="600" height="400">
-                </a>
-                <div class="desc">건강정보_제목</div>
-              </div>
-            </div>
-
-            <div class="gallery  col-sm-12 col-md-6 col-lg-3">
-              <div>
-                <a href="#">
-                  <img src="../img/title_icon.png" width="600" height="400">
-                </a>
-                <div class="desc">건강정보_제목</div>
-              </div>
-            </div>
-          </div>
-          <div class="row health_List">
-            <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
-              <div class="">
-                <a href="#">
-                  <img src="../img/title_icon.png" width="600" height="400">
-                </a>
-                <div class="desc">건강정보_제목</div>
-              </div>
-            </div>
-
-            <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
-              <div class="galleryIn">
-                <a href="#">
-                  <img src="../img/title_icon.png" width="600" height="400">
-                </a>
-                <div class="desc">건강정보_제목</div>
-              </div>
-            </div>
-
-            <div class="gallery  col-sm-12 col-md-6 col-lg-3">
-              <div>
-                <a href="#">
-                  <img src="..//img/title_icon.png" width="600" height="400">
-                </a>
-                <div class="desc">건강정보_제목</div>
-              </div>
-            </div>
-
-            <div class="gallery  col-sm-12 col-md-6 col-lg-3">
-              <div>
-                <a href="#">
-                  <img src="../img/title_icon.png" width="600" height="400">
-                </a>
-                <div class="desc">건강정보_제목</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
- 
-           <form action="freeboardList" name="pageForm">
+    			<c:if test="${sessionScope.userVO != null   }"> 
+                <button type="submit" class="btn qa-bbsList-btn" onclick = "location.href='bbsRegist'">글쓰기</button>
+		          </c:if> 
+                    
+                    
+                    <form action="freeboardList" name="pageForm">
 	                   <div class="text-center">
 	                   
-	                   <ul class="pagination pager pagination-sm">
+	                   <ul class="pagination pagination-sm">
 	                   	 <!-- 3.이전버튼 활성화여부 -->
 	                   	<c:if test="${pageVO.prev}">
 	                       <li>
@@ -207,5 +158,66 @@
   </div>
 
 
-
+</div>
 </section>
+
+
+<script type="text/javascript">
+   window.onload = function() {
+    			 if(history.state === '' ) return;
+    			 
+    			 var msg = "${msg}"; //컨트롤러에서 넘어온 메시지
+    			 if(msg !== '') {
+    				 alert(msg);
+    				 //브라우저의 기록을 새롭게 변경(데이터, 페이지제목, 변경할주소)
+    				 //이렇게 변경된 기록정보는 history.state 객체를 통해서 확인이 가능합니다.
+    				 history.replaceState('', null, null); 
+    			 }	     
+    		}
+
+//페이징
+/*  
+	1. 페이지네이션을  a-> form태그로 변경
+	2. criteria클래스에 검색에 대한 키워드를 추가
+	3. 검색폼과 페이지폼이 동일한 값을 가지고 hidden 으로 넘어가도록 처리
+	4. sql 문을 동적 쿼리로 변경
+*/
+//이벤트 위임방식으로 페이지네이션에 a태그에 이벤트를 전파
+	var pagination = document.querySelector(".pagination");
+pagination.onclick = function(){
+	// a태그의 고유이벤트를 막는다
+	event.preventDefault(); //고유이벤트 중단
+	if(event.target.tagName !== "A") return; //A태그가 아니라면 종료
+	
+	var pageNum = event.target.dataset.page; //클릭한 타겟의 데이터 셋값
+	document.pageForm.pageNum.value = pageNum //히든폼에 pageNum타겟값을 저장
+	
+	document.pageForm.submit(); //폼값 서브밋
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

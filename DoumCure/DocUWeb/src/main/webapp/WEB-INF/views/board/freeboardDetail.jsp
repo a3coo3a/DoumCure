@@ -98,8 +98,16 @@
  */
  
  $(document).ready(function () {
+ var bbsOC = "${vo.bbsOC}"
  var write = "${vo.bbsWrite}";
  var id = "${sessionScope.userVO.userId}";
+
+if(bbsOC == 'on'){
+	if(id !==  write){
+		window.location = "freeboardList";
+	}
+}
+
  if(id !== write ){
 	 $("#uploadBtn").css("display", "none" );
 	 

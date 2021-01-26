@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <section>
   <div class="bbs-area">
     <div class="container bbs-list-container  ">
@@ -8,7 +11,7 @@
           <p>관리자 게시글 수정하기</p>
         </div>
 
-        <form action="detailForm" method="post" name="detailForm">
+        <form action="detailForm" method="post" name="detailForm" enctype="multipart/form-data">
           <div class="t-control">
             <select name="bbs-title-sel" id="bbs-title-sel">
               <option value="notice">공지사항</option>
@@ -16,14 +19,13 @@
             </select>
             <div>
               <div class="t-title">NAME</div>
-              <!-- <td><input class="form-control input-sm" name="writer" value="${sessionScope.userVO.userId }" readonly><span id="msgId"></span></td> -->
-              <div><input class="form-control Large input " name="writer" value="작성자" readonly><span id="msgId"></span>
+              <div><input class="form-control Large input " name="writer"  value="${sessionScope.userVO.userId }" readonly>
               </div>
             </div>
 
             <div>
               <div class="t-title">TITLE</div>
-              <div><input class="form-control Large input " name="title"><span id="msgTitle"></span>
+              <div><input class="form-control Large input " name="bbsTitle">
               </div>
             </div>
 

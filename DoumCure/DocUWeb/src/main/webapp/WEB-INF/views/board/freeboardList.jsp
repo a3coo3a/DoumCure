@@ -43,14 +43,11 @@
                         </tr>
                         <c:forEach var="vo" items="${list}">
 	                           <tr>
-	                               <td>${vo.bbsNo }</td>		
+	                               <td>${vo.bbsNo }</td>
 	                               <td><a href="freeboardDetail?bbsNo=${vo.bbsNo }">${vo.bbsTitle }</a></td>
 	                               <td>${vo.bbsWrite }</td>
 	                               <td><fmt:formatDate value="${vo.bbsRegdate}" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
 	                               <td id="lock">
-		                               	<%-- <c:if test="${vo.bbsOC eq 'off'}">
-		                               	  <i class="fas fa-lock-open"></i>
-		                               	</c:if> --%>
 		                               	<c:if test="${vo.bbsOC eq 'on'}">
 		                               	  <i class="fa fa-unlock"></i>
 		                               	</c:if>
