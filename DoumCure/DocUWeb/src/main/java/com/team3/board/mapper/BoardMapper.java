@@ -18,7 +18,7 @@ public interface BoardMapper {
 	public int freeDelete(int bbsno); //삭제
 	
 	//==============공지게시판===================
-	/* public ArrayList<BoardVO> getnotiList(Criteria cri); */
+	public ArrayList<BoardVO> getnotiList(Criteria cri);
 	
 	public void insertFile2(BoardVO vo); //건강게시물 등록
 //	public int bbsupdate(BoardVO vo); // 전체 게시글 수정

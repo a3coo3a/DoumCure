@@ -74,12 +74,19 @@ public class BoardServiceImpl implements BoardService{
 
 	//==================공지게시판=================================
 
+	@Override
+	public ArrayList<BoardVO> getnotiList(Criteria cri) {
+	
+		return boardMapper.getnotiList(cri);
+	}
+	
 	//글 등록
 	@Override
 	public void insertFile2(BoardVO vo) {
-			
+			System.out.println("글등록 서비스");
 		boardMapper.insertFile2(vo);
 	}
+
 
 //	//글 전체 수정
 //	@Override

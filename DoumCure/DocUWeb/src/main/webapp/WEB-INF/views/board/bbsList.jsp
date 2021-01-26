@@ -82,6 +82,7 @@
 
         <!-- 건강정보게시판 -->
 
+
         <div class="bbs-list-title-box col-lg-12">
           <p id="health">건강정보</p>
         </div>
@@ -89,7 +90,7 @@
 		
         <div class="bbs-titlebox-inner">
           <div class="row health_List">
-           <c:forEach var="vo" items="${list }">
+           <c:forEach var="vo" items="${list}">
             <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
               <div class="">
                 <a href="#">
@@ -100,24 +101,14 @@
             </div>
 		</c:forEach> 
 		
-		<%-- <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
-              <div class="galleryIn">
-                <a href="#">
-                  <img src="${pageContext.request.contextPath }/resources/img/title_icon.png" width="600" height="400">
-                </a>
-                <div class="desc">${vo.bbsTitle }</div>
-              </div>
-            </div> --%>
-		
-		
-          
+		          
 
-    			<c:if test="${sessionScope.userVO != null   }"> 
                 <button type="submit" class="btn qa-bbsList-btn" onclick = "location.href='bbsRegist'">글쓰기</button>
+    			<c:if test="${sessionScope.userVO != null   }"> 
 		          </c:if> 
                     
                     
-                    <form action="freeboardList" name="pageForm">
+                    <form action="bbsList" name="pageForm">
 	                   <div class="text-center">
 	                   
 	                   <ul class="pagination pagination-sm">
@@ -147,8 +138,7 @@
 	                   <!-- 폼형식으로 보내는데 숨겨서 보낼값 hidden으로 표시 -->
 	                   <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 	                   <input type="hidden" name="amount" value="${pageVO.cri.amount}">
-	                   <input type="hidden" name="searchType" value="${pageVO.cri.searchType }">
-	                   <input type="hidden" name="searchName" value="${pageVO.cri.searchName }">
+
 
 	
 		    		</form>

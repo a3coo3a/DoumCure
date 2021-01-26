@@ -244,25 +244,25 @@ public class BoardController {
 //		=============== 공지사항 컨트롤러======================
 		
 		//건강정보 목록 화면
-		@RequestMapping(value = "/bbsList")
-		public String bbslist() {
+//		@RequestMapping(value = "/bbsList")
+//		public String bbslist() {
+//			
+//			return "board/bbsList";
+//		}
+		
+		//자유게시판 글 목록
+		@RequestMapping("/bbsList")
+		public String notiList(Model model, Criteria cri) {	
+			//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
+			ArrayList<BoardVO> list = boardService.getnotiList(cri);
+			int total = boardService.getTotal(cri);//전체 게시물 수 
+			PageVO pageVO = new PageVO(cri, total);	
+			//화면에 전달할 값
+			model.addAttribute("list", list);
+			model.addAttribute("pageVO", pageVO);
 			
 			return "board/bbsList";
 		}
-		
-		//자유게시판 글 목록
-//		@RequestMapping("/bbsList")
-//		public String notiList(Model model, Criteria cri) {	
-//			//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
-//			ArrayList<BoardVO> list = boardService.getnotiList(cri);
-//			int total = boardService.getTotal(cri);//전체 게시물 수 
-//			PageVO pageVO = new PageVO(cri, total);	
-//			//화면에 전달할 값
-//			model.addAttribute("list", list);
-//			model.addAttribute("pageVO", pageVO);
-//			
-//			return "board/freeboardList";
-//		}
 		
 		//건강정보 등록 화면
 		@RequestMapping(value = "/bbsRegist")
