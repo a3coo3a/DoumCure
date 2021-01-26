@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <section>
-  <div class="bbs-area">
-    <div class="container bbs-list-container ">
-      <div class="row bbs-content-wrap">
-        <div class="bbs-list-title-box col-lg-12 ">
-         
-  <%--  
+	<div class="bbs-area">
+		<div class="container bbs-list-container ">
+			<div class="row bbs-content-wrap">
+				<div class="bbs-list-title-box col-lg-12 ">
+
+					<%--  
           <p id="notice">공지사항 게시판</p>
         </div>
         
@@ -80,75 +80,74 @@
 --%>
 
 
-        <!-- 건강정보게시판 -->
+					<!-- 건강정보게시판 -->
 
 
-        <div class="bbs-list-title-box col-lg-12">
-          <p id="health">건강정보</p>
-        </div>
-
-		
-        <div class="bbs-titlebox-inner">
-          <div class="row health_List">
-           <c:forEach var="vo" items="${list}">
-            <div class="gallery col-sm-12 col-md-6 col-lg-3 ">
-              <div class="">
-                <a href="#">
-                <img class="img-thumbnail" src="display/${vo.fileLoca}/${vo.fileName}" width="600" height="400">
-                </a>
-                <div class="desc">${vo.bbsTitle }</div>
-              </div>
-            </div>
-		</c:forEach> 
-		
-		          
-
-                <button type="submit" class="btn qa-bbsList-btn" onclick = "location.href='bbsRegist'">글쓰기</button>
-    			<c:if test="${sessionScope.userVO != null   }"> 
-		          </c:if> 
-                    
-                    
-                    <form action="bbsList" name="pageForm">
-	                   <div class="text-center">
-	                   
-	                   <ul class="pagination pagination-sm">
-	                   	 <!-- 3.이전버튼 활성화여부 -->
-	                   	<c:if test="${pageVO.prev}">
-	                       <li>
-	                       		<!-- href="#"은 a태그가 이동이 없고  클릭용으로 사용하기 위한 것 -->
-	                        		<!-- 데이터 셋 으로 값 주기 = 제이슨 방식 "객체 '키': '값' " -> 히든으로 넘겨줄것 이기에 단일값만 보내주기로 수정  -->
-	                       	<a href="#" data-page="${pageVO.startPage-1 }">이전</a>
-	                       </li>                    	
-	                   	</c:if>
-	                   	<!-- 1.페이지네이션 번호 처리 -->
-	                   	<c:forEach var="num" begin="${pageVO.startPage}" end="${pageVO.endPage}">
-	                   	<li class="${pageVO.pageNum == num ? 'active' : '' }">
-	                   		<a href="#" data-page="${num}">${num}</a>
-	                   	</li>
-	                   	</c:forEach>
-	                   	<!-- 2.다음버튼 활성화여부 -->
-	                       <c:if test="${pageVO.next }">
-	                       <li>
-	                       	<a href="#" data-page="${pageVO.endPage+1 }">다음</a>
-	                       </li>
-	                       </c:if>
-	                   </ul>
-	                   </div>
-	                   
-	                   <!-- 폼형식으로 보내는데 숨겨서 보낼값 hidden으로 표시 -->
-	                   <input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
-	                   <input type="hidden" name="amount" value="${pageVO.cri.amount}">
+					<div class="bbs-list-title-box col-lg-12">
+						<p id="health">건강정보</p>
+					</div>
 
 
-	
-		    		</form>
+					<div class="conteiner bbs-titlebox-inner">
+						<div class="row health_List">
+							<c:forEach var="vo" items="${list}">
+								<div class="gallery col-sm-12 col-md-3 col-lg-3 ">
+									<div class="gallery-inner">
+										<a href="#"> <img class="img-thumbnail"
+											src="display/${vo.fileLoca}/${vo.fileName}">
+										</a>
+										<div class="desc">${vo.bbsTitle }</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
 
-      </div>
-    </div>
-  </div>
+
+					<button type="submit" class="btn qa-bbsList-btn"
+						onclick="location.href='bbsRegist'">글쓰기</button>
+					<c:if test="${sessionScope.userVO != null   }">
+					</c:if>
 
 
-</div>
+					<form action="bbsList" name="pageForm">
+						<div class="text-center">
+
+							<ul class="pagination pagination-sm">
+								<!-- 3.이전버튼 활성화여부 -->
+								<c:if test="${pageVO.prev}">
+									<li>
+										<!-- href="#"은 a태그가 이동이 없고  클릭용으로 사용하기 위한 것 --> <!-- 데이터 셋 으로 값 주기 = 제이슨 방식 "객체 '키': '값' " -> 히든으로 넘겨줄것 이기에 단일값만 보내주기로 수정  -->
+										<a href="#" data-page="${pageVO.startPage-1 }">이전</a>
+									</li>
+								</c:if>
+								<!-- 1.페이지네이션 번호 처리 -->
+								<c:forEach var="num" begin="${pageVO.startPage}"
+									end="${pageVO.endPage}">
+									<li class="${pageVO.pageNum == num ? 'active' : '' }"><a
+										href="#" data-page="${num}">${num}</a></li>
+								</c:forEach>
+								<!-- 2.다음버튼 활성화여부 -->
+								<c:if test="${pageVO.next }">
+									<li><a href="#" data-page="${pageVO.endPage+1 }">다음</a></li>
+								</c:if>
+							</ul>
+						</div>
+
+						<!-- 폼형식으로 보내는데 숨겨서 보낼값 hidden으로 표시 -->
+						<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
+						<input type="hidden" name="amount" value="${pageVO.cri.amount}">
+
+
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
 </section>
 
 

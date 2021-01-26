@@ -19,11 +19,11 @@ public interface BoardMapper {
 	
 	//==============공지게시판===================
 	public ArrayList<BoardVO> getnotiList(Criteria cri);
-	
+	public int getTotal2(Criteria cri);//전체게시글
 	public void insertFile2(BoardVO vo); //건강게시물 등록
-//	public int bbsupdate(BoardVO vo); // 전체 게시글 수정
-//	public int bbsupdate2(BoardVO vo);	//글 수정 
-//	public int bbsDelete(int bbsno); //삭제
-//	
+	public int bbsupdate(BoardVO vo); // 전체 게시글 수정
+	public int bbsupdate2(BoardVO vo);	//글 수정 
+	public int bbsDelete(int bbsno); //삭제
+	
 	
 }

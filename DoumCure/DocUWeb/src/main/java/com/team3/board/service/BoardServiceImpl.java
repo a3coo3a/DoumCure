@@ -88,24 +88,30 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 
-//	//글 전체 수정
-//	@Override
-//	public int bbsupdate(BoardVO vo) {
-//		return boardMapper.freeupdate(vo);
-//	}
-//
-//	//글 부분 수정
-//	@Override
-//	public int bbsupdate2(BoardVO vo) {
-//		
-//		return  boardMapper.freeupdate(vo);
-//	}
-//
-//	@Override
-//	public int bbsDelete(int bbsno) {
-//		
-//		return boardMapper.bbsDelete(bbsno);
-//	}
+	//글 전체 수정
+	@Override
+	public int bbsupdate(BoardVO vo) {
+		return boardMapper.freeupdate(vo);
+	}
+
+	//글 부분 수정
+	@Override
+	public int bbsupdate2(BoardVO vo) {
+		
+		return  boardMapper.freeupdate(vo);
+	}
+
+	@Override
+	public int bbsDelete(int bbsno) {
+		
+		return boardMapper.bbsDelete(bbsno);
+	}
+
+	@Override
+	public int getTotal2(Criteria cri) {
+		
+		return boardMapper.getTotal2(cri);
+	}
 
 	
 

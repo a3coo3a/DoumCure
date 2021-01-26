@@ -46,7 +46,12 @@
  	
  	<!-- 글 전체 개수 -->
  	<select id="getTotal" resultType="int">
-		select count(*) as total from bbs
+		select count(*) as total from 
+		         (select * 
+	 from bbs 
+	 	where  bbsCate = 'free')
+		
+		
 		<if test="searchType=='bbsTitle'">where bbsTitle like '%'||#{searchName}||'%'</if>
        	<if test="searchType=='bbsWrite'">where bbsWrite like'%'||#{searchName}||'%'</if>
        	<if test="searchType=='bbsContent'">where bbsContent like '%'||#{searchName}||'%'</if>
@@ -139,6 +144,23 @@
 			fileRealName = #{fileRealName},	
 		where BBSNO = #{bbsNo}
 	</update>
+
+ 	<!-- 글 전체 개수 -->
+ 	<select id="getTotal2" resultType="int">
+		select count(*) as total from 
+		         (select * 
+	 from bbs 
+	 	where  bbsCate = 'health')
+		
+		
+		<if test="searchType=='bbsTitle'">where bbsTitle like '%'||#{searchName}||'%'</if>
+       	<if test="searchType=='bbsWrite'">where bbsWrite like'%'||#{searchName}||'%'</if>
+       	<if test="searchType=='bbsContent'">where bbsContent like '%'||#{searchName}||'%'</if>
+       	<if test="searchType=='bbsTitcont'">where bbsTitle like '%'||#{searchName}||'%'or bbsContent like '%'|| #{searchName}||'%'</if>
+       	<if test="searchType==null or searchType=='' ">where 1 = 1 </if>
+		     
+	</select>
+
 	
 	<update id="bbsupdate2">
 		update bbs 
@@ -148,14 +170,17 @@
 		where BBSNO = #{bbsNo}
 	</update>
 	
- 	<!--  
+
+
+
+ 
  	
- 	삭제
- 	<delete id="freeDelete">
+ 	<!-- 삭제 -->
+ 	<delete id="bbsDelete">
  		delete from bbs where bbsNo = #{bbsNo}
  	</delete>
  	
- -->
+
 
 
 

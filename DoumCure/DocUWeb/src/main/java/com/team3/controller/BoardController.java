@@ -255,7 +255,7 @@ public class BoardController {
 		public String notiList(Model model, Criteria cri) {	
 			//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
 			ArrayList<BoardVO> list = boardService.getnotiList(cri);
-			int total = boardService.getTotal(cri);//전체 게시물 수 
+			int total = boardService.getTotal2(cri);//전체 게시물 수 
 			PageVO pageVO = new PageVO(cri, total);	
 			//화면에 전달할 값
 			model.addAttribute("list", list);
@@ -328,82 +328,82 @@ public class BoardController {
 		
 		
 		
-//		//자유게시판 수정 
-//		@RequestMapping(value = "/bbsModiForm", method = RequestMethod.POST)
-//		public String infoupload2 (
-//				 @RequestParam("file") MultipartFile file,
-//				 @RequestParam("bbsNo") int bbsNo,
-//				 @RequestParam("bbsTitle") String bbsTitle ,
-//				 @RequestParam("bbsContent") String bbsContent,
-//				 @RequestParam(value = "bbsCate", defaultValue = "notice" ) String bbsCate,
-//				 @RequestParam("gdsImg1") String gdsImg1,
-//				 @RequestParam("gdsImg2") String gdsImg2,
-//				 HttpSession session) {
-//			
-//			try {
-//				
-//				UserVO userVO = (UserVO)session.getAttribute("userVO");
-//				String bbsWrite = userVO.getUserId(); //작성자정보
-//
-//				if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-//				
-//				//1. 날짜별로 폴더로 관리
-//				Date date  = new Date();
-//				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-//				String fileLoca = sdf.format(date);
-//				//2. 저장할 폴더
-//				String uploadPath = "D:\\spring\\upload\\" + fileLoca;
-//				File folder = new File(uploadPath);
-//				if(!folder.exists() ) {
-//					folder.mkdir(); //폴더생성
-//				}
-//				
-//				//3. 서버에 저장할 파일 이름
-//				String fileRealName = file.getOriginalFilename(); //파일이름 
-//				Long size = file.getSize(); //파일사이즈
-//				String fileExtension = fileRealName.substring( fileRealName.lastIndexOf(".") , fileRealName.length()); //확장자
-//				UUID uuid = UUID.randomUUID();
-//				String uuids = uuid.toString().replaceAll("-", "");
-//				String fileName = uuids + fileExtension ;//변경해서 저장할 파일이름
-//								
-//				//4. 파일 업로드처리
-//				File saveFile = new File(uploadPath + "\\" + fileName);
-//				file.transferTo(saveFile); //스프링의 업로드처리
-//				
-//				//5. DB에 insert작업
-//				BoardVO vo = new BoardVO(bbsNo, bbsWrite, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, null, bbsCate, null);
-//				boardService.bbsupdate(vo); //성공시 true, 실패시 false
-//				} else {
-//					BoardVO vo = new BoardVO(bbsNo, null , bbsTitle, bbsContent, null, null, null, null, null, null, null );
-//					boardService.bbsupdate2(vo);
-//					
-//				}
-//				
-//				} catch (NullPointerException e) {
-////					System.out.println("세션정보가 없음");
-//					e.printStackTrace();
-//				} catch (Exception e) {
-//					e.printStackTrace();			
-//				}
-//			
-//			return "redirect:/board/bbsList";
-//			
-//		}
-//		
-//		
-//		//삭제
-//				@RequestMapping(value = "/freeboardelete")
-//				public String bbsdelet(@RequestParam("bbsNo") int bbsNo, RedirectAttributes RA) {
-//					
-//					int result = boardService.bbsDelete(bbsNo);
-//					
-//					if(result == 1) {
-//						RA.addFlashAttribute("msg", bbsNo + "번 게시글이 삭제 되었습니다");
-//					} else {
-//						RA.addFlashAttribute("msg", "게시글 삭제에 실패했습니다");
-//					}
-//					
-//					return "redirect:/board/bbsList";
-//				}
+		//자유게시판 수정 
+		@RequestMapping(value = "/bbsModiForm", method = RequestMethod.POST)
+		public String infoupload2 (
+				 @RequestParam("file") MultipartFile file,
+				 @RequestParam("bbsNo") int bbsNo,
+				 @RequestParam("bbsTitle") String bbsTitle ,
+				 @RequestParam("bbsContent") String bbsContent,
+				 @RequestParam(value = "bbsCate", defaultValue = "notice" ) String bbsCate,
+				 @RequestParam("gdsImg1") String gdsImg1,
+				 @RequestParam("gdsImg2") String gdsImg2,
+				 HttpSession session) {
+			
+			try {
+				
+				UserVO userVO = (UserVO)session.getAttribute("userVO");
+				String bbsWrite = userVO.getUserId(); //작성자정보
+
+				if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+				
+				//1. 날짜별로 폴더로 관리
+				Date date  = new Date();
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+				String fileLoca = sdf.format(date);
+				//2. 저장할 폴더
+				String uploadPath = "D:\\spring\\upload\\" + fileLoca;
+				File folder = new File(uploadPath);
+				if(!folder.exists() ) {
+					folder.mkdir(); //폴더생성
+				}
+				
+				//3. 서버에 저장할 파일 이름
+				String fileRealName = file.getOriginalFilename(); //파일이름 
+				Long size = file.getSize(); //파일사이즈
+				String fileExtension = fileRealName.substring( fileRealName.lastIndexOf(".") , fileRealName.length()); //확장자
+				UUID uuid = UUID.randomUUID();
+				String uuids = uuid.toString().replaceAll("-", "");
+				String fileName = uuids + fileExtension ;//변경해서 저장할 파일이름
+								
+				//4. 파일 업로드처리
+				File saveFile = new File(uploadPath + "\\" + fileName);
+				file.transferTo(saveFile); //스프링의 업로드처리
+				
+				//5. DB에 insert작업
+				BoardVO vo = new BoardVO(bbsNo, bbsWrite, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, null, bbsCate, null);
+				boardService.bbsupdate(vo); //성공시 true, 실패시 false
+				} else {
+					BoardVO vo = new BoardVO(bbsNo, null , bbsTitle, bbsContent, null, null, null, null, null, null, null );
+					boardService.bbsupdate2(vo);
+					
+				}
+				
+				} catch (NullPointerException e) {
+//					System.out.println("세션정보가 없음");
+					e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();			
+				}
+			
+			return "redirect:/board/bbsList";
+			
+		}
+		
+		
+		//삭제
+				@RequestMapping(value = "/bbsdelete")
+				public String bbsdelet(@RequestParam("bbsNo") int bbsNo, RedirectAttributes RA) {
+					
+					int result = boardService.bbsDelete(bbsNo);
+					
+					if(result == 1) {
+						RA.addFlashAttribute("msg", bbsNo + "번 게시글이 삭제 되었습니다");
+					} else {
+						RA.addFlashAttribute("msg", "게시글 삭제에 실패했습니다");
+					}
+					
+					return "redirect:/board/bbsList";
+				}
 		
 	}
