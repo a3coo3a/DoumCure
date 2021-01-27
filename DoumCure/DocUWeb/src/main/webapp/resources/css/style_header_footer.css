@@ -85,7 +85,7 @@ Thema Color
         font-family: 'GmarketSansBold';
     }
     
-    #rightSide {
+    #rightSide, .rightSide-h{
         display: none;
     }
 
