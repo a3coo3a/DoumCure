@@ -387,7 +387,7 @@ html, body {
 /* ====================== USER ====================== */
 .user_container {
 	font-family: 'GmarketSansMedium';
-	padding-top: 30px;
+	padding: 50px;
 	font-size: 10px;
 }
 
@@ -657,7 +657,6 @@ html, body {
 }
 
 @media ( max-width : 460px) {
-	
 	.user-profile-img {
 		margin: 20px;
 	}
@@ -1150,13 +1149,13 @@ html, body {
 	padding-top: 10px;
 }
 
-div.gallery:hover {
+/* .gallery :hover {
 	border: 1px solid #777;
-}
+} */
 
 div.gallery img {
-	width: 100%;
-	height: auto;
+	width: 250px;
+	height: 250px;
 }
 
 div.desc {

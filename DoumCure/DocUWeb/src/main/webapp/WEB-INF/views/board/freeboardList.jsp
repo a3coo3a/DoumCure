@@ -21,10 +21,10 @@
                         <input type="text" class="form-control search-input" name="searchName" value="${pageVO.cri.searchName }">
 
                         <select class="form-control search-select" name="searchType">
-                            <option value="title" ${pageVO.cri.searchType eq 'bbsTitle' ? 'selected' : '' }>제목</option>
-                            <option value="content" ${pageVO.cri.searchType eq 'bbsContent' ? 'selected' : '' }>내용</option>
-                            <option value="writer" ${pageVO.cri.searchType eq 'bbdWriter' ? 'selected' : '' }>작성자</option>
-                            <option value="titcont" ${pageVO.cri.searchType eq 'bbsTitcont' ? 'selected' : '' }>제목+내용
+                            <option value="bbsTitle" ${pageVO.cri.searchType eq 'bbsTitle' ? 'selected' : '' }>제목</option>
+                            <option value="bbsContent" ${pageVO.cri.searchType eq 'bbsContent' ? 'selected' : '' }>내용</option>
+                            <option value="bbsWrite" ${pageVO.cri.searchType eq 'bbsWriter' ? 'selected' : '' }>작성자</option>
+                            <option value="bbsTitcont" ${pageVO.cri.searchType eq 'bbsTitcont' ? 'selected' : '' }>제목+내용
                             </option>
                         </select>
                     </div>
@@ -48,9 +48,6 @@
 	                               <td>${vo.bbsWrite }</td>
 	                               <td><fmt:formatDate value="${vo.bbsRegdate}" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
 	                               <td id="lock">
-		                               	<%-- <c:if test="${vo.bbsOC eq 'off'}">
-		                               	  <i class="fas fa-lock-open"></i>
-		                               	</c:if> --%>
 		                               	<c:if test="${vo.bbsOC eq 'on'}">
 		                               	  <i class="fa fa-unlock"></i>
 		                               	</c:if>

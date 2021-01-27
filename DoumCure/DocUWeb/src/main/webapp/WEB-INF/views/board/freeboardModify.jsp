@@ -98,6 +98,7 @@ function readURL(input) {
     reader.onload = function (event) { //읽기 동작이 성공적으로 완료 되었을 때 실행되는 익명함수
       $('#fileImg').attr("src", event.target.result);
       console.log(event.target);//event.target은 이벤트로 선택된 요소를 의미
+      $(".img-thumbnail").hide(); 
     }
   }
 }
@@ -142,25 +143,6 @@ $(document).ready(function () {
 
     
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
