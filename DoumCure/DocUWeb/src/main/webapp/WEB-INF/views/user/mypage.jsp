@@ -130,11 +130,17 @@
 <script>
 
 	$(document).ready(function(){
+		console.log("vo1"+"${vo1 }");
+		console.log("vo2"+"${vo2 }");
+		console.log("vo3"+"${vo3 }");
 		
 		if("${vo1}" == '') {$(".vo1").hide();}
 		if("${vo2}" == '') {$(".vo2").hide();}
 		if("${vo3}" == '') {$(".vo3").hide();}
 		
+		console.log("${vo1.proImg }");
+		console.log("${vo2.proImg }");
+		console.log("${vo2.proImg }");
 		
 		if("${vo1}" != '' && "${vo1.proImg }" == ''){
 			$("#vo1").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
@@ -142,13 +148,13 @@
 			$("#vo1").attr("src","${vo1.proImg }");
 		}
 		
-		if("${vo2}" != '' &&"${vo2.proImg }" == ''){
+		if("${vo2}" != '' && "${vo2.proImg }" == ''){
 			$("#vo2").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
 		}else {
 			$("#vo2").attr("src","${vo2.proImg }");
 		}
 		
-		if("${vo3}" != '' &&"${vo3.proImg }" == ''){
+		if("${vo3}" != '' && "${vo3.proImg }" == ''){
 			console.log("3333여기요?");
 			$("#vo3").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
 		}else {

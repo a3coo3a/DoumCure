@@ -171,31 +171,22 @@
 <!-- 사이드바 즐겨찾기 -->
 <script>
 $(document).ready(function(){
-	console.log("${sessionScope.userVO}");
 	if("${sessionScope.userVO}" != ''){
 		$.ajax({
 			type : "POST",
 			url : "${pageContext.request.contextPath }/medi/mediGetBM",
 			contentType : "application/json; charset:UTF-8",
 			success : function(data){
-				console.log("data:"+data);
-				console.log(data.proName1);
-				console.log(data.proImg1);
 				if(data.proImg1 != null){
 					$(".bm01-img").children().attr("src", data.proImg1);
 				}
 				$(".bm01").html(data.proName1);
-				console.log(data.proName2);
-				console.log(data.proImg2);
 				if(data.proImg2 != null){
 					$(".bm02-img").children().attr("src", data.proImg2);
 				}else{
 					$(".bm02-img").children().attr("src", "${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
 				}
 				$(".bm02").html(data.proName2);
-				
-				console.log(data.proName3);
-				console.log(data.proImg3);
 				if(data.proImg3 != null){
 					$(".bm03-img").children().attr("src", data.proImg3);
 				}

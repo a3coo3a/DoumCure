@@ -21,7 +21,9 @@
         </div>
         
         <div class="medi-com-img">
+        
             <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
+            
             <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star1"></div>
         </div>
         
@@ -113,6 +115,7 @@ function starChange(){
       				// 2 : 이미 존재하는 즐겨찾기 
       				// 1 : 추가 성공
       				// 0 : 실패
+      				//console.log("successdata:"+data);
       				if (data == 3){
       					alert("즐겨찾기가 이미 가득찼습니다.");  
       				}else if (data == 2 || data == 1) {
@@ -130,7 +133,7 @@ function starChange(){
       	    	 }
       		});
     }else if($(this).children().hasClass("full-stars")){
-	      // 북마크 삭제d
+	      // 북마크 삭제
 	      $.ajax({
 	    	 url : "rmBookmark",
 	    	 type : "POST",
