@@ -93,7 +93,7 @@
 							<c:forEach var="vo" items="${list}">
 								<div class="gallery col-sm-12 col-md-3 col-lg-3 ">
 									<div class="gallery-inner">
-										<a href="#"> <img class="img-thumbnail"
+										<a href="bbsDetail?bbsNo=${vo.bbsNo }"> <img class="img-thumbnail"
 											src="display/${vo.fileLoca}/${vo.fileName}">
 										</a>
 										<div class="desc">${vo.bbsTitle }</div>

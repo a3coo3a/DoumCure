@@ -26,11 +26,11 @@ public class PageVO {
 		//끝페이지계산
 		// 사용자가 pageNum를 11번 or 13번 눌렀다 -> endPage = 20 이 되도록
 		// ceil() : 올림 >> double 타입이어야 0.5588일때 올림해서 1이 나옴. 안그럼 걍 0
-		this.endPage = (int) Math.ceil(this.pageNum/10.0) * 10;
+		this.endPage = (int) Math.ceil(this.pageNum/10.0) * 8;
 		
 		//끝페이지를 이용해서 처음페이지 계산
 		// endPage = 20 -> startPage = 11, endPage = 30 -> startPage = 21
-		this.startPage = endPage - 10 + 1 ;
+		this.startPage = endPage - 8 + 1 ;
 		
 		//진짜 끝번호 계산
 		// 10개씩 보일때 amount

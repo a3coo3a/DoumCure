@@ -22,7 +22,7 @@
 							<div class="t-title">NAME</div>
 							<div>
 								<input class="form-control Large input " name="writer"
-									value="${vo.bbswrite }" readonly>
+									value="${vo.bbsWrite }" readonly>
 							</div>
 						</div>
 
@@ -35,27 +35,24 @@
 						</div>
 
 						<div>
-							<div class="innertitle col-md-3 col-sm-12">COMMNET</div>
-							<div class="inner-control  col-md-7 col-sm-12 ">
+							<div class="t-title col-md-12 col-sm-12">COMMNET</div>
+							<div class="inner-control  col-md-12 col-sm-12 ">
 								<div class="reply-content">
 									<div class="fileDiv">
 										<!-- 		<img id="fileImg" src="../resources/img/title_icon.png"> -->
 									</div>
 
-									<div class="reply-group">
+									<div class="reply-group" style="text-align: center;">
 										<%-- <img src="view/fileLoca=${vo.fileLoca}&fileName=${vo.fileName}">	 --%>
 
 										<img class="img-thumbnail"
-											src="display/${vo.fileLoca}/${vo.fileName}">
+											src="display/${vo.fileLoca}/${vo.fileName}" >
 										<!-- <label for="file">이미지업로드</label> <input type="file" name="file"id="file">  -->
 									</div>
-
+	<br>
 									<textarea class="form-control" rows="10" name="content"
 										id="content" readonly>${vo.bbsContent }</textarea>
 									<div class="content-down-l">
-										<%--  <input type="checkbox" id="bbsCO" name="bbsOC" value="${vo.bbsOC }" checked="checked" > 비밀글 --%>
-										<%-- <span  id="fa fa-unlock" value="${vo.bbsOC }">비밀글</span> --%>
-
 									</div>
 
 									<div class="content-down-r">

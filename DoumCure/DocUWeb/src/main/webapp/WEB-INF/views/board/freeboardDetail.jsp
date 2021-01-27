@@ -104,7 +104,7 @@
 
 if(bbsOC == 'on'){
 	if(id !==  write){
-		window.location = "freeboardList";
+		window.location = history.go(-1);
 	}
 }
 
