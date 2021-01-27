@@ -114,6 +114,13 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	
+	//홈화면 공유
+	@Override
+	public ArrayList<BoardVO> getHome(BoardVO vo) {
+		return boardMapper.getHome(vo);
+	}
+
+	
 
 	
 

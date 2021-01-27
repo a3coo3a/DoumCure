@@ -204,7 +204,7 @@ $(document).ready(function(){
 
 
     
-    <script type="text/javascript">
+    <script>
 	
     /* ========== Sns 공유 ============ */
     $(".kakao").click(sendLink);
@@ -227,6 +227,11 @@ $(document).ready(function(){
     	var turl = "http://twitter.com/share?url="+encodeURIComponent(url)+ "&text=" + encodeURIComponent(text); 
     	window.open(turl,'twitter','width=626,height=436');
      }
+    
+    
+    
+    
+    
     /* 페이스북 - 보류 */
 /*   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];

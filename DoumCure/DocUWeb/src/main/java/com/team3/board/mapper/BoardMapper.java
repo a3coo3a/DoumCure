@@ -26,4 +26,7 @@ public interface BoardMapper {
 	public int bbsDelete(int bbsno); //삭제
 	
 	
+	//홈화면 전송
+	public ArrayList<BoardVO> getHome(BoardVO vo);
+	
 }

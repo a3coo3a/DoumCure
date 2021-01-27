@@ -182,11 +182,13 @@
 			
 		}
 	};
+	
 	//즉시실행
 	(function() {
 		createSi();
 	})();
-	//변경에 따른 출력
+	
+	//시 변경에 따른 출력
 	$("#si").change(getGu); //시 -> 구변경
 	$("#gu").change(getRo); //구 -> 로변경
 	function getGu() {
@@ -229,6 +231,8 @@
 			}
 		});
 	}
+	
+	
 	function getRo() {
 		var si = $("#si").val();
 		var gu = $("#gu").val();

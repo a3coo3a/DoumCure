@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     
 html {
   scroll-behavior: smooth;
@@ -159,45 +161,26 @@ html {
 
         <div class="container">
             <div class="row main-board-list">
-
                 <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+				
+				<c:forEach var="bbs" items="${bbslist }" varStatus="num" >
+                
                     <div class="col-md-3 col-lg-3 col-xs-12">
-                        <div class="main-list-small">
-                            <div class="main-board-img">
-                                <img src="${pageContext.request.contextPath }/resources/img/title_icon.png" alt="">
-                            </div>
+                        <div class="main-list-small" onclick="location.href = 'board/bbsDetail?bbsNo=${bbs.bbsNo }'">
+                             <div class="main-board-img">
+                                <img src="/filepath/${bbs.fileLoca }/${bbs.fileName}" alt="">
+                            </div> 
                             <div class="main-board-title">
-                                <p>게시글 1</p>
+                                <p>${bbs.bbsTitle }</p>
                             </div>
                         </div>
                     </div>
-                </div>
+				
+				</c:forEach>
 
-                <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                    <div class="col-md-3 col-lg-3 col-xs-12">
-                        <div class="main-list-small">
-                            <div class="main-board-img">
-                                <img src="${pageContext.request.contextPath }/resources/img/title_icon.png" alt="">
-                            </div>
-                            <div class="main-board-title">
-                                <p>게시글 2</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                    <div class="col-md-3 col-lg-3 col-xs-12">
-                        <div class="main-list-small">
-                            <div class="main-board-img">
-                                <img src="${pageContext.request.contextPath }/resources/img/title_icon.png" alt="">
-                            </div>
-                            <div class="main-board-title">
-                                <p>게시글 3</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+          
+				<!-- 더보기 -->
                 <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
                     <div class="col-md-3 col-lg-3 col-xs-12">
                         <div class=" main-list-small more" onclick="location.href = '${pageContext.request.contextPath }/board/bbsList'" style="cursor: pointer;"> 
@@ -427,6 +410,11 @@ if(deleteMsg){
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
+</script>
+
+<script>
+
+
 </script>
 
     
