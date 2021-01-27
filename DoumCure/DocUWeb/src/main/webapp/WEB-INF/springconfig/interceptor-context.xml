@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<!-- namespace에서 mvc추가 -->
+	<!-- web.xml에 설정파일 추가 → appServlet -->
+	
+	<!-- 인터셉터클래스를 bean으로 생성 -->
+	<bean id="userAuthHandler" class="com.team3.common.util.interceptor.UserAuthHandler" />
+	<bean id="BoardAuthHandler" class="com.team3.common.util.interceptor.BoardAuthHandler" />
+	
+	<!-- 로그인한 유저에 한해서 사용할 수 있는 마이페이지, 글쓰기 권한 핸들러 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 특정 url패턴을 갖는 경우 적용 → "/*" 일경우 모든페이지에 적용-->
+			<mvc:mapping path="/user/mypage"/><!-- 마이페이지화면 -->
+			<mvc:mapping path="/freeBoard/freeRegist"/><!-- 글등록 화면 -->
+			
+			<!-- 	
+			<mvc:exclude-mapping path=""/>특정 url패턴을 갖는 경우 제외
+		 	-->
+
+			<!-- 위에서 만든 userAuthHandler가 동작 -->
+			<ref bean="userAuthHandler"/>
+		</mvc:interceptor>
+
+		<!-- 게시글수정, 변경, 삭제에 대한 권한 핸들러 -->	
+		<mvc:interceptor>
+			<mvc:mapping path="/freeBoard/freeModify"/>
+			<mvc:mapping path="/freeBoard/freeUpdate"/>
+			<mvc:mapping path="/freeBoard/freeDelete"/>		
+			
+			<ref bean="BoardAuthHandler"/>
+		</mvc:interceptor>
+		
+		
+	</mvc:interceptors>
+	
+	<!-- 1. namespace에서 aop설정을 추가 -->
+	<!-- proxy를 생성하고, 자바에서 어노테이션 방법을 사용하도록 처리 -->
+	<aop:aspectj-autoproxy />
+
+
+</beans>

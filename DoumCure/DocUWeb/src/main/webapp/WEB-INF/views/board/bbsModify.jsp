@@ -11,7 +11,7 @@
 					<p>관리자 게시글 수정하기</p>
 				</div>
 
-				<form action="detailForm" method="post" name="detailForm"
+				<form action="bbsModiForm" method="post" name="detailForm"
 					enctype="multipart/form-data">
 					<div class="t-control">
 						<div>
