@@ -53,8 +53,7 @@
 							<div class="titlefoot">
 								<div class="right-btn">
 									<button type="button" class="btn btn-info" id="uploadBtn">등록하기</button>
-									<button type="button" class="btn"
-										onclick="location.href='freeList'">목록</button>
+									<button type="button" class="btn" onclick="location.href='bbsList'">목록</button>
 								</div>
 							</div>
 						</div>
@@ -96,6 +95,8 @@
        //회원만 등록 가능하도록 처리
        var writer = "${sessionScope.userVO.userId}";
        var file = $("#file").val();
+       var bbsContent = $("#bbsContent");
+       var bbsTitle = $("#bbsbbsTitle");
 
        //파일 확장자체크
        file = file.substring(file.lastIndexOf('.') + 1, file.length).toLowerCase();
@@ -104,7 +105,11 @@
         if (file != "jpg" && file != "png" && file != "jpeg") {
          alert("이미지(jpg,png,jpeg)만 등록이 가능합니다")
          return;
-       }
+       }else if(bbsTitle == null && bbsContent == null  ) {
+    	   alert("제목 및 내용은 필수입니다.");
+    	   return;
+       }       
+        
        else 
        	
        	if (writer == '') { //세션이 없다면

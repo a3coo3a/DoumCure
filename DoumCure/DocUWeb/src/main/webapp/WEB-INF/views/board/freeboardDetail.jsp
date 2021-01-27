@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-    
-    
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+
 <section>
 	<div class="BLQA-area">
 		<div class="container board_list_container ">
@@ -14,55 +14,49 @@
 			</div>
 		</div>
 
-		<form action="freeDetailForm" method="post" name="freeDetailForm" enctype="multipart/form-data">
+		<form action="freeDetailForm" method="post" name="freeDetailForm"
+			enctype="multipart/form-data">
 
 			<div class="container">
 				<div class="container-inner row">
-					
+
 					<div class="innertitle col-md-3 col-sm-12">NUM</div>
 					<div class="inner-control col-md-7 col-sm-12 ">
-						<input class="form-control" name="num"
-							value="${vo.bbsNo}" readonly>
+						<input class="form-control" name="num" value="${vo.bbsNo}"
+							readonly>
 					</div>
-					
+
 					<div class="innertitle col-md-3 col-sm-12">NAME</div>
 					<div class="inner-control col-md-7 col-sm-12 ">
-						<input class="form-control" name="writer"
-							value="${vo.bbsWrite}" readonly>
+						<input class="form-control" name="writer" value="${vo.bbsWrite}"
+							readonly>
 					</div>
 
 					<div class="innertitle col-md-3 col-sm-12">TITLE</div>
 					<div class="inner-control  col-md-7 col-sm-12 ">
 						<input class="form-control Large input " name="title"
-							value="${vo.bbsTitle}" readonly >
+							value="${vo.bbsTitle}" readonly>
 					</div>
 
 					<div class="innertitle col-md-3 col-sm-12">COMMNET</div>
 					<div class="inner-control  col-md-7 col-sm-12 ">
 						<div class="reply-content">
-							<div class="fileDiv">
-						<!-- 		<img id="fileImg" src="../resources/img/title_icon.png"> -->
-							</div>
+							<div class="fileDiv"></div>
 
-							<div class="reply-group">
-								<%-- <img src="view/fileLoca=${vo.fileLoca}&fileName=${vo.fileName}">	 --%>	
-								
-									<img class="img-thumbnail" src="display/${vo.fileLoca}/${vo.fileName}">				
-								<!-- <label for="file">이미지업로드</label> <input type="file" name="file"id="file">  -->
+							<div class="reply-group" style="text-align: center;">
+								<img class="img-thumbnail"
+									src="display/${vo.fileLoca}/${vo.fileName}">
 							</div>
-
+							<br>
 							<textarea class="form-control" rows="10" name="content"
 								id="content" readonly>${vo.bbsContent }</textarea>
-							<div class="content-down-l">
-								<%--  <input type="checkbox" id="bbsCO" name="bbsOC" value="${vo.bbsOC }" checked="checked" > 비밀글 --%> 
-								<%-- <span  id="fa fa-unlock" value="${vo.bbsOC }">비밀글</span> --%>
-
-							</div>
+							<div class="content-down-l"></div>
 
 							<div class="content-down-r">
 								<button type="button" class="btn btn-warning" id="uploadBtn"
 									onclick="location.href='freeboardModify?bbsNo=${vo.bbsNo}&writer=${vo.bbsWrite }'">변경하기</button>
-								<button class="btn" type="button" onclick="location.href='freeboardList' ">목록</button>
+								<button class="btn" type="button"
+									onclick="location.href='freeboardList' ">목록</button>
 							</div>
 						</div>
 					</div>

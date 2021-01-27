@@ -36,12 +36,12 @@
           </div>
 
         <div class="inner-control  col-md-7 col-sm-12 ">
-            <div class="reply-content">
-              <div class="fileDiv">
-                <img id="fileImg" src="">
+            <div class="reply-content" >
+              <div class="fileDiv" >
+                <img id="fileImg" src="" >
               </div>
               
-              <div class="reply-group">
+              <div class="reply-group" >
                 <label for="file">이미지업로드</label>
                  <input type="file" name="file" id="file" class ="form-controll">
               </div>

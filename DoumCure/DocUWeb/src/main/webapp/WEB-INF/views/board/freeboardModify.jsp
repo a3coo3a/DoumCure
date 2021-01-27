@@ -50,7 +50,7 @@
 							
 								<img id="fileImg" src="">
 							</div>
-							<div class="reply-group">
+							<div class="reply-group"style="text-align: center;">
 								<img class="img-thumbnail" src="display/${vo.fileLoca}/${vo.fileName}"><br>
 								<label for="file">이미지업로드</label> <input type="file" name="file" id="file">
 							</div>
@@ -145,49 +145,6 @@ $(document).ready(function () {
   });
 
 
-
-
-
-/* 
- //자바 스크립트 파일 미리보기 기능
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader(); //비동기처리를 위한 파읽을 읽는 자바스크립트 객체
-      //readAsDataURL 메서드는 컨텐츠를 특정 Blob 이나 File에서 읽어 오는 역할 (MDN참조)
-      reader.readAsDataURL(input.files[0]);
-      //파일업로드시 화면에 숨겨져있는 클래스fileDiv를 보이게한다
-      $(".fileDiv").css("display", "block");
-      reader.onload = function (event) { //읽기 동작이 성공적으로 완료 되었을 때 실행되는 익명함수
-     	  $('#fileImg').attr("src", event.target.result);
-        console.log(event.target);//event.target은 이벤트로 선택된 요소를 의미
-      }
-    }
-  }
-  $("#file").change(function () {
-    readURL(this); //this는 #file자신 태그를 의미
-  }); 
-  
- 
-  
-  var updateBtn = document.getElementById("updateBtn");
-  updateBtn.onclick = function() {
-      if(document.freeModiForm.writer.value === '') {
-          alert("작성자는 필수 입니다");
-          document.freeModiForm.writer.focus();
-          return;
-      } else if(document.freeModiForm.title.value === '') {
-          alert("제목은 필수 입니다");
-          document.freeModiForm.title.focus();
-          return;
-      } else {
-    	  
-          document.freeModiForm.action = "freeModiForm"; //폼값의 action을 지정
-          console.log(document.freeModiForm.content.value);         
-          document.freeModiForm.submit(); //서브밋
-      }
-  }
-   
- */ 
 
 
     </script>
