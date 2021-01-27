@@ -257,7 +257,7 @@ Kakao.isInitialized()
 
 <!-- 네이버 로그인 -->
 <!-- 참고사이트 : https://m.blog.naver.com/PostView.nhn?blogId=yongyos&logNo=221542684624&proxyReferer=https:%2F%2Fwww.google.com%2F -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	// 버튼을 클릭해서 팝업창이 뜨게 설정
 	$(".naver-user-btn").click(function(){
 		$("#naverIdLogin")[0].children[0].click();
@@ -280,4 +280,4 @@ Kakao.isInitialized()
 	
 	
 	
-	</script>
+	</script> -->

@@ -124,6 +124,7 @@ $("#idCheck").click(function(){
 				$("#checkIdMsg").html("사용가능한 아이디 입니다.");
 				
 			}else{
+				$("#checkIdMsg").css("color","red");
 				$("#checkIdMsg").html("존재하는 아이디 입니다.");
 				$("#userId").focus();
 			}
