@@ -35,17 +35,15 @@
                 
                     <table class="table bbs-table-bordered">
                         <tr>
-                            <th class="bbs-list-num">번호</th>
-                            <th class="bbs-list-title">제목</th>
                             <th >글쓴이</th>
+                            <th class="bbs-list-title">제목</th>
                             <th class="bbs-list-Date">등록일</th>
                             <th class="bbs-list-pan">secret</th>
                         </tr>
                         <c:forEach var="vo" items="${list}">
 	                           <tr>
-	                               <td>${vo.bbsNo }</td>
-	                               <td><a href="freeboardDetail?bbsNo=${vo.bbsNo }">${vo.bbsTitle }</a></td>
 	                               <td>${vo.bbsWrite }</td>
+	                               <td><a href="freeboardDetail?bbsNo=${vo.bbsNo }">${vo.bbsTitle }</a></td>
 	                               <td><fmt:formatDate value="${vo.bbsRegdate}" pattern="yyyy년MM월dd일  hh시mm분ss초"/></td>
 	                               <td id="lock">
 		                               	<c:if test="${vo.bbsOC eq 'on'}">

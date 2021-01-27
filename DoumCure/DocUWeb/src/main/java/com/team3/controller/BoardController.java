@@ -231,7 +231,7 @@ public class BoardController {
 			int result = boardService.freeDelete(bbsNo);
 			
 			if(result == 1) {
-				RA.addFlashAttribute("msg", bbsNo + "번 게시글이 삭제 되었습니다");
+				RA.addFlashAttribute("msg", "게시글이 삭제 되었습니다");
 			} else {
 				RA.addFlashAttribute("msg", "게시글 삭제에 실패했습니다");
 			}
@@ -329,7 +329,7 @@ public class BoardController {
 		
 		
 		//자유게시판 수정 
-		@RequestMapping(value = "/bbsModiForm", method = RequestMethod.POST)
+		@RequestMapping(value = "/detailForm", method = RequestMethod.POST)
 		public String infoupload2 (
 				 @RequestParam("file") MultipartFile file,
 				 @RequestParam("bbsNo") int bbsNo,
@@ -398,7 +398,7 @@ public class BoardController {
 					int result = boardService.bbsDelete(bbsNo);
 					
 					if(result == 1) {
-						RA.addFlashAttribute("msg", bbsNo + "번 게시글이 삭제 되었습니다");
+						RA.addFlashAttribute("msg", "게시글이 삭제 되었습니다");
 					} else {
 						RA.addFlashAttribute("msg", "게시글 삭제에 실패했습니다");
 					}
