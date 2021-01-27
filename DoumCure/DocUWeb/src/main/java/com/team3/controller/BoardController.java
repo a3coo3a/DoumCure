@@ -86,7 +86,7 @@ public class BoardController {
 		String fileLoca = sdf.format(date);
 					
 		//2. 저장할 폴더
-		String uploadPath = "D:\\spring\\upload\\" + fileLoca;
+		String uploadPath = "c:\\spring\\upload\\" + fileLoca;
 		
 		File folder = new File(uploadPath);
 		if(!folder.exists() ) {
@@ -137,7 +137,7 @@ public class BoardController {
 				public ResponseEntity<byte[]> getFile(@PathVariable("fileLoca") String fileLoca,
 													@PathVariable("fileName") String fileName) {
 
-				String uploadPath = "D:/spring/upload/" +fileLoca ;
+				String uploadPath = "c:/spring/upload/" +fileLoca ;
 				System.out.println("파일추가:"+fileLoca + fileName);
 				//파일 객체 생성
 				File file = new File( uploadPath + "\\" + fileName);
@@ -185,7 +185,7 @@ public class BoardController {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 				String fileLoca = sdf.format(date);
 				//2. 저장할 폴더
-				String uploadPath = "D:\\spring\\upload\\" + fileLoca;
+				String uploadPath = "c:\\spring\\upload\\" + fileLoca;
 				File folder = new File(uploadPath);
 				if(!folder.exists() ) {
 					folder.mkdir(); //폴더생성
@@ -231,7 +231,7 @@ public class BoardController {
 			int result = boardService.freeDelete(bbsNo);
 			
 			if(result == 1) {
-				RA.addFlashAttribute("msg", "게시글이 삭제 되었습니다");
+				RA.addFlashAttribute("msg", bbsNo + "번 게시글이 삭제 되었습니다");
 			} else {
 				RA.addFlashAttribute("msg", "게시글 삭제에 실패했습니다");
 			}
@@ -250,7 +250,7 @@ public class BoardController {
 //			return "board/bbsList";
 //		}
 		
-		//자유게시판 글 목록
+		//건장정보 글 목록
 		@RequestMapping("/bbsList")
 		public String notiList(Model model, Criteria cri) {	
 			//화면으로 넘어갈 때 글정보를 가지고 갈수 있도록 처리 getList()로 조회한 결과를 리스트화면에 출력.
@@ -293,7 +293,7 @@ public class BoardController {
 			String fileLoca = sdf.format(date);
 						
 			//2. 저장할 폴더
-			String uploadPath = "D:\\spring\\upload\\" + fileLoca;
+			String uploadPath = "c:\\spring\\upload\\" + fileLoca;
 			
 			File folder = new File(uploadPath);
 			if(!folder.exists() ) {
@@ -328,14 +328,15 @@ public class BoardController {
 		
 		
 		
-		//자유게시판 수정 
-		@RequestMapping(value = "/detailForm", method = RequestMethod.POST)
-		public String infoupload2 (
+		//건강정보 수정 
+		@RequestMapping(value = "/bbsModiForm", method = RequestMethod.POST)
+		public String infoupload2(
 				 @RequestParam("file") MultipartFile file,
 				 @RequestParam("bbsNo") int bbsNo,
 				 @RequestParam("bbsTitle") String bbsTitle ,
 				 @RequestParam("bbsContent") String bbsContent,
-				 @RequestParam(value = "bbsCate", defaultValue = "notice" ) String bbsCate,
+				 @RequestParam(value = "bbsOC" , defaultValue = "off") String bbsOC,
+				 @RequestParam(value = "bbsCate", defaultValue = "free" ) String bbsCate,
 				 @RequestParam("gdsImg1") String gdsImg1,
 				 @RequestParam("gdsImg2") String gdsImg2,
 				 HttpSession session) {
@@ -352,7 +353,7 @@ public class BoardController {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 				String fileLoca = sdf.format(date);
 				//2. 저장할 폴더
-				String uploadPath = "D:\\spring\\upload\\" + fileLoca;
+				String uploadPath = "c:\\spring\\upload\\" + fileLoca;
 				File folder = new File(uploadPath);
 				if(!folder.exists() ) {
 					folder.mkdir(); //폴더생성
@@ -371,11 +372,11 @@ public class BoardController {
 				file.transferTo(saveFile); //스프링의 업로드처리
 				
 				//5. DB에 insert작업
-				BoardVO vo = new BoardVO(bbsNo, bbsWrite, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, null, bbsCate, null);
-				boardService.bbsupdate(vo); //성공시 true, 실패시 false
+				BoardVO vo = new BoardVO(bbsNo, bbsWrite, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, bbsOC, bbsCate, null);
+				boardService.freeupdate(vo); //성공시 true, 실패시 false
 				} else {
-					BoardVO vo = new BoardVO(bbsNo, null , bbsTitle, bbsContent, null, null, null, null, null, null, null );
-					boardService.bbsupdate2(vo);
+					BoardVO vo = new BoardVO(bbsNo, null , bbsTitle, bbsContent, null, null, null, null, bbsOC, null, null );
+					boardService.freeupdate2(vo);
 					
 				}
 				
@@ -385,7 +386,7 @@ public class BoardController {
 				} catch (Exception e) {
 					e.printStackTrace();			
 				}
-			
+		
 			return "redirect:/board/bbsList";
 			
 		}

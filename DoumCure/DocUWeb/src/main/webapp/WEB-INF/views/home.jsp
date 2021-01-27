@@ -270,8 +270,9 @@ html {
                             <span class="comment-title">Young</span>
                             <p class="comment-content">
                             <br/>
-                            오늘도 건강하신가요? <br/>
-                            언제나 건강한 오늘과 내일을 바래 봅니다.<br/>
+                          	 오늘도 건강하신가요? <br>
+							아픈 사람 없는 매일을 바라는 마음으로 만들었습니다.<br>
+							언제나 건강한 오늘과 내일을 바래봅니다.<br>
                             </p>
                         </div>
                     </div>

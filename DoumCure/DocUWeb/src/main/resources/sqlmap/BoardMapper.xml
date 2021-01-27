@@ -162,15 +162,24 @@
 	</select>
 
 	
-	<update id="bbsupdate2">
+
+ 	<update id="bbsupdate1">
 		update bbs 
-		set bbsTitle = #{bbsTitle},
+		set	bbsTitle = #{bbsTitle},
 			bbsContent = #{bbsContent},
-			bbsOC = #{bbsOC}			
+			uploadpath = #{uploadpath},
+			fileLoca = #{fileLoca} ,
+			fileName = #{fileName},
+			fileRealName = #{fileRealName},		
 		where BBSNO = #{bbsNo}
 	</update>
 	
-
+	<update id="bbsupdate2">
+		update bbs 
+		set bbsTitle = #{bbsTitle},
+			bbsContent = #{bbsContent},	
+		where BBSNO = #{bbsNo}
+	</update>
 
 
  

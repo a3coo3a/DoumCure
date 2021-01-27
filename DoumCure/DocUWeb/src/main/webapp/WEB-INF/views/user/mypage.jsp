@@ -85,7 +85,7 @@
         <tbody>
         	<c:forEach var="myBbs" items="${list }">
 	          <tr>
-	            <td class="title-align"><a href="bbsDetail?bbsno=${myBbs.bbsNo }">${myBbs.bbsTitle }</a></td>
+	            <td class="title-align"><a href="../board/bbsDetail?bbsNo=${myBbs.bbsNo }">${myBbs.bbsTitle }</a></td>
 	            <td class="date-align date-line"><fmt:formatDate value="${myBbs.bbsRegdate}" pattern="yyyy-MM-dd HH:mm"/></td>
 	          </tr>
           </c:forEach>
@@ -131,23 +131,23 @@
 
 	$(document).ready(function(){
 		
-		if("${vo1}" == '') {$(".vo1").hide();}
-		if("${vo2}" == '') {$(".vo2").hide();}
-		if("${vo3}" == '') {$(".vo3").hide();}
+		if("${vo1.proNo}" == '') {$(".vo1").hide();}
+		if("${vo2.proNo}" == '') {$(".vo2").hide();}
+		if("${vo3.proNo}" == '') {$(".vo3").hide();}
 
-		if("${vo1}" != '' && "${vo1.proImg }" == ''){
+		if("${vo1.proNo}" != '' && "${vo1.proImg }" == ''){
 			$("#vo1").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
 		}else {
 			$("#vo1").attr("src","${vo1.proImg }");
 		}
 		
-		if("${vo2}" != '' && "${vo2.proImg }" == ''){
+		if("${vo2.proNo}" != '' && "${vo2.proImg }" == ''){
 			$("#vo2").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
 		}else {
 			$("#vo2").attr("src","${vo2.proImg }");
 		}
 		
-		if("${vo3}" != '' && "${vo3.proImg }" == ''){
+		if("${vo3.proNo}" != '' && "${vo3.proImg }" == ''){
 			console.log("3333여기요?");
 			$("#vo3").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
 		}else {
