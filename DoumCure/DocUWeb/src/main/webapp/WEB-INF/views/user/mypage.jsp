@@ -130,18 +130,11 @@
 <script>
 
 	$(document).ready(function(){
-		console.log("vo1"+"${vo1 }");
-		console.log("vo2"+"${vo2 }");
-		console.log("vo3"+"${vo3 }");
 		
 		if("${vo1}" == '') {$(".vo1").hide();}
 		if("${vo2}" == '') {$(".vo2").hide();}
 		if("${vo3}" == '') {$(".vo3").hide();}
-		
-		console.log("${vo1.proImg }");
-		console.log("${vo2.proImg }");
-		console.log("${vo2.proImg }");
-		
+
 		if("${vo1}" != '' && "${vo1.proImg }" == ''){
 			$("#vo1").attr("src","${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png");
 		}else {
@@ -160,8 +153,6 @@
 		}else {
 			$("#vo3").attr("src","${vo3.proImg }");
 		}
-		
-		
 		
 		if("${errorMsg}")
 			alert("${errorMsg}");

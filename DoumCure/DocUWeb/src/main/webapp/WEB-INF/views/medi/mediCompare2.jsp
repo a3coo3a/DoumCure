@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <style>
 
 .medi-info-box .line{
@@ -30,7 +31,7 @@
           <h2 class="medi-com-name">${vo1.proName }</h2>
         </div>
         <div class="medi-com-img star1 ${vo1.proNo }">
-            <img src="" alt="${vo1.proNo }"  id="vo1">
+			<img src="" alt="${vo1.proNo }"  id="vo1">
             <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star1"></div>
         </div>
         <div class="medi-info-detail">

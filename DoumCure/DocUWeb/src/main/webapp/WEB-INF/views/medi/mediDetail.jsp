@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 .medi-info-box .content{
 	font-size : 15px;
@@ -21,9 +22,14 @@
         </div>
         
         <div class="medi-com-img">
-        
-            <img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
-            
+        <c:choose>
+        	<c:when test="${mediVO.proImg == null }">
+            	<img src="${pageContext.request.contextPath }/resources/img/user/bookmarkicon.png" alt="medi">
+        	 </c:when>
+        	 <c:otherwise>
+        	 	<img src="${mediVO.proImg }" alt="medi">
+        	 </c:otherwise>
+         </c:choose>
             <div class="medi-com-bm empty-stars"><img src="${pageContext.request.contextPath }/resources/img/medi/empty-stars.png" alt="star1"></div>
         </div>
         
