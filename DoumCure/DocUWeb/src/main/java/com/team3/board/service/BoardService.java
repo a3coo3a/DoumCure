@@ -16,7 +16,7 @@ public interface BoardService {
 	public BoardVO getfreeContent(int bbsNo); //상세
 	public int freeupdate(BoardVO vo); // 전체 게시글 수정
 	public int freeupdate2(BoardVO vo);	//글 수정 
-	public int freeDelete(int bbsno); //삭제
+	public int freeDelete(int bbsnodetailForm); //삭제
 	
 	//==============공지게시판===================
 	public ArrayList<BoardVO> getnotiList(Criteria cri);
