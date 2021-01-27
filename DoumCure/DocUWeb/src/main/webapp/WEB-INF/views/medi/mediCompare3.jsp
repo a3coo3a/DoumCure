@@ -222,8 +222,6 @@ $(document).ready(function(){
 });
 </script>
 
-
-</script>
 <script>
 function starChange(){
 	var userVO = "${sessionScope.userVO}"
