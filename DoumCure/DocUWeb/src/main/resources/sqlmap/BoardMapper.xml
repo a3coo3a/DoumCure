@@ -189,6 +189,29 @@
  		delete from bbs where bbsNo = #{bbsNo}
  	</delete>
  	
+ 	<!-- 홈화면 공유 -->
+ 	  <select id="getHome" resultType="BoardVO">
+
+     <![CDATA[
+        select *
+        from (
+            select rownum as rn,
+                   a.*
+            from (select *
+                  from 
+
+                     (select * 
+     from bbs 
+         where  bbsCate = 'health')
+
+
+                  order by bbsNo desc) a
+              )
+        where rn <4
+        ]]>
+
+    </select>
+ 	
 
 
 

@@ -25,4 +25,8 @@ public interface BoardService {
 	public int bbsupdate(BoardVO vo); // 전체 게시글 수정
 	public int bbsupdate2(BoardVO vo);	//글 수정 
 	public int bbsDelete(int bbsno); //삭제
+	
+	//홈화면 전송
+	public ArrayList<BoardVO> getHome(BoardVO vo);
+	
 }

@@ -231,7 +231,7 @@ public class BoardController {
 			int result = boardService.freeDelete(bbsNo);
 			
 			if(result == 1) {
-				RA.addFlashAttribute("msg", bbsNo + "번 게시글이 삭제 되었습니다");
+				RA.addFlashAttribute("msg", "게시글이 삭제 되었습니다");
 			} else {
 				RA.addFlashAttribute("msg", "게시글 삭제에 실패했습니다");
 			}
@@ -264,6 +264,8 @@ public class BoardController {
 			return "board/bbsList";
 		}
 		
+	
+				
 		//건강정보 등록 화면
 		@RequestMapping(value = "/bbsRegist")
 		public String bbsRegist() {
@@ -315,6 +317,8 @@ public class BoardController {
 			//5. DB에 insert작업
 			BoardVO vo = new BoardVO(0, bbsWrite, bbsTitle, bbsContent, uploadPath, fileLoca, fileName, fileRealName, null, bbsCate, null);
 			boardService.insertFile2(vo); //성공시 true, 실패시 false
+			
+			session.setAttribute("boardVO", vo);
 
 			} catch (NullPointerException e) {
 				System.out.println("세션정보가 없음");
@@ -336,7 +340,7 @@ public class BoardController {
 				 @RequestParam("bbsTitle") String bbsTitle ,
 				 @RequestParam("bbsContent") String bbsContent,
 				 @RequestParam(value = "bbsOC" , defaultValue = "off") String bbsOC,
-				 @RequestParam(value = "bbsCate", defaultValue = "free" ) String bbsCate,
+				 @RequestParam(value = "bbsCate", defaultValue = "health" ) String bbsCate,
 				 @RequestParam("gdsImg1") String gdsImg1,
 				 @RequestParam("gdsImg2") String gdsImg2,
 				 HttpSession session) {

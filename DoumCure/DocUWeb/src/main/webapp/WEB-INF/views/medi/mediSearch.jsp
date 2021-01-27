@@ -25,15 +25,34 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 line-left">
                     <p>부위를 선택해주세요</p>
                     <img src="${pageContext.request.contextPath }/resources/img/medi/human-all.png" alt="" usemap="#imgmap" id="human">
+                    
                     <!-- 이미지맵 -->
                     <map id="imgmap" name="imgmap">
-                        <area shape="circle" coords="140,106,26" onfocus="this.blur()" class="search-head" onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-head.png'" onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' "  />
-                        <area shape="rect" coords="109,146,171,269" onfocus="this.blur()" class="search-body" onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-body.png'" onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
-                        <area shape="rect" coords="78,146,100,268"  onfocus="this.blur()" class="search-arm" onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-arm.png'" onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
-                        <area shape="rect" coords="179,146,202,268" onfocus="this.blur()" class="search-arm"onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-arm.png'" onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
-                        <area shape="rect" coords="108,292,136,400" onfocus="this.blur()" class="search-leg" onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-leg.png'" onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
-                        <area shape="rect" coords="146,293,172,401" onfocus="this.blur()" class="search-leg" onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-leg.png'" onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
-                        <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                        <area shape="circle" coords="140,106,26" 
+                        		onfocus="this.blur()" class="search-head"
+                        		onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-head.png'" 
+                        		onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' "  />
+                        <area shape="rect" coords="109,146,171,269" 
+                        		onfocus="this.blur()" class="search-body" 
+                        		onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-body.png'" 
+                        		onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
+                        <area shape="rect" coords="78,146,100,268"  
+                        		onfocus="this.blur()" class="search-arm" 
+                        		onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-arm.png'" 
+                        		onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
+                        <area shape="rect" coords="179,146,202,268" 
+                        		onfocus="this.blur()" class="search-arm"
+                        		onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-arm.png'" 
+                        		onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
+                        <area shape="rect" coords="108,292,136,400" 
+                        		onfocus="this.blur()" class="search-leg" 
+                        		onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-leg.png'" 
+                        		onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
+                        <area shape="rect" coords="146,293,172,401" 
+                        		onfocus="this.blur()" class="search-leg" 
+                        		onmouseover="if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-leg.png'" 
+                        		onmouseout = "if(document.images) human.src = '${pageContext.request.contextPath }/resources/img/medi/human-all.png' " />
+                        
                     </map>
                 </div>
 

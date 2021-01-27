@@ -48,7 +48,7 @@
         date.setDate( date.getDate() + 1 ); //1일 설정
 
         var cookie = "";
-        cookie += name + "=true;"; //쿠키 이름, 값 설정
+        cookie += name + "=true;"; 
         cookie += "expires=" + date.toUTCString(); //시간설정
 
         document.cookie = cookie;

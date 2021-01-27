@@ -244,11 +244,10 @@ html, body {
 
 .main-list-small {
 	box-shadow: 5px 5px 9px 0px #0000005e;
-	height: 400px;
+	height: 300px;
 	position: relative;
 	display: block;
 	margin-bottom: 40px;
-	background-color: #fee500;
 	border-radius: 10px;
 	overflow: hidden;
 	text-align: center;
@@ -266,6 +265,10 @@ html, body {
 	background-color: white;
 	display: block;
 	height: 150px;
+	font-size: 15px;
+	padding: 15px;
+	font-family: 'GmarketSansMedium';
+	
 }
 
 .main-board-img img {
@@ -278,7 +281,7 @@ html, body {
 	background-color: #41bf6d;
 	float: left;
 	display: block;
-	padding: 200px 10px;
+	padding: 135px 10px;
 	font-family: 'GmarketSansMedium';
 	color: white;
 }

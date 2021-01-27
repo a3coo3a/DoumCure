@@ -141,7 +141,10 @@
       </Realm>
 
       <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">
-
+      
+      
+      <!-- 외부파일을 불러오기 위한 외부파일주소 인식 -->
+		<Context path="/filepath" reloadable="true" docBase="C:\\spring\\upload" />
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
         <!--
