@@ -18,14 +18,14 @@ html {
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="https://cdn.docdocdoc.co.kr/news/photo/202006/1081643_1139071_272.jpg" alt="...">
+                    <img src="${pageContext.request.contextPath }/resources/img/main/benner1.jpg" alt="...">
 
                 </div>
                 <div class="item">
-                    <img src="http://dw.nemc.or.kr/nemcMonitoring/newdesign/img/main_img.png" alt="...">
+                    <img src="${pageContext.request.contextPath }/resources/img/main/benner2.png" alt="...">
                 </div>
                 <div class="item">
-                    <img src="https://cdn.eroun.net/news/photo/202004/11126_33987_545.jpg" alt="...">
+                    <img src="${pageContext.request.contextPath }/resources/img/main/benner3.png" alt="...">
                 </div>
 
             </div>
