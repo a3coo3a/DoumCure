@@ -24,7 +24,12 @@
 		    select rownum as rn,
 		           a.*
 		    from (select *
-		          from bbs
+		          from 
+			         
+			         (select * 
+	 from bbs 
+	 	where  bbsCate = 'free')
+			         
 		          	]]>
 		          	
 		          	<if test="searchType=='bbsTitle'">where bbsTitle like '%'||#{searchName}||'%'</if>
@@ -41,7 +46,12 @@
  	
  	<!-- 글 전체 개수 -->
  	<select id="getTotal" resultType="int">
-		select count(*) as total from bbs
+		select count(*) as total from 
+		         (select * 
+	 from bbs 
+	 	where  bbsCate = 'free')
+		
+		
 		<if test="searchType=='bbsTitle'">where bbsTitle like '%'||#{searchName}||'%'</if>
        	<if test="searchType=='bbsWrite'">where bbsWrite like'%'||#{searchName}||'%'</if>
        	<if test="searchType=='bbsContent'">where bbsContent like '%'||#{searchName}||'%'</if>
@@ -64,8 +74,7 @@
  	
  	<update id="freeupdate">
 		update bbs 
-		set BBSWRITE = #{bbsWrite},
-			bbsTitle = #{bbsTitle},
+		set	bbsTitle = #{bbsTitle},
 			bbsContent = #{bbsContent},
 			uploadPath = #{uploadPath},
 			fileLoca = #{fileLoca} ,
@@ -90,5 +99,96 @@
  		delete from bbs where bbsNo = #{bbsNo}
  	</delete>
  	
+
+<!-- 공지사항  -->
+
+<!-- 글 목록 조회 -->
+ 	<select id="getnotiList" resultType="BoardVO">
+ 	
+ 	<![CDATA[  
+		select *
+		from (
+		    select rownum as rn,
+		           a.*
+		    from (select *
+		          from 
+			         
+			         (select * 
+	 from bbs 
+	 	where  bbsCate = 'health')
+			         
+	       
+		          order by bbsNo desc) a
+		      )
+		where rn > (#{pageNum}-1) * #{amount} and rn <= #{pageNum} * #{amount}
+		]]>
+		
+	</select>
+
+
+
+<!-- 게시글 등록 -->
+	<insert id="insertFile2">
+ 		insert into bbs (BBSNO, BBSWRITE,BBSTITLE,BBSCONTENT,uploadpath, fileloca,filename,filerealname,BBSCATE)
+		VALUES (BBS_SEQ.nextval,#{bbsWrite},#{bbsTitle},#{bbsContent}, #{uploadPath},#{fileLoca} ,#{fileName},#{fileRealName},#{bbsCate})
+ 	</insert>
+
+
+	<update id="bbsupdate">
+		update bbs 
+		set	bbsTitle = #{bbsTitle},
+			bbsContent = #{bbsContent},
+			uploadPath = #{uploadPath},
+			fileLoca = #{fileLoca} ,
+			fileName = #{fileName},
+			fileRealName = #{fileRealName},	
+		where BBSNO = #{bbsNo}
+	</update>
+
+ 	<!-- 글 전체 개수 -->
+ 	<select id="getTotal2" resultType="int">
+		select count(*) as total from 
+		         (select * 
+	 from bbs 
+	 	where  bbsCate = 'health')
+		
+		
+		<if test="searchType=='bbsTitle'">where bbsTitle like '%'||#{searchName}||'%'</if>
+       	<if test="searchType=='bbsWrite'">where bbsWrite like'%'||#{searchName}||'%'</if>
+       	<if test="searchType=='bbsContent'">where bbsContent like '%'||#{searchName}||'%'</if>
+       	<if test="searchType=='bbsTitcont'">where bbsTitle like '%'||#{searchName}||'%'or bbsContent like '%'|| #{searchName}||'%'</if>
+       	<if test="searchType==null or searchType=='' ">where 1 = 1 </if>
+		     
+	</select>
+
+	
+	<update id="bbsupdate2">
+		update bbs 
+		set bbsTitle = #{bbsTitle},
+			bbsContent = #{bbsContent},
+			bbsOC = #{bbsOC}			
+		where BBSNO = #{bbsNo}
+	</update>
+	
+
+
+
+ 
+ 	
+ 	<!-- 삭제 -->
+ 	<delete id="bbsDelete">
+ 		delete from bbs where bbsNo = #{bbsNo}
+ 	</delete>
+ 	
+
+
+
+
+
+
+
+
+
+
 
   </mapper>

@@ -18,14 +18,14 @@ html {
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="https://cdn.docdocdoc.co.kr/news/photo/202006/1081643_1139071_272.jpg" alt="...">
+                    <img src="${pageContext.request.contextPath }/resources/img/main/benner1.jpg" alt="...">
 
                 </div>
                 <div class="item">
-                    <img src="http://dw.nemc.or.kr/nemcMonitoring/newdesign/img/main_img.png" alt="...">
+                    <img src="${pageContext.request.contextPath }/resources/img/main/benner2.png" alt="...">
                 </div>
                 <div class="item">
-                    <img src="https://cdn.eroun.net/news/photo/202004/11126_33987_545.jpg" alt="...">
+                    <img src="${pageContext.request.contextPath }/resources/img/main/benner3.png" alt="...">
                 </div>
 
             </div>
@@ -319,7 +319,15 @@ html {
                         <div class="benner-list">
                             <span class="comment-title">Ohso</span>
                             <p class="comment-content">
-                                안녕하십니까 ?
+                            안녕하세요 ?<br>
+                                	저는 만성 알레르기라 시도 때도 없이 콧물 재체기 간지러움을 동반해서 병원을 잘 갔었는데..<br> 
+                                	이시에 병원가기 참 눈치보이더라구요(머쓱)<br> 
+                                	급한데로 집에 있는 비상약을 챙겨먹는데 무슨 약인지도 모르겠고<br>
+                                	타00놀 먹으면 될려나 할수도 있지만 <br>
+                                	간지러움을 줄여주는 역할은 하지 않죠;ㅅ;<br>
+                                	이런 증상에 맞는 약인지 알려주면 웹사이트 입니다. <br>
+                                	아무래도 절 위한 사이트 같아요 :D <br>
+                                	열심히만들었으니 이용해주세요~<br>
                             </p>
                         </div>
                     </div>

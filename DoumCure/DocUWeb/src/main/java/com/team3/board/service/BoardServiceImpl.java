@@ -72,6 +72,48 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 
+	//==================공지게시판=================================
+
+	@Override
+	public ArrayList<BoardVO> getnotiList(Criteria cri) {
+	
+		return boardMapper.getnotiList(cri);
+	}
+	
+	//글 등록
+	@Override
+	public void insertFile2(BoardVO vo) {
+			System.out.println("글등록 서비스");
+		boardMapper.insertFile2(vo);
+	}
+
+
+	//글 전체 수정
+	@Override
+	public int bbsupdate(BoardVO vo) {
+		return boardMapper.freeupdate(vo);
+	}
+
+	//글 부분 수정
+	@Override
+	public int bbsupdate2(BoardVO vo) {
+		
+		return  boardMapper.freeupdate(vo);
+	}
+
+	@Override
+	public int bbsDelete(int bbsno) {
+		
+		return boardMapper.bbsDelete(bbsno);
+	}
+
+	@Override
+	public int getTotal2(Criteria cri) {
+		
+		return boardMapper.getTotal2(cri);
+	}
+
+	
 
 	
 
